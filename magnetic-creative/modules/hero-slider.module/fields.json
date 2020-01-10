@@ -1,0 +1,12 @@
+[ {
+  "id" : "8bec4921-85dd-c5ba-6b7d-9c1cd2d77ee9",
+  "name" : "headline",
+  "label" : "Headline",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Lorem Ipsum Dolor Set Amit"
+} ]
