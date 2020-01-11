@@ -62,8 +62,8 @@
     "locked" : false,
     "visibility" : {
       "controlling_field" : "9ae5126d-3631-bacc-8c10-f0c4329c5310",
-      "controlling_value_regex" : null,
-      "operator" : null,
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
       "access" : null,
       "hidden_subfields" : null
     },

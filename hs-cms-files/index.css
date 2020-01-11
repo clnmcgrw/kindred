@@ -664,6 +664,81 @@ button.ks-btn {
 
 @media (min-width: 1199px) {
   .ks-herotext__content {
-    padding: 12.5em 0; } }
+    padding: 12.5em 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap; }
+  .ks-herotext__preheading {
+    -ms-flex-preferred-size: 23.5%;
+        flex-basis: 23.5%; }
+  .ks-herotext__main {
+    -ms-flex-preferred-size: 76.5%;
+        flex-basis: 76.5%; } }
+
+.ks-guidecallout__mainimg {
+  display: none; }
+
+.ks-guidecallout__text {
+  position: relative; }
+  .ks-guidecallout__text:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    content: '';
+    background: #1b2429;
+    opacity: .95;
+    z-index: 2; }
+  .ks-guidecallout__text__bgimg {
+    z-index: 1;
+    background-size: cover;
+    background-repeat: none;
+    background-position: center center; }
+  .ks-guidecallout__text__content {
+    position: relative;
+    z-index: 2;
+    padding: 10em 4em; }
+  .ks-guidecallout__text span,
+  .ks-guidecallout__text h1, .ks-guidecallout__text h2, .ks-guidecallout__text h3, .ks-guidecallout__text h4, .ks-guidecallout__text h5, .ks-guidecallout__text h6 {
+    color: #e2ddd6; }
+
+.ks-guidecallout__preheading {
+  margin-bottom: 2em; }
+  .ks-guidecallout__preheading span {
+    font-size: 150%; }
+
+@media (min-width: 992px) {
+  .ks-guidecallout__flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap; }
+  .ks-guidecallout__mainimg, .ks-guidecallout__text {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%; }
+  .ks-guidecallout__mainimg {
+    display: block;
+    background-size: cover;
+    background-repeat: none;
+    background-position: center center; } }
+
+@media (min-width: 1199px) {
+  .ks-guidecallout__text__content {
+    padding: 12.5em 6em; } }
 
 /*# sourceMappingURL=index.css.map */

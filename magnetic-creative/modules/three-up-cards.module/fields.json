@@ -1,1 +1,90 @@
-[ ]
+[ {
+  "id" : "e3cafb3c-cb0e-0d71-0bb6-41c3a4d2e404",
+  "name" : "card",
+  "label" : "Card",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 3,
+    "sorting_label_field" : "db2d993d-d968-5ead-e169-408404d0c7ce",
+    "default" : 3
+  },
+  "children" : [ {
+    "id" : "db2d993d-d968-5ead-e169-408404d0c7ce",
+    "name" : "headline",
+    "label" : "Card Headline",
+    "required" : true,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "Unmatched Quality"
+  }, {
+    "id" : "f4ecaf04-5563-5e57-ee7b-c8ac7bf74d18",
+    "name" : "content",
+    "label" : "Content",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "default" : "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, commodi odio maiores amet neque sapiente est saepe incidunt sed voluptatum tenetur magnam repellendus ipsum dignissimos libero reprehenderit cumque provident obcaecati.</p>"
+  }, {
+    "id" : "b6bae78d-f563-dcc7-828c-976fd8021500",
+    "name" : "image",
+    "label" : "Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto_custom_max",
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
+      "alt" : "hero-outdoor-surrounds",
+      "width" : 1400,
+      "height" : 865,
+      "max_width" : 800,
+      "max_height" : 494
+    }
+  } ],
+  "tab" : "CONTENT",
+  "type" : "group",
+  "default" : [ {
+    "card_headline" : "Unmatched Quality",
+    "content" : "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, commodi odio maiores amet neque sapiente est saepe incidunt sed voluptatum tenetur magnam repellendus ipsum dignissimos libero reprehenderit cumque provident obcaecati.</p>",
+    "image" : {
+      "size_type" : "auto_custom_max",
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
+      "alt" : "hero-outdoor-surrounds",
+      "width" : 1400,
+      "height" : 865,
+      "max_width" : 800,
+      "max_height" : 494
+    }
+  }, {
+    "card_headline" : "Unmatched Quality",
+    "content" : "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, commodi odio maiores amet neque sapiente est saepe incidunt sed voluptatum tenetur magnam repellendus ipsum dignissimos libero reprehenderit cumque provident obcaecati.</p>",
+    "image" : {
+      "size_type" : "auto_custom_max",
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
+      "alt" : "hero-outdoor-surrounds",
+      "width" : 1400,
+      "height" : 865,
+      "max_width" : 800,
+      "max_height" : 494
+    }
+  }, {
+    "card_headline" : "Unmatched Quality",
+    "content" : "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, commodi odio maiores amet neque sapiente est saepe incidunt sed voluptatum tenetur magnam repellendus ipsum dignissimos libero reprehenderit cumque provident obcaecati.</p>",
+    "image" : {
+      "size_type" : "auto_custom_max",
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
+      "alt" : "hero-outdoor-surrounds",
+      "width" : 1400,
+      "height" : 865,
+      "max_width" : 800,
+      "max_height" : 494
+    }
+  } ]
+} ]

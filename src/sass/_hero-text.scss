@@ -37,6 +37,17 @@
   .ks-herotext {
     &__content {
       padding: $padding-xl 0;
+      display: flex;
+      justify-content: space-between;
+      flex-flow: row nowrap;
+    }
+
+    &__preheading {
+      flex-basis: 23.5%;
+    }
+
+    &__main {
+      flex-basis: 76.5%;
     }
   }
 }
