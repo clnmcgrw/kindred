@@ -443,7 +443,9 @@ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.55;
+  line-height: 1.55; }
+
+.ks-maincontent .ks-site-container {
   background: #ffffff; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -458,10 +460,14 @@ h1, h2, h3, h4, h5, h6 {
   color: #994c3d;
   display: inline-block; }
 
+.ks-site-container {
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto; }
+
 .ks-inner {
   width: 90%;
-  margin: 0 auto;
-  max-width: 1400px; }
+  margin: 0 auto; }
 
 [class*="flex-container"] {
   display: -webkit-box;
@@ -527,10 +533,33 @@ button.ks-btn {
   .ks-brand-logo--svg svg path {
     fill: #cfc5b9; }
 
+.ks-navtoggle {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -1.25em; }
+
+.ks-navtoggle--btn {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  cursor: pointer;
+  display: block;
+  width: 2.5em;
+  height: 2.5em; }
+
 .ks-mainnav {
   position: absolute;
   top: 100%;
-  right: 0; }
+  left: 0;
+  width: 100%;
+  background: #1b2429; }
   .ks-mainnav ul {
     list-style: none;
     padding: 0;
@@ -538,7 +567,10 @@ button.ks-btn {
     .ks-mainnav ul > li {
       display: block;
       font-size: 0.9em; }
+      .ks-mainnav ul > li > a {
+        padding: 0.5em 1em; }
   .ks-mainnav a {
+    display: block;
     color: #cfc5b9;
     text-decoration: none; }
 
@@ -553,8 +585,11 @@ button.ks-btn {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
+  .ks-navtoggle {
+    display: none; }
   .ks-mainnav {
-    position: relative; }
+    position: relative;
+    background: transparent; }
     .ks-mainnav ul > li {
       display: inline-block; } }
 
@@ -580,9 +615,37 @@ button.ks-btn {
   height: 100vh;
   background: #1b2429; }
   .ks-heroslider .flickity-page-dots li.dot {
-    width: 1.2em;
-    height: 1.2em;
-    background: #cfc5b9; }
+    width: 1em;
+    height: 1em;
+    background: #cfc5b9;
+    position: relative; }
+    .ks-heroslider .flickity-page-dots li.dot.is-selected:after {
+      opacity: 1;
+      -webkit-transform: scale(1);
+          -ms-transform: scale(1);
+              transform: scale(1); }
+    .ks-heroslider .flickity-page-dots li.dot:after {
+      content: '';
+      display: block;
+      width: 0.7em;
+      height: 0.7em;
+      border-radius: 50%;
+      background: #2e443a;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -0.35em;
+      margin-left: -0.35em;
+      opacity: 0;
+      -webkit-transform: scale(0.1);
+          -ms-transform: scale(0.1);
+              transform: scale(0.1);
+      -webkit-transform-origin: center center;
+          -ms-transform-origin: center center;
+              transform-origin: center center;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
 
 .ks-heroslider--img {
   background-size: cover;

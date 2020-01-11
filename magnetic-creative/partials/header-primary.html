@@ -2,6 +2,7 @@
     templateType: page
     isAvailableForNewContent: false
 -->
+{% include 'magnetic-creative/partials/variables-macros.html' %}
 
 {% include 'magnetic-creative/partials/variables-macros.html' %}
 
@@ -25,7 +26,7 @@
   {# WTF - don't put your stylesheet in the head, cause Hubspot will try to concat it for you, which breaks browsersync #}
   <link rel="stylesheet" href="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/index.css">
 
-  <header id="ks-main-header" class="ks-mainheader">
+  <header class="ks-mainheader">
     <div class="ks-site-container">
 
       <div class="ks-inner">
@@ -45,7 +46,7 @@
           </button>
         </div>
 
-        <nav id="ks-main-nav" class="ks-mainnav">
+        <nav class="ks-mainnav">
           <ul>
             <li class="ks-mainnav--icon">
               <a href="#search">

@@ -6,7 +6,6 @@
   width: 100%;
   z-index: 19999;
   padding: 0.5em 15px;
-
   > .ks-inner {
     width: 100%;
   }
@@ -17,7 +16,6 @@
   a {
     display: block;
     transition: opacity 0.3s ease;
-
     &:hover {
       opacity: 0.9;
     }
@@ -26,16 +24,30 @@
 
 .ks-brand-logo--svg {
   @include fluid-element(217, 417, 'svg');
-
   svg path {
     fill: $grey-beige;
   }
 }
 
+.ks-navtoggle {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -1.25em;
+}
+.ks-navtoggle--btn {
+  @include btn-reset();
+  display: block;
+  width: 2.5em;
+  height: 2.5em;
+}
+
 .ks-mainnav {
   position: absolute;
   top: 100%;
-  right: 0;
+  left: 0;
+  width: 100%;
+  background: $dark;
 
   ul {
     list-style: none;
@@ -45,10 +57,14 @@
     > li {
       display: block;
       font-size: 0.9em;
+      > a {
+        padding: 0.5em 1em;
+      }
     }
   }
 
   a {
+    display: block;
     color: $grey-beige;
     text-decoration: none;
   }
@@ -66,8 +82,13 @@
     }
   }
 
+  .ks-navtoggle {
+    display: none;
+  }
+
   .ks-mainnav {
     position: relative;
+    background: transparent;
 
     ul {
       > li {
