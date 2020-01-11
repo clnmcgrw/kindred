@@ -7,9 +7,35 @@
   .flickity-page-dots {
 
     li.dot {
-      width: 1.2em;
-      height: 1.2em;
+      width: 1em;
+      height: 1em;
       background: $grey-beige;
+      position: relative;
+
+      &.is-selected {
+        &:after {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        width: 0.7em;
+        height: 0.7em;
+        border-radius: 50%;
+        background: $dark-green;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -0.35em;
+        margin-left: -0.35em;
+        opacity: 0;
+        transform: scale(0.1);
+        transform-origin: center center;
+        transition: all 0.3s ease;
+      }
     }
   }
 }
