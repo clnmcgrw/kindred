@@ -3564,14 +3564,26 @@ eval("module.exports = function (module) {\n  if (!module.webpackPolyfill) {\n  
 
 /***/ }),
 
+/***/ "./src/js/hero-slider.js":
+/*!*******************************!*\
+  !*** ./src/js/hero-slider.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/js/hero-slider.js?");
+
+/***/ }),
+
 /***/ "./src/js/index.js":
 /*!*************************!*\
   !*** ./src/js/index.js ***!
   \*************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("console.log('weeeeeeee!!');\n\n//# sourceURL=webpack:///./src/js/index.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _hero_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hero-slider */ \"./src/js/hero-slider.js\");\n/* harmony import */ var _hero_slider__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_hero_slider__WEBPACK_IMPORTED_MODULE_0__);\n\n_hero_slider__WEBPACK_IMPORTED_MODULE_0___default()();\n\n//# sourceURL=webpack:///./src/js/index.js?");
 
 /***/ }),
 

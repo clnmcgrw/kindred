@@ -1,0 +1,19 @@
+
+.ks-a11y-text {
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  display: block;
+  position: absolute;
+  overflow: hidden;
+}
+
+
+.ks-fill-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

@@ -1,12 +1,120 @@
 [ {
-  "id" : "8bec4921-85dd-c5ba-6b7d-9c1cd2d77ee9",
-  "name" : "headline",
-  "label" : "Headline",
+  "id" : "d84a805f-7bd2-caf1-a69e-c1540f4c2c3b",
+  "name" : "slides",
+  "label" : "Slides",
   "required" : false,
   "locked" : false,
-  "validation_regex" : "",
-  "allow_new_line" : false,
-  "show_emoji_picker" : false,
-  "type" : "text",
-  "default" : "Lorem Ipsum Dolor Set Amit"
+  "occurrence" : {
+    "min" : 0,
+    "max" : 3,
+    "sorting_label_field" : "b7dfa15a-675b-d8b9-ea4a-d08429ea4362",
+    "default" : null
+  },
+  "children" : [ {
+    "id" : "8bec4921-85dd-c5ba-6b7d-9c1cd2d77ee9",
+    "name" : "headline",
+    "label" : "Headline",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "Lorem Ipsum Dolor Set Amit"
+  }, {
+    "id" : "b4949a66-6864-25a3-010e-c14598d3c942",
+    "name" : "description",
+    "label" : "Description",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : null
+  }, {
+    "id" : "b7dfa15a-675b-d8b9-ea4a-d08429ea4362",
+    "name" : "background_image",
+    "label" : "Background Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null
+    }
+  }, {
+    "id" : "9ae5126d-3631-bacc-8c10-f0c4329c5310",
+    "name" : "show_button",
+    "label" : "Show Button",
+    "required" : false,
+    "locked" : false,
+    "type" : "boolean",
+    "default" : false
+  }, {
+    "id" : "a15a1cea-bede-7ca8-9955-519734da09a9",
+    "name" : "button_link",
+    "label" : "Button Link",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "9ae5126d-3631-bacc-8c10-f0c4329c5310",
+      "controlling_value_regex" : null,
+      "operator" : null,
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+    "type" : "link",
+    "default" : {
+      "url" : {
+        "content_id" : null,
+        "type" : "EXTERNAL",
+        "href" : ""
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  }, {
+    "id" : "62446e7f-e7f5-ae76-cf03-4aa0f2bdeaae",
+    "name" : "button_text",
+    "label" : "Button Text",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "visibility" : {
+      "controlling_field" : "9ae5126d-3631-bacc-8c10-f0c4329c5310",
+      "controlling_value_regex" : null,
+      "operator" : null,
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : null
+  } ],
+  "tab" : "CONTENT",
+  "type" : "group",
+  "default" : {
+    "headline" : "Lorem Ipsum Dolor Set Amit",
+    "background_image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null
+    },
+    "show_button" : false,
+    "button_link" : {
+      "url" : {
+        "content_id" : null,
+        "type" : "EXTERNAL",
+        "href" : ""
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  }
 } ]
