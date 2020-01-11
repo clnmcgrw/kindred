@@ -3,6 +3,15 @@
   position: relative;
   height: 100vh;
   background: $dark;
+
+  .flickity-page-dots {
+
+    li.dot {
+      width: 1.2em;
+      height: 1.2em;
+      background: $grey-beige;
+    }
+  }
 }
 
 .ks-heroslider--img {

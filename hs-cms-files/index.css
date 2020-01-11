@@ -429,13 +429,8 @@ https://flickity.metafizzy.co
   width: 10px;
   height: 10px;
   margin: 0 8px;
-  background: #333;
   border-radius: 50%;
-  opacity: 0.25;
   cursor: pointer; }
-
-.flickity-page-dots .dot.is-selected {
-  opacity: 1; }
 
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
@@ -579,6 +574,10 @@ button.ks-btn {
   position: relative;
   height: 100vh;
   background: #1b2429; }
+  .ks-heroslider .flickity-page-dots li.dot {
+    width: 1.2em;
+    height: 1.2em;
+    background: #cfc5b9; }
 
 .ks-heroslider--img {
   background-size: cover;
