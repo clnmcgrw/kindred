@@ -8,7 +8,8 @@
     "fileUpload": "hs filemanager upload hs-cms-files hs-cms-files",
     "templateUpload": "hs upload magnetic-creative magnetic-creative",
     "watch": "hs watch magnetic-creative magnetic-creative",
-    "build": "gulp"
+    "build": "gulp",
+    "blastoff": "rm -rf magnetic-creative && npm run download && npm run watch"
   },
   "browserslist": [
     "> 0.25%",
