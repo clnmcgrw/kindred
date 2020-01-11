@@ -3,10 +3,15 @@
   box-sizing: border-box;
 }
 
+html {
+  background: $dark;
+}
+
 body {
   font-family: $body-font;
   font-size: 16px;
   line-height: 1.55;
+  background: $light;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -20,4 +25,19 @@ h1, h2, h3, h4, h5, h6 {
   width: 90%;
   margin: 0 auto;
   max-width: 1400px;
+}
+
+
+
+// Buttons
+
+.ks-btn {
+  display: inline-block;
+  background-color: $primary;
+}
+
+button.ks-btn {
+  outline: none;
+  appearance: none;
+  border: 0;
 }
