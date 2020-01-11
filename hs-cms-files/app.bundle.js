@@ -3568,10 +3568,11 @@ eval("module.exports = function (module) {\n  if (!module.webpackPolyfill) {\n  
 /*!*******************************!*\
   !*** ./src/js/hero-slider.js ***!
   \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("\n\n//# sourceURL=webpack:///./src/js/hero-slider.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'flickity'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\nvar heroSlider = document.getElementById('ks-hero-slider');\n/* harmony default export */ __webpack_exports__[\"default\"] = (function () {\n  if (!heroSlider) return;\n  var flkty = new !(function webpackMissingModule() { var e = new Error(\"Cannot find module 'flickity'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({\n    cellSelector: '.ks-heroslider--slide'\n  });\n});\n\n//# sourceURL=webpack:///./src/js/hero-slider.js?");
 
 /***/ }),
 
@@ -3583,7 +3584,7 @@ eval("\n\n//# sourceURL=webpack:///./src/js/hero-slider.js?");
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _hero_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hero-slider */ \"./src/js/hero-slider.js\");\n/* harmony import */ var _hero_slider__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_hero_slider__WEBPACK_IMPORTED_MODULE_0__);\n\n_hero_slider__WEBPACK_IMPORTED_MODULE_0___default()();\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _hero_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hero-slider */ \"./src/js/hero-slider.js\");\n\nObject(_hero_slider__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n//# sourceURL=webpack:///./src/js/index.js?");
 
 /***/ }),
 

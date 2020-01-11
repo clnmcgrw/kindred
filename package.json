@@ -4,9 +4,9 @@
   "description": "https://projects.invisionapp.com/share/26V6OE6VBDF#/screens",
   "main": "index.js",
   "scripts": {
-    "download": "hs fetch magnetic-creative magnetic-creative",
+    "download": "rm -rf && hs fetch magnetic-creative magnetic-creative",
     "fileUpload": "hs filemanager upload hs-cms-files hs-cms-files",
-    "watch": "hs watch magnetic-creative magnetic-creative",
+    "watch": "magnetic-creative && hs watch magnetic-creative magnetic-creative",
     "build": "gulp"
   },
   "browserslist": [
