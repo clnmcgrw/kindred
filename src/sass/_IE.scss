@@ -1,0 +1,21 @@
+@media screen and (-ms-high-contrast: none) {
+  
+}
+
+@media (-ms-high-contrast: none) and (min-width: $bp-md) {
+
+  .ks-threeup {
+    &--1,
+    &--2 {
+      .ks-flex-container {
+        justify-content: center;
+      }
+    }
+
+    &--2 {
+      .ks-threeup__card:first-of-type {
+        margin-right: 5em;
+      }
+    }
+  }
+}

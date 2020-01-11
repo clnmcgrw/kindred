@@ -484,11 +484,43 @@ button.ks-btn {
           appearance: none;
   border: 0; }
 
+.ks-headline--mini {
+  font-size: 0.9em; }
+
 .ks-headline--lg {
   font-size: 2.7em; }
 
-.ks-headline--mini {
-  font-size: 0.9em; }
+.ks-headline--primary {
+  color: #2e443a; }
+
+.k-weight--sm, .ks-headline--primary {
+  font-weight: 400; }
+
+.k-weight--lg {
+  font-weight: 700; }
+
+.ks-rte-content p:last-of-type {
+  margin-bottom: 0; }
+
+.ks-accent-text {
+  font-family: "BigCaslon-Medium", serif;
+  color: #994c3d; }
+
+section.ks-block--lg {
+  padding: 12.5em 0; }
+
+figure {
+  margin: 0; }
+  figure.ks-figure {
+    position: relative; }
+    figure.ks-figure img,
+    figure.ks-figure svg {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
 
 @media (min-width: 992px) {
   .ks-headline--lg {
@@ -633,13 +665,29 @@ button.ks-btn {
 
 .ks-threeup {
   margin-top: 10vw; }
+  .ks-threeup .ks-flex-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap; }
+  .ks-threeup__card {
+    margin-bottom: 2.5em; }
+  .ks-threeup__card-heading {
+    margin: 0.5em 0; }
+  .ks-threeup__card-content {
+    margin-bottom: 2.5em; }
 
 @media (min-width: 767px) {
   .ks-threeup .ks-flex-container {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between; }
+  .ks-threeup--2 .ks-flex-container {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly; }
   .ks-threeup__card {
+    margin-bottom: 0;
     -ms-flex-preferred-size: 26.1538462%;
         flex-basis: 26.1538462%; } }
 
@@ -666,5 +714,13 @@ button.ks-btn {
 @media (min-width: 1199px) {
   .ks-herotext__content {
     padding: 12.5em 0; } }
+
+@media (-ms-high-contrast: none) and (min-width: 767px) {
+  .ks-threeup--1 .ks-flex-container, .ks-threeup--2 .ks-flex-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+  .ks-threeup--2 .ks-threeup__card:first-of-type {
+    margin-right: 5em; } }
 
 /*# sourceMappingURL=index.css.map */
