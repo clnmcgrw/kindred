@@ -5,6 +5,16 @@
 Install `@hubspot/cms-cli` globally and add a hubspot.config.yml file to root of the project
 More info about @hubspot/cms-cli - https://www.npmjs.com/package/@hubspot/cms-cli
 
+You will need a `hubspot.config.yml` in the project root with this schema:
+```
+defaultPortal: 'DEV'
+portals:
+  - name: 'DEV'
+    portalId: 123456
+    authType: 'apikey'
+    apiKey: '123-hubspot-api-key-789'
+```
+
 ### Project Directories
 
 * `hs-cms-files` - files that will sync with file manager
