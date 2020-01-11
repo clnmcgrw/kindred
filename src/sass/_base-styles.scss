@@ -9,18 +9,30 @@ html {
 
 body {
   font-family: $body-font;
+  font-weight: 500;
   font-size: 16px;
   line-height: 1.55;
   background: $light;
 }
 
+// Typography
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font;
   margin-top: 0;
   line-height: 1.1;
+  @include font-smoothing();
+  letter-spacing: 0.03em;
 }
 
+.ks-preheading {
+  color: $primary;
+  display: inline-block;
+}
 
+// Grid
+
+// Layout
 .ks-inner {
   width: 90%;
   margin: 0 auto;
@@ -32,14 +44,38 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // Buttons
-
 .ks-btn {
   display: inline-block;
   background-color: $primary;
 }
-
 button.ks-btn {
   outline: none;
   appearance: none;
   border: 0;
+}
+
+
+// Headlines
+.ks-headline--lg {
+  font-size: 2.7em;
+}
+
+.ks-headline--mini {
+  font-size: 0.9em;
+}
+
+@media (min-width:$bp-lg) {
+
+  .ks-headline--lg {
+    font-size: 3.2em;
+  }
+
+}
+
+@media (min-width:$bp-xl) {
+  
+  .ks-headline--lg {
+    font-size: 3.8em;
+  }
+
 }

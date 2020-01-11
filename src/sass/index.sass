@@ -8,6 +8,8 @@ $light-grey: #e2ddd6 // bg texture / mtns
 $light: #ffffff // body bg
 $primary: $brown
 $secondary: $grey-beige
+$white: #fff // just so we have a true white in case $light changes
+$black: #000 // same deal here too
 
 // fonts
 $body-font: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
@@ -20,14 +22,24 @@ $bp-lg: 992px
 $bp-xl: 1199px
 $bp-xxl: 1440px
 
+// paddings
+$padding-sm: 4em
+$padding-md: 6em
+$padding-lg: 10em
+$padding-xl: 12.5em // the "200px" padding in the .psd's
+// easing timing fns
+@import 'lib/easings'
+
 // mixins
 @import 'lib/mixins'
 
 // partials
 @import 'lib/normalize'
 @import 'lib/fonts'
+@import 'lib/flickity'
 @import 'base-styles'
 @import 'header'
 @import 'utilities'
 @import 'hero-slider'
 @import 'three-up-cards'
+@import 'hero-text'

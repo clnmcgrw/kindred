@@ -3,16 +3,46 @@
   position: relative;
   height: 100vh;
   background: $dark;
+}
 
-  .flickity-viewport {
-    position: relative;
+.ks-heroslider--img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 
-    .flickity-slider {
-      @include fill-parent();
-    }
+  &:after {
+    content: '';
+    display: block;
+    @include fill-parent();
+    background-color: rgba($dark-green, 0.6);
+    mix-blend-mode: multiply;
   }
 }
 
 .ks-heroslider--slide {
   @include fill-parent();
+  display: flex;
+  align-items: center;
+}
+.ks-heroslider--content {
+  position: relative;
+  z-index: 99;
+  width: 100%;
+  color: $grey-beige;
+  text-align: center;
+  padding-top: 1em;
+}
+
+.ks-heroslider--text {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+
+@media (min-width:$bp-xl) {
+  
+  .ks-heroslider--text {
+    max-width: 750px;
+  }
+
 }

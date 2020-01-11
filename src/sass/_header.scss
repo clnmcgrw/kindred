@@ -5,13 +5,38 @@
   left: 0;
   width: 100%;
   z-index: 19999;
+  padding: 0.5em 15px;
+
+  > .ks-inner {
+    width: 100%;
+  }
 };
 
 .ks-brand {
   width: 7em;
+  a {
+    display: block;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+.ks-brand-logo--svg {
+  @include fluid-element(217, 417, 'svg');
+
+  svg path {
+    fill: $grey-beige;
+  }
 }
 
 .ks-mainnav {
+  position: absolute;
+  top: 100%;
+  right: 0;
+
   ul {
     list-style: none;
     padding: 0;
@@ -19,7 +44,13 @@
 
     > li {
       display: block;
+      font-size: 0.9em;
     }
+  }
+
+  a {
+    color: $grey-beige;
+    text-decoration: none;
   }
 }
 
@@ -27,11 +58,22 @@
 
 @media (min-width:$bp-md) {
 
+  .ks-mainheader {
+    > .ks-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
   .ks-mainnav {
+    position: relative;
+
     ul {
       > li {
         display: inline-block;
       }
     }
   }
+
 }
