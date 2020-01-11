@@ -317,10 +317,14 @@ template {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
+html {
+  background: #1b2429; }
+
 body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 16px;
-  line-height: 1.55; }
+  line-height: 1.55;
+  background: #ffffff; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "BigCaslon-Medium", serif;
@@ -332,19 +336,37 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
   max-width: 1400px; }
 
+.ks-btn {
+  display: inline-block;
+  background-color: #994c3d; }
+
+button.ks-btn {
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0; }
+
 .ks-mainheader {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%; }
+  width: 100%;
+  z-index: 19999; }
 
 .ks-brand {
-  width: 17em; }
+  width: 7em; }
 
 .ks-mainnav ul {
   list-style: none;
   padding: 0;
   margin: 0; }
+  .ks-mainnav ul > li {
+    display: block; }
+
+@media (min-width: 767px) {
+  .ks-mainnav ul > li {
+    display: inline-block; } }
 
 .ks-a11y-text {
   width: 1px;
@@ -355,5 +377,32 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   position: absolute;
   overflow: hidden; }
+
+.ks-fill-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.ks-heroslider {
+  position: relative;
+  height: 100vh;
+  background: #1b2429; }
+  .ks-heroslider .flickity-viewport {
+    position: relative; }
+    .ks-heroslider .flickity-viewport .flickity-slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+
+.ks-heroslider--slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
 
 /*# sourceMappingURL=index.css.map */

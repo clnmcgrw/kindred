@@ -2,14 +2,14 @@
 
 ### Configuration
 
-Install `@hubspot/cms-cli` locally and add a hubspot.config.yml file to root of the project
+Install `@hubspot/cms-cli` globally and add a hubspot.config.yml file to root of the project
 More info about @hubspot/cms-cli - https://www.npmjs.com/package/@hubspot/cms-cli
 
 ### Project Directories
 
 * `hs-cms-files` - files that will sync with file manager
 * `magnetic-creative` - entire folder structure syncs with same folder in design manager
-* `src` - css and javascript assets
+* `src` - css and javascript assets (served locally during dev)
 
 ### Commands
 

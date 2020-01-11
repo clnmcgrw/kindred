@@ -6,6 +6,7 @@
   "scripts": {
     "download": "hs fetch magnetic-creative magnetic-creative",
     "fileUpload": "hs filemanager upload hs-cms-files hs-cms-files",
+    "templateUpload": "hs upload magnetic-creative magnetic-creative",
     "watch": "hs watch magnetic-creative magnetic-creative"
   },
   "browserslist": [
