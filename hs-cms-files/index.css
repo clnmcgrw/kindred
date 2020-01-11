@@ -495,7 +495,7 @@ button.ks-btn {
   left: 0;
   width: 100%;
   z-index: 19999;
-  padding: 1em 15px; }
+  padding: 0.5em 15px; }
   .ks-mainheader > .ks-inner {
     width: 100%; }
 
@@ -539,8 +539,20 @@ button.ks-btn {
     text-decoration: none; }
 
 @media (min-width: 767px) {
-  .ks-mainnav ul > li {
-    display: inline-block; } }
+  .ks-mainheader > .ks-inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  .ks-mainnav {
+    position: relative; }
+    .ks-mainnav ul > li {
+      display: inline-block; } }
 
 .ks-a11y-text {
   width: 1px;
@@ -599,7 +611,8 @@ button.ks-btn {
   z-index: 99;
   width: 100%;
   color: #cfc5b9;
-  text-align: center; }
+  text-align: center;
+  padding-top: 1em; }
 
 .ks-heroslider--text {
   max-width: 620px;

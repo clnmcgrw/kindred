@@ -5,7 +5,7 @@
   left: 0;
   width: 100%;
   z-index: 19999;
-  padding: 1em 15px;
+  padding: 0.5em 15px;
 
   > .ks-inner {
     width: 100%;
@@ -58,11 +58,22 @@
 
 @media (min-width:$bp-md) {
 
+  .ks-mainheader {
+    > .ks-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
   .ks-mainnav {
+    position: relative;
+
     ul {
       > li {
         display: inline-block;
       }
     }
   }
+
 }
