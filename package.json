@@ -6,8 +6,10 @@
   "scripts": {
     "download": "rm -rf && hs fetch magnetic-creative magnetic-creative",
     "fileUpload": "hs filemanager upload hs-cms-files hs-cms-files",
-    "watch": "magnetic-creative && hs watch magnetic-creative magnetic-creative",
-    "build": "gulp"
+    "templateUpload": "hs upload magnetic-creative magnetic-creative",
+    "watch": "hs watch magnetic-creative magnetic-creative",
+    "build": "gulp",
+    "blastoff": "rm -rf magnetic-creative && npm run download && npm run watch"
   },
   "browserslist": [
     "> 0.25%",
