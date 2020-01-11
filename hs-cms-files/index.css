@@ -459,6 +459,10 @@ h1, h2, h3, h4, h5, h6 {
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0.03em; }
 
+.ks-preheading {
+  color: #994c3d;
+  display: inline-block; }
+
 .ks-inner {
   width: 90%;
   margin: 0 auto;
@@ -621,5 +625,29 @@ button.ks-btn {
 @media (min-width: 1199px) {
   .ks-heroslider--text {
     max-width: 750px; } }
+
+.ks-herotext {
+  padding-top: 208.17px;
+  background: #1b2429; }
+  .ks-herotext__content {
+    padding: 4em 0; }
+  .ks-herotext .ks-preheading {
+    margin-bottom: 1em; }
+  .ks-herotext h1 {
+    color: #e2ddd6; }
+  .ks-herotext p {
+    color: #fff; }
+
+@media (min-width: 767px) {
+  .ks-herotext {
+    padding-top: 88.17px; } }
+
+@media (min-width: 992px) {
+  .ks-herotext__content {
+    padding: 6em 0; } }
+
+@media (min-width: 1199px) {
+  .ks-herotext__content {
+    padding: 12.5em 0; } }
 
 /*# sourceMappingURL=index.css.map */

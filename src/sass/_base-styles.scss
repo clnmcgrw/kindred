@@ -15,6 +15,8 @@ body {
   background: $light;
 }
 
+// Typography
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font;
   margin-top: 0;
@@ -23,6 +25,12 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.03em;
 }
 
+.ks-preheading {
+  color: $primary;
+  display: inline-block;
+}
+
+// Grid
 
 // Layout
 .ks-inner {
