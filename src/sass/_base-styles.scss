@@ -12,6 +12,9 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.55;
+}
+
+.ks-maincontent .ks-site-container {
   background: $light;
 }
 
@@ -33,15 +36,21 @@ h1, h2, h3, h4, h5, h6 {
 // Grid
 
 // Layout
+.ks-site-container {
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .ks-inner {
   width: 90%;
   margin: 0 auto;
-  max-width: 1400px;
 }
 
 [class*="flex-container"] {
   display: flex;
 }
+
 
 // Buttons
 .ks-btn {
