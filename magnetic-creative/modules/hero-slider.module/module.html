@@ -1,3 +1,23 @@
-<section>
+<section id="ks-hero-slider" class="ks-heroslider">
+  
+  {% for slide in module.slides %}
+  <div class="ks-heroslider--slide">
+
+    <div class="ks-heroslider--content">
+      <div class="ks-inner">
+        <h1 class="ks-headline--lg">{{slide.headline}}</h1>
+        <p>{{slide.description}}</p>
+      </div>
+    </div>
+    
+    <div class="ks-fill-parent ks-heroslider--img" 
+    {%- if loop.index == 1 -%}
+      style="background-image:url({{slide.background_image.src}})"
+    {%- else -%}
+      data-image-src="{{slide.background_image.src}}"
+    {%- endif -%}></div>
+    
+  </div>
+  {% endfor %}
   
 </section>

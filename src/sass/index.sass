@@ -1,13 +1,17 @@
 
 // color pallette
-$primary: #ffffff
-$secondary: #eeeeee
-$dark: #333333
-$light: #ffffff
+$brown: #994c3d // buttons, etc
+$dark-green: #2e443a // headings
+$dark: #1b2429 // dark bg
+$grey-beige: #cfc5b9 // headings on dark
+$light-grey: #e2ddd6 // bg texture / mtns
+$light: #ffffff // body bg
+$primary: $brown
+$secondary: $grey-beige
 
 // fonts
 $body-font: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
-$heading-font: serif
+$heading-font: "BigCaslon-Medium", serif
 
 // breakpoints
 $bp-sm: 580px
@@ -16,7 +20,9 @@ $bp-lg: 992px
 $bp-xl: 1199px
 $bp-xxl: 1440px
 
+// partials
 @import 'lib/normalize'
+@import 'lib/fonts'
 @import 'base-styles'
 @import 'header'
 @import 'utilities'

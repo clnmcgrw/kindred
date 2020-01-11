@@ -1,2 +1,3 @@
+import heroSlider from './hero-slider';
 
-console.log('weeeeeeee!!');
+heroSlider();
