@@ -1,0 +1,40 @@
+.ks-threeup {
+  margin-top: 10vw;
+}
+
+@media(min-width: $bp-sm) { // 580
+  .ks-threeup {
+
+  }
+}
+
+@media(min-width: $bp-md) { // 767
+  .ks-threeup {
+
+    .ks-flex-container {
+      justify-content: space-between;
+    }
+
+    &__card {
+      flex-basis: 26.1538462%;
+    }
+  }
+}
+
+@media(min-width: $bp-lg) { // 992
+  .ks-threeup {
+
+  }
+}
+
+@media(min-width: $bp-xl) { // 1199
+  .ks-threeup {
+
+  }
+}
+
+@media(min-width: $bp-xxl) { // 1440
+  .ks-threeup {
+
+  }
+}

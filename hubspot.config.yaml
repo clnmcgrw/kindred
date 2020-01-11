@@ -1,0 +1,6 @@
+defaultPortal: 'DEV'
+portals:
+  - name: 'DEV'
+    portalId: 6084868
+    authType: 'apikey'
+    apiKey: '2fa7c03a-b261-4cf0-9145-7c74d5f728fe'

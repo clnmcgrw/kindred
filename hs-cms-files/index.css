@@ -463,6 +463,11 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
   max-width: 1400px; }
 
+[class*="flex-container"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
 .ks-btn {
   display: inline-block;
   background-color: #994c3d; }
@@ -624,6 +629,18 @@ button.ks-btn {
 @media (min-width: 1199px) {
   .ks-heroslider--text {
     max-width: 750px; } }
+
+.ks-threeup {
+  margin-top: 10vw; }
+
+@media (min-width: 767px) {
+  .ks-threeup .ks-flex-container {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+  .ks-threeup__card {
+    -ms-flex-preferred-size: 26.1538462%;
+        flex-basis: 26.1538462%; } }
 
 .ks-herotext {
   padding-top: 208.17px;
