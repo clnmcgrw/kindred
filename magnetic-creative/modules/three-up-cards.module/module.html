@@ -1,19 +1,29 @@
-<section class="ks-threeup ks-block ks-block--lg ks-threeup--{{ module.card|length }}">
+<section
+  class="ks-threeup ks-block ks-block--lg ks-threeup--{{ module.card|length }}"
+>
   <div class="ks-inner ks-inner--md ks-flex-container">
-
     {% for card in module.card %}
 
     <div class="ks-threeup__card">
-      <span class="ks-threeup__card-preheading ks-headline--mini ks-accent-text">01</span>
-      <h4 class="ks-threeup__card-heading ks-headline--lg ks-headline--primary">{{ card.headline }}</h4>
+      <span
+        class="ks-threeup__card-preheading ks-headline--mini ks-accent-text"
+      >
+        0{{ loop.index }}
+      </span>
+      <h4 class="ks-threeup__card-heading ks-headline--lg ks-headline--primary">
+        {{ card.headline }}
+      </h4>
       <div class="ks-threeup__card-content">
         <div class="ks-rte-content">
           {{ card.content }}
         </div>
       </div>
       <div class="ks-threeup__card-image">
-        <figure class="ks-figure" style="padding-bottom: {{ (card.image.height / card.image.width) * 100 }}%">
-          <img src="{{ card.image.src }}" alt="{{ card.image.alt }}">
+        <figure
+          class="ks-figure"
+          style="padding-bottom: {{ (card.image.height / card.image.width) * 100 }}%"
+        >
+          <img src="{{ card.image.src }}" alt="{{ card.image.alt }}" />
         </figure>
       </div>
     </div>

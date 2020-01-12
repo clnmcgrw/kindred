@@ -1,4 +1,4 @@
-.ks-herotext {
+.ks-introtext {
   padding-top: 208.17px; // until we have JS watching the header height
   background: $dark;
 
@@ -19,22 +19,22 @@
   }
 }
 
-@media(min-width: $bp-md) {
-  .ks-herotext {
+@media (min-width: $bp-md) {
+  .ks-introtext {
     padding-top: 88.17px; // until we have JS watching the header height
   }
 }
 
-@media(min-width: $bp-lg) {
-  .ks-herotext {
+@media (min-width: $bp-lg) {
+  .ks-introtext {
     &__content {
       padding: $padding-md 0;
     }
   }
 }
 
-@media(min-width: $bp-xl) {
-  .ks-herotext {
+@media (min-width: $bp-xl) {
+  .ks-introtext {
     &__content {
       padding: $padding-xl 0;
       display: flex;
