@@ -1,0 +1,81 @@
+[ {
+  "id" : "90031ba6-c040-78ae-5df5-78f0d104f6d8",
+  "name" : "main_image",
+  "label" : "Main Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "auto",
+    "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/kindred-kitchen.jpg",
+    "alt" : "kindred-kitchen",
+    "width" : 873,
+    "height" : 551,
+    "max_width" : 873,
+    "max_height" : 551
+  }
+}, {
+  "id" : "cb3238f8-3c91-b94d-92ce-3e61995e1fe5",
+  "name" : "background_image",
+  "label" : "Background Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "exact",
+    "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/Cliffstone-Whitebark.jpg",
+    "alt" : "Cliffstone-Whitebark",
+    "width" : 900,
+    "height" : 540,
+    "max_width" : 900,
+    "max_height" : 540
+  }
+}, {
+  "id" : "fb17607c-6571-0c78-985c-1441dc43a24f",
+  "name" : "preheading",
+  "label" : "Preheading",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "A Step-By-Step Guide"
+}, {
+  "id" : "53693082-70e0-2b42-5175-563ebc9bb80c",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Building Your Own Amazing Outdoor Living Space"
+}, {
+  "id" : "72d790c0-d785-0712-ae95-d92f55417867",
+  "name" : "link_text",
+  "label" : "Link Text",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Get Your Free Guide"
+}, {
+  "id" : "8f827029-4c7e-34ff-2302-6f1c7cc53f48",
+  "name" : "link_url",
+  "label" : "Link URL",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "#0"
+} ]

@@ -1,5 +1,6 @@
-
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -20,7 +21,12 @@ body {
 
 // Typography
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $heading-font;
   margin-top: 0;
   line-height: 1.1;
@@ -47,10 +53,9 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
 }
 
-[class*="flex-container"] {
+[class*='flex-container'] {
   display: flex;
 }
-
 
 // Buttons
 .ks-btn {
@@ -61,8 +66,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   border-radius: 2em;
   padding: 1.15em 1.5em;
-  transition: background-color .4s $ease-out-circ,
-              color .4s $ease-out-circ;
+  transition: background-color 0.4s $ease-out-circ, color 0.4s $ease-out-circ;
 
   &:hover {
     cursor: pointer;
@@ -76,7 +80,6 @@ button.ks-btn {
   appearance: none;
   border: 0;
 }
-
 
 // Headlines
 .ks-headline {
@@ -92,7 +95,6 @@ button.ks-btn {
     color: $dark-green;
     @extend .k-weight--sm;
   }
-
 }
 
 // Weights
@@ -108,7 +110,6 @@ button.ks-btn {
 
 // RTE Content
 .ks-rte-content {
-
   p:last-of-type {
     margin-bottom: 0;
   }
@@ -138,20 +139,26 @@ figure {
       @include fill-parent();
     }
   }
-
 }
-@media (min-width:$bp-lg) {
+.ks-breadcrumb {
+  > .ks-inner {
+    padding: 1em 0;
+    border-bottom: 1px solid $grey;
+  }
 
+  a {
+    text-decoration: none;
+    color: $grey;
+  }
+}
+@media (min-width: $bp-lg) {
   .ks-headline--lg {
     font-size: 3.2em;
   }
-
 }
 
-@media (min-width:$bp-xl) {
-  
+@media (min-width: $bp-xl) {
   .ks-headline--lg {
     font-size: 3.8em;
   }
-
 }
