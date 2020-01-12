@@ -23,7 +23,7 @@ portals:
 
 ### Commands
 
-To start working, run `npm run watch` _and_ `gulp`
+To start working, run `npm run blastoff` _and_ `npm run build`
 
 * `npm run download` - pull everything from the design manager down to the project
 * `npm run fileUpload` - send assets (css + js) to the file manager (only done when we need to "deploy")
