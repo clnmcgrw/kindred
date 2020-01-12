@@ -1,4 +1,4 @@
-<section class="ks-threeup ks-block ks-block--lg ks-threeup--{{ module.card.length }}">
+<section class="ks-threeup ks-block ks-block--lg ks-threeup--{{ module.card|length }}">
   <div class="ks-inner ks-inner--md ks-flex-container">
 
     {% for card in module.card %}
@@ -15,7 +15,6 @@
         <figure class="ks-figure" style="padding-bottom: {{ (card.image.height / card.image.width) * 100 }}%">
           <img src="{{ card.image.src }}" alt="{{ card.image.alt }}">
         </figure>
-        <p>{{ card.image }}</p>
       </div>
     </div>
 

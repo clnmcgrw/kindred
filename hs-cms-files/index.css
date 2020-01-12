@@ -476,7 +476,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .ks-btn {
   display: inline-block;
-  background-color: #994c3d; }
+  background-color: #994c3d;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 2em;
+  padding: 1.15em 1.5em;
+  -webkit-transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .ks-btn:hover {
+    cursor: pointer;
+    background-color: #cfc5b9;
+    color: #994c3d; }
 
 button.ks-btn {
   outline: none;

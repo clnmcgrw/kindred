@@ -51,7 +51,7 @@
   "tab" : "CONTENT",
   "type" : "group",
   "default" : [ {
-    "card_headline" : "Unmatched Quality",
+    "headline" : "Unmatched Quality",
     "content" : "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, commodi odio maiores amet neque sapiente est saepe incidunt sed voluptatum tenetur magnam repellendus ipsum dignissimos libero reprehenderit cumque provident obcaecati.</p>",
     "image" : {
       "size_type" : "auto_custom_max",
@@ -63,7 +63,7 @@
       "max_height" : 494
     }
   }, {
-    "card_headline" : "Unmatched Quality",
+    "headline" : "Unmatched Quality",
     "content" : "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, commodi odio maiores amet neque sapiente est saepe incidunt sed voluptatum tenetur magnam repellendus ipsum dignissimos libero reprehenderit cumque provident obcaecati.</p>",
     "image" : {
       "size_type" : "auto_custom_max",
@@ -75,7 +75,7 @@
       "max_height" : 494
     }
   }, {
-    "card_headline" : "Unmatched Quality",
+    "headline" : "Unmatched Quality",
     "content" : "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, commodi odio maiores amet neque sapiente est saepe incidunt sed voluptatum tenetur magnam repellendus ipsum dignissimos libero reprehenderit cumque provident obcaecati.</p>",
     "image" : {
       "size_type" : "auto_custom_max",
