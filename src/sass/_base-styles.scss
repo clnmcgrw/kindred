@@ -1,5 +1,6 @@
-
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -20,7 +21,12 @@ body {
 
 // Typography
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $heading-font;
   margin-top: 0;
   line-height: 1.1;
@@ -45,12 +51,15 @@ h1, h2, h3, h4, h5, h6 {
 .ks-inner {
   width: 90%;
   margin: 0 auto;
+
+  &--sm {
+    width: 60%;
+  }
 }
 
-[class*="flex-container"] {
+[class*='flex-container'] {
   display: flex;
 }
-
 
 // Buttons
 .ks-btn {
@@ -61,8 +70,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   border-radius: 2em;
   padding: 1.15em 1.5em;
-  transition: background-color .4s $ease-out-circ,
-              color .4s $ease-out-circ;
+  transition: background-color 0.4s $ease-out-circ, color 0.4s $ease-out-circ;
 
   &:hover {
     cursor: pointer;
@@ -76,7 +84,6 @@ button.ks-btn {
   appearance: none;
   border: 0;
 }
-
 
 // Headlines
 .ks-headline {
@@ -92,7 +99,6 @@ button.ks-btn {
     color: $dark-green;
     @extend .k-weight--sm;
   }
-
 }
 
 // Weights
@@ -108,7 +114,6 @@ button.ks-btn {
 
 // RTE Content
 .ks-rte-content {
-
   p:last-of-type {
     margin-bottom: 0;
   }
@@ -126,6 +131,16 @@ section {
       padding: 12.5em 0;
     }
   }
+
+  &.ks-no-padding {
+    &--top {
+      padding-top: 0 !important;
+    }
+
+    &--bottom {
+      padding-bottom: 0 !important;
+    }
+  }
 }
 figure {
   margin: 0;
@@ -138,20 +153,15 @@ figure {
       @include fill-parent();
     }
   }
-
 }
-@media (min-width:$bp-lg) {
-
+@media (min-width: $bp-lg) {
   .ks-headline--lg {
     font-size: 3.2em;
   }
-
 }
 
-@media (min-width:$bp-xl) {
-  
+@media (min-width: $bp-xl) {
   .ks-headline--lg {
     font-size: 3.8em;
   }
-
 }
