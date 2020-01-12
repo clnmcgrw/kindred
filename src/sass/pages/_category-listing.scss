@@ -1,0 +1,33 @@
+.ks-productlist {
+  padding-bottom: $padding-sm;
+
+  .ks-card {
+    margin-bottom: 2em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (min-width: $bp-md) {
+  .ks-productlist {
+    padding-bottom: $padding-lg;
+
+    > .ks-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-flow: row wrap;
+    }
+
+    .ks-card {
+      flex-basis: 45%;
+      margin-bottom: 3em;
+
+      &:nth-last-child(2) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -54,8 +54,13 @@
 
 @media (min-width: $bp-xl) {
   .ks-introtext {
+    &--hero {
+      .ks-introtext__content {
+        padding: $padding-xl 0;
+      }
+    }
+
     &__content {
-      padding: $padding-xl 0;
       display: flex;
       justify-content: space-between;
       flex-flow: row nowrap;

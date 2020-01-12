@@ -1,4 +1,33 @@
 [ {
+  "id" : "87cf0723-23a5-2f0e-cd4b-9fb894143170",
+  "name" : "appearance_options",
+  "label" : "Appearance Options",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "35d471a8-0c1d-2977-c808-d8ee1fad85ba",
+    "name" : "is_hero",
+    "label" : "Is Hero",
+    "required" : false,
+    "locked" : false,
+    "type" : "boolean",
+    "default" : false
+  }, {
+    "id" : "26821344-15ab-38aa-e5bd-2ecee931bb54",
+    "name" : "light_background",
+    "label" : "Light Background",
+    "required" : false,
+    "locked" : false,
+    "type" : "boolean",
+    "default" : true
+  } ],
+  "tab" : "CONTENT",
+  "type" : "group",
+  "default" : {
+    "is_hero" : false,
+    "light_background" : true
+  }
+}, {
   "id" : "84967803-c212-adbf-3b18-a07b64685b03",
   "name" : "preheading",
   "label" : "Preheading",

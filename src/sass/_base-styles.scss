@@ -143,12 +143,17 @@ figure {
 .ks-breadcrumb {
   > .ks-inner {
     padding: 1em 0;
-    border-bottom: 1px solid $grey;
+    border-bottom: 1px solid $light-grey;
   }
 
   a {
     text-decoration: none;
     color: $grey;
+    font-family: $heading-font;
+
+    &:hover {
+      color: $primary;
+    }
   }
 }
 @media (min-width: $bp-lg) {

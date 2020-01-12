@@ -1,0 +1,42 @@
+[ {
+  "id" : "c5c322e3-9c8a-c9a3-b373-ff9be4a03865",
+  "name" : "list_of_links",
+  "label" : "List of Links",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 3,
+    "sorting_label_field" : "5719f29c-4c67-957c-6a12-065a6f33963f",
+    "default" : 1
+  },
+  "children" : [ {
+    "id" : "5719f29c-4c67-957c-6a12-065a6f33963f",
+    "name" : "link_text",
+    "label" : "Link Text",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "Surrounds"
+  }, {
+    "id" : "2a9c2ab6-4374-4f6a-d609-3593c192a183",
+    "name" : "link_url",
+    "label" : "Link URL",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "#0"
+  } ],
+  "tab" : "CONTENT",
+  "type" : "group",
+  "default" : [ {
+    "link_text" : "Surrounds",
+    "link_url" : "#0"
+  } ]
+} ]
