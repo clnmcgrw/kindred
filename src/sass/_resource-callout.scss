@@ -1,4 +1,4 @@
-.ks-guidecallout {
+.ks-resourcecallout {
   &__mainimg {
     display: none;
   }
@@ -11,7 +11,7 @@
       display: block;
       content: '';
       background: $dark;
-      opacity: .95;
+      opacity: 0.95;
       z-index: 2;
     }
 
@@ -43,8 +43,8 @@
   }
 }
 
-@media(min-width: $bp-lg) {
-  .ks-guidecallout {
+@media (min-width: $bp-lg) {
+  .ks-resourcecallout {
     &__flex {
       display: flex;
       justify-content: space-between;
@@ -65,8 +65,8 @@
   }
 }
 
-@media(min-width: $bp-xl) {
-  .ks-guidecallout {
+@media (min-width: $bp-xl) {
+  .ks-resourcecallout {
     &__text {
       &__content {
         padding: $padding-xl 6em;

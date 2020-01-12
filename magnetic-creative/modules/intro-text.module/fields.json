@@ -1,0 +1,41 @@
+[ {
+  "id" : "84967803-c212-adbf-3b18-a07b64685b03",
+  "name" : "preheading",
+  "label" : "Preheading",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Outdoors"
+}, {
+  "id" : "3b30a995-c2a1-49fd-c4f3-d9432a4ffc7e",
+  "name" : "heading_size",
+  "label" : "Heading Size",
+  "required" : false,
+  "locked" : false,
+  "display" : "select",
+  "choices" : [ [ "H1", "H1" ], [ "H2", "H2" ], [ "H3", "H3" ] ],
+  "type" : "choice",
+  "default" : "H1"
+}, {
+  "id" : "51ee7433-8f28-7ea2-fda4-33f415b5ef3b",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Kindred helps create an irresistible outdoor retreat of warmth and ambiance. Let our products be the centerpiece of your backyard."
+}, {
+  "id" : "1eae6874-13e3-6420-db60-657bcd7323dd",
+  "name" : "body_text",
+  "label" : "Body Text",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "default" : "<p>Aliquam vitae magna dolor. Donec volutpat massa et ligula auctor lacinia. Fusce ornare, elit eget elementum tincidunt, lectus elit suscipit tellus, in sollicitudin augue est eu elit. Nullam justo sapien, accumsan sit amet rutrum vel, luctus a lectus. Sed vulputate urna non ex viverra, in malesuada erat commodo.</p>"
+} ]

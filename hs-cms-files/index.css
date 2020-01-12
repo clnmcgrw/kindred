@@ -832,12 +832,12 @@ figure {
   .ks-threeup--2 .ks-threeup__card:first-of-type {
     margin-right: 5em; } }
 
-.ks-guidecallout__mainimg {
+.ks-resourcecallout__mainimg {
   display: none; }
 
-.ks-guidecallout__text {
+.ks-resourcecallout__text {
   position: relative; }
-  .ks-guidecallout__text:before {
+  .ks-resourcecallout__text:before {
     position: absolute;
     top: 0;
     left: 0;
@@ -846,28 +846,28 @@ figure {
     display: block;
     content: '';
     background: #1b2429;
-    opacity: .95;
+    opacity: 0.95;
     z-index: 2; }
-  .ks-guidecallout__text__bgimg {
+  .ks-resourcecallout__text__bgimg {
     z-index: 1;
     background-size: cover;
     background-repeat: none;
     background-position: center center; }
-  .ks-guidecallout__text__content {
+  .ks-resourcecallout__text__content {
     position: relative;
     z-index: 2;
     padding: 10em 4em; }
-  .ks-guidecallout__text span,
-  .ks-guidecallout__text h1, .ks-guidecallout__text h2, .ks-guidecallout__text h3, .ks-guidecallout__text h4, .ks-guidecallout__text h5, .ks-guidecallout__text h6 {
+  .ks-resourcecallout__text span,
+  .ks-resourcecallout__text h1, .ks-resourcecallout__text h2, .ks-resourcecallout__text h3, .ks-resourcecallout__text h4, .ks-resourcecallout__text h5, .ks-resourcecallout__text h6 {
     color: #e2ddd6; }
 
-.ks-guidecallout__preheading {
+.ks-resourcecallout__preheading {
   margin-bottom: 2em; }
-  .ks-guidecallout__preheading span {
+  .ks-resourcecallout__preheading span {
     font-size: 150%; }
 
 @media (min-width: 992px) {
-  .ks-guidecallout__flex {
+  .ks-resourcecallout__flex {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -878,17 +878,17 @@ figure {
     -webkit-box-direction: normal;
         -ms-flex-flow: row nowrap;
             flex-flow: row nowrap; }
-  .ks-guidecallout__mainimg, .ks-guidecallout__text {
+  .ks-resourcecallout__mainimg, .ks-resourcecallout__text {
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%; }
-  .ks-guidecallout__mainimg {
+  .ks-resourcecallout__mainimg {
     display: block;
     background-size: cover;
     background-repeat: none;
     background-position: center center; } }
 
 @media (min-width: 1199px) {
-  .ks-guidecallout__text__content {
+  .ks-resourcecallout__text__content {
     padding: 12.5em 6em; } }
 
 /*# sourceMappingURL=index.css.map */
