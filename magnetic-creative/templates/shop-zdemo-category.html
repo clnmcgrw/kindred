@@ -6,20 +6,80 @@
 
 {% include '/magnetic-creative/partials/header-primary.html' %}
 
+{% set ksProductsTableId = 2036891 %}
 {% set ksParentCategoryTableId = 2036894 %}
+{% set ksChildCategoryTableId = 2036892 %}
+
 {% set ksSlugDepth = dynamic_page_route_level %}
 
 {% set ksChildTableId = dynamic_page_hubdb_row.hs_child_table_id %}
-{% set ksParentRowId = dynamic_page_hubdb_row.hs_id %}
 
-{% set ksParentRowData = hubdb_table_row(ksParentCategoryTableId, ksParentRowId) %}
+{% set ksCategoryRowId = dynamic_page_hubdb_row.hs_id %}
+
+{% set ksCategoryRowTableId = ksParentCategoryTableId if ksSlugDepth == 1 else ksChildCategoryTableId %}
+{% set ksCategoryRowData = hubdb_table_row(ksCategoryRowTableId, ksCategoryRowId) %}
+
+{% set ksChildTableFilterQuery = 'parent_category__contains=' + ksParentRowData.name %}
+{% set ksChildTableData = hubdb_table_rows(ksChildTableId, ksChildTableFilterQuery) %}
 
 
-<section class="ks-section" style="background:#fff;padding:5rem 0;margin-top:5rem;">
-  <div class="ks-inner">
-    {{ ksParentRowData | pprint }}
-  </div>
-</section>
+{# parent category page #}
+{% if ksSlugDepth == 1 %}
+
+  <section class="ks-section" style="background:#fff;padding:5rem 0;margin-top:5rem;">
+    <div class="ks-inner">
+
+      <h1>Parent Category: {{ksCategoryRowData.name}}</h1>
+      
+      <h5>Category Info:</h5>
+      <code>
+        {{ ksCategoryRowData | pprint }}
+      </code>
+
+      <br><br>
+
+      <h5>Child Categories</h5>
+      <code>
+        {{ ksChildTableData | pprint }}
+      </code>
+      
+      <br>
+      <hr>
+    </div>
+  </section>
+
+{% endif %}
+
+
+{# child category page - slug should be %parent%/%child% #}
+{% if ksSlugDepth == 2 %}
+
+  <section class="ks-section" style="background:#fff;padding:5rem 0;margin-top:5rem;">
+    <div class="ks-inner">
+      
+      <h1>Child Category: {{dynamic_page_hubdb_row.name}}</h1>
+      
+      <h5>Category Info:</h5>
+      <code>
+        {{ ksParentRowData | pprint }}
+      </code>
+
+      <br><br>
+
+      <h5>Child Products:</h5>
+      <code>
+        {{ ksChildTableData | pprint }}
+      </code>
+      
+      <br>
+      <hr>
+    </div>
+  </section>
+
+{% endif %}
+
+
+
 
 
 {% include '/magnetic-creative/partials/footer-primary.html' %}
