@@ -27,5 +27,5 @@ To start working, run `npm run blastoff` _and_ `npm run build`
 
 * `npm run download` - pull everything from the design manager down to the project
 * `npm run fileUpload` - send assets (css + js) to the file manager (only done when we need to "deploy")
-* `npm run watch` - sync design manager files as you work
+* `npm run watch` - sync design manager files as you work (⚠️ Before running, nuke `magnetic-creative` dir)
 * `gulp` - start sass, webpack, browsersync (will proxy hubspot site and serve at localhost, also serves local css/js and replaces cdn urls with local ones).
