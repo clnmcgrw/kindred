@@ -5,14 +5,24 @@
   left: 0;
   width: 100%;
   z-index: 19999;
-  padding: 0.5em 15px;
-  > .ks-inner {
+  padding: 0;
+  .ks-inner {
     width: 100%;
   }
 };
 
+.magnetic-creative-templates-homepage {
+  .ks-mainheader .ks-site-container {
+    padding: 0.5em 15px;
+    background: rgba($dark, 0.5);
+  }
+}
+
+
 .ks-brand {
   width: 7em;
+  margin-left: auto;
+  margin-right: auto;
   a {
     display: block;
     transition: opacity 0.3s ease;
@@ -32,7 +42,7 @@
 .ks-navtoggle {
   position: absolute;
   top: 50%;
-  right: 15px;
+  left: 15px;
   margin-top: -1.25em;
 }
 .ks-navtoggle--btn {
@@ -40,6 +50,8 @@
   display: block;
   width: 2.5em;
   height: 2.5em;
+  background: $primary;
+  border-radius: 0.3em;
 }
 
 .ks-mainnav {
@@ -57,6 +69,12 @@
     > li {
       display: block;
       font-size: 0.9em;
+      border-bottom: 1px solid $dark-green;
+
+      &.ks-mainnav--icon {
+        display: none;
+      }
+
       > a {
         padding: 0.5em 1em;
       }
@@ -68,6 +86,10 @@
     color: $grey-beige;
     text-decoration: none;
   }
+}
+
+.ks-mainnav--icon {
+  display: none;
 }
 
 
@@ -93,8 +115,17 @@
     ul {
       > li {
         display: inline-block;
+        border-bottom: none;
+
+        &.ks-mainnav--icon {
+          display: inline-block;
+        }
       }
     }
+  }
+
+  .ks-mainnav--icon {
+    display: inline-block;
   }
 
 }

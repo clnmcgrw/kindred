@@ -505,12 +505,18 @@ button.ks-btn {
   left: 0;
   width: 100%;
   z-index: 19999;
-  padding: 0.5em 15px; }
-  .ks-mainheader > .ks-inner {
+  padding: 0; }
+  .ks-mainheader .ks-inner {
     width: 100%; }
 
+.magnetic-creative-templates-homepage .ks-mainheader .ks-site-container {
+  padding: 0.5em 15px;
+  background: rgba(27, 36, 41, 0.5); }
+
 .ks-brand {
-  width: 7em; }
+  width: 7em;
+  margin-left: auto;
+  margin-right: auto; }
   .ks-brand a {
     display: block;
     -webkit-transition: opacity 0.3s ease;
@@ -536,7 +542,7 @@ button.ks-btn {
 .ks-navtoggle {
   position: absolute;
   top: 50%;
-  right: 15px;
+  left: 15px;
   margin-top: -1.25em; }
 
 .ks-navtoggle--btn {
@@ -552,7 +558,9 @@ button.ks-btn {
   cursor: pointer;
   display: block;
   width: 2.5em;
-  height: 2.5em; }
+  height: 2.5em;
+  background: #994c3d;
+  border-radius: 0.3em; }
 
 .ks-mainnav {
   position: absolute;
@@ -566,13 +574,19 @@ button.ks-btn {
     margin: 0; }
     .ks-mainnav ul > li {
       display: block;
-      font-size: 0.9em; }
+      font-size: 0.9em;
+      border-bottom: 1px solid #2e443a; }
+      .ks-mainnav ul > li.ks-mainnav--icon {
+        display: none; }
       .ks-mainnav ul > li > a {
         padding: 0.5em 1em; }
   .ks-mainnav a {
     display: block;
     color: #cfc5b9;
     text-decoration: none; }
+
+.ks-mainnav--icon {
+  display: none; }
 
 @media (min-width: 767px) {
   .ks-mainheader > .ks-inner {
@@ -591,7 +605,12 @@ button.ks-btn {
     position: relative;
     background: transparent; }
     .ks-mainnav ul > li {
-      display: inline-block; } }
+      display: inline-block;
+      border-bottom: none; }
+      .ks-mainnav ul > li.ks-mainnav--icon {
+        display: inline-block; }
+  .ks-mainnav--icon {
+    display: inline-block; } }
 
 .ks-a11y-text {
   width: 1px;
