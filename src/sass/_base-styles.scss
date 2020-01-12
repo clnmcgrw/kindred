@@ -51,6 +51,10 @@ h6 {
 .ks-inner {
   width: 90%;
   margin: 0 auto;
+
+  &--sm {
+    width: 60%;
+  }
 }
 
 [class*='flex-container'] {
@@ -125,6 +129,16 @@ section {
   &.ks-block {
     &--lg {
       padding: 12.5em 0;
+    }
+  }
+
+  &.ks-no-padding {
+    &--top {
+      padding-top: 0 !important;
+    }
+
+    &--bottom {
+      padding-bottom: 0 !important;
     }
   }
 }
