@@ -1,48 +1,24 @@
-<section class="ks-threeup ks-block ks-block--lg">
+<section class="ks-threeup ks-block ks-block--lg ks-threeup--{{ module.card.length }}">
   <div class="ks-inner ks-inner--md ks-flex-container">
+
+    {% for card in module.card %}
+
     <div class="ks-threeup__card">
-      <span class="ks-threeup__card-preheading"></span>
-      <h4 class="ks-threeup__card-heading"></h4>
+      <span class="ks-threeup__card-preheading ks-headline--mini ks-accent-text">01</span>
+      <h4 class="ks-threeup__card-heading ks-headline--lg ks-headline--primary">{{ card.headline }}</h4>
       <div class="ks-threeup__card-content">
         <div class="ks-rte-content">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, commodi odio maiores amet neque sapiente est saepe incidunt sed voluptatum tenetur magnam repellendus ipsum dignissimos libero reprehenderit cumque provident obcaecati.</p>
+          {{ card.content }}
         </div>
       </div>
       <div class="ks-threeup__card-image">
-        <figure class="ks-figure">
-          <img src="https://via.placeholder.com/230x185" alt="">
+        <figure class="ks-figure" style="padding-bottom: {{ (card.image.height / card.image.width) * 100 }}%">
+          <img src="{{ card.image.src }}" alt="{{ card.image.alt }}">
         </figure>
+        <p>{{ card.image }}</p>
       </div>
     </div>
-    <div class="ks-threeup__card">
-      <span class="ks-threeup__card-preheading"></span>
-      <h4 class="ks-threeup__card-heading"></h4>
-      <div class="ks-threeup__card-content">
-        <div class="ks-rte-content">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, commodi odio maiores amet neque sapiente est saepe incidunt sed voluptatum tenetur magnam repellendus ipsum dignissimos libero reprehenderit cumque provident
-            obcaecati.</p>
-        </div>
-      </div>
-      <div class="ks-threeup__card-image">
-        <figure class="ks-figure">
-          <img src="https://via.placeholder.com/230x185" alt="">
-        </figure>
-      </div>
-    </div>
-    <div class="ks-threeup__card">
-      <span class="ks-threeup__card-preheading"></span>
-      <h4 class="ks-threeup__card-heading"></h4>
-      <div class="ks-threeup__card-content">
-        <div class="ks-rte-content">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, commodi odio maiores amet neque sapiente est saepe incidunt sed voluptatum tenetur magnam repellendus ipsum dignissimos libero reprehenderit cumque provident
-            obcaecati.</p>
-        </div>
-      </div>
-      <div class="ks-threeup__card-image">
-        <figure class="ks-figure">
-          <img src="https://via.placeholder.com/230x185" alt="">
-        </figure>
-      </div>
-    </div>
+
+    {% endfor %}
   </div>
 </section>
