@@ -793,6 +793,14 @@ figure {
     -ms-flex-preferred-size: 76.5%;
         flex-basis: 76.5%; } }
 
+@media (-ms-high-contrast: none) and (min-width: 767px) {
+  .ks-threeup--1 .ks-flex-container, .ks-threeup--2 .ks-flex-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+  .ks-threeup--2 .ks-threeup__card:first-of-type {
+    margin-right: 5em; } }
+
 .ks-guidecallout__mainimg {
   display: none; }
 
@@ -851,13 +859,5 @@ figure {
 @media (min-width: 1199px) {
   .ks-guidecallout__text__content {
     padding: 12.5em 6em; } }
-
-@media (-ms-high-contrast: none) and (min-width: 767px) {
-  .ks-threeup--1 .ks-flex-container, .ks-threeup--2 .ks-flex-container {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center; }
-  .ks-threeup--2 .ks-threeup__card:first-of-type {
-    margin-right: 5em; } }
 
 /*# sourceMappingURL=index.css.map */
