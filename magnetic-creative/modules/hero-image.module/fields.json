@@ -1,0 +1,19 @@
+[ {
+  "id" : "4c46cdc8-5436-26a8-2e48-b659d95b873d",
+  "name" : "main_image",
+  "label" : "Main Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "exact",
+    "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/kindred-surrounds-hero.jpg",
+    "alt" : "kindred-surrounds-hero",
+    "width" : 1800,
+    "height" : 600,
+    "max_width" : 1800,
+    "max_height" : 600
+  }
+} ]

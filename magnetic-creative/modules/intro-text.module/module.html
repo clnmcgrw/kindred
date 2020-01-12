@@ -1,0 +1,18 @@
+<section class="ks-introtext {% if module.appearance_options.is_hero %}ks-introtext--hero{% endif %} {% if module.appearance_options.light_background %}ks-introtext--light{% endif %}">
+    <div class="ks-inner">
+        <div class="ks-introtext__content">
+            <div class="ks-introtext__preheading">
+                <span class="ks-preheading">{{module.preheading}}</span>
+            </div>
+            <div class="ks-introtext__main">
+              {% if module.heading_size == 'H1' %} <h1>{{module.heading}}</h1>
+              {% elif module.heading_size == 'H2' %} <h2>{{module.heading}}</h2>
+              {% elif module.heading_size == 'H3' %} <h3>{{module.heading}}</h3>
+              {% endif %}
+                <div class="ks-rte-content">
+                  {{module.body_text}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

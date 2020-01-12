@@ -1,0 +1,77 @@
+.ks-introtext {
+  background: $dark;
+
+  &--hero {
+    padding-top: 208.17px; // until we have JS watching the header height
+  }
+
+  &--light {
+    background: $light;
+
+    #{headings()} {
+      color: $dark-green !important;
+    }
+
+    .ks-rte-content {
+      p {
+        color: $black;
+      }
+    }
+  }
+
+  &__content {
+    padding: $padding-sm 0;
+  }
+
+  .ks-preheading {
+    margin-bottom: 1em;
+  }
+
+  #{headings()} {
+    color: $light-grey;
+  }
+
+  p {
+    color: $white;
+  }
+}
+
+@media (min-width: $bp-md) {
+  .ks-introtext {
+    &--hero {
+      padding-top: 88.17px; // until we have JS watching the header height
+    }
+  }
+}
+
+@media (min-width: $bp-lg) {
+  .ks-introtext {
+    &__content {
+      padding: $padding-md 0;
+    }
+  }
+}
+
+@media (min-width: $bp-xl) {
+  .ks-introtext {
+    &--hero {
+      .ks-introtext__content {
+        padding: $padding-xl 0;
+      }
+    }
+
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      flex-flow: row nowrap;
+    }
+
+    &__preheading {
+      flex-basis: 23.5%;
+    }
+
+    &__main {
+      flex-basis: 76.5%;
+    }
+  }
+}
