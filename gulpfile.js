@@ -11,7 +11,7 @@ const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 
 const browserlist = ['> 0.25%', 'last 5 versions'];
-const production = !!(argv.production);
+const production = !!argv.production;
 
 const PATHS = {
   jsEntry: './src/js/index.js',
@@ -19,32 +19,31 @@ const PATHS = {
   fileManager: './hs-cms-files',
   templateAssets: './magnetic-creative/assets',
   cmsSiteUrl: 'http://kindredoutdoor-6084868.hs-sites.com/',
-  jsBundleUrl: 'https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/app.bundle.js',
+  jsBundleUrl:
+    'https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/app.bundle.js',
   cssBundleUrl: 'https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/index.css',
 };
 
 const buildSass = () => {
   return src(PATHS.sass)
     .pipe(__if(!production, sourcemaps.init()))
-    .pipe(sass({
-      outputStyle: production ? 'compressed' : 'nested'
-    }).on('error', log))
+    .pipe(
+      sass({
+        outputStyle: production ? 'compressed' : 'nested',
+      }).on('error', log)
+    )
     .pipe(autoprefixer())
     .pipe(__if(!production, sourcemaps.write('./')))
     .pipe(dest(PATHS.fileManager));
 };
 
 const startWebpack = callback => {
-  const compiler = webpack(webpackConfig(
-    production,
-    browserlist,
-    PATHS
-  ));
+  const compiler = webpack(webpackConfig(production, browserlist, PATHS));
   compiler.watch({}, (err, stats) => {
     if (err) {
       console.log(chalk`[WEBPACK-ERROR] ${err}`);
     } else {
-      const statsStr = stats.toString({chunks: false});
+      const statsStr = stats.toString({ chunks: false });
       console.log(chalk`[WEBPACK] ${statsStr}`);
       if (!production) browsersync.reload();
     }
@@ -53,18 +52,24 @@ const startWebpack = callback => {
 };
 
 const startDevServer = callback => {
-  browsersync.init({
-    proxy: PATHS.cmsSiteUrl,
-    rewriteRules: [{
-      match: PATHS.jsBundleUrl,
-      replace: 'app.bundle.js',
-    }, {
-      match: PATHS.cssBundleUrl,
-      replace: 'index.css',
-    }],
-    serveStatic: ['hs-cms-files/'],
-    injectChanges: true,
-  }, () => {});
+  browsersync.init(
+    {
+      proxy: PATHS.cmsSiteUrl,
+      rewriteRules: [
+        {
+          match: PATHS.jsBundleUrl,
+          replace: '/app.bundle.js',
+        },
+        {
+          match: PATHS.cssBundleUrl,
+          replace: '/index.css',
+        },
+      ],
+      serveStatic: ['hs-cms-files/'],
+      injectChanges: true,
+    },
+    () => {}
+  );
   callback();
 };
 
@@ -78,4 +83,9 @@ const startWatchers = callback => {
   callback();
 };
 
-exports.default = series(buildSass, startWebpack, startDevServer, startWatchers);
+exports.default = series(
+  buildSass,
+  startWebpack,
+  startDevServer,
+  startWatchers
+);
