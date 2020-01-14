@@ -119,8 +119,12 @@ button.ks-btn {
 
 // RTE Content
 .ks-rte-content {
-  p:last-of-type {
-    margin-bottom: 0;
+  p {
+    margin-top: 0;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 }
 

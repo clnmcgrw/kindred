@@ -1,0 +1,27 @@
+.ks-productdesc {
+  padding: $padding-sm 0;
+}
+
+@media (min-width: $bp-md) {
+  .ks-productdesc {
+    padding: $padding-md 0;
+
+    > .ks-inner {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-flow: row nowrap;
+    }
+
+    &__heading {
+      flex-basis: 45%;
+      margin-right: 5%;
+      position: sticky;
+      top: 8em;
+    }
+
+    &__body {
+      flex-basis: 40%;
+    }
+  }
+}

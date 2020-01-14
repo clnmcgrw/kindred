@@ -24,11 +24,38 @@
     flex-basis: 33%;
   }
 
+  &__sku {
+    margin-bottom: 2em;
+  }
+
+  &__shortdescription {
+    margin-bottom: 4em;
+  }
+
+  &__currentselection {
+    margin-bottom: 2em;
+
+    span,
+    p {
+      line-height: 1;
+    }
+
+    span {
+      font-family: $heading-font;
+      font-size: 1.5em;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
   &__variants {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: flex-start;
+    margin-bottom: 4em;
   }
 
   &__variant {
@@ -39,23 +66,57 @@
       max-width: 100%;
     }
   }
+
+  &__options {
+  }
+
+  &__option {
+    border: 1px solid $dark-green;
+    color: $dark-green;
+    padding: 0.5em 1em;
+    transition: color 0.4s $ease-out-circ, background 0.4s $ease-out-circ;
+    @extend .k-weight--lg;
+
+    &.active {
+      border-color: $primary;
+      background: $primary;
+      color: $white;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:first-child {
+      margin-right: 1em;
+    }
+  }
 }
 
 @media (min-width: $bp-md) {
   .ks-producthero {
     > .ks-inner {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: flex-start;
       flex-flow: row nowrap;
     }
 
     &__gallery {
       flex-basis: 40%;
+      margin-right: 10%;
     }
 
     &__main {
       flex-basis: 50%;
+    }
+  }
+}
+
+@media (min-width: $bp-xl) {
+  .ks-producthero {
+    &__main {
+      flex-basis: 40%;
     }
   }
 }

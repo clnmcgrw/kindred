@@ -8,8 +8,9 @@ const $priceTarget = $('#ks-pricetarget');
 const $descriptionTarget = $('#ks-descriptiontarget');
 const $selectionTarget = $('#ks-selectiontarget');
 const $variantsTarget = $('#ks-variantstarget');
-const $mainSlider = $('.ks-producthero__mainslider');
+const $optionsTarget = $('#ks-optionstarget');
 const storefrontId = $productDataDump.data('storefront-id');
+const childCategory = $productDataDump.data('child-cat');
 
 export default async () => {
   if (!$productDataDump.length) return;
@@ -50,15 +51,29 @@ export default async () => {
     $featuredImage.attr('src', $t.attr('src'));
   });
 
-  variants.forEach(({ image }, i) => {
+  variants.forEach((variant, i) => {
     if (i % 2 === 0) {
       $variantsTarget.append(/*html*/ `
-        <div class="ks-producthero__variant">
-          <img src="${image.src}" alt=""/>
+        <div class="ks-producthero__variant ${
+          variant.available === false ? 'out-of-stock' : ''
+        }">
+          <img src="${variant.image.src}" alt=""/>
         </div>
       `);
     }
   });
+
+  if (childCategory === 'fire-bowls') {
+    const { values } = options.filter(opt => opt.name === 'Fuel').shift();
+
+    values.forEach((val, i) =>
+      $optionsTarget.append(/*html*/ `
+      <button class="ks-producthero__option ${i === 0 ? 'active' : ''}">${
+        val.value
+      }</button>
+    `)
+    );
+  }
 
   console.log(thisProduct);
   /**
