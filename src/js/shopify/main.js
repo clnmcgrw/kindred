@@ -5,6 +5,7 @@ import {
 } from './functions';
 
 import handleProductSingle from './page-product-single';
+import './cart';
 
 const shop = {
   allCollections: [],

@@ -68,6 +68,7 @@
   }
 
   &__options {
+    margin-bottom: 2em;
   }
 
   &__option {
@@ -90,6 +91,10 @@
     &:first-child {
       margin-right: 1em;
     }
+  }
+
+  &__quantity {
+    margin-bottom: 2em;
   }
 }
 

@@ -5,6 +5,7 @@
 
 
 
+
 {% include '/magnetic-creative/partials/header-primary.html' %}
 
 {% if dynamic_page_hubdb_row %}
@@ -58,6 +59,23 @@
                     <div class="ks-producthero__variants" id="ks-variantstarget">
                     </div>
                     <div class="ks-producthero__options" id="ks-optionstarget">
+                    </div>
+                    <div class="ks-producthero__quantity ks-quantity">
+                        <div class="ks-quantity__label">
+                            <span>Quantity</span>
+                        </div>
+                        <div class="ks-quantity__actions">
+                            <span class="ks-quantity__minus">-</span>
+                            <span class="ks-quantity__num" id="ks-quantitytarget">1</span class="ks-quantity__minus">
+                            <span class="ks-quantity__plus">+</span>
+                        </div>
+                    </div>
+                    <div class="ks-producthero__addtocart">
+                        <button
+                            class="ks-btn"
+                            id="ks-addtocart"
+                            data-storefront-id="{{ product.storefront_id }}"
+                        >Add to Cart</button>
                     </div>
                 </div>
             </div>

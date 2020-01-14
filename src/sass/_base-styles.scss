@@ -182,6 +182,28 @@ figure {
 .bg-light {
   background: $bg-light;
 }
+.ks-quantity {
+  &__label,
+  &__actions {
+    display: inline-block;
+  }
+
+  &__label {
+    margin-right: 6.75em;
+  }
+
+  &__minus,
+  &__plus {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__minus,
+  &__num {
+    margin-right: 0.5em;
+  }
+}
 
 @media (min-width: $bp-lg) {
   .ks-headline {

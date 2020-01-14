@@ -569,6 +569,18 @@ figure {
 .bg-light {
   background: #F6F5F3; }
 
+.ks-quantity__label, .ks-quantity__actions {
+  display: inline-block; }
+
+.ks-quantity__label {
+  margin-right: 6.75em; }
+
+.ks-quantity__minus:hover, .ks-quantity__plus:hover {
+  cursor: pointer; }
+
+.ks-quantity__minus, .ks-quantity__num {
+  margin-right: 0.5em; }
+
 @media (min-width: 992px) {
   .ks-headline--md {
     font-size: 2.7em; }
@@ -1339,6 +1351,8 @@ figure {
     .ks-producthero__variant img {
       display: block;
       max-width: 100%; }
+  .ks-producthero__options {
+    margin-bottom: 2em; }
   .ks-producthero__option {
     border: 1px solid #2e443a;
     color: #2e443a;
@@ -1354,6 +1368,8 @@ figure {
       cursor: pointer; }
     .ks-producthero__option:first-child {
       margin-right: 1em; }
+  .ks-producthero__quantity {
+    margin-bottom: 2em; }
 
 @media (min-width: 767px) {
   .ks-producthero > .ks-inner {

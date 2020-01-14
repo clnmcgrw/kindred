@@ -47,3 +47,39 @@ export async function getAllCollections() {
 
   return collections;
 }
+
+export async function createCheckout() {
+  let checkout;
+
+  try {
+    checkout = await client.checkout.create();
+  } catch (e) {
+    console.log('Error creating checkout:', e);
+  }
+
+  return checkout;
+}
+
+export async function getCheckout(id) {
+  let checkout;
+
+  try {
+    checkout = await client.checkout.fetch(id);
+  } catch (e) {
+    console.log('Error fetching checkout:', e);
+  }
+
+  return checkout;
+}
+
+export async function addItemToCheckout(checkoutId, items) {
+  let checkout;
+
+  try {
+    checkout = await client.checkout.addLineItems(checkoutId, items);
+  } catch (e) {
+    console.log('Error adding item to checkout:', e);
+  }
+
+  return checkout;
+}
