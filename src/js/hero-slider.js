@@ -2,7 +2,6 @@ import Flickity from 'flickity';
 
 const heroSlider = document.getElementById('ks-hero-slider');
 
-
 export default () => {
   if (!heroSlider) return;
 
@@ -10,5 +9,4 @@ export default () => {
     cellSelector: '.ks-heroslider--slide',
     prevNextButtons: false,
   });
-
 };

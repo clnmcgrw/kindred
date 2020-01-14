@@ -175,6 +175,10 @@ figure {
     }
   }
 }
+.bg-light {
+  background: $bg-light;
+}
+
 @media (min-width: $bp-lg) {
   .ks-headline {
     &--md {

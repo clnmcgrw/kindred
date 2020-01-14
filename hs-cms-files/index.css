@@ -564,6 +564,9 @@ figure {
   .ks-breadcrumb a:hover {
     color: #994c3d; }
 
+.bg-light {
+  background: #F6F5F3; }
+
 @media (min-width: 992px) {
   .ks-headline--md {
     font-size: 2.7em; }
@@ -1307,5 +1310,70 @@ figure {
       margin-bottom: 3em; }
       .ks-productlist .ks-card:nth-last-child(2) {
         margin-bottom: 0; } }
+
+.ks-producthero {
+  padding-top: 4em; }
+  .ks-producthero__mainslider img, .ks-producthero__thumbslider img {
+    display: block;
+    max-width: 100%;
+    min-width: 100%; }
+  .ks-producthero__mainslider {
+    margin-bottom: 0.25em; }
+  .ks-producthero__thumbslider {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap; }
+  .ks-producthero__thumbslide {
+    -ms-flex-preferred-size: 33%;
+        flex-basis: 33%; }
+  .ks-producthero__variants {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+  .ks-producthero__variant {
+    -ms-flex-preferred-size: 24%;
+        flex-basis: 24%; }
+    .ks-producthero__variant img {
+      display: block;
+      max-width: 100%; }
+
+@media (min-width: 767px) {
+  .ks-producthero > .ks-inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap; }
+  .ks-producthero__gallery {
+    -ms-flex-preferred-size: 40%;
+        flex-basis: 40%; }
+  .ks-producthero__main {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%; } }
 
 /*# sourceMappingURL=index.css.map */
