@@ -59,11 +59,54 @@
   }
 
   &__variant {
-    flex-basis: 24%;
+    position: relative;
+    flex-basis: 22.5%;
+    margin-bottom: 1em;
 
     img {
       display: block;
       max-width: 100%;
+    }
+
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 110%;
+      height: 110%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.4s $ease-out-circ;
+      border: 1px solid $black;
+      pointer-events: none;
+    }
+
+    &.active {
+      &:before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    &.out-of-stock {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        content: 'Out of Stock';
+        background: $primary;
+        color: $white;
+        font-size: 50%;
+        padding: 0.5em 1em;
+        border-radius: 2em;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
     }
   }
 
@@ -114,6 +157,15 @@
 
     &__main {
       flex-basis: 50%;
+    }
+
+    &__variant {
+      &.out-of-stock {
+        &:after {
+          font-size: 66.67%;
+          padding: 0.5em 1em;
+        }
+      }
     }
   }
 }

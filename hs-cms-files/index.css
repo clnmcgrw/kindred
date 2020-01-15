@@ -1346,11 +1346,50 @@ figure {
             align-items: flex-start;
     margin-bottom: 4em; }
   .ks-producthero__variant {
-    -ms-flex-preferred-size: 24%;
-        flex-basis: 24%; }
+    position: relative;
+    -ms-flex-preferred-size: 22.5%;
+        flex-basis: 22.5%;
+    margin-bottom: 1em; }
     .ks-producthero__variant img {
       display: block;
       max-width: 100%; }
+    .ks-producthero__variant:before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 110%;
+      height: 110%;
+      -webkit-transform: translate(-50%, -50%) scale(0);
+          -ms-transform: translate(-50%, -50%) scale(0);
+              transform: translate(-50%, -50%) scale(0);
+      -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+      -o-transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+      border: 1px solid #000;
+      pointer-events: none; }
+    .ks-producthero__variant.active:before {
+      -webkit-transform: translate(-50%, -50%) scale(1);
+          -ms-transform: translate(-50%, -50%) scale(1);
+              transform: translate(-50%, -50%) scale(1); }
+    .ks-producthero__variant.out-of-stock {
+      position: relative; }
+      .ks-producthero__variant.out-of-stock:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        content: 'Out of Stock';
+        background: #994c3d;
+        color: #fff;
+        font-size: 50%;
+        padding: 0.5em 1em;
+        border-radius: 2em; }
+    .ks-producthero__variant:hover {
+      cursor: pointer; }
   .ks-producthero__options {
     margin-bottom: 2em; }
   .ks-producthero__option {
@@ -1392,7 +1431,10 @@ figure {
     margin-right: 10%; }
   .ks-producthero__main {
     -ms-flex-preferred-size: 50%;
-        flex-basis: 50%; } }
+        flex-basis: 50%; }
+  .ks-producthero__variant.out-of-stock:after {
+    font-size: 66.67%;
+    padding: 0.5em 1em; } }
 
 @media (min-width: 1199px) {
   .ks-producthero__main {

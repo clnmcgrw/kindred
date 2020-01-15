@@ -5,7 +5,7 @@ const $heightShim = $('main > .ks-site-container');
 const headerHeight = () => $siteHeader.outerHeight();
 
 function setHeaderHeight() {
-  $heightShim.css({ 'padding-top': headerHeight });
+  $heightShim.css({ 'padding-top': headerHeight() });
 }
 
 $doc.ready(setHeaderHeight);

@@ -11,7 +11,6 @@ const sampleItems = [
 
 $addToCartTriggers.click(async function() {
   const $t = $(this);
-  const id = $t.data('storefront-id');
 
   let checkout;
 
