@@ -19,7 +19,123 @@
 
   &__content {
     position: relative;
-    padding-bottom: 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 4em;
+  }
+
+  &__items {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
+
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+  }
+
+  &__item {
+    border-bottom: 1px solid $secondary;
+    padding: 1em;
+
+    &__flex {
+      display: flex;
+      justify-content: flex-start;
+      flex-flow: row wrap;
+      align-items: flex-start;
+    }
+
+    &__image {
+      flex-basis: 15%;
+      margin-right: 2.5%;
+      position: relative;
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+    }
+
+    &__main {
+      flex-basis: 82.5%;
+      overflow: scroll;
+      -ms-overflow-style: none; /* IE 11 */
+      scrollbar-width: none; /* Firefox 64 */
+
+      p {
+        line-height: 1.4;
+        margin: 0;
+        white-space: nowrap;
+      }
+
+      &::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+    }
+
+    &__actions {
+      flex-basis: 100%;
+      padding-left: 17.5%;
+      margin-top: 1em;
+
+      span {
+        color: $primary;
+        display: inline-block;
+        vertical-align: middle;
+
+        &:hover {
+          cursor: pointer;
+          color: darken($primary, 15%);
+
+          circle,
+          line {
+            stroke: darken($primary, 15%);
+          }
+        }
+      }
+
+      .ks-svg-wrapper {
+        width: 1.5em;
+        position: relative;
+
+        &__liner {
+          padding-bottom: 100%;
+        }
+
+        svg {
+          @include m-fill-parent();
+
+          circle,
+          line {
+            stroke-width: 1px;
+          }
+        }
+      }
+    }
+
+    &__remove {
+      float: right;
+    }
+
+    &__title {
+      font-family: $heading-font;
+    }
+  }
+
+  &__actions {
+    padding: 0 1em 8em 1em;
+
+    .ks-btn {
+      width: 100%;
+      font-size: 75%;
+      text-align: center;
+    }
   }
 
   &__close {
@@ -73,6 +189,17 @@
 
 @media (min-width: $bp-xl) {
   .ks-cartsidebar {
-    width: 33.3333%;
+    &__actions {
+      padding: 0 4em 2em 4em;
+      .ks-btn {
+        font-size: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: $bp-xxl) {
+  .ks-cartsidebar {
+    width: 40em;
   }
 }

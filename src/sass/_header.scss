@@ -58,6 +58,7 @@
 }
 
 .ks-mainnav {
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
@@ -109,6 +110,7 @@
   }
 
   .ks-mainnav {
+    display: block;
     position: relative;
     background: transparent;
 

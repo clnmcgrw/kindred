@@ -4,11 +4,13 @@
 -->
 
 
+
 {% include 'magnetic-creative/partials/variables-macros.html' %}
 
 <!doctype html>
 <html lang="{{ html_lang }}" {{ html_lang_dir }}>
 <head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=NodeList.prototype.forEach%2Cfetch"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -113,6 +115,10 @@
           </div>
   
           <ul id="ks-cartitems" class="ks-cartsidebar__items"></ul>
+
+          <div class="ks-cartsidebar__actions">
+            <a href="#0" class="ks-btn" id="ks-checkout" target="_blank" rel="noopener noreferrer">Go To Checkout</a>
+          </div>
         </div>
       </aside>
     

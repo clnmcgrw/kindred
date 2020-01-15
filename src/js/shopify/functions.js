@@ -67,7 +67,6 @@ export async function createCheckout() {
  */
 export async function getCheckout() {
   let checkout;
-  let inProgress = false;
 
   // Check to see if there's an existing checkout already created for this user
   const exisitingCheckoutId = localStorage.getItem('ks-checkout-id');
@@ -75,7 +74,6 @@ export async function getCheckout() {
   if (exisitingCheckoutId) {
     // If it exists, go fetch the in-progress checkout
     checkout = await client.checkout.fetch(exisitingCheckoutId);
-    inProgress = true;
   } else {
     // No checkout has been attempted yet, make a new one
     checkout = await createCheckout();
@@ -92,19 +90,54 @@ export async function getCheckout() {
     localStorage.setItem('ks-checkout-id', checkout.id);
   }
 
-  // checkout.inProgress = inProgress;
-
   return checkout;
 }
 
-export async function addItemToCheckout(checkoutId, items) {
+export async function addItemToCheckout(checkoutId, { variantId, quantity }) {
   let checkout;
 
   try {
-    checkout = await client.checkout.addLineItems(checkoutId, items);
+    checkout = await client.checkout.addLineItems(checkoutId, [
+      {
+        variantId,
+        quantity,
+      },
+    ]);
   } catch (e) {
     console.log('Error adding item to checkout:', e);
   }
 
   return checkout;
+}
+
+export async function updateCheckoutItem(checkoutId, updatedItem) {
+  let checkout;
+
+  try {
+    checkout = await client.checkout.updateLineItems(checkoutId, updatedItem);
+  } catch (e) {
+    console.log('Error updating line item:', e);
+  }
+
+  return checkout;
+}
+
+export async function removeCheckoutItem(checkoutId, lineItemId) {
+  let checkout;
+
+  try {
+    checkout = await client.checkout.removeLineItems(checkoutId, [lineItemId]);
+  } catch (e) {
+    console.log('Error removing item from checkout:', e);
+  }
+
+  return checkout;
+}
+
+export function getLineItemTotal(checkout) {
+  let num = 0;
+
+  checkout.lineItems.forEach(item => (num += item.quantity));
+
+  return num;
 }

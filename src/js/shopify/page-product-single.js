@@ -1,4 +1,9 @@
 import { getProductById, getProductByHandle } from './functions';
+import {
+  productHeroVariant,
+  thumbSlide,
+  productHeroOption,
+} from '../components';
 
 const $productDataDump = $('#shopify-product-data');
 const $featuredImage = $('#ks-featuredimage');
@@ -9,7 +14,6 @@ const $descriptionTarget = $('#ks-descriptiontarget');
 const $selectionTarget = $('#ks-selectiontarget');
 const $variantsTarget = $('#ks-variantstarget');
 const $optionsTarget = $('#ks-optionstarget');
-const $addToCartButton = $('#ks-addtocart');
 const storefrontId = $productDataDump.data('storefront-id');
 const childCategory = $productDataDump.data('child-cat');
 
@@ -41,14 +45,10 @@ function renderDetails(product) {
 }
 
 function renderGalleryImages(images) {
-  images.forEach(({ src }, i) => {
+  images.forEach((image, i) => {
     if (i === 0) return; // the first img is already included in the template
 
-    $featuredThumb.after(/*html*/ `
-      <div class="ks-producthero__thumbslide">
-        <img src="${src}" />
-      </div>
-    `);
+    $featuredThumb.after(thumbSlide(image));
   });
 }
 
@@ -56,15 +56,8 @@ function renderOptions(options) {
   if (childCategory === 'fire-bowls') {
     const { values } = options.filter(opt => opt.name === 'Fuel').shift();
 
-    values.forEach((val, i) =>
-      $optionsTarget.append(/*html*/ `
-      <button
-        class="ks-producthero__option ${i === 0 ? 'active' : ''}"
-        data-option-name="${val.value}"
-      >
-        ${val.value}
-      </button>
-    `)
+    values.forEach((option, i) =>
+      $optionsTarget.append(productHeroOption(option, i))
     );
   }
 }
@@ -84,33 +77,16 @@ function renderVariants(variants, selectedOption) {
     return matched;
   });
 
-  matchedVariants.forEach((variant, i) => {
-    $variantsTarget.append(/*html*/ `
-    <div
-      class="
-        ks-producthero__variant
-        ${variant.available === false ? 'out-of-stock' : ''}
-      "
-      data-variant-id="${variant.id}"
-      data-variant-type-1="${variant.selectedOptions[0].value}"
-      data-variant-type-2="${
-        variant.selectedOptions[1] ? variant.selectedOptions[1].value : ''
-      }"
-    >
-      <img src="${variant.image.src}" alt=""/>
-    </div>
-    `);
-  });
+  matchedVariants.forEach(variant =>
+    $variantsTarget.append(productHeroVariant(variant))
+  );
 
   $variantEls = $('.ks-producthero__variant');
   const $firstInStock = $variantEls.not('.out-of-stock').first();
 
   if (!$firstInStock.length) return;
 
-  const firstVariantId = $firstInStock.data('variant-id');
-
   $firstInStock.addClass('active');
-  $addToCartButton.attr('data-variant-id', firstVariantId);
 
   $selectionTarget.text(
     `${$firstInStock.data('variant-type-1')} ${
@@ -156,7 +132,6 @@ function attachVariantClick() {
    */
   $variantEls.click(function() {
     const $t = $(this);
-    const id = $t.data('variant-id');
 
     if ($t.hasClass('out-of-stock')) return;
 
@@ -168,8 +143,6 @@ function attachVariantClick() {
         $t.data('variant-type-2') ? ` / ${$t.data('variant-type-2')}` : ''
       }`
     );
-
-    $addToCartButton.attr('data-variant-id', id);
   });
 }
 

@@ -1,12 +1,30 @@
-import { headerHeight, $doc, $win, $mainSiteContainer } from './ui';
+import {
+  headerHeight,
+  $doc,
+  $win,
+  $mainSiteContainer,
+  $cartSidebar,
+} from './ui';
 
-const $cartSidebar = $('#ks-cartsidebar');
+const $cartContent = $cartSidebar.find('.ks-cartsidebar__content');
+const $cartItemsParent = $cartSidebar.find('.ks-cartsidebar__items');
+const $cartActions = $cartSidebar.find('.ks-cartsidebar__actions');
 const $cartTriggers = $('.ks-carttrigger');
 
 function setCartPositioning() {
+  const hHeight = headerHeight();
+
+  $cartContent.css({
+    height: `calc(100vh - ${hHeight}px)`,
+  });
+
   $cartSidebar.css({
-    top: headerHeight(),
+    top: hHeight,
     right: ($win.width() - $mainSiteContainer.width()) / 2,
+  });
+
+  $cartItemsParent.css({
+    'max-height': $cartContent.outerHeight() - $cartActions.outerHeight(),
   });
 }
 
