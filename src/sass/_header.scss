@@ -1,4 +1,3 @@
-
 .ks-mainheader {
   position: fixed;
   top: 0;
@@ -6,10 +5,15 @@
   width: 100%;
   z-index: 19999;
   padding: 0;
+
+  .ks-site-container {
+    background: $white;
+  }
+
   .ks-inner {
     width: 100%;
   }
-};
+}
 
 .magnetic-creative-templates-homepage {
   .ks-mainheader .ks-site-container {
@@ -17,7 +21,6 @@
     background: rgba($dark, 0.5);
   }
 }
-
 
 .ks-brand {
   width: 7em;
@@ -92,10 +95,7 @@
   display: none;
 }
 
-
-
-@media (min-width:$bp-md) {
-
+@media (min-width: $bp-md) {
   .ks-mainheader {
     > .ks-inner {
       display: flex;
@@ -127,5 +127,4 @@
   .ks-mainnav--icon {
     display: inline-block;
   }
-
 }

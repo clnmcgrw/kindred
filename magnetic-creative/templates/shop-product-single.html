@@ -3,6 +3,7 @@
     isAvailableForNewContent: true
 -->
 
+
 {% include '/magnetic-creative/partials/header-primary.html' %}
 
 {% if dynamic_page_hubdb_row %}
@@ -71,7 +72,8 @@
                         <button
                             class="ks-btn"
                             id="ks-addtocart"
-                            data-storefront-id="{{ product.storefront_id }}"
+                            data-variant-id="{{ product.storefront_id }}"
+                            data-quantity="1"
                         >Add to Cart</button>
                     </div>
                 </div>

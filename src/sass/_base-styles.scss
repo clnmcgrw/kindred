@@ -42,6 +42,13 @@ h6 {
 // Grid
 
 // Layout
+main {
+  > .ks-site-container {
+    position: relative;
+    overflow: hidden;
+  }
+}
+
 .ks-site-container {
   max-width: 1400px;
   margin-right: auto;

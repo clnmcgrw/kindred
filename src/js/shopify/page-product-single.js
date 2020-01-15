@@ -9,6 +9,7 @@ const $descriptionTarget = $('#ks-descriptiontarget');
 const $selectionTarget = $('#ks-selectiontarget');
 const $variantsTarget = $('#ks-variantstarget');
 const $optionsTarget = $('#ks-optionstarget');
+const $addToCartButton = $('#ks-addtocart');
 const storefrontId = $productDataDump.data('storefront-id');
 const childCategory = $productDataDump.data('child-cat');
 
@@ -104,9 +105,12 @@ function renderVariants(variants, selectedOption) {
   $variantEls = $('.ks-producthero__variant');
   const $firstInStock = $variantEls.not('.out-of-stock').first();
 
-  $firstInStock.addClass('active');
-
   if (!$firstInStock.length) return;
+
+  const firstVariantId = $firstInStock.data('variant-id');
+
+  $firstInStock.addClass('active');
+  $addToCartButton.attr('data-variant-id', firstVariantId);
 
   $selectionTarget.text(
     `${$firstInStock.data('variant-type-1')} ${
@@ -152,6 +156,7 @@ function attachVariantClick() {
    */
   $variantEls.click(function() {
     const $t = $(this);
+    const id = $t.data('variant-id');
 
     if ($t.hasClass('out-of-stock')) return;
 
@@ -163,6 +168,8 @@ function attachVariantClick() {
         $t.data('variant-type-2') ? ` / ${$t.data('variant-type-2')}` : ''
       }`
     );
+
+    $addToCartButton.attr('data-variant-id', id);
   });
 }
 

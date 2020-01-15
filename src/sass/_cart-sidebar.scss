@@ -1,0 +1,78 @@
+.ks-cartsidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 75%;
+  background: $white;
+  z-index: 99;
+  pointer-events: none;
+  transform: translateY(-100%);
+  transition: transform 0.4s $ease-out-circ;
+
+  &.active {
+    pointer-events: all;
+    transform: translateY(0);
+    transition-duration: 0.6s;
+    transition-timing-function: $ease-out-quart;
+  }
+
+  &__content {
+    position: relative;
+    padding-bottom: 4em;
+  }
+
+  &__close {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+
+    .ks-svg-wrapper {
+      position: relative;
+      width: 2em;
+
+      &:hover {
+        cursor: pointer;
+
+        svg {
+          transform: rotate(360deg);
+
+          circle,
+          line {
+            stroke: $primary;
+          }
+        }
+      }
+
+      &__liner {
+        padding-bottom: 100%;
+      }
+
+      svg {
+        @include m-fill-parent();
+        transition: transform 0.4s $ease-in-out-back;
+
+        circle,
+        line {
+          stroke-width: 1px;
+        }
+
+        line {
+          transition: stroke 0.4s $ease-out-circ;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $bp-md) {
+  .ks-cartsidebar {
+    width: 50%;
+  }
+}
+
+@media (min-width: $bp-xl) {
+  .ks-cartsidebar {
+    width: 33.3333%;
+  }
+}

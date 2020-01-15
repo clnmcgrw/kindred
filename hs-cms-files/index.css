@@ -467,6 +467,10 @@ h6 {
   color: #994c3d;
   display: inline-block; }
 
+main > .ks-site-container {
+  position: relative;
+  overflow: hidden; }
+
 .ks-site-container {
   max-width: 1400px;
   margin-right: auto;
@@ -600,6 +604,8 @@ figure {
   width: 100%;
   z-index: 19999;
   padding: 0; }
+  .ks-mainheader .ks-site-container {
+    background: #fff; }
   .ks-mainheader .ks-inner {
     width: 100%; }
 
@@ -1440,6 +1446,82 @@ figure {
   .ks-producthero__main {
     -ms-flex-preferred-size: 40%;
         flex-basis: 40%; } }
+
+.ks-cartsidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 75%;
+  background: #fff;
+  z-index: 99;
+  pointer-events: none;
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .ks-cartsidebar.active {
+    pointer-events: all;
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transition-duration: 0.6s;
+         -o-transition-duration: 0.6s;
+            transition-duration: 0.6s;
+    -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+         -o-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .ks-cartsidebar__content {
+    position: relative;
+    padding-bottom: 4em; }
+  .ks-cartsidebar__close {
+    position: absolute;
+    top: 1em;
+    right: 1em; }
+    .ks-cartsidebar__close .ks-svg-wrapper {
+      position: relative;
+      width: 2em; }
+      .ks-cartsidebar__close .ks-svg-wrapper:hover {
+        cursor: pointer; }
+        .ks-cartsidebar__close .ks-svg-wrapper:hover svg {
+          -webkit-transform: rotate(360deg);
+              -ms-transform: rotate(360deg);
+                  transform: rotate(360deg); }
+          .ks-cartsidebar__close .ks-svg-wrapper:hover svg circle,
+          .ks-cartsidebar__close .ks-svg-wrapper:hover svg line {
+            stroke: #994c3d; }
+      .ks-cartsidebar__close .ks-svg-wrapper__liner {
+        padding-bottom: 100%; }
+      .ks-cartsidebar__close .ks-svg-wrapper svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: -webkit-transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        -o-transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+        .ks-cartsidebar__close .ks-svg-wrapper svg circle,
+        .ks-cartsidebar__close .ks-svg-wrapper svg line {
+          stroke-width: 1px; }
+        .ks-cartsidebar__close .ks-svg-wrapper svg line {
+          -webkit-transition: stroke 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+          -o-transition: stroke 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+          transition: stroke 0.4s cubic-bezier(0.075, 0.82, 0.165, 1); }
+
+@media (min-width: 767px) {
+  .ks-cartsidebar {
+    width: 50%; } }
+
+@media (min-width: 1199px) {
+  .ks-cartsidebar {
+    width: 33.3333%; } }
 
 .ks-productlist {
   padding-bottom: 4em; }

@@ -60,14 +60,39 @@ export async function createCheckout() {
   return checkout;
 }
 
-export async function getCheckout(id) {
+/**
+ * Will return one of:
+ * 1) a checkout that hasn't been completed yet (0 or more items still in "cart"), or
+ * 2) a fresh checkout
+ */
+export async function getCheckout() {
   let checkout;
+  let inProgress = false;
 
-  try {
-    checkout = await client.checkout.fetch(id);
-  } catch (e) {
-    console.log('Error fetching checkout:', e);
+  // Check to see if there's an existing checkout already created for this user
+  const exisitingCheckoutId = localStorage.getItem('ks-checkout-id');
+
+  if (exisitingCheckoutId) {
+    // If it exists, go fetch the in-progress checkout
+    checkout = await client.checkout.fetch(exisitingCheckoutId);
+    inProgress = true;
+  } else {
+    // No checkout has been attempted yet, make a new one
+    checkout = await createCheckout();
+
+    localStorage.setItem('ks-checkout-id', checkout.id);
   }
+
+  // Order has been completed, create a new one
+  if (checkout.completedAt) {
+    localStorage.removeItem('ks-checkout-id');
+
+    checkout = await createCheckout();
+
+    localStorage.setItem('ks-checkout-id', checkout.id);
+  }
+
+  // checkout.inProgress = inProgress;
 
   return checkout;
 }
