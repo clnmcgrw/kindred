@@ -17,6 +17,7 @@
         style="display: none; opacity: 0; overflow: hidden; height: 0px; width: 0px;"
         id="shopify-product-data"
         data-product-id="{{ product.product_id }}"
+        data-product-handle="{{ product.product_handle }}"
         data-storefront-id="{{ product.storefront_id }}"
         data-parent-cat="{{ parent_cat[1] | lower | replace(' ', '-') }}"
         data-child-cat="{{ child_cat[1] | lower | replace(' ', '-') }}"
@@ -64,9 +65,9 @@
                             <span>Quantity</span>
                         </div>
                         <div class="ks-quantity__actions">
-                            <span class="ks-quantity__minus">-</span>
+                            <span class="ks-quantity__minus ks-quantity__action">-</span>
                             <span class="ks-quantity__num" id="ks-quantitytarget">1</span class="ks-quantity__minus">
-                            <span class="ks-quantity__plus">+</span>
+                            <span class="ks-quantity__plus ks-quantity__action">+</span>
                         </div>
                     </div>
                     <div class="ks-producthero__addtocart">
@@ -87,7 +88,9 @@
             <div class="ks-productdesc__heading">
                 <h3 class="ks-heading--sm">{{ product.product_title }}</h3>
             </div>
-            <div class="ks-productdesc__body ks-rte-content" id="ks-descriptiontarget"></div class="ks-productdesc__heading">
+            <div class="ks-productdesc__body ks-rte-content" id="ks-descriptiontarget">
+                {{ product.full_description }}
+            </div>
         </div>
     </section>
 {% endif %}

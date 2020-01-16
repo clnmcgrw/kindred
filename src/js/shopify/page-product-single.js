@@ -10,10 +10,12 @@ const $featuredImage = $('#ks-featuredimage');
 const $featuredThumb = $('#ks-featuredthumb');
 const $skuTarget = $('#ks-skutarget');
 const $priceTarget = $('#ks-pricetarget');
-const $descriptionTarget = $('#ks-descriptiontarget');
 const $selectionTarget = $('#ks-selectiontarget');
 const $variantsTarget = $('#ks-variantstarget');
 const $optionsTarget = $('#ks-optionstarget');
+const $quantityAdjust = $('.ks-quantity__action');
+const $quantityTarget = $('#ks-quantitytarget');
+const productHandle = $productDataDump.data('product-handle');
 const storefrontId = $productDataDump.data('storefront-id');
 const childCategory = $productDataDump.data('child-cat');
 
@@ -22,32 +24,30 @@ let $variantEls;
 /**
  * Populates the items that we don't get from the HubSpot-Shopify bridge.
  * @param {GraphModel} product - the product Object we get back from Storefront
- *
  */
 async function renderProduct(product) {
   const { options, images, variants } = product;
 
-  renderDetails(product);
+  renderInitialDetails(variants[0]);
   renderGalleryImages(images);
   renderOptions(options);
   renderVariants(variants, $optionsTarget.find('.active').data('option-name'));
   attachEventListeners(product);
 }
 
-function renderDetails(product) {
-  const { descriptionHtml, variants } = product;
-  const firstVariant = variants[0];
-
+/**
+ * Uses the first variant in the set to seed the initial SKU, price, etc.
+ * @param {GraphModel} product - the first variant in the Product's set of variants
+ */
+function renderInitialDetails(firstVariant) {
   $skuTarget.text(firstVariant.sku);
   $priceTarget.text(`$${firstVariant.price}`);
-  $descriptionTarget.html(descriptionHtml);
   $selectionTarget.text(firstVariant.title);
 }
 
 function renderGalleryImages(images) {
   images.forEach((image, i) => {
     if (i === 0) return; // the first img is already included in the template
-
     $featuredThumb.after(thumbSlide(image));
   });
 }
@@ -77,9 +77,26 @@ function renderVariants(variants, selectedOption) {
     return matched;
   });
 
-  matchedVariants.forEach(variant =>
-    $variantsTarget.append(productHeroVariant(variant))
-  );
+  /**
+   * Some products have variants broken down by some other option,
+   * for instance, Fire Bowls have a "fuel" option in addition to
+   * the initial texture & color variant.
+   *
+   * In that case, if options are present, only render the options
+   * that match the default selected option, which for now is the
+   * first item in the set of options.
+   *
+   * If no options are present, just render out all of the variants.
+   */
+  if (selectedOption) {
+    matchedVariants.forEach(variant =>
+      $variantsTarget.append(productHeroVariant(variant))
+    );
+  } else {
+    variants.forEach(variant =>
+      $variantsTarget.append(productHeroVariant(variant))
+    );
+  }
 
   $variantEls = $('.ks-producthero__variant');
   const $firstInStock = $variantEls.not('.out-of-stock').first();
@@ -121,6 +138,17 @@ function attachEventListeners(product) {
   });
 
   attachVariantClick();
+
+  $quantityAdjust.click(function() {
+    const $t = $(this);
+    let currentVal = parseInt($quantityTarget.text());
+
+    if ($t.hasClass('ks-quantity__minus') && currentVal > 1) {
+      $quantityTarget.text(--currentVal);
+    } else if ($t.hasClass('ks-quantity__plus')) {
+      $quantityTarget.text(++currentVal);
+    }
+  });
 }
 
 function attachVariantClick() {
@@ -150,8 +178,19 @@ export default async () => {
   if (!$productDataDump.length) return;
 
   const thisProduct = await getProductById(storefrontId);
-  renderProduct(thisProduct);
 
-  console.log(thisProduct);
-  console.log(`Storefront ID: ${thisProduct.id}`);
+  if (!thisProduct) {
+    /**
+     * If this condition is met, it's likely that the Storefront ID
+     * hasn't been entered in HubDB yet. Check the console for the
+     * ID in this case, then put it in HubDB so that the product can
+     * be correctly fetched.
+     */
+    const p = await getProductByHandle(productHandle);
+
+    console.log(`Storefront ID: ${p.id}`);
+  } else {
+    renderProduct(thisProduct);
+    console.log(thisProduct);
+  }
 };

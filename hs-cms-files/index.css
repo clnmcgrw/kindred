@@ -468,8 +468,7 @@ h6 {
   display: inline-block; }
 
 main > .ks-site-container {
-  position: relative;
-  overflow: hidden; }
+  position: relative; }
 
 .ks-site-container {
   max-width: 1440px;
@@ -498,6 +497,13 @@ main > .ks-site-container {
   -webkit-transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
   -o-transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .ks-btn--secondary {
+    color: #994c3d;
+    background-color: transparent;
+    border: 1px solid #cfc5b9; }
+    .ks-btn--secondary:hover {
+      background-color: #1b2429 !important;
+      color: #fff !important; }
   .ks-btn:hover {
     cursor: pointer;
     background-color: #cfc5b9;
@@ -572,6 +578,12 @@ figure {
 
 .bg-light {
   background: #F6F5F3; }
+
+.ks-quantity * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
 
 .ks-quantity__label, .ks-quantity__actions {
   display: inline-block; }
@@ -1455,28 +1467,36 @@ figure {
   right: 0;
   height: 100vh;
   width: 75%;
+  max-width: 30em;
   background: #fff;
   z-index: 99;
   pointer-events: none;
   -webkit-transform: translateY(-100%);
       -ms-transform: translateY(-100%);
           transform: translateY(-100%);
-  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-  -o-transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: -webkit-transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
   .ks-cartsidebar.active {
     pointer-events: all;
     -webkit-transform: translateY(0);
         -ms-transform: translateY(0);
             transform: translateY(0);
-    -webkit-transition-duration: 0.6s;
-         -o-transition-duration: 0.6s;
-            transition-duration: 0.6s;
+    -webkit-transition-duration: 0.4s;
+         -o-transition-duration: 0.4s;
+            transition-duration: 0.4s;
     -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
          -o-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
             transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .ks-cartsidebar.loading .ks-cartsidebar__content:after {
+    opacity: 0.667;
+    z-index: 10;
+    pointer-events: all; }
+  .ks-cartsidebar__noitems {
+    text-align: center;
+    padding: 0 1em; }
   .ks-cartsidebar__content {
     position: relative;
     display: -webkit-box;
@@ -1490,21 +1510,40 @@ figure {
         -ms-flex-pack: justify;
             justify-content: space-between;
     padding-top: 4em; }
+    .ks-cartsidebar__content:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      content: '';
+      background: #cfc5b9;
+      opacity: 0;
+      z-index: -1;
+      pointer-events: none;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+      -webkit-transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      -o-transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
   .ks-cartsidebar__items {
     margin: 0;
     padding: 0;
     list-style-type: none;
     overflow: scroll;
     -ms-overflow-style: none;
-    /* IE 11 */
-    scrollbar-width: none;
-    /* Firefox 64 */ }
+    scrollbar-width: none; }
     .ks-cartsidebar__items::-webkit-scrollbar {
       width: 0px;
       background: transparent; }
   .ks-cartsidebar__item {
     border-bottom: 1px solid #cfc5b9;
     padding: 1em; }
+    .ks-cartsidebar__item:last-child {
+      border-bottom: none; }
     .ks-cartsidebar__item__flex {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -1542,6 +1581,8 @@ figure {
       .ks-cartsidebar__item__main::-webkit-scrollbar {
         width: 0px;
         background: transparent; }
+    .ks-cartsidebar__item__variant, .ks-cartsidebar__item__quantity, .ks-cartsidebar__item__price {
+      font-size: 75%; }
     .ks-cartsidebar__item__actions {
       -ms-flex-preferred-size: 100%;
           flex-basis: 100%;
@@ -1581,6 +1622,8 @@ figure {
       width: 100%;
       font-size: 75%;
       text-align: center; }
+      .ks-cartsidebar__actions .ks-btn:first-child {
+        margin-bottom: 0.5em; }
   .ks-cartsidebar__close {
     position: absolute;
     top: 1em;
@@ -1612,25 +1655,28 @@ figure {
         transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
         .ks-cartsidebar__close .ks-svg-wrapper svg circle,
         .ks-cartsidebar__close .ks-svg-wrapper svg line {
-          stroke-width: 1px; }
+          stroke-width: 1px;
+          stroke: #2e443a; }
         .ks-cartsidebar__close .ks-svg-wrapper svg line {
           -webkit-transition: stroke 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
           -o-transition: stroke 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
           transition: stroke 0.4s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
-@media (min-width: 767px) {
-  .ks-cartsidebar {
-    width: 50%; } }
+@media (min-width: 992px) {
+  .ks-cartsidebar__item__variant, .ks-cartsidebar__item__quantity, .ks-cartsidebar__item__price {
+    font-size: 100%; } }
 
 @media (min-width: 1199px) {
+  .ks-cartsidebar__noitems {
+    padding: 0 4em; }
   .ks-cartsidebar__actions {
     padding: 0 4em 2em 4em; }
     .ks-cartsidebar__actions .ks-btn {
       font-size: 100%; } }
 
 @media (min-width: 1440px) {
-  .ks-cartsidebar {
-    width: 40em; } }
+  .ks-cartsidebar__item {
+    padding: 1em 2em; } }
 
 .ks-productlist {
   padding-bottom: 4em; }

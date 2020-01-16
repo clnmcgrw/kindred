@@ -45,7 +45,6 @@ h6 {
 main {
   > .ks-site-container {
     position: relative;
-    overflow: hidden;
   }
 }
 
@@ -78,6 +77,17 @@ main {
   border-radius: 2em;
   padding: 1.15em 1.5em;
   transition: background-color 0.4s $ease-out-circ, color 0.4s $ease-out-circ;
+
+  &--secondary {
+    color: $primary;
+    background-color: transparent;
+    border: 1px solid $secondary;
+
+    &:hover {
+      background-color: $dark !important;
+      color: $white !important;
+    }
+  }
 
   &:hover {
     cursor: pointer;
@@ -186,10 +196,16 @@ figure {
     }
   }
 }
+
 .bg-light {
   background: $bg-light;
 }
+
 .ks-quantity {
+  * {
+    user-select: none;
+  }
+
   &__label,
   &__actions {
     display: inline-block;

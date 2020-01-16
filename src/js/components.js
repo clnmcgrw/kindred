@@ -35,6 +35,15 @@ export function productHeroOption(option, idx) {
   `;
 }
 
+export function emptyCartNotice() {
+  return /*html*/ `
+    <li class="ks-cartsidebar__noitems">
+      <h3>You have no items in your cart.</h3>
+      <a href="/">Start Shopping!</a>
+    </li>
+  `;
+}
+
 export function cartSidebarItem(item) {
   return /*html*/ `
     <li class="ks-cartsidebar__item">
@@ -46,7 +55,7 @@ export function cartSidebarItem(item) {
           <p class="ks-cartsidebar__item__title">${item.title}</p>
           <p class="ks-cartsidebar__item__variant">${item.variant.title}</p>
           <p class="ks-cartsidebar__item__quantity">Quantity: ${item.quantity}</p>
-          <p class="ks-cartsidebar__item__price">Price: ${item.variant.price}</p>
+          <p class="ks-cartsidebar__item__price">Price: $${item.variant.price}</p>
         </div>
         <div class="ks-cartsidebar__item__actions">
           <span class="ks-cartsidebar__item__add" data-variant-id="${item.variant.id}">
