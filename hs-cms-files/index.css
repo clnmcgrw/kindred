@@ -1226,6 +1226,13 @@ figure {
 .ks-heroimage .ks-figure__liner {
   padding-bottom: 33%; }
 
+.ks-heroimage .ks-figure img {
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+
 .ks-card .ks-linkover {
   text-decoration: none; }
 
@@ -1338,6 +1345,18 @@ figure {
         flex-basis: 33%; }
   .ks-producthero__sku {
     margin-bottom: 2em; }
+  .ks-producthero__title:before, .ks-producthero__title:after {
+    display: table;
+    content: '';
+    clear: both; }
+  .ks-producthero__title h1,
+  .ks-producthero__title .ks-producthero__price {
+    float: left; }
+  .ks-producthero__title h1 {
+    width: 72%; }
+  .ks-producthero__title .ks-producthero__price {
+    width: 28%;
+    text-align: right; }
   .ks-producthero__shortdescription {
     margin-bottom: 4em; }
   .ks-producthero__currentselection {
@@ -1364,7 +1383,7 @@ figure {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    margin-bottom: 4em; }
+    margin-bottom: 1em; }
   .ks-producthero__variant {
     position: relative;
     -ms-flex-preferred-size: 22.5%;
@@ -1426,7 +1445,7 @@ figure {
     .ks-producthero__option:hover {
       cursor: pointer; }
     .ks-producthero__option:first-child {
-      margin-right: 1em; }
+      margin-bottom: 0.5em; }
   .ks-producthero__quantity {
     margin-bottom: 2em; }
 
@@ -1452,38 +1471,58 @@ figure {
   .ks-producthero__main {
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%; }
+  .ks-producthero__variants {
+    margin-bottom: 4em; }
   .ks-producthero__variant.out-of-stock:after {
     font-size: 66.67%;
-    padding: 0.5em 1em; } }
+    padding: 0.5em 1em; }
+  .ks-producthero__option:first-child {
+    margin-bottom: 0;
+    margin-right: 1em; } }
 
 @media (min-width: 1199px) {
   .ks-producthero__main {
     -ms-flex-preferred-size: 40%;
         flex-basis: 40%; } }
 
-.ks-cartsidebar {
+.ks-cartsidebar,
+#ks-cartsidebar__cover {
   position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
   width: 75%;
-  max-width: 30em;
+  max-width: 30em; }
+
+/* 
+* The cover is necessary since overflow: hidden; on the main .site-container
+* won't work with the fixed cart element. As a hack, cover the cart with a 
+* <div /> of the same height/width that has the same background color as the body.
+*/
+#ks-cartsidebar__cover {
+  background: #1b2429;
+  z-index: 999999;
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%); }
+
+.ks-cartsidebar {
   background: #fff;
   z-index: 99;
   pointer-events: none;
-  -webkit-transform: translateY(-100%);
-      -ms-transform: translateY(-100%);
-          transform: translateY(-100%);
-  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: -webkit-transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-  -o-transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: -webkit-transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1); }
   .ks-cartsidebar.active {
     pointer-events: all;
-    -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-            transform: translateY(0);
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
     -webkit-transition-duration: 0.4s;
          -o-transition-duration: 0.4s;
             transition-duration: 0.4s;
@@ -1540,7 +1579,7 @@ figure {
       width: 0px;
       background: transparent; }
   .ks-cartsidebar__item {
-    border-bottom: 1px solid #cfc5b9;
+    border-bottom: 1px solid #fff;
     padding: 1em; }
     .ks-cartsidebar__item:last-child {
       border-bottom: none; }
@@ -1617,13 +1656,21 @@ figure {
     .ks-cartsidebar__item__title {
       font-family: "BigCaslon-Medium", serif; }
   .ks-cartsidebar__actions {
-    padding: 0 1em 8em 1em; }
+    padding: 0 1em 8em 1em;
+    background: #fff; }
     .ks-cartsidebar__actions .ks-btn {
       width: 100%;
       font-size: 75%;
       text-align: center; }
-      .ks-cartsidebar__actions .ks-btn:first-child {
+      .ks-cartsidebar__actions .ks-btn:first-of-type {
         margin-bottom: 0.5em; }
+  .ks-cartsidebar__subtotal {
+    padding: 1em 0; }
+    .ks-cartsidebar__subtotal p {
+      font-weight: bold;
+      margin: 0; }
+      .ks-cartsidebar__subtotal p span {
+        font-weight: normal; }
   .ks-cartsidebar__close {
     position: absolute;
     top: 1em;

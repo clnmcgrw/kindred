@@ -3,5 +3,10 @@
     &__liner {
       padding-bottom: 33%;
     }
+
+    img {
+      pointer-events: none;
+      user-select: none;
+    }
   }
 }

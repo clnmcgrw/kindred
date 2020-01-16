@@ -104,6 +104,7 @@ function renderVariants(variants, selectedOption) {
   if (!$firstInStock.length) return;
 
   $firstInStock.addClass('active');
+  $skuTarget.text($firstInStock.data('variant-sku'));
 
   $selectionTarget.text(
     `${$firstInStock.data('variant-type-1')} ${
@@ -164,6 +165,7 @@ function attachVariantClick() {
     if ($t.hasClass('out-of-stock')) return;
 
     $variantEls.removeClass('active');
+    $skuTarget.text($t.data('variant-sku'));
     $t.addClass('active');
 
     $selectionTarget.text(

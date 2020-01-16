@@ -6,152 +6,39 @@
 
 {% include '/magnetic-creative/partials/header-primary.html' %}
 
-{% widget_container "page_content" %}
-{% end_widget_container %}
+{% set table_id = dynamic_page_hubdb_table_id %}
+{% for row in hubdb_table_rows(table_id) %}
+    {% if row.hs_path == request.path.replace('/', '') %}
+        <section class="ks-heroimage">
+            <figure class="ks-figure">
+                <div class="ks-figure__liner">
+                    <img src="{{row.image.url}}" alt="">
+                </div>
+            </figure>
+        </section>
 
-<section class="ks-productlist">
-    <div class="ks-inner">
-        <div class="ks-card ks-card--image">
-            <a href="#0" class="ks-linkover">
-                <div class="ks-card__liner">
-                    <figure class="ks-figure">
-                        <div class="ks-figure__liner">
-                            <img src="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/kindred-the-bryant-thumbnail.jpg" alt="">
+        <section class="ks-productlist">
+            <div class="ks-inner">
+
+            {% for product in row.products %}
+                <div class="ks-card ks-card--image">
+                    <a href="/products/{{product.hs_path}}" class="ks-linkover">
+                        <div class="ks-card__liner">
+                            <figure class="ks-figure">
+                                <div class="ks-figure__liner">
+                                    <img src="{{product.featured_image}}" alt="">
+                                </div>
+                            </figure>
+                            <div class="ks-card__title">
+                                <p>{{product.product_title}}</p>
+                            </div>
                         </div>
-                    </figure>
-                    <div class="ks-card__title">
-                        <p>The Bryant</p>
-                    </div>
+                    </a>
                 </div>
-            </a>
-        </div>
-        <div class="ks-card ks-card--image">
-            <a href="#0" class="ks-linkover">
-                <div class="ks-card__liner">
-                    <figure class="ks-figure">
-                        <div class="ks-figure__liner">
-                            <img src="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/kindred-the-bryant-thumbnail.jpg" alt="">
-                        </div>
-                    </figure>
-                    <div class="ks-card__title">
-                        <p>The Bryant</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="ks-card ks-card--image">
-            <a href="#0" class="ks-linkover">
-                <div class="ks-card__liner">
-                    <figure class="ks-figure">
-                        <div class="ks-figure__liner">
-                            <img src="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/kindred-the-bryant-thumbnail.jpg" alt="">
-                        </div>
-                    </figure>
-                    <div class="ks-card__title">
-                        <p>The Bryant</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="ks-card ks-card--image">
-            <a href="#0" class="ks-linkover">
-                <div class="ks-card__liner">
-                    <figure class="ks-figure">
-                        <div class="ks-figure__liner">
-                            <img src="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/kindred-the-bryant-thumbnail.jpg" alt="">
-                        </div>
-                    </figure>
-                    <div class="ks-card__title">
-                        <p>The Bryant</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="ks-card ks-card--image">
-            <a href="#0" class="ks-linkover">
-                <div class="ks-card__liner">
-                    <figure class="ks-figure">
-                        <div class="ks-figure__liner">
-                            <img src="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/kindred-the-bryant-thumbnail.jpg" alt="">
-                        </div>
-                    </figure>
-                    <div class="ks-card__title">
-                        <p>The Bryant</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="ks-card ks-card--image">
-            <a href="#0" class="ks-linkover">
-                <div class="ks-card__liner">
-                    <figure class="ks-figure">
-                        <div class="ks-figure__liner">
-                            <img src="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/kindred-the-bryant-thumbnail.jpg" alt="">
-                        </div>
-                    </figure>
-                    <div class="ks-card__title">
-                        <p>The Bryant</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="ks-card ks-card--image">
-            <a href="#0" class="ks-linkover">
-                <div class="ks-card__liner">
-                    <figure class="ks-figure">
-                        <div class="ks-figure__liner">
-                            <img src="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/kindred-the-bryant-thumbnail.jpg" alt="">
-                        </div>
-                    </figure>
-                    <div class="ks-card__title">
-                        <p>The Bryant</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="ks-card ks-card--image">
-            <a href="#0" class="ks-linkover">
-                <div class="ks-card__liner">
-                    <figure class="ks-figure">
-                        <div class="ks-figure__liner">
-                            <img src="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/kindred-the-bryant-thumbnail.jpg" alt="">
-                        </div>
-                    </figure>
-                    <div class="ks-card__title">
-                        <p>The Bryant</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="ks-card ks-card--image">
-            <a href="#0" class="ks-linkover">
-                <div class="ks-card__liner">
-                    <figure class="ks-figure">
-                        <div class="ks-figure__liner">
-                            <img src="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/kindred-the-bryant-thumbnail.jpg" alt="">
-                        </div>
-                    </figure>
-                    <div class="ks-card__title">
-                        <p>The Bryant</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="ks-card ks-card--image">
-            <a href="#0" class="ks-linkover">
-                <div class="ks-card__liner">
-                    <figure class="ks-figure">
-                        <div class="ks-figure__liner">
-                            <img src="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/kindred-the-bryant-thumbnail.jpg" alt="">
-                        </div>
-                    </figure>
-                    <div class="ks-card__title">
-                        <p>The Bryant</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
+            {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+{% endfor %}
 
 {% include '/magnetic-creative/partials/footer-primary.html' %}

@@ -5,11 +5,12 @@ import {
   updateCheckoutItem,
   removeCheckoutItem,
 } from './functions';
-import { cartSidebarItem, emptyCartNotice } from '../components';
+import { cartSidebarItem, cartSubtotal, emptyCartNotice } from '../components';
 
 const $addToCartTrigger = $('#ks-addtocart');
 const $cartItemsTarget = $('#ks-cartitems');
 const $goToCheckoutTarget = $('#ks-checkout');
+const $cartActions = $cartSidebar.find('.ks-cartsidebar__actions');
 
 /**
  * These need to be queried after all cart items have been rendered
@@ -53,6 +54,9 @@ function renderCartContent(checkout) {
   );
 
   $goToCheckoutTarget.attr('href', checkout.webUrl);
+
+  $cartActions.find('.ks-cartsidebar__subtotal').remove();
+  $cartActions.prepend(cartSubtotal(checkout.subtotalPrice));
 
   // Attach the listeners once the items are in the DOM
   $incrementTriggers = $('.ks-cartsidebar__item__add');

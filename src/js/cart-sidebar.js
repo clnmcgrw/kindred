@@ -4,6 +4,7 @@ import {
   $win,
   $mainSiteContainer,
   $cartSidebar,
+  $cartCover,
 } from './ui';
 
 const $cartContent = $cartSidebar.find('.ks-cartsidebar__content');
@@ -19,6 +20,11 @@ function setCartPositioning() {
   });
 
   $cartSidebar.css({
+    top: hHeight,
+    right: ($win.width() - $mainSiteContainer.width()) / 2,
+  });
+
+  $cartCover.css({
     top: hHeight,
     right: ($win.width() - $mainSiteContainer.width()) / 2,
   });

@@ -6,6 +6,7 @@ export function productHeroVariant(variant) {
         ${variant.available === false ? 'out-of-stock' : ''}
       "
       data-variant-id="${variant.id}"
+      data-variant-sku="${variant.sku}"
       data-variant-type-1="${variant.selectedOptions[0].value}"
       data-variant-type-2="${
         variant.selectedOptions[1] ? variant.selectedOptions[1].value : ''
@@ -32,6 +33,14 @@ export function productHeroOption(option, idx) {
     >
       ${option.value}
     </button>
+  `;
+}
+
+export function cartSubtotal(subtotal) {
+  return /*html*/ `
+    <div class="ks-cartsidebar__subtotal">
+      <p>Subtotal: <span>$${subtotal}</span></p>
+    </div>
   `;
 }
 

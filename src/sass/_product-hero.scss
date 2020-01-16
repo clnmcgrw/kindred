@@ -28,6 +28,24 @@
     margin-bottom: 2em;
   }
 
+  &__title {
+    @include clearfix();
+
+    h1,
+    .ks-producthero__price {
+      float: left;
+    }
+
+    h1 {
+      width: 72%;
+    }
+
+    .ks-producthero__price {
+      width: 28%;
+      text-align: right;
+    }
+  }
+
   &__shortdescription {
     margin-bottom: 4em;
   }
@@ -55,7 +73,7 @@
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 4em;
+    margin-bottom: 1em;
   }
 
   &__variant {
@@ -132,7 +150,7 @@
     }
 
     &:first-child {
-      margin-right: 1em;
+      margin-bottom: 0.5em;
     }
   }
 
@@ -159,12 +177,23 @@
       flex-basis: 50%;
     }
 
+    &__variants {
+      margin-bottom: 4em;
+    }
+
     &__variant {
       &.out-of-stock {
         &:after {
           font-size: 66.67%;
           padding: 0.5em 1em;
         }
+      }
+    }
+
+    &__option {
+      &:first-child {
+        margin-bottom: 0;
+        margin-right: 1em;
       }
     }
   }
