@@ -1787,4 +1787,19 @@ figure {
       -ms-flex-preferred-size: 40%;
           flex-basis: 40%; } }
 
+.ks-gallery > .ks-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+
 /*# sourceMappingURL=index.css.map */
