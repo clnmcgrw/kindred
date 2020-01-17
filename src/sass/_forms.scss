@@ -1,0 +1,140 @@
+form,
+form.hs-form {
+  * {
+    appearance: none;
+  }
+
+  fieldset {
+    max-width: 100% !important;
+    margin-bottom: 2em;
+  }
+
+  label {
+    position: relative;
+    font-family: $heading-font;
+    font-size: 1.4em;
+    color: $dark-green;
+
+    .hs-form-required {
+      position: absolute;
+      top: -0.25em;
+      right: -1em;
+      color: $primary;
+    }
+  }
+
+  input,
+  select,
+  textarea {
+    border: none;
+    border-bottom: 1px solid $light-grey;
+    border-radius: 0;
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  input,
+  select {
+    padding: 1em 0 0.25em 0.25em;
+  }
+
+  textarea {
+    resize: none;
+    height: 8.125em;
+    padding: 0.25em;
+  }
+
+  input[type='submit'] {
+    @extend .ks-btn;
+    padding: 1.15em 4em;
+    width: auto !important;
+  }
+
+  input[type='checkbox'] {
+    appearance: checkbox;
+  }
+
+  .input {
+    margin-right: 0 !important;
+  }
+
+  .hs-error-msgs {
+    position: absolute;
+    bottom: -1.25em;
+    left: 0.25em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    label {
+      font-family: $body-font;
+      font-size: 80%;
+      color: $primary;
+    }
+  }
+
+  .hs-form-field {
+    position: relative;
+  }
+
+  .form-columns-2 {
+    .hs-form-field {
+      &:first-child {
+        margin-bottom: 1em;
+      }
+    }
+  }
+
+  .hs-fieldtype-booleancheckbox {
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .hs-form-booleancheckbox-display {
+    input,
+    span {
+      display: inline;
+      vertical-align: middle;
+    }
+
+    input {
+      width: auto !important;
+      margin-right: 0.5em;
+    }
+
+    span {
+      font-family: $body-font;
+      font-size: 1rem;
+    }
+
+    &:hover,
+    input:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: $bp-md) {
+  form,
+  form.hs-form {
+    fieldset {
+      margin-bottom: 3em;
+    }
+
+    .form-columns-2 {
+      .hs-form-field {
+        width: 45% !important;
+
+        &:first-child {
+          margin-right: 10%;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

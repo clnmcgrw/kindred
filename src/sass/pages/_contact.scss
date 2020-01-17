@@ -1,0 +1,73 @@
+.ks-contactblock {
+  padding-bottom: $padding-md;
+
+  &__info {
+    margin-bottom: 5em;
+
+    &__content {
+      background: $lighter-grey;
+      padding: 3em 2em;
+    }
+
+    &__item {
+      span {
+        font-family: $heading-font;
+      }
+
+      a {
+        text-decoration: none;
+        color: $black;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+
+      &:last-child {
+        margin-top: 6.75em;
+
+        a {
+          color: $primary;
+          text-decoration: underline;
+
+          &:hover {
+            color: darken($primary, 15%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $bp-lg) {
+  .ks-contactblock {
+    > .ks-inner {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-flow: row nowrap;
+    }
+
+    &__info {
+      position: sticky;
+      top: 8em;
+      flex-basis: 40%;
+      margin-right: 14%;
+      margin-bottom: 0;
+    }
+
+    &__form {
+      flex-basis: 40%;
+    }
+  }
+}
+
+@media (min-width: $bp-xxl) {
+  .ks-contactblock {
+    &__info {
+      &__content {
+        padding: 7.625em;
+      }
+    }
+  }
+}

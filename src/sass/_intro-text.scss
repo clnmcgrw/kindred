@@ -1,10 +1,6 @@
 .ks-introtext {
   background: $dark;
 
-  &--hero {
-    padding-top: 208.17px; // until we have JS watching the header height
-  }
-
   &--light {
     background: $light;
 
@@ -25,6 +21,7 @@
 
   .ks-preheading {
     margin-bottom: 1em;
+    font-family: $heading-font;
   }
 
   #{headings()} {
@@ -33,14 +30,6 @@
 
   p {
     color: $white;
-  }
-}
-
-@media (min-width: $bp-md) {
-  .ks-introtext {
-    &--hero {
-      padding-top: 88.17px; // until we have JS watching the header height
-    }
   }
 }
 

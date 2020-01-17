@@ -49,13 +49,14 @@ main {
 }
 
 .ks-site-container {
-  max-width: 1440px;
+  max-width: 1800px;
   margin-right: auto;
   margin-left: auto;
 }
 
 .ks-inner {
   width: 90%;
+  max-width: 1440px;
   margin: 0 auto;
 
   &--sm {
