@@ -1,0 +1,25 @@
+<section class="ks-contactblock">
+  <div class="ks-inner">
+    <div class="ks-contactblock__info">
+      <div class="ks-contactblock__info__content">
+        <h3 class="ks-headline">Contact Information:</h3>
+        <p class="ks-contactblock__info__item"><span>Phone:</span>&nbsp;<a href="tel:8009251492">{{module.phone_number}}</a></p>
+        <p class="ks-contactblock__info__item"><span>Hours:</span>&nbsp;{{module.hours}}</p>
+        <p class="ks-contactblock__info__item"><span>Address:</span>&nbsp;<a href="{{module.address_fields.google_maps_link}}" target="_blank" rel="noopener noreferrer">{{module.address_fields.address}}</a></p>
+        <p class="ks-contactblock__info__item">{{module.followup_text}}</p>
+      </div>
+    </div>
+    <div class="ks-contactblock__form">
+      <!--[if lte IE 8]>
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+      <![endif]-->
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+      <script>
+        hbspt.forms.create({
+        portalId: "6084868",
+        formId: "{{ module.contact_form.form_id }}"
+      });
+      </script>
+    </div>
+  </div>
+</section>
