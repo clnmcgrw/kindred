@@ -1,9 +1,9 @@
-import { getProductById, getProductByHandle } from './functions';
+import { getProductById, getProductByHandle } from './shopify/functions';
 import {
   productHeroVariant,
   thumbSlide,
   productHeroOption,
-} from '../components';
+} from './components';
 
 const $productDataDump = $('#shopify-product-data');
 const $featuredImage = $('#ks-featuredimage');
@@ -54,9 +54,12 @@ function renderGalleryImages(images) {
 
 function renderOptions(options) {
   if (childCategory === 'fire-bowls') {
-    const { values } = options.filter(opt => opt.name === 'Fuel').shift();
+    const fuelOpts = options.filter(opt => opt.name === 'Fuel').shift();
+    const sizeOpts = options.filter(opt => opt.name === 'Size').shift();
 
-    values.forEach((option, i) =>
+    const allOpts = [fuelOpts.values, sizeOpts.values].flat();
+
+    allOpts.forEach((option, i) =>
       $optionsTarget.append(productHeroOption(option, i))
     );
   }

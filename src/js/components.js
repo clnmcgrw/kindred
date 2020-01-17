@@ -29,7 +29,7 @@ export function productHeroOption(option, idx) {
   return /*html*/ `
     <button
       class="ks-producthero__option ${idx === 0 ? 'active' : ''}"
-      data-option-name="${option.value}"
+      data-option-name='${option.value}'
     >
       ${option.value}
     </button>
