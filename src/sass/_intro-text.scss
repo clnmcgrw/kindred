@@ -2,7 +2,7 @@
   background: $dark;
 
   &--light {
-    background: $light;
+    background: $lighter-grey;
 
     #{headings()} {
       color: $dark-green !important;
@@ -19,6 +19,18 @@
     padding: $padding-sm 0;
   }
 
+  .ks-introtext__main__cols {
+    margin-top: 4em;
+  }
+
+  &__main {
+    &__col {
+      &:first-of-type {
+        margin-bottom: 1em;
+      }
+    }
+  }
+
   .ks-preheading {
     margin-bottom: 1em;
     font-family: $heading-font;
@@ -30,6 +42,27 @@
 
   p {
     color: $white;
+  }
+}
+
+@media (min-width: $bp-md) {
+  .ks-introtext {
+    &__main {
+      &__cols {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+      }
+
+      &__col {
+        flex-basis: 45%;
+
+        &:first-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }
 
@@ -51,16 +84,29 @@
 
     &__content {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       flex-flow: row nowrap;
     }
 
     &__preheading {
-      flex-basis: 23.5%;
+      flex-basis: 20%;
     }
 
     &__main {
-      flex-basis: 76.5%;
+      flex-basis: 70%;
+
+      &__cols {
+        margin-top: 6em;
+        justify-content: flex-start;
+      }
+
+      &__col {
+        flex-basis: 40%;
+
+        &:first-of-type {
+          margin-right: 7.5%;
+        }
+      }
     }
   }
 }

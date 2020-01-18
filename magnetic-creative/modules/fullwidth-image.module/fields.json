@@ -1,0 +1,19 @@
+[ {
+  "id" : "d1c70447-6346-33d2-feec-6c260772cfff",
+  "name" : "selected_image",
+  "label" : "Selected Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "auto",
+    "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/fullwidth-image-placeholder.jpg",
+    "alt" : "fullwidth-image-placeholder",
+    "width" : 1800,
+    "height" : 1012,
+    "max_width" : 1800,
+    "max_height" : 1012
+  }
+} ]

@@ -20,12 +20,21 @@
     "locked" : false,
     "type" : "boolean",
     "default" : true
+  }, {
+    "id" : "c3a95135-67b9-0499-e4ab-b9018dd08aa2",
+    "name" : "two_column_body",
+    "label" : "Two Column Body",
+    "required" : false,
+    "locked" : false,
+    "type" : "boolean",
+    "default" : false
   } ],
   "tab" : "CONTENT",
   "type" : "group",
   "default" : {
     "is_hero" : false,
-    "light_background" : true
+    "light_background" : true,
+    "two_column_body" : false
   }
 }, {
   "id" : "84967803-c212-adbf-3b18-a07b64685b03",
@@ -65,6 +74,43 @@
   "label" : "Body Text",
   "required" : false,
   "locked" : false,
+  "visibility" : {
+    "controlling_field" : "c3a95135-67b9-0499-e4ab-b9018dd08aa2",
+    "controlling_value_regex" : "false",
+    "operator" : "EQUAL",
+    "access" : null,
+    "hidden_subfields" : null
+  },
   "type" : "richtext",
   "default" : "<p>Aliquam vitae magna dolor. Donec volutpat massa et ligula auctor lacinia. Fusce ornare, elit eget elementum tincidunt, lectus elit suscipit tellus, in sollicitudin augue est eu elit. Nullam justo sapien, accumsan sit amet rutrum vel, luctus a lectus. Sed vulputate urna non ex viverra, in malesuada erat commodo.</p>"
+}, {
+  "id" : "946f3a97-c799-f16a-707c-65e8b3a26de5",
+  "name" : "column_one_body",
+  "label" : "Column One Body",
+  "required" : false,
+  "locked" : false,
+  "visibility" : {
+    "controlling_field" : "c3a95135-67b9-0499-e4ab-b9018dd08aa2",
+    "controlling_value_regex" : "true",
+    "operator" : "EQUAL",
+    "access" : null,
+    "hidden_subfields" : null
+  },
+  "type" : "richtext",
+  "default" : "<p>At Kindred Outdoors &amp; Surrounds, drawing people together is what we do. With hand-forged fire bowls, fireplace surrounds, and outdoor living spaces, we create atmospheres where people can commune, converse, and return to comfort.</p>"
+}, {
+  "id" : "85140b79-6b79-9f46-5916-e342eece8c6e",
+  "name" : "column_two_body",
+  "label" : "Column Two Body",
+  "required" : false,
+  "locked" : false,
+  "visibility" : {
+    "controlling_field" : "c3a95135-67b9-0499-e4ab-b9018dd08aa2",
+    "controlling_value_regex" : "true",
+    "operator" : "EQUAL",
+    "access" : null,
+    "hidden_subfields" : null
+  },
+  "type" : "richtext",
+  "default" : "<p>Spaces distinguished by craftsmanship, accentuated by firelight, and designed to draw us near. It’s a little bit of nature and a little bit nurture, all brought together into one kindred space, where we can be together among the elements.</p>"
 } ]

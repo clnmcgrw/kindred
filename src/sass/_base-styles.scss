@@ -155,7 +155,7 @@ button.ks-btn {
 section {
   &.ks-block {
     &--lg {
-      padding: 12.5em 0;
+      padding: $padding-md 0;
     }
   }
 
@@ -200,6 +200,10 @@ figure {
 
 .bg-light {
   background: $bg-light;
+}
+
+.bg-dark {
+  background: $dark;
 }
 
 .ks-quantity {
@@ -249,6 +253,14 @@ figure {
 
     &--lg {
       font-size: 3.8em;
+    }
+  }
+
+  section {
+    &.ks-block {
+      &--lg {
+        padding: $padding-xl 0;
+      }
     }
   }
 }

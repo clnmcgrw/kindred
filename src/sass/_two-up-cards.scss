@@ -1,0 +1,62 @@
+.ks-twoupcards {
+  padding: $padding-md 0;
+
+  &.bg-dark {
+    .ks-threeup__card-heading {
+      color: $light-grey;
+      font-size: 2.8em;
+      margin-top: 0;
+    }
+
+    .ks-threeup__card-content {
+      color: $white;
+    }
+  }
+
+  &__card {
+    margin-bottom: 4em;
+
+    .ks-threeup__card__action {
+      margin-bottom: 2.5em;
+    }
+  }
+}
+
+@media (min-width: $bp-md) {
+  .ks-twoupcards {
+    &__main {
+      display: flex;
+      justify-content: space-between;
+      flex-flow: row nowrap;
+      align-items: flex-start;
+    }
+
+    &__card {
+      flex-basis: 48%;
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (min-width: $bp-xl) {
+  .ks-twoupcards {
+    position: relative;
+    padding: $padding-xl 0;
+
+    &__preheading {
+      position: absolute;
+      top: $padding-xl;
+      left: 0;
+      width: 100%;
+    }
+
+    &__main {
+      width: 56.94%;
+      margin: auto;
+    }
+
+    &__card {
+      flex-basis: 41.46%;
+    }
+  }
+}

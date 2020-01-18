@@ -9,9 +9,25 @@
               {% elif module.heading_size == 'H2' %} <h2>{{module.heading}}</h2>
               {% elif module.heading_size == 'H3' %} <h3>{{module.heading}}</h3>
               {% endif %}
-                <div class="ks-rte-content">
-                  {{module.body_text}}
+              
+              {% if module.appearance_options.two_column_body %}
+              <div class="ks-introtext__main__cols">
+                <div class="ks-introtext__main__col">
+                  <div class="ks-rte-content">
+                    {{module.column_one_body}}
+                  </div>
                 </div>
+                <div class="ks-introtext__main__col">
+                  <div class="ks-rte-content">
+                    {{module.column_two_body}}
+                  </div>
+                </div>
+              </div>
+              {% else %}
+              <div class="ks-rte-content">
+                {{module.body_text}}
+              </div>
+              {% endif %}
             </div>
         </div>
     </div>
