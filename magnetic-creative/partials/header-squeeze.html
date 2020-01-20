@@ -1,3 +1,7 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: false
+-->
 {% include 'magnetic-creative/partials/variables-macros.html' %}
 
 
@@ -5,24 +9,28 @@
 <html lang="{{ html_lang }}" {{ html_lang_dir }}>
 <head>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=NodeList.prototype.forEach%2Cfetch"></script>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>{{page_meta.html_title}}</title>
-  <meta name="description" content="{{page_meta.meta_description}}">
+  <meta name="description" content="{{page_meta.meta_description}}" />
 
   {% if site_settings.favicon_src %}
-  <link rel="shortcut icon" href="{{site_settings.favicon_src}}">
+  <link rel="shortcut icon" href="{{site_settings.favicon_src}}" />
   {% endif %}
 
-  <link rel="stylesheet" href="https://use.typekit.net/vfm2ltu.css">
-  <link rel="stylesheet" href="https://unpkg.com/flickity-fullscreen@1/fullscreen.css">
+  <link rel="stylesheet" href="https://use.typekit.net/vfm2ltu.css" />
+  <link rel="stylesheet" href="https://unpkg.com/flickity-fullscreen@1/fullscreen.css" />
+  <link rel="stylesheet" href="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/index.css" />
 
   {{standard_header_includes}}
 </head>
 
 <body class="{{builtin_body_classes}} {{ksTemplateClass}}">
-  {# WTF - don't put your stylesheet in the head, cause Hubspot will try to concat it for you, which breaks browsersync #}
+  {#
+    WTF - don't put your stylesheet in the head, cause Hubspot will try to concat it for you, which breaks browsersync
+    Note - to have the styles present on the live site, you need to also include this in the <head /> above
+  #}
   <link rel="stylesheet" href="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/index.css">
 
   <header id="ks-squeezeheader" class="ks-squeezeheader" role="banner">
