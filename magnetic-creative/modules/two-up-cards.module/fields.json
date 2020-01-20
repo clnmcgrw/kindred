@@ -1,0 +1,157 @@
+[ {
+  "id" : "7a37ee79-5bd9-e025-2bce-12587570c75b",
+  "name" : "appearance_options",
+  "label" : "Appearance Options",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "8c6fd786-1bdc-1ff7-514b-29cb2140ecf6",
+    "name" : "dark_background",
+    "label" : "Dark Background",
+    "required" : false,
+    "locked" : false,
+    "type" : "boolean",
+    "default" : true
+  } ],
+  "tab" : "CONTENT",
+  "type" : "group",
+  "default" : {
+    "dark_background" : true
+  }
+}, {
+  "id" : "d2798a2c-50ca-73d2-7782-ffba0b6c3eda",
+  "name" : "preheading",
+  "label" : "Preheading",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Our Products"
+}, {
+  "id" : "30c53f4a-d7f3-1969-1901-2d7775d32736",
+  "name" : "cards",
+  "label" : "Cards",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 2,
+    "max" : 2,
+    "sorting_label_field" : "cae69142-a914-32e1-24fa-f4cabbab04df",
+    "default" : 2
+  },
+  "children" : [ {
+    "id" : "cae69142-a914-32e1-24fa-f4cabbab04df",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "Elegant solutions made for fire and for sitting fireside."
+  }, {
+    "id" : "a481809a-3ba6-ac16-1831-1b68dcd83398",
+    "name" : "card_body",
+    "label" : "Body",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "default" : "<p>There's nothing quite like the pleasure of gathering friends and family in your own luxurious outdoor living space. With Kindred Outdoor &amp; Surrounds, there are a number of ways to create your very own personal retreat ranging from elegant fire bowls to inviting seating walls to beautiful outdoor kitchens. Kindred Outdoor &amp; Surrounds seamlessly marries design and functionality making it easier than ever to create your memorable space.</p>"
+  }, {
+    "id" : "75414af7-8de4-84ec-27ee-5bedae4b309f",
+    "name" : "button_text",
+    "label" : "Button Text",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "Explore Outdoor"
+  }, {
+    "id" : "7d4738f2-e06e-cb22-36c8-e712d544f781",
+    "name" : "link_to_page",
+    "label" : "Link To Page",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "CONTENT" ],
+    "type" : "link",
+    "default" : {
+      "url" : {
+        "type" : "CONTENT",
+        "href" : null,
+        "content_id" : 24294764548
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  }, {
+    "id" : "4a6a4aa3-274b-e2d9-47fc-fa108380f19a",
+    "name" : "card_image",
+    "label" : "Card Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : false,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/twoup-placeholder.jpg",
+      "alt" : "twoup-placeholder",
+      "width" : 340,
+      "height" : 270,
+      "max_width" : 340,
+      "max_height" : 270
+    }
+  } ],
+  "tab" : "CONTENT",
+  "type" : "group",
+  "default" : [ {
+    "title" : "Elegant solutions made for fire and for sitting fireside.",
+    "card_body" : "<p>There's nothing quite like the pleasure of gathering friends and family in your own luxurious outdoor living space. With Kindred Outdoor &amp; Surrounds, there are a number of ways to create your very own personal retreat ranging from elegant fire bowls to inviting seating walls to beautiful outdoor kitchens. Kindred Outdoor &amp; Surrounds seamlessly marries design and functionality making it easier than ever to create your memorable space.</p>",
+    "button_text" : "Explore Outdoor",
+    "link_to_page" : {
+      "url" : {
+        "type" : "CONTENT",
+        "href" : null,
+        "content_id" : 24294764548
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    },
+    "card_image" : {
+      "size_type" : "auto",
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/twoup-placeholder.jpg",
+      "alt" : "twoup-placeholder",
+      "width" : 340,
+      "height" : 270,
+      "max_width" : 340,
+      "max_height" : 270
+    }
+  }, {
+    "title" : "Elegant solutions made for fire and for sitting fireside.",
+    "card_body" : "<p>There's nothing quite like the pleasure of gathering friends and family in your own luxurious outdoor living space. With Kindred Outdoor &amp; Surrounds, there are a number of ways to create your very own personal retreat ranging from elegant fire bowls to inviting seating walls to beautiful outdoor kitchens. Kindred Outdoor &amp; Surrounds seamlessly marries design and functionality making it easier than ever to create your memorable space.</p>",
+    "button_text" : "Explore Outdoor",
+    "link_to_page" : {
+      "url" : {
+        "type" : "CONTENT",
+        "href" : null,
+        "content_id" : 24294764548
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    },
+    "card_image" : {
+      "size_type" : "auto",
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/twoup-placeholder.jpg",
+      "alt" : "twoup-placeholder",
+      "width" : 340,
+      "height" : 270,
+      "max_width" : 340,
+      "max_height" : 270
+    }
+  } ]
+} ]

@@ -18,7 +18,7 @@ form.hs-form {
     .hs-form-required {
       position: absolute;
       top: -0.25em;
-      right: -1em;
+      right: -0.5em;
       color: $primary;
     }
   }
@@ -48,6 +48,7 @@ form.hs-form {
 
   input[type='submit'] {
     @extend .ks-btn;
+    border: none;
     padding: 1.15em 4em;
     width: auto !important;
   }

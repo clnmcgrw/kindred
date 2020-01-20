@@ -105,6 +105,14 @@ button.ks-btn {
 
 // Headlines
 .ks-headline {
+  font-weight: 400;
+
+  &--fake {
+    font-size: 1em;
+    font-weight: normal;
+    font-family: $body-font;
+  }
+
   &--mini {
     font-size: 0.9em;
   }
