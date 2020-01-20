@@ -2252,7 +2252,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
       fill: #994c3d; }
 
 .ks-squeezeintro {
-  text-align: center;
+  text-align: left;
   padding-top: 1em;
   background-color: #f6f5f3; }
   .ks-squeezeintro .ks-headline {
@@ -2282,11 +2282,13 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
 @media (min-width: 767px) {
   .ks-squeezeheader > .ks-inner {
     padding: 3em 0; }
-  .ks-squeezeintro .ks-headline {
-    font-size: 4em; }
-  .ks-squeezeintro li {
-    display: inline-block;
-    margin: 0 0.5em; } }
+  .ks-squeezeintro {
+    text-align: center; }
+    .ks-squeezeintro .ks-headline {
+      font-size: 4em; }
+    .ks-squeezeintro li {
+      display: inline-block;
+      margin: 0 0.5em; } }
 
 @media (min-width: 992px) {
   .ks-squeezeintro .ks-headline {
