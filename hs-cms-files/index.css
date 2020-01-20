@@ -928,6 +928,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     color: #e2ddd6; }
 
 @media (min-width: 767px) {
+  .ks-footer .ks-inner {
+    padding-top: 0; }
   .ks-footer--squeeze__intro {
     margin-bottom: 0; }
     .ks-footer--squeeze__intro .ks-headline {
@@ -2284,7 +2286,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     font-size: 4em; }
   .ks-squeezeintro li {
     display: inline-block;
-    margin: 0 1em; } }
+    margin: 0 0.5em; } }
 
 @media (min-width: 992px) {
   .ks-squeezeintro .ks-headline {
