@@ -10,9 +10,11 @@ html {
 
 body {
   font-family: $body-font;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .ks-maincontent .ks-site-container {
