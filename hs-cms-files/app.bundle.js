@@ -3874,6 +3874,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ui_
 
 /***/ }),
 
+/***/ "./src/js/category-list.js":
+/*!*********************************!*\
+  !*** ./src/js/category-list.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ui__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ui */ \"./src/js/ui.js\");\n\nvar $categoryList = $('.ks-categorylist');\nvar $triggers = $categoryList.find('.ks-headline');\nvar $images = $categoryList.find('.ks-figure');\n/* harmony default export */ __webpack_exports__[\"default\"] = (function () {\n  if (!$categoryList.length) return;\n  $triggers.hover(function () {\n    var $t = $(this);\n    var trigIdx = $triggers.index($t);\n    var $targetImg = $($images[trigIdx]);\n    $triggers.removeClass('active');\n    $images.removeClass('active');\n    $targetImg.addClass('active');\n    $t.addClass('active');\n  }, $.noop);\n  _ui__WEBPACK_IMPORTED_MODULE_0__[\"$doc\"].ready(function () {\n    $triggers.first().addClass('active');\n    $images.first().addClass('active');\n  });\n});\n\n//# sourceURL=webpack:///./src/js/category-list.js?");
+
+/***/ }),
+
 /***/ "./src/js/components.js":
 /*!******************************!*\
   !*** ./src/js/components.js ***!
@@ -3930,7 +3942,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var flic
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _hero_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hero-slider */ \"./src/js/hero-slider.js\");\n/* harmony import */ var _gallery_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gallery-slider */ \"./src/js/gallery-slider.js\");\n/* harmony import */ var _page_product_single__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./page-product-single */ \"./src/js/page-product-single.js\");\n/* harmony import */ var _gallery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./gallery */ \"./src/js/gallery.js\");\n/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components */ \"./src/js/components.js\");\n/* harmony import */ var _ui__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ui */ \"./src/js/ui.js\");\n/* harmony import */ var _cart_sidebar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./cart-sidebar */ \"./src/js/cart-sidebar.js\");\n/* harmony import */ var _shopify_main__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./shopify/main */ \"./src/js/shopify/main.js\");\n\n\n\n\n\n\n\n\nObject(_hero_slider__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\nObject(_gallery_slider__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\nObject(_page_product_single__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\nObject(_gallery__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _hero_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hero-slider */ \"./src/js/hero-slider.js\");\n/* harmony import */ var _gallery_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./gallery-slider */ \"./src/js/gallery-slider.js\");\n/* harmony import */ var _page_product_single__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./page-product-single */ \"./src/js/page-product-single.js\");\n/* harmony import */ var _gallery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./gallery */ \"./src/js/gallery.js\");\n/* harmony import */ var _category_list__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./category-list */ \"./src/js/category-list.js\");\n/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components */ \"./src/js/components.js\");\n/* harmony import */ var _ui__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ui */ \"./src/js/ui.js\");\n/* harmony import */ var _cart_sidebar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./cart-sidebar */ \"./src/js/cart-sidebar.js\");\n/* harmony import */ var _shopify_main__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./shopify/main */ \"./src/js/shopify/main.js\");\n\n\n\n\n\n\n\n\n\nObject(_hero_slider__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\nObject(_gallery_slider__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\nObject(_page_product_single__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\nObject(_gallery__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\nObject(_category_list__WEBPACK_IMPORTED_MODULE_4__[\"default\"])();\n\n//# sourceURL=webpack:///./src/js/index.js?");
 
 /***/ }),
 

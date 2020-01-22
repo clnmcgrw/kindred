@@ -3,7 +3,6 @@
     isAvailableForNewContent: true
 -->
 
-
 {% include '/magnetic-creative/partials/header-primary.html' %}
 
 {# all tables associated w/ shop #}
@@ -11,7 +10,7 @@
 {% set ksParentCategoryTableId = 2036894 %}
 {% set ksChildCategoryTableId = 2036892 %}
 
-{# determine parent (1) or child (2) category #}
+{# determine parent (1) or child (2) category eg: 1 == /shop/indoor, 2 == /shop/indoor/surrounds #}
 {% set ksSlugDepth = dynamic_page_route_level %}
 
 {# row id for matching category #}
@@ -22,8 +21,6 @@
 
 {# get all row data for category #}
 {% set ksCategoryRowData = hubdb_table_row(ksCategoryRowTableId, ksCategoryRowId) %}
-
-
 
 {# parent category page ---------------------- #}
 {% if ksSlugDepth == 1 %}
@@ -39,9 +36,9 @@
           <span class="ks-preheading">Outdoors</span>
         </div>
         <div class="ks-introtext__main">
-          <h1 class="ks-headline--md">{{parentCategory.listing_page_heading}}</h1>
+          <h1 class="ks-headline--md">{{ parentCategory.listing_page_heading }}</h1>
           <div class="ks-rte-content">
-            <p>{{parentCategory.listing_page_intro_body}}</p>
+            <p>{{ parentCategory.listing_page_intro_body }}</p>
           </div>
         </div>
       </div>
@@ -75,25 +72,21 @@
     </div>
   </section>
 
-  {# <section class="ks-section" style="background:#fff;padding:5rem 0;margin-top:5rem;">
-    <h1>Parent Category: {{ksCategoryRowData.name}}</h1>
-    <h5>Category Info:</h5>
-    <code>
-      {{ ksCategoryRowData | pprint }}
-    </code>
-    <br><br>
-    
-    <h5>Child Categories</h5>
-    <code>
-      {% for child in ksChildTableData %}
-      <div>
-        {{child}}
+  <section class="ks-resourcecallout">
+    <div class="ks-resourcecallout__flex">
+      <div class="ks-resourcecallout__mainimg" style="background-image: url('https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/kindred-kitchen.jpg');"></div>
+      <div class="ks-resourcecallout__text">
+        <div class="ks-resourcecallout__text__bgimg ks-fill-parent" style="background-image: url('https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/Cliffstone-Whitebark.jpg');"></div>
+        <div class="ks-resourcecallout__text__content">
+          <div class="ks-resourcecallout__preheading">
+            <span>A Step-By-Step Guide</span>
+          </div>
+          <h3>Building Your Own Amazing Outdoor Living Space</h3>
+          <a href="#0" class="ks-btn">Get Your Free Guide</a>
+        </div>
       </div>
-      
-      {% endfor %}
-    </code>
-  </section> #}
-
+    </div>
+  </section>
 {% endif %}
 
 
@@ -106,9 +99,22 @@
   <section class="ks-heroimage">
     <figure class="ks-figure">
         <div class="ks-figure__liner">
-            <img src="{{ksCategoryRowData.image.url}}" alt="">
+            <img src="{{ ksCategoryRowData.image.url }}" alt="">
         </div>
     </figure>
+  </section>
+
+  <section class="ks-introtext ks-introtext--xlight">
+    <div class="ks-inner">
+      <div class="ks-introtext__content">
+        <div class="ks-introtext__preheading">
+          <span class="ks-preheading">Outdoors</span>
+        </div>
+        <div class="ks-introtext__main">
+          <h1 class="ks-headline--md">{{ ksCategoryRowData.category_headline }}</h1>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="ks-productlist">
@@ -116,15 +122,15 @@
 
     {% for product in ksProductData %}
       <div class="ks-card ks-card--image">
-        <a href="/products/{{product.hs_path}}" class="ks-linkover">
+        <a href="/products/{{ product.hs_path }}" class="ks-linkover">
           <div class="ks-card__liner">
             <figure class="ks-figure">
               <div class="ks-figure__liner">
-                <img src="{{product.featured_image}}" alt="">
+                <img src="{{ product.featured_image }}" alt="">
               </div>
             </figure>
             <div class="ks-card__title">
-              <p>{{product.product_title}}</p>
+              <p>{{ product.product_title }}</p>
             </div>
           </div>
         </a>
@@ -133,25 +139,35 @@
     </div>
   </section>
 
-  {# <section class="ks-section" style="background:#fff;padding:5rem 0;margin-top:5rem;">
+  {% set otherProductsFilterQuery = 'parent_category__contains=' + dynamic_page_hubdb_row.parent_category[0].name %}
+  {% set otherProductsInChildCategory = hubdb_table_rows(ksChildCategoryTableId, otherProductsFilterQuery) %}
+
+  <section class="ks-categorylist ks-categorylist--dark">
     <div class="ks-inner">
-      <h1>Child Category: {{dynamic_page_hubdb_row.name}}</h1>
-      <h5>Category Info:</h5>
-      <code>
-        {{ ksCategoryRowData | pprint }}
-      </code>
-      <br><br>
-      <h5>Matching Products:</h5>
-      <code>
-        {{ksProductData | pprint}}
-      </code>
+      <div class="ks-categorylist__bgimg" style="background-image: url('{{ ksCategoryRowData.image.url }}')"></div>
+
+      <div class="ks-categorylist__main">
+        <div class="ks-categorylist__images">
+          {% for child in otherProductsInChildCategory %}
+            <figure class="ks-figure">
+              <div class="ks-figure__liner" style="padding-bottom: {{ (child.thumbnail_image.height / child.thumbnail_image.width) * 100 }}%">
+                <img src="{{ child.thumbnail_image.url }}" alt="{{ child.thumbnail_image.alt }}">
+              </div>
+            </figure>
+          {% endfor %}
+        </div>
+        <div class="ks-categorylist__titles">
+          <ul>
+            {% for child in otherProductsInChildCategory %}
+              <li class="ks-headline ks-headline--md">
+                <a href="/shop/{{ ksCategoryRowData.hs_path }}/{{ child.hs_path }}">{{ child.hs_name }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
     </div>
-  </section> #}
-
+  </section>
 {% endif %}
-
-
-
-
 
 {% include '/magnetic-creative/partials/footer-primary.html' %}

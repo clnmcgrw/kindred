@@ -15,6 +15,14 @@
     }
   }
 
+  &--xlight {
+    background: $bg-light;
+
+    #{headings()} {
+      color: $dark-green !important;
+    }
+  }
+
   &__content {
     padding: $padding-sm 0;
   }
