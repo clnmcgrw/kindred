@@ -21,6 +21,14 @@
     "type" : "boolean",
     "default" : true
   }, {
+    "id" : "51e27e06-3de6-0992-e2b5-47226690b5db",
+    "name" : "extra_light_background",
+    "label" : "Extra-Light Background",
+    "required" : false,
+    "locked" : false,
+    "type" : "boolean",
+    "default" : false
+  }, {
     "id" : "c3a95135-67b9-0499-e4ab-b9018dd08aa2",
     "name" : "two_column_body",
     "label" : "Two Column Body",
@@ -34,6 +42,7 @@
   "default" : {
     "is_hero" : false,
     "light_background" : true,
+    "extra_light_background" : false,
     "two_column_body" : false
   }
 }, {
