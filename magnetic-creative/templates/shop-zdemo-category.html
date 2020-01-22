@@ -27,24 +27,72 @@
 
 {# parent category page ---------------------- #}
 {% if ksSlugDepth == 1 %}
-  {% set ksChildTableId = dynamic_page_hubdb_row.hs_child_table_id %}
+  {% set parentCategory = dynamic_page_hubdb_row %}
+  {% set ksChildTableId = parentCategory.hs_child_table_id %}
   {% set ksChildTableFilterQuery = 'parent_category__contains=' + ksCategoryRowData.name %}
   {% set ksChildTableData = hubdb_table_rows(ksChildTableId, ksChildTableFilterQuery) %}
 
-  <section class="ks-section" style="background:#fff;padding:5rem 0;margin-top:5rem;">
+  <section class="ks-introtext ks-introtext--hero ">
     <div class="ks-inner">
-      <h1>Parent Category: {{ksCategoryRowData.name}}</h1>
-      <h5>Category Info:</h5>
-      <code>
-        {{ ksCategoryRowData | pprint }}
-      </code>
-      <br><br>
-      <h5>Child Categories</h5>
-      <code>
-        {{ ksChildTableData | pprint }}
-      </code>
+      <div class="ks-introtext__content">
+        <div class="ks-introtext__preheading">
+          <span class="ks-preheading">Outdoors</span>
+        </div>
+        <div class="ks-introtext__main">
+          <h1 class="ks-headline--md">{{parentCategory.listing_page_heading}}</h1>
+          <div class="ks-rte-content">
+            <p>{{parentCategory.listing_page_intro_body}}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <section class="ks-categorylist">
+    <div class="ks-inner">
+      <div class="ks-categorylist__bgimg" style="background-image: url('{{ ksCategoryRowData.image.url }}')"></div>
+
+      <div class="ks-categorylist__main">
+        <div class="ks-categorylist__images">
+          {% for child in ksChildTableData %}
+            <figure class="ks-figure">
+              <div class="ks-figure__liner" style="padding-bottom: {{ (child.thumbnail_image.height / child.thumbnail_image.width) * 100 }}%">
+                <img src="{{ child.thumbnail_image.url }}" alt="{{ child.thumbnail_image.alt }}">
+              </div>
+            </figure>
+          {% endfor %}
+        </div>
+        <div class="ks-categorylist__titles">
+          <ul>
+            {% for child in ksChildTableData %}
+              <li class="ks-headline ks-headline--md">
+                <a href="/shop/{{ ksCategoryRowData.hs_path }}/{{ child.hs_path }}">{{ child.hs_name }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# <section class="ks-section" style="background:#fff;padding:5rem 0;margin-top:5rem;">
+    <h1>Parent Category: {{ksCategoryRowData.name}}</h1>
+    <h5>Category Info:</h5>
+    <code>
+      {{ ksCategoryRowData | pprint }}
+    </code>
+    <br><br>
+    
+    <h5>Child Categories</h5>
+    <code>
+      {% for child in ksChildTableData %}
+      <div>
+        {{child}}
+      </div>
+      
+      {% endfor %}
+    </code>
+  </section> #}
 
 {% endif %}
 
@@ -55,7 +103,37 @@
   {% set ksProductsFilterQuery = 'child_category__contains=' + ksEncodedQueryVal %}
   {% set ksProductData = hubdb_table_rows(ksProductsTableId, ksProductsFilterQuery) %}
 
-  <section class="ks-section" style="background:#fff;padding:5rem 0;margin-top:5rem;">
+  <section class="ks-heroimage">
+    <figure class="ks-figure">
+        <div class="ks-figure__liner">
+            <img src="{{ksCategoryRowData.image.url}}" alt="">
+        </div>
+    </figure>
+  </section>
+
+  <section class="ks-productlist">
+    <div class="ks-inner">
+
+    {% for product in ksProductData %}
+      <div class="ks-card ks-card--image">
+        <a href="/products/{{product.hs_path}}" class="ks-linkover">
+          <div class="ks-card__liner">
+            <figure class="ks-figure">
+              <div class="ks-figure__liner">
+                <img src="{{product.featured_image}}" alt="">
+              </div>
+            </figure>
+            <div class="ks-card__title">
+              <p>{{product.product_title}}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+    </div>
+  </section>
+
+  {# <section class="ks-section" style="background:#fff;padding:5rem 0;margin-top:5rem;">
     <div class="ks-inner">
       <h1>Child Category: {{dynamic_page_hubdb_row.name}}</h1>
       <h5>Category Info:</h5>
@@ -68,7 +146,7 @@
         {{ksProductData | pprint}}
       </code>
     </div>
-  </section>
+  </section> #}
 
 {% endif %}
 
