@@ -1,0 +1,140 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+-->
+{% include '/magnetic-creative/partials/header-primary.html' %}
+<script src="//cdn2.hubspot.net/hubfs/3974799/2018-web/js/priority.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/plugins/ScrollToPlugin.min.js"></script>
+
+{% set cs_dealers_tableid = '2052547' %}
+
+{% set cs_params = request.query_dict %}
+{% set cs_params_set = cs_params.coords %}
+
+{% set cs_zip_input = '' %}
+{% set cs_coords_input = '' %}
+
+{% if cs_params %}
+  {% set cs_zip_input = cs_params.zipcode %}
+{% endif %}
+{% if cs_params_set %}
+  {% set cs_coords_input = cs_params.coords %}
+{% endif %}
+
+
+
+<div class="cs-wtb-map">
+  <div id="cs-locator-maptarget"></div>
+  <div id="cs-locator-mapoverlay" class="cs-wtb-mapoverlay {% if cs_params_set %}is-hidden{% endif %}">
+    <div id="cs-locator-msgtarget"></div>
+  </div>
+</div>
+
+
+<section id="cs-locator" class="cs-wtb-section">
+  <div class="ks-inner">
+    
+    <div class="cs-wtb-section--top">
+      <div class="cs-wtb--centered">
+
+        <div class="cs-wtb--headline">
+          <h1 class="cs-headline--lg">{% text 'fad_title', label="Page Title", value="Locate a Kindred Dealer Near You", no_wrapper=true %}</h1>
+          <p>{% text 'fad_paragraph' label="Page Intro", value="With dealers abound, Kindred products are easy to get your hands on.  Enter your State or ZIP in the field below to find dealers near you.", no_wrapper=true %}</p>
+          <p><small>Or view our <a href="{{cs_base_url}}/where-to-buy/state">dealers listing by state</a>.</small></p>
+        </div>
+        <div class="cs-wtb--form">
+
+          <form id="cs-wtb-searchform" action="{{cs_base_url}}/find-a-dealer" method="GET" data-searched-coords="{{cs_coords_input}}" data-searched-text="{{cs_zip_input}}">
+            <div class="clearfix">
+              <div class="cs-form--el cs-wtb--forminput">
+                <input type="text" id="cs-wtb-zipcode" name="zipcode" placeholder="Enter City, State, or Zip" value="{{cs_zip_input}}" autocomplete="off">
+                <input type="hidden" id="cs-wtb-coords" name="coords" value="{{cs_coords_input}}">
+              </div>
+              <div class="cs-form--el cs-wtb--formbtn">
+                <button id="cs-wtb-submitbtn" type="submit" class="ks-btn ks-btn--primary" disabled>Search</button>
+              </div>
+            </div>
+          </form>
+
+          <div class="cs-wtb--errors">
+            <div id="cs-wtb-errors" class="cs-wtb--errors-msg">
+              <p class="cs-wtb-success-p"><i class="icon-spin6" aria-hidden="true"></i> Getting Results Based on Your Location...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!--/end .ks-inner-->
+</section>
+
+
+
+<section class="cs-wtb-resultslist {% if cs_params_set %}wtb-search-performed{% endif %}">
+  <div class="ks-inner">
+    
+    {% if cs_params_set %}
+    <div id="cs-locator-results">
+      {% set cs_coords_arr = cs_coords_input | split('|') %}
+      {% set cs_lat = cs_coords_arr[0] %}
+      {% set cs_lng = cs_coords_arr[1] %}
+
+      {% set cs_table_query = 'orderBy=geo_distance(map_location,'+cs_lat+','+cs_lng+')&limit=100' %}
+      {% set cs_table_data = hubdb_table_rows(cs_dealers_tableid, cs_table_query) %}
+
+      {% for row in cs_table_data %}
+        {% set pos = row['map_location'] %}
+        
+        {% if row['map_location'] %}
+        <div class="cs-wtb--listitem" data-dealer-location='{"lat": {{pos.lat}},"lng": {{pos.lon}}}'">
+          <div class="cs-wtb--listitem-liner">
+            <h4><a href="#0">{{row['name']}}</a></h4>
+            <address>
+              <span>{{row['address'] | lower | capitalize}}<span>
+              <span class="sep">|</span>
+              <span>{{row['city']}}, {{row['state']}}</span>
+            </address>
+            <p>
+              <span>Phone: </span>
+              {% set cs_tel_href = row['phone'] | replace(' ', '') | replace('-', '') %}
+              <a href="tel:+1{{cs_tel_href}}">{{row['phone']}}</a>
+            </p>
+            <p>
+              <a href="https://www.google.com/maps/dir/Current+Location/{{row.address}} {{row.city}}, {{row.state}} {{row.zipcode}}">
+                <span>Get Driving Directions</span>
+              </a>
+            </p>
+          </div>
+        </div>
+        {% endif %}
+
+      {% endfor %}
+    </div>
+    {% else %}
+
+    <div class="cs-locator-results-empty">
+      <p>Seach by city, state, or zipcode in the form above.</p>
+    </div>
+
+    {% endif %}
+  </div>
+</section>
+
+
+{% if cs_params_set %}
+<div id="cs-wtb-actionbar" class="cs-wtb-actionbar">
+  <div class="clearfix">
+    <div class="cs-wtb--actionbar-half">
+      <form action="" method="GET">
+        <button id="wtb-search-again-btn" type="submit">Search Again</button>
+      </form>
+    </div>
+    <div class="cs-wtb--actionbar-half">
+      <button id="wtb-back-top-btn" type="button">Top of Results</button>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% include '/magnetic-creative/partials/footer-primary.html' %}

@@ -98,6 +98,15 @@ main {
     background-color: $secondary;
     color: $primary;
   }
+
+  &:disabled {
+    background: lighten($primary, 15%);
+
+    &:hover {
+      cursor: not-allowed;
+      color: $white;
+    }
+  }
 }
 
 button.ks-btn {

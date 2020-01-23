@@ -1,0 +1,650 @@
+// Custom stuff to override old cs styles
+.cs-wtb--form {
+  border-bottom: none !important;
+}
+
+#cs-wtb-zipcode {
+  padding: 1em 0.5em;
+  border: none;
+  border-bottom: 1px solid $light-grey;
+}
+
+.cs-wtb--listitem a {
+  color: $primary;
+
+  &:hover {
+    color: darken($primary, 15%);
+  }
+}
+
+.cs-wtb-map {
+  a {
+    color: $primary !important;
+
+    &:hover {
+      color: darken($primary, 15%) !important;
+    }
+  }
+}
+
+@media (min-width: $bp-xl) {
+  .cs-wtb--form {
+    .clearfix {
+      @include clearfix();
+    }
+
+    &input,
+    &btn {
+      float: left;
+      width: 48%;
+    }
+
+    &input {
+      margin-right: 4%;
+    }
+  }
+
+  #cs-wtb-zipcode {
+    margin-bottom: 0;
+    padding: 1.75em 0.5em !important;
+  }
+}
+
+// Original CS code below
+// By State Listing Page
+//-------------------------------------//
+
+.cs-section--locator-az {
+  padding: 9em 0 2em;
+
+  p a {
+    text-decoration: underline;
+    transition: opacity 0.25s ease;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.cs-section--az-results {
+  padding: 3em 0 6em;
+}
+
+.cs-statesearch--form {
+  position: relative;
+  .cs-btn {
+    display: none;
+  }
+}
+
+.cs-statesearch--reset {
+  position: absolute;
+  bottom: -2em;
+  right: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+
+  a {
+    display: block;
+    line-height: 1;
+    font-size: 0.85em;
+    padding: 5px;
+    color: darken($white, 20%);
+
+    i {
+      position: relative;
+      top: -1px;
+      font-size: 0.75em;
+      line-height: 1;
+      margin-right: 3px;
+    }
+    span {
+      text-transform: uppercase;
+    }
+  }
+
+  body.is-stateparam-present & {
+    opacity: 1;
+  }
+}
+
+.cs-statesearch--form-inner {
+  position: relative;
+}
+
+.cs-statesearch--select {
+  position: relative;
+
+  select {
+    appearance: none;
+    border-radius: 0px;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    background: $white;
+    height: 65px;
+    font-size: 1em;
+    padding-left: 15px;
+    border: 1px solid darken($white, 15%);
+    transition: all 0.5s ease;
+
+    &:hover {
+      background: darken($white, 3%);
+      border-color: $primary;
+      box-shadow: none;
+    }
+
+    &:focus {
+      background: darken($white, 3%);
+      border-color: $light-grey;
+
+      + .cs-statesearch--caret {
+        margin-top: -0.6em;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.cs-statesearch--caret {
+  line-height: 1;
+  display: block;
+  height: 1.1em;
+  width: 1.1em;
+  position: absolute;
+  top: 50%;
+  right: 1.2em;
+  margin-top: -0.45em;
+  pointer-events: none;
+
+  transition: transform 0.3s $ease-out-back;
+
+  i {
+    color: $primary;
+  }
+}
+
+.cs-results-az--letter-heading {
+  h2 {
+    font-size: 3em;
+    margin-bottom: 5px;
+  }
+}
+.cs-results-az--letter-hr {
+  hr {
+    margin: 0;
+    border: none;
+    height: 1px;
+    background: $light-grey;
+  }
+}
+
+//wraps each group within each
+//section for each letter
+.cs-results-za--outer {
+  padding: 1em 0 2em;
+}
+
+//individual locator item
+.cs-results-az--item {
+  padding: 1em 0;
+  margin-bottom: 1em;
+
+  h4 {
+    font-size: 1.3em;
+  }
+
+  address {
+    font-style: normal;
+    line-height: 1.35;
+    padding-top: 5px;
+    span {
+      text-transform: capitalize;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.location-result-directions {
+  padding-top: 10px;
+  a {
+    &:hover {
+      color: rgba($primary, 0.75);
+      i {
+        opacity: 1;
+        color: $primary;
+        transform: translateX(2px);
+        transition-timing-function: $ease-out-quart;
+      }
+    }
+    i {
+      display: inline-block;
+      position: relative;
+      top: -2px;
+      font-size: 0.65em;
+      margin-left: 7px;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: all 0.35s $ease-in-quart;
+    }
+  }
+}
+
+@media (min-width: $bp-md) {
+  .cs-results-az--item {
+    width: 31.3333333%;
+    float: left;
+    margin-right: 3%;
+
+    &:nth-of-type(3n) {
+      margin-right: 0;
+    }
+  }
+}
+
+// Map Stuff
+//-------------------------------------//
+.cs-wtb-map {
+  position: fixed;
+  z-index: 29;
+  background: darken($white, 5%);
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+  transform: translateX(100%);
+}
+
+#cs-locator-maptarget {
+  @include fill-parent();
+}
+
+.cs-wtb-mapoverlay {
+  @include fill-parent();
+  z-index: 19;
+  background: rgba(darken($light-grey, 10%), 0.9);
+  display: flex;
+  align-items: center;
+
+  &.is-hidden {
+    display: none;
+  }
+}
+
+#cs-locator-msgtarget {
+  width: 100%;
+  text-align: center;
+  p {
+    font-family: $heading-font;
+    color: $white;
+    padding-right: 30px;
+    padding-left: 30px;
+    @include font-smoothing();
+  }
+}
+
+//infowindows
+
+.cs-infowindow-content {
+  min-width: 330px;
+  padding: 15px 2% 12px 4%;
+
+  address a,
+  p a {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  address,
+  p {
+    font-style: normal;
+    font-family: $body-font;
+    font-size: 1.1em;
+    margin-bottom: 0.75em;
+  }
+  address {
+    padding-top: 5px;
+    margin-bottom: 5px;
+
+    span {
+      text-transform: capitalize;
+    }
+  }
+}
+
+// Content / Listing Stuff
+//-------------------------------------//
+.cs-wtb-section {
+  background: $white;
+}
+
+.cs-wtb-section--top {
+  display: flex;
+  align-items: center;
+  min-height: 770px;
+  min-height: 80vh;
+}
+
+.cs-wtb--centered {
+  padding-top: 7em;
+  padding-bottom: 2em;
+}
+
+.cs-wtb--headline {
+  p {
+    margin: 0 0 0.5em;
+    a {
+      text-decoration: underline;
+    }
+  }
+  p + p {
+    margin: 0 0 2em;
+  }
+}
+
+.cs-wtb--altsearch {
+  padding-top: 2em;
+  a {
+    text-decoration: underline;
+  }
+}
+
+.cs-wtb--form {
+  @include clearfix();
+  padding-bottom: 2em;
+  border-bottom: 1px solid darken($white, 15%);
+
+  input[type='text'] {
+    outline: none;
+    appearance: none;
+    border-radius: 0px;
+    width: 100%;
+    height: 50px;
+    padding-left: 15px;
+    border: 1px solid darken($white, 20%);
+    margin-bottom: 0.5em;
+    transition: all 0.3s ease;
+
+    &:focus {
+      border-color: $light-grey;
+      background: darken($white, 2%);
+    }
+  }
+
+  button[type='submit'] {
+    width: 100%;
+
+    &:disabled {
+      cursor: not-allowed;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.cs-wtb--formbtn {
+  .cs-btn {
+    color: $light-grey;
+  }
+
+  .cs-btn:disabled {
+    background: darken($white, 20%);
+    color: rgba($white, 0.7);
+  }
+}
+
+//errors box parent, gets toggled w/ tweens
+.cs-wtb--errors {
+  position: relative;
+  overflow: hidden;
+  height: 0px;
+}
+.cs-wtb--errors-msg {
+  padding-top: 1em;
+
+  p {
+    font-size: 0.9em;
+    margin: 0;
+  }
+  .cs-wtb-err-p {
+    color: $primary;
+  }
+  .cs-wtb-success-p {
+    color: $primary;
+  }
+
+  .icon-spin6:before {
+    animation: miniSpinner 1s linear infinite;
+  }
+}
+
+.cs-wtb-resultslist {
+  position: relative;
+  overflow: hidden;
+
+  background: darken($white, 2.5%);
+  padding: 0;
+  border-top: 1px solid darken($white, 10%);
+  min-height: 20vh;
+}
+
+.cs-locator-results-empty {
+  padding: 2em 0 4em;
+}
+
+.cs-wtb--listitem {
+  position: relative;
+  transition: background 0.3s ease;
+
+  &:before {
+    content: '';
+    display: block;
+    @include fill-parent();
+    left: auto;
+    right: -5%;
+    width: 140%;
+    background: darken($white, 5%);
+    transform: scale(0, 1);
+    transform-origin: left center;
+    transition: transform 0.5s $ease-in-out-circ, background 0.5s ease;
+  }
+
+  html.js & {
+    cursor: pointer;
+  }
+
+  //no bottom border for last item
+  &:last-of-type {
+    .cs-wtb--listitem-liner:after {
+      display: none;
+    }
+  }
+
+  &:hover,
+  &.is-currently-selected {
+    &:before {
+      transform: scale(1, 1);
+      transform-origin: right center;
+    }
+  }
+
+  &.is-currently-selected {
+    &:before {
+      background: darken($white, 8%);
+    }
+
+    .cs-wtb--listitem-liner {
+      transform: translateX(22px);
+      &:before {
+        visibility: visible;
+        transform-origin: top center;
+        transform: scale(1, 1);
+        transition-delay: 0.3s;
+      }
+    }
+  }
+
+  h4 {
+    font-size: 1.45em;
+    margin-bottom: 0.3em;
+
+    a {
+      display: inline-block;
+    }
+  }
+  address {
+    font-style: normal;
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 1em;
+
+    span {
+      text-transform: capitalize;
+    }
+  }
+  p {
+    margin-bottom: 0;
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+
+.cs-wtb--listitem-liner {
+  position: relative;
+  z-index: 5;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  padding-right: 0;
+  transition: transform 0.3s $ease-out-circ;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 17;
+    top: 2em;
+    bottom: 2em;
+    left: -24px;
+    width: 2px;
+    background: $primary;
+    transform-origin: bottom center;
+    transform: scale(1, 0);
+    transition: transform 0.35s $ease-in-out-circ;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    height: 1px;
+    background: darken($white, 12%);
+  }
+}
+
+#cs-locator-results {
+  padding-bottom: 2.2em;
+}
+
+.cs-wtb-actionbar {
+  position: fixed;
+  z-index: 299;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: $white;
+  border-top: 1px solid darken($white, 12%);
+  transform: translateY(100%);
+  visibility: hidden;
+  transition: transform 0.5s ease, visibility 0.5s ease;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 1px;
+    background: darken($white, 12%);
+  }
+
+  body.is-showing-actionbar & {
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+.cs-wtb--actionbar-half {
+  width: 50%;
+  float: left;
+
+  button {
+    @include btn-reset();
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.8em;
+    overflow: hidden;
+    text-transform: uppercase;
+    font-weight: bold;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    cursor: pointer;
+    color: $primary;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: darken($white, 5%);
+    }
+  }
+}
+
+@media (min-width: $bp-md) {
+  .cs-wtb-map {
+    width: 47%;
+    transform: translateX(0);
+    border-left: 1px solid darken($white, 12%);
+  }
+
+  .cs-wtb-section--top {
+    width: 45%;
+  }
+
+  .cs-wtb--listitem {
+    width: 55%;
+  }
+  .cs-wtb--listitem-liner {
+    padding-right: 10%;
+  }
+
+  .cs-wtb-actionbar {
+    width: 53%;
+  }
+}
+
+@media (min-width: $bp-lg) {
+  .cs-wtb--centered {
+    padding-top: 10em;
+    padding-bottom: 3em;
+  }
+
+  #cs-locator-msgtarget {
+    p {
+      font-size: 1.2em;
+    }
+  }
+}
+
+@media (max-width: $bp-md) {
+  .cs-wtb--listitem-liner {
+    font-size: 90%;
+  }
+}
