@@ -18,10 +18,10 @@ const PATHS = {
   sass: './src/sass/**/*.{sass,scss}',
   fileManager: './hs-cms-files',
   templateAssets: './magnetic-creative/assets',
-  cmsSiteUrl: 'http://kindredoutdoor-6084868.hs-sites.com/',
+  cmsSiteUrl: 'https://www.mykindredliving.com/',
   jsBundleUrl:
-    'https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/app.bundle.js',
-  cssBundleUrl: 'https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/index.css',
+    'https://www.mykindredliving.com/hubfs/hs-cms-files/app.bundle.js',
+  cssBundleUrl: 'https://www.mykindredliving.com/hubfs/hs-cms-files/index.css',
 };
 
 const buildSass = () => {
