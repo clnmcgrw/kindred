@@ -7,6 +7,7 @@ export function productHeroVariant(variant) {
       "
       data-variant-id="${variant.id}"
       data-variant-sku="${variant.sku}"
+      data-variant-price="${variant.price}"
       data-variant-type-1="${variant.selectedOptions[0].value}"
       data-variant-type-2="${
         variant.selectedOptions[1] ? variant.selectedOptions[1].value : ''
@@ -17,10 +18,10 @@ export function productHeroVariant(variant) {
   `;
 }
 
-export function thumbSlide(image) {
+export function thumbSlide(src) {
   return /*html*/ `
     <div class="ks-producthero__thumbslide">
-      <img src="${image.src}" />
+      <img src="${src}" />
     </div>
   `;
 }

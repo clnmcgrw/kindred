@@ -1,3 +1,5 @@
+import Flickity from 'flickity';
+import { $win } from './ui';
 import { getProductById, getProductByHandle } from './shopify/functions';
 import {
   productHeroVariant,
@@ -7,7 +9,7 @@ import {
 
 const $productDataDump = $('#shopify-product-data');
 const $featuredImage = $('#ks-featuredimage');
-const $featuredThumb = $('#ks-featuredthumb');
+const $galleryImagesTarget = $('#ks-galleryimagestarget');
 const $skuTarget = $('#ks-skutarget');
 const $priceTarget = $('#ks-pricetarget');
 const $selectionTarget = $('#ks-selectiontarget');
@@ -20,6 +22,7 @@ const storefrontId = $productDataDump.data('storefront-id');
 const childCategory = $productDataDump.data('child-cat');
 
 let $variantEls;
+let flkty;
 
 /**
  * Populates the items that we don't get from the HubSpot-Shopify bridge.
@@ -45,24 +48,64 @@ function renderInitialDetails(firstVariant) {
   $selectionTarget.text(firstVariant.title);
 }
 
+/**
+ * Asynchronously loads all gallery images and triggers a custom event to let Flickity
+ * know when to take over and intialize the gallery.
+ *
+ * This is needed because all the images need to be loaded so Flickity can measure their
+ * height w/o triggering a resize. In that case, checking for all images to be loaded
+ * first would be needed anyway.
+ * @param {array} images - an array of the Product images
+ */
 function renderGalleryImages(images) {
-  images.forEach((image, i) => {
-    if (i === 0) return; // the first img is already included in the template
-    $featuredThumb.after(thumbSlide(image));
+  const loadQueue = images.map(({ src }) => ({ src, loaded: false }));
+  // loadQueue.shift(); // don't need first image since it's included in the template
+
+  loadQueue.forEach((image, i) => {
+    const newImage = new Image();
+    newImage.onload = () => {
+      image.loaded = true;
+
+      const numLoaded = loadQueue.filter(({ loaded }) => loaded).length;
+
+      if (numLoaded === loadQueue.length) {
+        $win.trigger({
+          type: 'gallery-images-loaded',
+          galleryImages: loadQueue.map(({ src }) => src),
+        });
+      }
+    };
+    newImage.src = image.src;
   });
 }
 
 function renderOptions(options) {
-  if (childCategory === 'fire-bowls') {
-    const fuelOpts = options.filter(opt => opt.name === 'Fuel').shift();
-    const sizeOpts = options.filter(opt => opt.name === 'Size').shift();
+  let fuelOpts, sizeOpts;
 
-    const allOpts = [fuelOpts.values, sizeOpts ? sizeOpts.values : null].flat();
+  switch (childCategory) {
+    case 'fire-bowls':
+      fuelOpts = options.filter(opt => opt.name === 'Fuel').shift();
+      sizeOpts = options.filter(opt => opt.name === 'Size').shift();
 
-    allOpts.forEach((option, i) => {
-      if (!option) return;
-      $optionsTarget.append(productHeroOption(option, i));
-    });
+      const allOpts = [
+        fuelOpts.values,
+        sizeOpts ? sizeOpts.values : null,
+      ].flat();
+
+      allOpts.forEach((option, i) => {
+        if (!option) return;
+        $optionsTarget.append(productHeroOption(option, i));
+      });
+      break;
+    case 'building-blocks':
+      sizeOpts = options.filter(opt => opt.name === 'Size').shift().values;
+
+      sizeOpts.forEach((option, i) =>
+        $optionsTarget.append(productHeroOption(option, i))
+      );
+      break;
+    default:
+      return;
   }
 }
 
@@ -117,6 +160,8 @@ function renderVariants(variants, selectedOption) {
         : ''
     }`
   );
+
+  $priceTarget.text(`$${$firstInStock.data('variant-price').toFixed(2)}`);
 }
 
 function attachEventListeners(product) {
@@ -154,6 +199,20 @@ function attachEventListeners(product) {
       $quantityTarget.text(++currentVal);
     }
   });
+
+  $win.on('gallery-images-loaded', function({ galleryImages }) {
+    galleryImages.forEach(src => $galleryImagesTarget.append(thumbSlide(src)));
+
+    flkty = new Flickity($galleryImagesTarget[0], {
+      cellSelector: '.ks-producthero__thumbslide',
+      cellAlign: 'left',
+      groupCells: 3,
+      prevNextButtons: false,
+      pageDots: false,
+    });
+
+    // f.resize();
+  });
 }
 
 function attachVariantClick() {
@@ -170,6 +229,7 @@ function attachVariantClick() {
 
     $variantEls.removeClass('active');
     $skuTarget.text($t.data('variant-sku'));
+    $priceTarget.text(`$${$t.data('variant-price').toFixed(2)}`);
     $t.addClass('active');
 
     $selectionTarget.text(
@@ -186,6 +246,7 @@ export default async () => {
   const thisProduct = await getProductById(storefrontId);
 
   if (!thisProduct) {
+    console.log(productHandle);
     /**
      * If this condition is met, it's likely that the Storefront ID
      * hasn't been entered in HubDB yet. Check the console for the

@@ -32,11 +32,7 @@
                         <img src="{{ product.featured_image }}" alt="" id="ks-featuredimage">
                     </div>
                 </div>
-                <div class="ks-producthero__thumbslider">
-                    <div class="ks-producthero__thumbslide" id="ks-featuredthumb">
-                        <img src="{{ product.featured_image }}" alt="">
-                    </div>
-                </div>
+                <div class="ks-producthero__thumbslider" id="ks-galleryimagestarget"></div>
             </div>
 
             <div class="ks-producthero__main">
@@ -91,6 +87,34 @@
             </div>
             <div class="ks-productdesc__body ks-rte-content" id="ks-descriptiontarget">
                 {{ product.full_description }}
+            </div>
+        </div>
+    </section>
+
+    <section class="ks-relatedproducts">
+        <div class="ks-relatedproducts__preheading">
+            <div class="ks-inner">
+                <span class="ks-preheading">Related Products</span>
+            </div>
+        </div>
+        <div class="ks-relatedproducts__main">
+            <div class="ks-inner">
+            {% for related_product in product.related_products %}
+                <div class="ks-card ks-card--image">
+                    <a href="/products/{{ related_product.hs_path }}" class="ks-linkover">
+                        <div class="ks-card__liner">
+                            <figure class="ks-figure">
+                                <div class="ks-figure__liner">
+                                    <img src="{{ related_product.featured_image }}" alt="">
+                                </div>
+                            </figure>
+                            <div class="ks-card__title">
+                                <p>{{ related_product.product_title }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
             </div>
         </div>
     </section>
