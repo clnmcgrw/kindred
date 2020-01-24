@@ -616,7 +616,9 @@ figure {
   .ks-headline--md {
     font-size: 2.7em; }
   .ks-headline--lg {
-    font-size: 3.2em; } }
+    font-size: 3.2em; }
+  .ks-richtext {
+    padding: 9.375em 0; } }
 
 @media (min-width: 1199px) {
   .ks-headline--md {
