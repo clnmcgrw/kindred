@@ -585,6 +585,9 @@ figure {
   .ks-breadcrumb a:hover {
     color: #994c3d; }
 
+.ks-richtext {
+  padding: 4em 0; }
+
 .bg-light {
   background: #f6f5f3; }
 

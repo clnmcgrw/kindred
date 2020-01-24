@@ -1,0 +1,9 @@
+[ {
+  "id" : "d5f38f4d-17f9-ffd9-f4de-8133ed4429b9",
+  "name" : "body_text",
+  "label" : "Body Text",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "default" : "&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae diam ut dolor sollicitudin efficitur. Nulla euismod, eros ultricies aliquam elementum, lacus ex tincidunt tortor, id dignissim enim dolor ut nulla. Sed id sollicitudin nisi. Aenean id aliquam nisi. In ac pretium nisi, nec tincidunt dui. Nullam in nulla at metus rutrum mollis. Sed vitae tempor ipsum, eget laoreet lacus. Quisque fringilla fermentum viverra. Maecenas libero dolor, posuere sed bibendum at, gravida vel mi. Nulla tempus sollicitudin egestas. Aliquam vitae sem tristique, condimentum dolor non, gravida sem.<br><br>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin facilisis ante sed libero volutpat cursus. Phasellus a aliquam orci, sit amet aliquet est. Aliquam erat volutpat. Donec eu tortor sit amet mi vestibulum placerat. Nulla malesuada lectus non ligula ultrices, finibus elementum ex varius. Maecenas finibus massa eros, a sagittis leo pellentesque sit amet."
+} ]
