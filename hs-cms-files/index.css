@@ -1225,7 +1225,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     .ks-footer--squeeze {
       background-color: transparent; }
       .ks-footer--squeeze > .ks-site-container {
-        background-color: #f6f5f3; }
+        background-color: #f6f5f3 !important; }
     .ks-footer > .ks-site-container {
       padding-top: 31.5em;
       background-color: #fff; }
