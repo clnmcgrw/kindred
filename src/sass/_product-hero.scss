@@ -14,18 +14,9 @@
     margin-bottom: 0.25em;
   }
 
-  &__thumbslider {
-    width: 100%;
-    // display: flex;
-    // justify-content: space-between;
-    // flex-flow: row nowrap;
-  }
-
   &__thumbslide {
     width: 31%;
     margin-right: 3%;
-    // flex-basis: 33%;
-    // display: inline-block;
   }
 
   &__sku {
@@ -134,6 +125,10 @@
 
   &__options {
     margin-bottom: 2em;
+
+    &__group {
+      margin-bottom: 1em;
+    }
   }
 
   &__option {

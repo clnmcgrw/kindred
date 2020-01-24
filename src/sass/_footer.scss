@@ -188,6 +188,10 @@
   &--squeeze {
     background: $bg-light;
 
+    > .ks-site-container {
+      background: $dark;
+    }
+
     .ks-inner {
       position: relative;
       z-index: 2;
@@ -421,6 +425,10 @@
     }
 
     &--squeeze {
+      > .ks-site-container {
+        background: transparent;
+      }
+
       &__intro {
         flex-basis: 25%;
 

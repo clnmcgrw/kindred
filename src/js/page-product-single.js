@@ -22,7 +22,7 @@ const storefrontId = $productDataDump.data('storefront-id');
 const childCategory = $productDataDump.data('child-cat');
 
 let $variantEls;
-let flkty;
+let currentSelectedOpts = [];
 
 /**
  * Populates the items that we don't get from the HubSpot-Shopify bridge.
@@ -34,7 +34,15 @@ async function renderProduct(product) {
   renderInitialDetails(variants[0]);
   renderGalleryImages(images);
   renderOptions(options);
-  renderVariants(variants, $optionsTarget.find('.active').data('option-name'));
+
+  $optionsTarget.find('.active').each(function() {
+    const $t = $(this);
+    const optionValue = $t.data('option-value');
+
+    currentSelectedOpts.push(optionValue);
+  });
+
+  renderVariants(variants, currentSelectedOpts);
   attachEventListeners(product);
 }
 
@@ -59,9 +67,8 @@ function renderInitialDetails(firstVariant) {
  */
 function renderGalleryImages(images) {
   const loadQueue = images.map(({ src }) => ({ src, loaded: false }));
-  // loadQueue.shift(); // don't need first image since it's included in the template
 
-  loadQueue.forEach((image, i) => {
+  loadQueue.forEach(image => {
     const newImage = new Image();
     newImage.onload = () => {
       image.loaded = true;
@@ -80,28 +87,44 @@ function renderGalleryImages(images) {
 }
 
 function renderOptions(options) {
-  let fuelOpts, sizeOpts;
+  /**
+   * 'Color & Finish' is a given w/ all of their products so far, and we're using
+   * that option as the main variant selector, so don't render it out as an
+   * additional option.
+   */
+  const relevantOptionGroups = options.filter(
+    opt => opt.name !== 'Color & Finish'
+  );
 
+  // TODO: Some products don't have opts besides Color & Finish, handle undefined in that case
+
+  /**
+   * If these outputs all remain the same regardless of the child category, we can
+   * remove the switch and just blindly render all relevant options
+   */
   switch (childCategory) {
     case 'fire-bowls':
-      fuelOpts = options.filter(opt => opt.name === 'Fuel').shift();
-      sizeOpts = options.filter(opt => opt.name === 'Size').shift();
-
-      const allOpts = [
-        fuelOpts.values,
-        sizeOpts ? sizeOpts.values : null,
-      ].flat();
-
-      allOpts.forEach((option, i) => {
-        if (!option) return;
-        $optionsTarget.append(productHeroOption(option, i));
-      });
+      relevantOptionGroups.forEach((optionGroup, i) =>
+        optionGroup.values.forEach((option, j) => {
+          option.parentGroup = optionGroup.name;
+          $($optionsTarget.children()[i]).append(productHeroOption(option, j));
+        })
+      );
       break;
     case 'building-blocks':
-      sizeOpts = options.filter(opt => opt.name === 'Size').shift().values;
-
-      sizeOpts.forEach((option, i) =>
-        $optionsTarget.append(productHeroOption(option, i))
+      relevantOptionGroups.forEach((optionGroup, i) =>
+        optionGroup.values.forEach((option, j) => {
+          option.parentGroup = optionGroup.name;
+          $($optionsTarget.children()[i]).append(productHeroOption(option, j));
+        })
+      );
+      break;
+    case 'mantels':
+      relevantOptionGroups.forEach((optionGroup, i) =>
+        optionGroup.values.forEach((option, j) => {
+          option.parentGroup = optionGroup.name;
+          $($optionsTarget.children()[i]).append(productHeroOption(option, j));
+        })
       );
       break;
     default:
@@ -109,17 +132,34 @@ function renderOptions(options) {
   }
 }
 
-function renderVariants(variants, selectedOption) {
+function renderVariants(variants, optsSelectedByDefault) {
   $variantsTarget.empty();
 
   const matchedVariants = variants.filter(variant => {
     let matched;
 
     variant.selectedOptions.forEach(option => {
-      if (option.value === selectedOption) {
+      let matchCount = 0;
+
+      optsSelectedByDefault.forEach(defaultOpt => {
+        if (option.value.replace(/\\\//g, '') === defaultOpt) {
+          console.log(option.value, defaultOpt);
+          matchCount++;
+        }
+      });
+
+      if (matchCount === optsSelectedByDefault.length - 1) {
         matched = option;
       }
     });
+
+    // variant.selectedOptions.forEach(option => {
+    //   optsSelectedByDefault.forEach(initOpt => {
+    //     if (option.value === initOpt) {
+    //       matched = option;
+    //     }
+    //   });
+    // });
 
     return matched;
   });
@@ -135,7 +175,7 @@ function renderVariants(variants, selectedOption) {
    *
    * If no options are present, just render out all of the variants.
    */
-  if (selectedOption) {
+  if (optsSelectedByDefault) {
     matchedVariants.forEach(variant =>
       $variantsTarget.append(productHeroVariant(variant))
     );
@@ -170,7 +210,7 @@ function attachEventListeners(product) {
 
   $optionTriggers.click(function() {
     const $t = $(this);
-    const selectedOption = $t.data('option-name');
+    const selectedOption = $t.data('option-value');
 
     $t.siblings().removeClass('active');
     $t.addClass('active');
@@ -203,15 +243,13 @@ function attachEventListeners(product) {
   $win.on('gallery-images-loaded', function({ galleryImages }) {
     galleryImages.forEach(src => $galleryImagesTarget.append(thumbSlide(src)));
 
-    flkty = new Flickity($galleryImagesTarget[0], {
+    new Flickity($galleryImagesTarget[0], {
       cellSelector: '.ks-producthero__thumbslide',
       cellAlign: 'left',
       groupCells: 3,
       prevNextButtons: false,
       pageDots: false,
     });
-
-    // f.resize();
   });
 }
 

@@ -8,10 +8,13 @@ export function productHeroVariant(variant) {
       data-variant-id="${variant.id}"
       data-variant-sku="${variant.sku}"
       data-variant-price="${variant.price}"
-      data-variant-type-1="${variant.selectedOptions[0].value}"
-      data-variant-type-2="${
-        variant.selectedOptions[1] ? variant.selectedOptions[1].value : ''
-      }"
+      data-variant-type-1='${variant.selectedOptions[0].value}'
+      data-variant-type-2='${
+        variant.selectedOptions[1] ? variant.selectedOptions[1].value : null
+      }'
+      data-variant-type-3='${
+        variant.selectedOptions[2] ? variant.selectedOptions[2].value : null
+      }'
     >
       <img src="${variant.image.src}" alt=""/>
     </div>
@@ -30,7 +33,8 @@ export function productHeroOption(option, idx) {
   return /*html*/ `
     <button
       class="ks-producthero__option ${idx === 0 ? 'active' : ''}"
-      data-option-name='${option.value}'
+      data-option-parent-group="${option.parentGroup}"
+      data-option-value='${option.value}'
     >
       ${option.value}
     </button>

@@ -989,6 +989,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     display: none; }
   .ks-footer--squeeze {
     background: #f6f5f3; }
+    .ks-footer--squeeze > .ks-site-container {
+      background: #1b2429; }
     .ks-footer--squeeze .ks-inner {
       position: relative;
       z-index: 2;
@@ -1173,6 +1175,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     .ks-footer .ks-footer__form {
       -ms-flex-preferred-size: 20%;
           flex-basis: 20%; }
+    .ks-footer--squeeze > .ks-site-container {
+      background: transparent; }
     .ks-footer--squeeze__intro {
       -ms-flex-preferred-size: 25%;
           flex-basis: 25%; }
@@ -1870,8 +1874,6 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     min-width: 100%; }
   .ks-producthero__mainslider {
     margin-bottom: 0.25em; }
-  .ks-producthero__thumbslider {
-    width: 100%; }
   .ks-producthero__thumbslide {
     width: 31%;
     margin-right: 3%; }
@@ -1963,6 +1965,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
       cursor: pointer; }
   .ks-producthero__options {
     margin-bottom: 2em; }
+    .ks-producthero__options__group {
+      margin-bottom: 1em; }
   .ks-producthero__option {
     border: 1px solid #2e443a;
     color: #2e443a;
@@ -2669,7 +2673,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
       fill: #994c3d; }
 
 .ks-squeezeintro {
-  text-align: left;
+  text-align: center;
   padding-top: 1em;
   background-color: #f6f5f3; }
   .ks-squeezeintro .ks-headline {
@@ -2696,16 +2700,14 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   .ks-squeezeintro__text {
     margin-bottom: 2em; }
 
-@media (min-width: 767px) {
+@media (min-width: 580px) {
   .ks-squeezeheader > .ks-inner {
     padding: 3em 0; }
-  .ks-squeezeintro {
-    text-align: center; }
-    .ks-squeezeintro .ks-headline {
-      font-size: 4em; }
-    .ks-squeezeintro li {
-      display: inline-block;
-      margin: 0 0.5em; } }
+  .ks-squeezeintro .ks-headline {
+    font-size: 4em; }
+  .ks-squeezeintro li {
+    display: inline-block;
+    margin: 0 0.5em; } }
 
 @media (min-width: 992px) {
   .ks-squeezeintro .ks-headline {

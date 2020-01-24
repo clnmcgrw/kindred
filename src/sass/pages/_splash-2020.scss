@@ -34,7 +34,7 @@
 }
 
 .ks-squeezeintro {
-  text-align: left;
+  text-align: center;
   padding-top: 1em;
   background-color: $bg-light;
 
@@ -78,7 +78,7 @@
   }
 }
 
-@media (min-width: $bp-md) {
+@media (min-width: $bp-sm) {
   .ks-squeezeheader {
     > .ks-inner {
       padding: 3em 0;
@@ -86,8 +86,6 @@
   }
 
   .ks-squeezeintro {
-    text-align: center;
-
     .ks-headline {
       font-size: 4em;
     }
