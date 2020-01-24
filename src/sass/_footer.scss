@@ -489,11 +489,15 @@
 
     &--squeeze {
       background-color: transparent;
+
+      > .ks-site-container {
+        background-color: $bg-light;
+      }
     }
 
     > .ks-site-container {
       padding-top: 31.5em;
-      background-color: $bg-light;
+      background-color: $white;
     }
 
     .ks-inner {

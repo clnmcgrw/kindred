@@ -1,0 +1,54 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+-->
+
+{% include '/magnetic-creative/partials/header-primary.html' %}
+
+{% widget_container "page_content" %}
+{% end_widget_container %}
+
+{% set resources_table = hubdb_table_rows(2042800) %}
+
+<section class="ks-resourcelist">
+  
+    <nav class="ks-resourcelist__nav">
+      <div class="ks-inner">
+        <ul>
+          <li class="ks_resourcelist__nav__title">Filter By:</li>
+          <li><span data-toggle-type="all" class="active">All</spandata-toggle-type="all"></li>
+          <li><span data-toggle-type="fire-bowls">Fire Bowls</span data-toggle-type="fire-bowls"></li>
+          <li><span data-toggle-type="fireplace-surrounds">Fireplace Surrounds</span data-toggle-type="fireplace-surrounds"></li>
+          <li><span data-toggle-type="outdoor-living">Outdoor Living</span data-toggle-type="outdoor-living"></li data-toggle-type="fire-bowls">
+        </ul>
+      </div>
+    </nav>
+
+
+    <div class="ks-resourcelist__items">
+      <div class="ks-inner">
+      {% for r in resources_table %}
+        <div class="ks-card ks-card--image" data-resource-type="{{ r.resource_type.name.replace(' ', '-') | lower }}">
+          <a href="{{ r.download_link }}" class="ks-linkover" target="_blank" rel="noopener noreferrer" download="{{ r.download_link }}">
+            <div class="ks-card__liner">
+              <figure class="ks-figure">
+                <div class="ks-figure__liner">
+                  <img src="{{ r.thumbnail_image.url }}" alt="">
+                </div>
+              </figure>
+              <div class="ks-card__title">
+                <p>{{ r.name }}</p>
+              </div>
+              <div class="ks-card__actions">
+                <a href="{{ r.download_link }}" target="_blank" rel="noopener noreferrer" download="{{ r.download_link }}">Download Now &rarr;</a>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  
+</section>
+
+{% include '/magnetic-creative/partials/footer-primary.html' %}

@@ -1,0 +1,138 @@
+.ks-resourcelist {
+  background: $bg-light;
+
+  &__nav {
+    padding: 2em 0;
+
+    ul {
+      @include unstyle-list();
+      background-color: $light-grey;
+      padding: 2em;
+    }
+
+    li {
+      margin-bottom: 1em;
+      color: $primary;
+
+      span {
+        &.active {
+          color: $secondary;
+        }
+
+        &:hover {
+          cursor: pointer;
+          color: darken($primary, 15%);
+        }
+      }
+
+      &:first-child {
+        color: $black;
+        font-family: $heading-font;
+        font-size: 1.25em;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__items {
+    opacity: 1;
+    transition: opacity 0.25s linear;
+
+    &.hiding {
+      opacity: 0;
+    }
+
+    .ks-card {
+      margin-bottom: 2em;
+
+      &__title {
+        margin-bottom: 0.5em;
+
+        p {
+          color: $dark;
+
+          &:after {
+            display: none;
+          }
+        }
+      }
+
+      &__actions {
+        a {
+          color: $primary;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $bp-md) {
+  .ks-resourcelist {
+    &__nav {
+      ul {
+        background-color: transparent;
+        padding: 0;
+        text-align: center;
+      }
+
+      li {
+        display: inline-block;
+        margin: 0 1em;
+
+        &:first-child {
+          display: none;
+        }
+      }
+    }
+
+    &__items {
+      > .ks-inner {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+        align-items: flex-start;
+        padding: $padding-sm 0;
+      }
+
+      .ks-card {
+        flex-basis: 48%;
+        margin-bottom: 3em;
+      }
+    }
+  }
+}
+
+@media (min-width: $bp-lg) {
+  .ks-resourcelist {
+    &__nav {
+      li {
+        margin: 0 2em;
+      }
+    }
+
+    &__items {
+      > .ks-inner {
+        padding: $padding-md 0;
+      }
+    }
+  }
+}
+
+@media (min-width: $bp-xl) {
+  .ks-resourcelist {
+    &__nav {
+      padding: 3em 0;
+    }
+
+    &__items {
+      .ks-card {
+        flex-basis: 27.5%;
+        margin-bottom: 4em;
+      }
+    }
+  }
+}

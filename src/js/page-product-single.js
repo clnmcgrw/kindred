@@ -57,11 +57,12 @@ function renderOptions(options) {
     const fuelOpts = options.filter(opt => opt.name === 'Fuel').shift();
     const sizeOpts = options.filter(opt => opt.name === 'Size').shift();
 
-    const allOpts = [fuelOpts.values, sizeOpts.values].flat();
+    const allOpts = [fuelOpts.values, sizeOpts ? sizeOpts.values : null].flat();
 
-    allOpts.forEach((option, i) =>
-      $optionsTarget.append(productHeroOption(option, i))
-    );
+    allOpts.forEach((option, i) => {
+      if (!option) return;
+      $optionsTarget.append(productHeroOption(option, i));
+    });
   }
 }
 
