@@ -19,7 +19,6 @@ const $quantityAdjust = $('.ks-quantity__action');
 const $quantityTarget = $('#ks-quantitytarget');
 const productHandle = $productDataDump.data('product-handle');
 const storefrontId = $productDataDump.data('storefront-id');
-const childCategory = $productDataDump.data('child-cat');
 
 let $variantEls;
 
@@ -51,10 +50,6 @@ function renderInitialDetails(firstVariant) {
 /**
  * Asynchronously loads all gallery images and triggers a custom event to let Flickity
  * know when to take over and intialize the gallery.
- *
- * This is needed because all the images need to be loaded so Flickity can measure their
- * height w/o triggering a resize. In that case, checking for all images to be loaded
- * first would be needed anyway.
  * @param {array} images - an array of the Product images
  */
 function renderGalleryImages(images) {
@@ -62,6 +57,7 @@ function renderGalleryImages(images) {
 
   loadQueue.forEach(image => {
     const newImage = new Image();
+
     newImage.onload = () => {
       image.loaded = true;
 
@@ -74,6 +70,7 @@ function renderGalleryImages(images) {
         });
       }
     };
+
     newImage.src = image.src;
   });
 }
@@ -88,43 +85,15 @@ function renderOptions(options) {
     opt => opt.name !== 'Color & Finish'
   );
 
-  // TODO: Some products don't have opts besides Color & Finish, handle undefined in that case
-
-  /**
-   * If these outputs all remain the same regardless of the child category, we can
-   * remove the switch and just blindly render all relevant options
-   */
-  switch (childCategory) {
-    case 'fire-bowls':
-      relevantOptionGroups.forEach((optionGroup, i) =>
-        optionGroup.values.forEach((option, j) => {
-          option.parentGroup = optionGroup.name;
-          $($optionsTarget.children()[i]).append(productHeroOption(option, j));
-        })
-      );
-      break;
-    case 'building-blocks':
-      relevantOptionGroups.forEach((optionGroup, i) =>
-        optionGroup.values.forEach((option, j) => {
-          option.parentGroup = optionGroup.name;
-          $($optionsTarget.children()[i]).append(productHeroOption(option, j));
-        })
-      );
-      break;
-    case 'mantels':
-      relevantOptionGroups.forEach((optionGroup, i) =>
-        optionGroup.values.forEach((option, j) => {
-          option.parentGroup = optionGroup.name;
-          $($optionsTarget.children()[i]).append(productHeroOption(option, j));
-        })
-      );
-      break;
-    default:
-      return;
-  }
+  relevantOptionGroups.forEach((optionGroup, i) =>
+    optionGroup.values.forEach((option, j) => {
+      option.parentGroup = optionGroup.name;
+      $($optionsTarget.children()[i]).append(productHeroOption(option, j));
+    })
+  );
 }
 
-function renderVariants(variants, selectedOpts = []) {
+function renderVariants(variants, userSelectedOpts = []) {
   $variantsTarget.empty();
 
   /**
@@ -136,12 +105,12 @@ function renderVariants(variants, selectedOpts = []) {
     let matched,
       matchCount = 0;
 
-    selectedOpts.forEach(defaultOpt => {
-      variant.selectedOptions.forEach((opt, i) => {
+    userSelectedOpts.forEach(defaultOpt => {
+      variant.selectedOptions.forEach(opt => {
         if (opt.value === defaultOpt) {
           matchCount++;
 
-          if (matchCount === selectedOpts.length) {
+          if (matchCount === userSelectedOpts.length) {
             matched = opt;
           }
         }
@@ -151,7 +120,7 @@ function renderVariants(variants, selectedOpts = []) {
     return matched;
   });
 
-  if (selectedOpts.length) {
+  if (userSelectedOpts.length) {
     matchedVariants.forEach(variant =>
       $variantsTarget.append(productHeroVariant(variant))
     );
