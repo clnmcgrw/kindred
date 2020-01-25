@@ -24,7 +24,9 @@ export function productHeroVariant(variant) {
 export function thumbSlide(src) {
   return /*html*/ `
     <div class="ks-producthero__thumbslide">
-      <img src="${src}" />
+      <div class="ks-producthero__thumbslide__liner">
+        <img src="${src}" />
+      </div>
     </div>
   `;
 }

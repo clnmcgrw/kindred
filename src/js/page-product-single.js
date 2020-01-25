@@ -21,6 +21,7 @@ const productHandle = $productDataDump.data('product-handle');
 const storefrontId = $productDataDump.data('storefront-id');
 
 let $variantEls;
+let flkty;
 
 /**
  * Populates the items that we don't get from the HubSpot-Shopify bridge.
@@ -189,12 +190,21 @@ function attachEventListeners(product) {
   $win.on('gallery-images-loaded', function({ galleryImages }) {
     galleryImages.forEach(src => $galleryImagesTarget.append(thumbSlide(src)));
 
-    new Flickity($galleryImagesTarget[0], {
+    flkty = new Flickity($galleryImagesTarget[0], {
       cellSelector: '.ks-producthero__thumbslide',
       cellAlign: 'left',
-      groupCells: 3,
       prevNextButtons: false,
       pageDots: false,
+      on: {
+        change: () => {
+          $featuredImage.attr(
+            'src',
+            $('.ks-producthero__thumbslide.is-selected')
+              .find('img')
+              .attr('src')
+          );
+        },
+      },
     });
   });
 }

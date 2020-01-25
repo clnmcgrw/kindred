@@ -17,6 +17,31 @@
   &__thumbslide {
     width: 31%;
     margin-right: 3%;
+
+    &.is-selected {
+      .ks-producthero__thumbslide__liner:before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    &__liner {
+      position: relative;
+
+      &:before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.4s $ease-out-circ;
+        border: 5px solid $secondary;
+        pointer-events: none;
+        float: none;
+      }
+    }
   }
 
   &__sku {
