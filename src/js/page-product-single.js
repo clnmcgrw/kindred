@@ -22,7 +22,6 @@ const storefrontId = $productDataDump.data('storefront-id');
 const childCategory = $productDataDump.data('child-cat');
 
 let $variantEls;
-let currentSelectedOpts = [];
 
 /**
  * Populates the items that we don't get from the HubSpot-Shopify bridge.
@@ -35,14 +34,7 @@ async function renderProduct(product) {
   renderGalleryImages(images);
   renderOptions(options);
 
-  $optionsTarget.find('.active').each(function() {
-    const $t = $(this);
-    const optionValue = $t.data('option-value');
-
-    currentSelectedOpts.push(optionValue);
-  });
-
-  renderVariants(variants, currentSelectedOpts);
+  renderVariants(variants, getSelectedOptions());
   attachEventListeners(product);
 }
 
@@ -132,50 +124,34 @@ function renderOptions(options) {
   }
 }
 
-function renderVariants(variants, optsSelectedByDefault) {
+function renderVariants(variants, selectedOpts = []) {
   $variantsTarget.empty();
 
+  /**
+   * Only render variants that match all of the currently
+   * selected options. This gets tricky because not all
+   * products have the same number of options.
+   */
   const matchedVariants = variants.filter(variant => {
-    let matched;
+    let matched,
+      matchCount = 0;
 
-    variant.selectedOptions.forEach(option => {
-      let matchCount = 0;
-
-      optsSelectedByDefault.forEach(defaultOpt => {
-        if (option.value.replace(/\\\//g, '') === defaultOpt) {
-          console.log(option.value, defaultOpt);
+    selectedOpts.forEach(defaultOpt => {
+      variant.selectedOptions.forEach((opt, i) => {
+        if (opt.value === defaultOpt) {
           matchCount++;
+
+          if (matchCount === selectedOpts.length) {
+            matched = opt;
+          }
         }
       });
-
-      if (matchCount === optsSelectedByDefault.length - 1) {
-        matched = option;
-      }
     });
-
-    // variant.selectedOptions.forEach(option => {
-    //   optsSelectedByDefault.forEach(initOpt => {
-    //     if (option.value === initOpt) {
-    //       matched = option;
-    //     }
-    //   });
-    // });
 
     return matched;
   });
 
-  /**
-   * Some products have variants broken down by some other option,
-   * for instance, Fire Bowls have a "fuel" option in addition to
-   * the initial texture & color variant.
-   *
-   * In that case, if options are present, only render the options
-   * that match the default selected option, which for now is the
-   * first item in the set of options.
-   *
-   * If no options are present, just render out all of the variants.
-   */
-  if (optsSelectedByDefault) {
+  if (selectedOpts.length) {
     matchedVariants.forEach(variant =>
       $variantsTarget.append(productHeroVariant(variant))
     );
@@ -185,6 +161,7 @@ function renderVariants(variants, optsSelectedByDefault) {
     );
   }
 
+  // Have to query here since these are added/removed from the DOM on the fly
   $variantEls = $('.ks-producthero__variant');
   const $firstInStock = $variantEls.not('.out-of-stock').first();
 
@@ -210,11 +187,11 @@ function attachEventListeners(product) {
 
   $optionTriggers.click(function() {
     const $t = $(this);
-    const selectedOption = $t.data('option-value');
 
     $t.siblings().removeClass('active');
     $t.addClass('active');
-    renderVariants(variants, selectedOption);
+
+    renderVariants(variants, getSelectedOptions());
 
     attachVariantClick();
   });
@@ -253,6 +230,19 @@ function attachEventListeners(product) {
   });
 }
 
+function getSelectedOptions() {
+  const currentSelectedOpts = [];
+
+  $optionsTarget.find('.active').each(function() {
+    const $t = $(this);
+    const optionValue = $t.data('option-value');
+
+    currentSelectedOpts.push(optionValue);
+  });
+
+  return currentSelectedOpts;
+}
+
 function attachVariantClick() {
   /**
    * This exists because variants get removed & replaced when a user
@@ -284,7 +274,6 @@ export default async () => {
   const thisProduct = await getProductById(storefrontId);
 
   if (!thisProduct) {
-    console.log(productHandle);
     /**
      * If this condition is met, it's likely that the Storefront ID
      * hasn't been entered in HubDB yet. Check the console for the

@@ -39,10 +39,6 @@
     position: relative;
   }
 
-  &__content {
-    // background-color: $dark;
-  }
-
   &__bgimg {
     @include m-fill-parent();
     background-size: cover;
