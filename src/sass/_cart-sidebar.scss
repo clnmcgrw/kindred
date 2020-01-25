@@ -48,6 +48,116 @@
     padding: 0 1em;
   }
 
+  &__discountcode {
+    * {
+      margin: 0;
+    }
+
+    p {
+      color: $primary;
+    }
+
+    span {
+      color: $black;
+    }
+
+    #ks-couponremove {
+      color: $secondary;
+
+      &:hover {
+        color: $primary;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__couponmodal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, 100%);
+    opacity: 0;
+    transition: transform 0.4s $ease-out-circ, opacity 0.4s $ease-out-circ;
+    pointer-events: none;
+    z-index: -1;
+
+    fieldset {
+      border: none;
+      margin-bottom: 0;
+      padding: 0;
+    }
+
+    .ks-couponmodal {
+      &__content {
+        padding: 1em;
+        background: $white;
+        border: 1px solid $primary;
+        position: relative;
+      }
+
+      &__close {
+        position: absolute;
+        top: 0;
+        right: 1em;
+
+        span {
+          font-size: 1.5em;
+          color: $primary;
+        }
+
+        &:hover {
+          cursor: pointer;
+
+          span {
+            color: darken($primary, 15%);
+          }
+        }
+      }
+    }
+
+    .ks-form {
+      label {
+        font-size: 1em;
+      }
+
+      input {
+        padding: 1em 0;
+      }
+
+      &-inputwrap {
+        position: relative;
+
+        button[type='submit'] {
+          appearance: none;
+          border: none;
+          background-color: transparent;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          padding: 0;
+
+          span {
+            display: inline-block;
+            color: $primary;
+            font-weight: 700;
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    &.active {
+      z-index: 12;
+      opacity: 1;
+      pointer-events: all;
+      transform: translate(-50%, -50%);
+    }
+  }
+
   &__content {
     position: relative;
     display: flex;
@@ -197,7 +307,7 @@
   }
 
   &__subtotal {
-    padding: 1em 0;
+    margin-bottom: 1em;
 
     p {
       font-weight: bold;
@@ -285,6 +395,14 @@
 
       .ks-btn {
         font-size: 100%;
+      }
+    }
+
+    &__couponmodal {
+      .ks-couponmodal {
+        &__content {
+          padding: 3em 1em;
+        }
       }
     }
   }

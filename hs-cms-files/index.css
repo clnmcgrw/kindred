@@ -2095,6 +2095,82 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   .ks-cartsidebar__noitems {
     text-align: center;
     padding: 0 1em; }
+  .ks-cartsidebar__discountcode * {
+    margin: 0; }
+  .ks-cartsidebar__discountcode p {
+    color: #994c3d; }
+  .ks-cartsidebar__discountcode span {
+    color: #000; }
+  .ks-cartsidebar__discountcode #ks-couponremove {
+    color: #cfc5b9; }
+    .ks-cartsidebar__discountcode #ks-couponremove:hover {
+      color: #994c3d;
+      cursor: pointer; }
+  .ks-cartsidebar__couponmodal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    -webkit-transform: translate(-50%, 100%);
+        -ms-transform: translate(-50%, 100%);
+            transform: translate(-50%, 100%);
+    opacity: 0;
+    -webkit-transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    -o-transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    pointer-events: none;
+    z-index: -1; }
+    .ks-cartsidebar__couponmodal fieldset {
+      border: none;
+      margin-bottom: 0;
+      padding: 0; }
+    .ks-cartsidebar__couponmodal .ks-couponmodal__content {
+      padding: 1em;
+      background: #fff;
+      border: 1px solid #994c3d;
+      position: relative; }
+    .ks-cartsidebar__couponmodal .ks-couponmodal__close {
+      position: absolute;
+      top: 0;
+      right: 1em; }
+      .ks-cartsidebar__couponmodal .ks-couponmodal__close span {
+        font-size: 1.5em;
+        color: #994c3d; }
+      .ks-cartsidebar__couponmodal .ks-couponmodal__close:hover {
+        cursor: pointer; }
+        .ks-cartsidebar__couponmodal .ks-couponmodal__close:hover span {
+          color: #623127; }
+    .ks-cartsidebar__couponmodal .ks-form label {
+      font-size: 1em; }
+    .ks-cartsidebar__couponmodal .ks-form input {
+      padding: 1em 0; }
+    .ks-cartsidebar__couponmodal .ks-form-inputwrap {
+      position: relative; }
+      .ks-cartsidebar__couponmodal .ks-form-inputwrap button[type='submit'] {
+        -webkit-appearance: none;
+           -moz-appearance: none;
+                appearance: none;
+        border: none;
+        background-color: transparent;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        padding: 0; }
+        .ks-cartsidebar__couponmodal .ks-form-inputwrap button[type='submit'] span {
+          display: inline-block;
+          color: #994c3d;
+          font-weight: 700; }
+        .ks-cartsidebar__couponmodal .ks-form-inputwrap button[type='submit']:hover {
+          cursor: pointer; }
+    .ks-cartsidebar__couponmodal.active {
+      z-index: 12;
+      opacity: 1;
+      pointer-events: all;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
   .ks-cartsidebar__content {
     position: relative;
     display: -webkit-box;
@@ -2224,7 +2300,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
       .ks-cartsidebar__actions .ks-btn:first-of-type, .ks-cartsidebar__actions form input:first-of-type[type='submit'], form .ks-cartsidebar__actions input:first-of-type[type='submit'] {
         margin-bottom: 0.5em; }
   .ks-cartsidebar__subtotal {
-    padding: 1em 0; }
+    margin-bottom: 1em; }
     .ks-cartsidebar__subtotal p {
       font-weight: bold;
       margin: 0; }
@@ -2282,7 +2358,9 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   .ks-cartsidebar__actions {
     padding: 0 4em 2em 4em; }
     .ks-cartsidebar__actions .ks-btn, .ks-cartsidebar__actions form input[type='submit'], form .ks-cartsidebar__actions input[type='submit'] {
-      font-size: 100%; } }
+      font-size: 100%; }
+  .ks-cartsidebar__couponmodal .ks-couponmodal__content {
+    padding: 3em 1em; } }
 
 @media (min-width: 1440px) {
   .ks-cartsidebar__item {

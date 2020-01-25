@@ -134,6 +134,30 @@ export async function removeCheckoutItem(checkoutId, lineItemId) {
   return checkout;
 }
 
+export async function addPromoCodeToCheckout(checkoutId, code) {
+  let checkout;
+
+  try {
+    checkout = await client.checkout.addDiscount(checkoutId, code);
+  } catch (e) {
+    console.log('Error adding promo code to checkout', e);
+  }
+
+  return checkout;
+}
+
+export async function removePromoCodeFromCheckout(checkoutId) {
+  let checkout;
+
+  try {
+    checkout = await client.checkout.removeDiscount(checkoutId);
+  } catch (e) {
+    console.log('Error removing discount from checkout:', e);
+  }
+
+  return checkout;
+}
+
 export function getLineItemTotal(checkout) {
   let num = 0;
 

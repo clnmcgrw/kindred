@@ -60,6 +60,14 @@ export function emptyCartNotice() {
   `;
 }
 
+export function cartDiscountItem(discountCode) {
+  return /*html*/ `
+    <div class="ks-cartsidebar__discountcode">
+      <p>Discount: ${discountCode} <span>[ <span id="ks-couponremove">remove</span> ]</span></p>
+    </div>
+  `;
+}
+
 export function cartSidebarItem(item) {
   return /*html*/ `
     <li class="ks-cartsidebar__item">
