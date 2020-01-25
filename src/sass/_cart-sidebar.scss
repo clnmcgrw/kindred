@@ -54,7 +54,6 @@
     flex-direction: column;
     justify-content: space-between;
     padding-top: 4em;
-    // background-image: linear-gradient(to bottom, $white 10%, $grey-beige 90%);
 
     &:after {
       @include m-fill-parent();
@@ -257,6 +256,15 @@
 @media (min-width: $bp-lg) {
   .ks-cartsidebar {
     &__item {
+      &__main {
+        overflow: unset;
+
+        p {
+          // this can wrap now that vertical space isn't an issue
+          white-space: unset;
+        }
+      }
+
       &__variant,
       &__quantity,
       &__price {

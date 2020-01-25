@@ -1998,15 +1998,14 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     padding: 0.5em 1em;
     -webkit-transition: color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
     -o-transition: color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-    transition: color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.4s cubic-bezier(0.075, 0.82, 0.165, 1); }
+    transition: color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    margin: 0.5em 0.5em 0 0; }
     .ks-producthero__option.active {
       border-color: #994c3d;
       background: #994c3d;
       color: #fff; }
     .ks-producthero__option:hover {
       cursor: pointer; }
-    .ks-producthero__option:first-child {
-      margin-bottom: 0.5em; }
   .ks-producthero__quantity {
     margin-bottom: 2em; }
 
@@ -2038,8 +2037,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     font-size: 66.67%;
     padding: 0.5em 1em; }
   .ks-producthero__option:first-child {
-    margin-bottom: 0;
-    margin-right: 1em; } }
+    margin-bottom: 0; } }
 
 @media (min-width: 1199px) {
   .ks-producthero__main {
@@ -2271,6 +2269,10 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
           transition: stroke 0.4s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
 @media (min-width: 992px) {
+  .ks-cartsidebar__item__main {
+    overflow: unset; }
+    .ks-cartsidebar__item__main p {
+      white-space: unset; }
   .ks-cartsidebar__item__variant, .ks-cartsidebar__item__quantity, .ks-cartsidebar__item__price {
     font-size: 100%; } }
 
