@@ -46,6 +46,15 @@
   &__noitems {
     text-align: center;
     padding: 0 1em;
+
+    a {
+      color: $primary;
+      text-decoration: none;
+
+      &:hover {
+        color: darken($primary, 15%);
+      }
+    }
   }
 
   &__discountcode {

@@ -5,6 +5,11 @@
   backface-visibility: hidden;
 }
 
+html,
+body {
+  scroll-behavior: smooth;
+}
+
 html {
   background: $dark;
 }
@@ -158,11 +163,77 @@ button.ks-btn {
 
 // RTE Content
 .ks-rte-content {
+  #{headings()} {
+    color: $dark-green;
+    margin-top: 2rem;
+    margin-bottom: 0.667rem;
+  }
+
+  h1 {
+    margin-bottom: 1em;
+  }
+
   p {
     margin-top: 0;
 
     &:last-of-type {
       margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: $primary;
+    text-decoration: none;
+
+    &:hover {
+      color: darken($primary, 15%);
+    }
+  }
+
+  ol,
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1em;
+
+    li {
+      position: relative;
+      margin-bottom: 0.5em;
+      padding-left: 1.5em;
+
+      &:before {
+        position: absolute;
+        left: 0;
+        display: block;
+      }
+    }
+  }
+
+  ul {
+    li {
+      &:before {
+        content: '';
+        top: 0.667rem;
+        background: $dark-green;
+        height: 0.33em;
+        width: 0.33em;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  ol {
+    li {
+      &:before {
+        color: $primary;
+      }
+
+      @for $i from 1 through 25 {
+        &:nth-child(#{$i}):before {
+          content: '#{$i}.';
+        }
+      }
     }
   }
 }
@@ -271,6 +342,10 @@ figure {
 
   .ks-richtext {
     padding: $padding-lg 0;
+
+    > .ks-inner {
+      width: 60%;
+    }
   }
 }
 
@@ -290,6 +365,22 @@ figure {
       &--lg {
         padding: $padding-xl 0;
       }
+    }
+  }
+}
+
+@media (min-width: $bp-xxl) {
+  .ks-richtext {
+    > .ks-inner {
+      width: 50%;
+    }
+  }
+}
+
+@media (min-width: 1800px) {
+  .ks-richtext {
+    > .ks-inner {
+      width: 40%;
     }
   }
 }

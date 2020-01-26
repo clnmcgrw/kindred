@@ -434,6 +434,10 @@ https://flickity.metafizzy.co
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden; }
 
+html,
+body {
+  scroll-behavior: smooth; }
+
 html {
   background: #1b2429; }
 
@@ -543,10 +547,127 @@ button.ks-btn {
 .k-weight--lg, .ks-producthero__option {
   font-weight: 700; }
 
+.ks-rte-content h1, .ks-rte-content h2, .ks-rte-content h3, .ks-rte-content h4, .ks-rte-content h5, .ks-rte-content h6 {
+  color: #2e443a;
+  margin-top: 2rem;
+  margin-bottom: 0.667rem; }
+
+.ks-rte-content h1 {
+  margin-bottom: 1em; }
+
 .ks-rte-content p {
   margin-top: 0; }
   .ks-rte-content p:last-of-type {
     margin-bottom: 0; }
+
+.ks-rte-content a {
+  color: #994c3d;
+  text-decoration: none; }
+  .ks-rte-content a:hover {
+    color: #623127; }
+
+.ks-rte-content ol,
+.ks-rte-content ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1em; }
+  .ks-rte-content ol li,
+  .ks-rte-content ul li {
+    position: relative;
+    margin-bottom: 0.5em;
+    padding-left: 1.5em; }
+    .ks-rte-content ol li:before,
+    .ks-rte-content ul li:before {
+      position: absolute;
+      left: 0;
+      display: block; }
+
+.ks-rte-content ul li:before {
+  content: '';
+  top: 0.667rem;
+  background: #2e443a;
+  height: 0.33em;
+  width: 0.33em;
+  border-radius: 50%; }
+
+.ks-rte-content ol li:before {
+  color: #994c3d; }
+
+.ks-rte-content ol li:nth-child(1):before {
+  content: "1."; }
+
+.ks-rte-content ol li:nth-child(2):before {
+  content: "2."; }
+
+.ks-rte-content ol li:nth-child(3):before {
+  content: "3."; }
+
+.ks-rte-content ol li:nth-child(4):before {
+  content: "4."; }
+
+.ks-rte-content ol li:nth-child(5):before {
+  content: "5."; }
+
+.ks-rte-content ol li:nth-child(6):before {
+  content: "6."; }
+
+.ks-rte-content ol li:nth-child(7):before {
+  content: "7."; }
+
+.ks-rte-content ol li:nth-child(8):before {
+  content: "8."; }
+
+.ks-rte-content ol li:nth-child(9):before {
+  content: "9."; }
+
+.ks-rte-content ol li:nth-child(10):before {
+  content: "10."; }
+
+.ks-rte-content ol li:nth-child(11):before {
+  content: "11."; }
+
+.ks-rte-content ol li:nth-child(12):before {
+  content: "12."; }
+
+.ks-rte-content ol li:nth-child(13):before {
+  content: "13."; }
+
+.ks-rte-content ol li:nth-child(14):before {
+  content: "14."; }
+
+.ks-rte-content ol li:nth-child(15):before {
+  content: "15."; }
+
+.ks-rte-content ol li:nth-child(16):before {
+  content: "16."; }
+
+.ks-rte-content ol li:nth-child(17):before {
+  content: "17."; }
+
+.ks-rte-content ol li:nth-child(18):before {
+  content: "18."; }
+
+.ks-rte-content ol li:nth-child(19):before {
+  content: "19."; }
+
+.ks-rte-content ol li:nth-child(20):before {
+  content: "20."; }
+
+.ks-rte-content ol li:nth-child(21):before {
+  content: "21."; }
+
+.ks-rte-content ol li:nth-child(22):before {
+  content: "22."; }
+
+.ks-rte-content ol li:nth-child(23):before {
+  content: "23."; }
+
+.ks-rte-content ol li:nth-child(24):before {
+  content: "24."; }
+
+.ks-rte-content ol li:nth-child(25):before {
+  content: "25."; }
 
 .ks-accent-text {
   font-family: "big-caslon-fb", serif;
@@ -618,7 +739,9 @@ figure {
   .ks-headline--lg {
     font-size: 3.2em; }
   .ks-richtext {
-    padding: 9.375em 0; } }
+    padding: 9.375em 0; }
+    .ks-richtext > .ks-inner {
+      width: 60%; } }
 
 @media (min-width: 1199px) {
   .ks-headline--md {
@@ -627,6 +750,14 @@ figure {
     font-size: 3.8em; }
   section.ks-block--lg {
     padding: 12.5em 0; } }
+
+@media (min-width: 1440px) {
+  .ks-richtext > .ks-inner {
+    width: 50%; } }
+
+@media (min-width: 1800px) {
+  .ks-richtext > .ks-inner {
+    width: 40%; } }
 
 form *,
 form.hs-form * {
@@ -2171,6 +2302,11 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   .ks-cartsidebar__noitems {
     text-align: center;
     padding: 0 1em; }
+    .ks-cartsidebar__noitems a {
+      color: #994c3d;
+      text-decoration: none; }
+      .ks-cartsidebar__noitems a:hover {
+        color: #623127; }
   .ks-cartsidebar__discountcode * {
     margin: 0; }
   .ks-cartsidebar__discountcode p {
