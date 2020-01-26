@@ -12,16 +12,113 @@
 
   &__mainslider {
     margin-bottom: 0.25em;
+    position: relative;
+  }
+
+  &__thumbslider {
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      .ks-gallerycontrols {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__enlarge {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    width: 1.5em;
+
+    &:hover {
+      cursor: pointer;
+
+      svg polygon {
+        fill: $primary;
+      }
+    }
+
+    .ks-svg-wrapper {
+      position: relative;
+
+      &__liner {
+        padding-bottom: 100%;
+      }
+    }
+
+    svg {
+      @include fill-parent();
+      overflow: hidden;
+
+      polygon {
+        fill: $light-grey;
+        transition: fill 0.2s $ease-out-circ;
+      }
+    }
+  }
+
+  .ks-gallerycontrols {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.2s $ease-out-circ, opacity 0.4s $ease-out-circ;
+    pointer-events: none;
+
+    &__prev,
+    &__next {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 2em;
+      background: $black;
+      opacity: 0.75;
+      pointer-events: all;
+
+      &:hover {
+        cursor: pointer;
+        background: $primary;
+      }
+
+      svg {
+        line,
+        polyline {
+          stroke: $white;
+        }
+      }
+    }
+
+    .ks-svg-wrapper__liner {
+      svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &__prev {
+      left: 0;
+    }
+
+    &__next {
+      right: 0;
+    }
   }
 
   &__thumbslide {
-    width: 31%;
-    margin-right: 3%;
+    width: 33%;
+    margin-right: 1%;
 
-    &.is-selected {
-      .ks-producthero__thumbslide__liner:before {
-        transform: translate(-50%, -50%) scale(1);
-      }
+    &:hover {
+      cursor: pointer;
     }
 
     &__liner {

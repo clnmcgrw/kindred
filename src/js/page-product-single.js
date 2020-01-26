@@ -1,5 +1,5 @@
 import Flickity from 'flickity';
-import { $win } from './ui';
+import { $win, $lightbox, $lightboxClose } from './ui';
 import { getProductById, getProductByHandle } from './shopify/functions';
 import {
   productHeroVariant,
@@ -17,10 +17,13 @@ const $variantsTarget = $('#ks-variantstarget');
 const $optionsTarget = $('#ks-optionstarget');
 const $quantityAdjust = $('.ks-quantity__action');
 const $quantityTarget = $('#ks-quantitytarget');
+const $galleryControls = $('.ks-gallerycontrols .ks-svg-wrapper');
+const $enlarge = $('.ks-producthero__enlarge');
 const productHandle = $productDataDump.data('product-handle');
 const storefrontId = $productDataDump.data('storefront-id');
 
 let $variantEls;
+let $galleryThumbs;
 let flkty;
 
 /**
@@ -155,6 +158,8 @@ function attachEventListeners(product) {
   const { variants } = product;
   const $optionTriggers = $optionsTarget.find('.ks-producthero__option');
 
+  attachVariantClick();
+
   $optionTriggers.click(function() {
     const $t = $(this);
 
@@ -162,19 +167,8 @@ function attachEventListeners(product) {
     $t.addClass('active');
 
     renderVariants(variants, getSelectedOptions());
-
     attachVariantClick();
   });
-
-  const $sliderThumbs = $('.ks-producthero__thumbslide');
-
-  $sliderThumbs.click(function() {
-    const $t = $(this).find('img');
-
-    $featuredImage.attr('src', $t.attr('src'));
-  });
-
-  attachVariantClick();
 
   $quantityAdjust.click(function() {
     const $t = $(this);
@@ -189,24 +183,41 @@ function attachEventListeners(product) {
 
   $win.on('gallery-images-loaded', function({ galleryImages }) {
     galleryImages.forEach(src => $galleryImagesTarget.append(thumbSlide(src)));
+    // Query now that they're in the DOM
+    $galleryThumbs = $('.ks-producthero__thumbslide');
 
     flkty = new Flickity($galleryImagesTarget[0], {
       cellSelector: '.ks-producthero__thumbslide',
       cellAlign: 'left',
       prevNextButtons: false,
       pageDots: false,
-      on: {
-        change: () => {
-          $featuredImage.attr(
-            'src',
-            $('.ks-producthero__thumbslide.is-selected')
-              .find('img')
-              .attr('src')
-          );
-        },
-      },
+      draggable: false,
+    });
+
+    $galleryControls.click(function() {
+      const $t = $(this);
+      const isPrev = $t.hasClass('ks-gallerycontrols__prev');
+
+      isPrev ? flkty.previous() : flkty.next();
+    });
+
+    $galleryThumbs.click(function() {
+      const src = $(this)
+        .find('img')
+        .attr('src');
+
+      $featuredImage.attr('src', src);
     });
   });
+
+  $enlarge.click(() => {
+    const src = $featuredImage.attr('src');
+
+    $lightbox.addClass('active');
+    $lightbox.find('img').attr('src', src);
+  });
+
+  $lightboxClose.click(() => $lightbox.removeClass('active'));
 }
 
 function getSelectedOptions() {
@@ -224,7 +235,7 @@ function getSelectedOptions() {
 
 function attachVariantClick() {
   /**
-   * This exists because variants get removed & replaced when a user
+   * Variants get removed & replaced when a user
    * selects an option that has different variants attached; eg fire bowls.
    *
    * In that case, we need to reattach a click listener to those new els.

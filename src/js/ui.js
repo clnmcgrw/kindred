@@ -6,6 +6,9 @@ export const $siteFooter = $('.ks-footer');
 export const $mainSiteContainer = $('main > .ks-site-container');
 export const $cartSidebar = $('#ks-cartsidebar');
 export const $cartCover = $('#ks-cartsidebar__cover');
+export const $lightbox = $('.ks-modal--lightbox');
+export const $lightboxTriggers = $('.ks-lightbox-trigger');
+export const $lightboxClose = $lightbox.find('.ks-modal--lightbox__close');
 export const headerHeight = () => $siteHeader.outerHeight();
 
 function setHeaderHeight() {

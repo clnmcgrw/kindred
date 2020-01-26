@@ -1873,14 +1873,90 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     max-width: 100%;
     min-width: 100%; }
   .ks-producthero__mainslider {
-    margin-bottom: 0.25em; }
+    margin-bottom: 0.25em;
+    position: relative; }
+  .ks-producthero__thumbslider {
+    position: relative;
+    overflow: hidden; }
+    .ks-producthero__thumbslider:hover .ks-gallerycontrols {
+      -webkit-transform: translateY(0);
+          -ms-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1; }
+  .ks-producthero__enlarge {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    width: 1.5em; }
+    .ks-producthero__enlarge:hover {
+      cursor: pointer; }
+      .ks-producthero__enlarge:hover svg polygon {
+        fill: #994c3d; }
+    .ks-producthero__enlarge .ks-svg-wrapper {
+      position: relative; }
+      .ks-producthero__enlarge .ks-svg-wrapper__liner {
+        padding-bottom: 100%; }
+    .ks-producthero__enlarge svg {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden; }
+      .ks-producthero__enlarge svg polygon {
+        fill: #e2ddd6;
+        -webkit-transition: fill 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+        -o-transition: fill 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition: fill 0.2s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .ks-producthero .ks-gallerycontrols {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+            transform: translateY(100%);
+    -webkit-transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    -o-transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    pointer-events: none; }
+    .ks-producthero .ks-gallerycontrols__prev, .ks-producthero .ks-gallerycontrols__next {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 2em;
+      background: #000;
+      opacity: 0.75;
+      pointer-events: all; }
+      .ks-producthero .ks-gallerycontrols__prev:hover, .ks-producthero .ks-gallerycontrols__next:hover {
+        cursor: pointer;
+        background: #994c3d; }
+      .ks-producthero .ks-gallerycontrols__prev svg line,
+      .ks-producthero .ks-gallerycontrols__prev svg polyline, .ks-producthero .ks-gallerycontrols__next svg line,
+      .ks-producthero .ks-gallerycontrols__next svg polyline {
+        stroke: #fff; }
+    .ks-producthero .ks-gallerycontrols .ks-svg-wrapper__liner svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
+    .ks-producthero .ks-gallerycontrols__prev {
+      left: 0; }
+    .ks-producthero .ks-gallerycontrols__next {
+      right: 0; }
   .ks-producthero__thumbslide {
-    width: 31%;
-    margin-right: 3%; }
-    .ks-producthero__thumbslide.is-selected .ks-producthero__thumbslide__liner:before {
-      -webkit-transform: translate(-50%, -50%) scale(1);
-          -ms-transform: translate(-50%, -50%) scale(1);
-              transform: translate(-50%, -50%) scale(1); }
+    width: 33%;
+    margin-right: 1%; }
+    .ks-producthero__thumbslide:hover {
+      cursor: pointer; }
     .ks-producthero__thumbslide__liner {
       position: relative; }
       .ks-producthero__thumbslide__liner:before {
@@ -2578,6 +2654,105 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
 @media (min-width: 1800px) {
   .ks-categorylist > .ks-inner {
     padding: 19.375em 0; } }
+
+.ks-modal--lightbox {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  pointer-events: none;
+  background: #000; }
+  .ks-modal--lightbox.active {
+    pointer-events: all;
+    z-index: 999999;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%); }
+  .ks-modal--lightbox__content {
+    opacity: 1;
+    position: relative;
+    height: 100vh; }
+  .ks-modal--lightbox .ks-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+  .ks-modal--lightbox__main {
+    position: relative;
+    /* 
+    * Give a little vignette effect to enhance the image, but most importantly,
+    * provide some extra contrast for the close trigger that sits up top.
+    */ }
+    .ks-modal--lightbox__main:before, .ks-modal--lightbox__main:after {
+      display: block;
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 15%;
+      opacity: 0.5; }
+    .ks-modal--lightbox__main:before {
+      top: 0;
+      background: -webkit-gradient(linear, left top, left bottom, from(#000), to(transparent));
+      background: -o-linear-gradient(top, #000, transparent);
+      background: linear-gradient(to bottom, #000, transparent); }
+    .ks-modal--lightbox__main:after {
+      bottom: 0;
+      background: -webkit-gradient(linear, left bottom, left top, from(#000), to(transparent));
+      background: -o-linear-gradient(bottom, #000, transparent);
+      background: linear-gradient(to top, #000, transparent); }
+  .ks-modal--lightbox img {
+    display: block;
+    min-width: 100%;
+    max-width: 100%; }
+  .ks-modal--lightbox__close {
+    position: absolute;
+    top: 1em;
+    right: 1em; }
+    .ks-modal--lightbox__close:hover {
+      cursor: pointer; }
+      .ks-modal--lightbox__close:hover .ks-svg-wrapper svg {
+        -webkit-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+                transform: rotate(360deg); }
+        .ks-modal--lightbox__close:hover .ks-svg-wrapper svg circle,
+        .ks-modal--lightbox__close:hover .ks-svg-wrapper svg line {
+          stroke: #994c3d; }
+    .ks-modal--lightbox__close .ks-svg-wrapper {
+      width: 3em; }
+      .ks-modal--lightbox__close .ks-svg-wrapper__liner {
+        position: relative;
+        padding-bottom: 100%; }
+      .ks-modal--lightbox__close .ks-svg-wrapper svg {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        -webkit-transform: rotate(0);
+            -ms-transform: rotate(0);
+                transform: rotate(0);
+        -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: -webkit-transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        -o-transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+        .ks-modal--lightbox__close .ks-svg-wrapper svg circle,
+        .ks-modal--lightbox__close .ks-svg-wrapper svg line {
+          stroke-width: 1px;
+          stroke: #e2ddd6; }
 
 .ks-productlist {
   padding-bottom: 4em;
