@@ -3,13 +3,6 @@
     isAvailableForNewContent: true
 -->
 
-
-
-
-
-
-
-
 {% include '/magnetic-creative/partials/header-primary.html' %}
 
 {% if dynamic_page_hubdb_row %}
@@ -134,7 +127,7 @@
                     </div>
                     <div class="ks-blueprint__actions">
                         {% if product.spec_sheet %}
-                            <a class="ks-blueprint__specsheet" href="{{ product.spec_sheet }}">View Spec Sheet</a class="ks-blueprint__actions__specsheet">
+                            <a class="ks-blueprint__specsheet" href="{{ product.spec_sheet }}" target="_blank" rel="noopener noreferrer">View Spec Sheet</a class="ks-blueprint__actions__specsheet">
                         {% endif %}
                         {% if product.installation_video %}
                             <a class="ks-blueprint__installationvid" href="{{ product.installation_video }}" target="_blank" rel="noopener noreferrer">View Installation Video</a>
