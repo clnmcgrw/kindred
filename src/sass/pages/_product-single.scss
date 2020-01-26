@@ -2,6 +2,32 @@
   padding: $padding-sm 0;
 }
 
+.ks-blueprint {
+  margin-bottom: 4em;
+
+  &__actions {
+    padding: 1em 0;
+    border-bottom: 1px solid $black;
+  }
+
+  a {
+    display: block;
+    line-height: 1;
+    text-decoration: none;
+    color: $black;
+    text-transform: uppercase;
+    font-size: 0.8em;
+
+    &:hover {
+      color: $primary;
+    }
+
+    &:first-child {
+      margin-bottom: 1em;
+    }
+  }
+}
+
 .ks-productdesc {
   padding: $padding-md 0;
 }
@@ -72,6 +98,34 @@
     &__main {
       .ks-card {
         flex-basis: 45%;
+      }
+    }
+  }
+}
+
+@media (min-width: $bp-lg) {
+  .ks-blueprint {
+    a {
+      display: inline-block;
+
+      &:first-child {
+        margin-bottom: 0;
+      }
+
+      &:last-child {
+        margin-left: 2em;
+        position: relative;
+
+        &:before {
+          display: block;
+          content: '';
+          position: absolute;
+          background: $black;
+          height: 100%;
+          width: 1px;
+          left: -1rem;
+          top: 0;
+        }
       }
     }
   }

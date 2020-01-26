@@ -91,8 +91,29 @@
             <div class="ks-productdesc__heading">
                 <h3 class="ks-heading--sm">{{ product.product_title }}</h3>
             </div>
-            <div class="ks-productdesc__body ks-rte-content" id="ks-descriptiontarget">
-                {{ product.full_description }}
+            <div class="ks-productdesc__body" id="ks-descriptiontarget">
+                {% if product.product_blueprint %}
+                <div class="ks-blueprint bg-light">
+                    <div class="ks-blueprint__image">
+                        <figure class="ks-figure">
+                            <div class="ks-figure__liner" style="padding-bottom: {{ (product.product_blueprint.height / product.product_blueprint.width) * 100 }}%">
+                                <img src="{{ product.product_blueprint.url }}" alt="{{ product.product_blueprint.alt }}">
+                            </div>
+                        </figure>
+                    </div>
+                    <div class="ks-blueprint__actions">
+                        {% if product.spec_sheet %}
+                            <a class="ks-blueprint__specsheet" href="{{ product.spec_sheet }}">View Spec Sheet</a class="ks-blueprint__actions__specsheet">
+                        {% endif %}
+                        {% if product.installation_video %}
+                            <a class="ks-blueprint__installationvid" href="{{ product.installation_video }}" target="_blank" rel="noopener noreferrer">View Installation Video</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+                <div class="ks-rte-content">
+                    {{ product.full_description }}
+                </div>
             </div>
         </div>
     </section>

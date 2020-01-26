@@ -2614,6 +2614,23 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
 .ks-productdesc {
   padding: 4em 0; }
 
+.ks-blueprint {
+  margin-bottom: 4em; }
+  .ks-blueprint__actions {
+    padding: 1em 0;
+    border-bottom: 1px solid #000; }
+  .ks-blueprint a {
+    display: block;
+    line-height: 1;
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 0.8em; }
+    .ks-blueprint a:hover {
+      color: #994c3d; }
+    .ks-blueprint a:first-child {
+      margin-bottom: 1em; }
+
 .ks-productdesc {
   padding: 6em 0; }
 
@@ -2677,6 +2694,24 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   .ks-relatedproducts__main .ks-card {
     -ms-flex-preferred-size: 45%;
         flex-basis: 45%; } }
+
+@media (min-width: 992px) {
+  .ks-blueprint a {
+    display: inline-block; }
+    .ks-blueprint a:first-child {
+      margin-bottom: 0; }
+    .ks-blueprint a:last-child {
+      margin-left: 2em;
+      position: relative; }
+      .ks-blueprint a:last-child:before {
+        display: block;
+        content: '';
+        position: absolute;
+        background: #000;
+        height: 100%;
+        width: 1px;
+        left: -1rem;
+        top: 0; } }
 
 @media (min-width: 1440px) {
   .ks-relatedproducts__preheading {
