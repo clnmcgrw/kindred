@@ -8,7 +8,8 @@ export const $cartSidebar = $('#ks-cartsidebar');
 export const $cartCover = $('#ks-cartsidebar__cover');
 export const $lightbox = $('.ks-modal--lightbox');
 export const $lightboxTriggers = $('.ks-lightbox-trigger');
-export const $lightboxClose = $lightbox.find('.ks-modal--lightbox__close');
+export const $lightboxClose = $lightbox.find('.ks-modal__close');
+export const $searchModal = $('.ks-modal--search');
 export const headerHeight = () => $siteHeader.outerHeight();
 
 function setHeaderHeight() {

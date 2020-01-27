@@ -4,6 +4,7 @@
 -->
 
 
+
 {% include '/magnetic-creative/partials/header-primary.html' %}
 
 {% if dynamic_page_hubdb_row %}
@@ -21,6 +22,8 @@
         data-parent-cat="{{ parent_cat[1] | lower | replace(' ', '-') }}"
         data-child-cat="{{ child_cat[1] | lower | replace(' ', '-') }}"
     ></div>
+
+    <div class="" style="display:none;">{{ parent_cat }}</div>
 
     <section class="ks-producthero bg-light">
         <div class="ks-inner">

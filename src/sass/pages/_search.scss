@@ -1,0 +1,96 @@
+.ks-searchresults {
+  padding: $padding-md 0;
+
+  &__indicator {
+    font-family: $heading-font;
+    color: $dark-green;
+    font-size: 2em;
+    margin: 0;
+  }
+
+  &__noresults {
+    a {
+      text-decoration: none;
+      color: $primary;
+
+      &:hover {
+        color: darken($primary, 15%);
+      }
+    }
+  }
+
+  .hs-search-highlight {
+    color: $primary;
+    font-weight: 700;
+  }
+}
+
+.ks-searchresult {
+  border-bottom: 1px solid $lighter-grey;
+  padding: 2em 1em;
+  position: relative;
+  transition: background-color 0.2s $ease-out-circ;
+
+  .ks-link-over {
+    @include fill-parent();
+  }
+
+  &__title {
+    h3 {
+      color: $dark-green;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $black;
+    transition: color 0.2s $ease-out-circ;
+  }
+
+  &__actions a {
+    color: $primary;
+  }
+
+  &:hover {
+    background-color: $lighter-grey;
+
+    span {
+      color: $primary;
+    }
+  }
+}
+
+@media (min-width: $bp-md) {
+  .ks-searchresults {
+    > .ks-inner {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    &__indicator {
+      flex-basis: 25%;
+      margin-right: 5%;
+      margin-top: 1rem;
+    }
+
+    &__noresults {
+      margin-top: 1.5rem;
+    }
+
+    #ks-searchresults-target {
+      flex-basis: 70%;
+    }
+  }
+}
+
+@media (min-width: $bp-xl) {
+  .ks-searchresults {
+    &__indicator {
+    }
+
+    #ks-searchresults-target {
+      flex-basis: 60%;
+    }
+  }
+}

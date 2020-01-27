@@ -115,3 +115,22 @@ export function cartSidebarItem(item) {
     </li>
   `;
 }
+
+export function searchResult(result) {
+  return /*html*/ `
+    <div class="ks-searchresult">
+      <a class="ks-link-over" href="${result.url}"></a>
+      <div class="ks-searchresult__content">
+        <div class="ks-searchresult__title">
+          <h3>${result.title}</h3>
+        </div>
+        <div class="ks-searchresult__description">
+          <p>${result.description}</p>
+        </div>
+        <div class="ks-searchresult__actions">
+          <span>Go &nbsp; &rarr;</span>
+        </div>
+      </div>
+    </div>
+  `;
+}

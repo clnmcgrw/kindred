@@ -768,7 +768,8 @@ form.hs-form * {
 form fieldset,
 form.hs-form fieldset {
   max-width: 100% !important;
-  margin-bottom: 2em; }
+  margin-bottom: 2em;
+  border: none; }
 
 form label,
 form.hs-form label {
@@ -2791,85 +2792,51 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   .ks-categorylist > .ks-inner {
     padding: 19.375em 0; } }
 
-.ks-modal--lightbox {
+.ks-modal {
   position: fixed;
-  top: 50%;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-transform: translateY(100%);
-      -ms-transform: translateY(100%);
-          transform: translateY(100%);
-  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-  -o-transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
   pointer-events: none;
-  background: #000; }
-  .ks-modal--lightbox.active {
+  opacity: 0; }
+  .ks-modal.active {
     pointer-events: all;
     z-index: 999999;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%); }
-  .ks-modal--lightbox__content {
+    opacity: 1; }
+  .ks-modal__content {
     opacity: 1;
     position: relative;
     height: 100vh; }
-  .ks-modal--lightbox .ks-inner {
+  .ks-modal .ks-inner {
     position: absolute;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%); }
-  .ks-modal--lightbox__main {
-    position: relative;
-    /* 
-    * Give a little vignette effect to enhance the image, but most importantly,
-    * provide some extra contrast for the close trigger that sits up top.
-    */ }
-    .ks-modal--lightbox__main:before, .ks-modal--lightbox__main:after {
-      display: block;
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 15%;
-      opacity: 0.5; }
-    .ks-modal--lightbox__main:before {
-      top: 0;
-      background: -webkit-gradient(linear, left top, left bottom, from(#000), to(transparent));
-      background: -o-linear-gradient(top, #000, transparent);
-      background: linear-gradient(to bottom, #000, transparent); }
-    .ks-modal--lightbox__main:after {
-      bottom: 0;
-      background: -webkit-gradient(linear, left bottom, left top, from(#000), to(transparent));
-      background: -o-linear-gradient(bottom, #000, transparent);
-      background: linear-gradient(to top, #000, transparent); }
-  .ks-modal--lightbox img {
-    display: block;
-    min-width: 100%;
-    max-width: 100%; }
-  .ks-modal--lightbox__close {
+  .ks-modal__close {
     position: absolute;
     top: 1em;
     right: 1em; }
-    .ks-modal--lightbox__close:hover {
+    .ks-modal__close:hover {
       cursor: pointer; }
-      .ks-modal--lightbox__close:hover .ks-svg-wrapper svg {
+      .ks-modal__close:hover .ks-svg-wrapper svg {
         -webkit-transform: rotate(360deg);
             -ms-transform: rotate(360deg);
                 transform: rotate(360deg); }
-        .ks-modal--lightbox__close:hover .ks-svg-wrapper svg circle,
-        .ks-modal--lightbox__close:hover .ks-svg-wrapper svg line {
+        .ks-modal__close:hover .ks-svg-wrapper svg circle,
+        .ks-modal__close:hover .ks-svg-wrapper svg line {
           stroke: #994c3d; }
-    .ks-modal--lightbox__close .ks-svg-wrapper {
+    .ks-modal__close .ks-svg-wrapper {
       width: 3em; }
-      .ks-modal--lightbox__close .ks-svg-wrapper__liner {
+      .ks-modal__close .ks-svg-wrapper__liner {
         position: relative;
         padding-bottom: 100%; }
-      .ks-modal--lightbox__close .ks-svg-wrapper svg {
+      .ks-modal__close .ks-svg-wrapper svg {
         display: block;
         position: absolute;
         top: 0;
@@ -2885,10 +2852,92 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
         -o-transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-        .ks-modal--lightbox__close .ks-svg-wrapper svg circle,
-        .ks-modal--lightbox__close .ks-svg-wrapper svg line {
+        .ks-modal__close .ks-svg-wrapper svg circle,
+        .ks-modal__close .ks-svg-wrapper svg line {
           stroke-width: 1px;
           stroke: #e2ddd6; }
+  .ks-modal:before {
+    display: block;
+    content: '';
+    background: #1b2429;
+    opacity: 0.75;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; }
+
+.ks-modal--search .ks-modal__close {
+  top: 0; }
+
+.ks-modal--search .ks-form label,
+.ks-modal--search .ks-form input[type='text'] {
+  color: #fff; }
+
+.ks-modal--search .ks-form input[type='text'] {
+  padding: 1em 0;
+  font-family: "big-caslon-fb", serif; }
+
+.ks-modal--search .ks-form-inputwrap {
+  position: relative; }
+
+.ks-modal--search .ks-form button[type='submit'] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background: transparent;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #fff; }
+  .ks-modal--search .ks-form button[type='submit']:hover {
+    cursor: pointer;
+    color: #994c3d; }
+
+.ks-modal--lightbox__main {
+  position: relative;
+  /* 
+    * Give a little vignette effect to enhance the image, but most importantly,
+    * provide some extra contrast for the close trigger that sits up top.
+    */ }
+  .ks-modal--lightbox__main:before, .ks-modal--lightbox__main:after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 15%;
+    opacity: 0.5; }
+  .ks-modal--lightbox__main:before {
+    top: 0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#000), to(transparent));
+    background: -o-linear-gradient(top, #000, transparent);
+    background: linear-gradient(to bottom, #000, transparent); }
+  .ks-modal--lightbox__main:after {
+    bottom: 0;
+    background: -webkit-gradient(linear, left bottom, left top, from(#000), to(transparent));
+    background: -o-linear-gradient(bottom, #000, transparent);
+    background: linear-gradient(to top, #000, transparent); }
+
+.ks-modal--lightbox img {
+  display: block;
+  min-width: 100%;
+  max-width: 100%; }
+
+@media (min-width: 767px) {
+  .ks-modal--search .ks-inner {
+    width: 60%; }
+  .ks-modal--search .ks-form input[type='text'],
+  .ks-modal--search .ks-form button[type='submit'] {
+    font-size: 2em; } }
+
+@media (min-width: 1440px) {
+  .ks-modal--search .ks-inner {
+    width: 50%; } }
 
 .ks-productlist {
   padding-bottom: 4em;
@@ -3822,5 +3871,77 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     -ms-flex-preferred-size: 27.5%;
         flex-basis: 27.5%;
     margin-bottom: 4em; } }
+
+.ks-searchresults {
+  padding: 6em 0; }
+  .ks-searchresults__indicator {
+    font-family: "big-caslon-fb", serif;
+    color: #2e443a;
+    font-size: 2em;
+    margin: 0; }
+  .ks-searchresults__noresults a {
+    text-decoration: none;
+    color: #994c3d; }
+    .ks-searchresults__noresults a:hover {
+      color: #623127; }
+  .ks-searchresults .hs-search-highlight {
+    color: #994c3d;
+    font-weight: 700; }
+
+.ks-searchresult {
+  border-bottom: 1px solid #ece9e5;
+  padding: 2em 1em;
+  position: relative;
+  -webkit-transition: background-color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: background-color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: background-color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .ks-searchresult .ks-link-over {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  .ks-searchresult__title h3 {
+    color: #2e443a; }
+  .ks-searchresult a {
+    text-decoration: none;
+    color: #000;
+    -webkit-transition: color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    -o-transition: color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .ks-searchresult__actions a {
+    color: #994c3d; }
+  .ks-searchresult:hover {
+    background-color: #ece9e5; }
+    .ks-searchresult:hover span {
+      color: #994c3d; }
+
+@media (min-width: 767px) {
+  .ks-searchresults > .ks-inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+  .ks-searchresults__indicator {
+    -ms-flex-preferred-size: 25%;
+        flex-basis: 25%;
+    margin-right: 5%;
+    margin-top: 1rem; }
+  .ks-searchresults__noresults {
+    margin-top: 1.5rem; }
+  .ks-searchresults #ks-searchresults-target {
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%; } }
+
+@media (min-width: 1199px) {
+  .ks-searchresults #ks-searchresults-target {
+    -ms-flex-preferred-size: 60%;
+        flex-basis: 60%; } }
 
 /*# sourceMappingURL=index.css.map */
