@@ -1,20 +1,100 @@
 <!--
-    templateType: page
-    isAvailableForNewContent: true
+  templateType: page
+  isAvailableForNewContent: true
 -->
-
-
-
-
 
 {% include '/magnetic-creative/partials/header-primary.html' %}
 
 {% set gallery_table_id = 2044395 %}
 
-<section class="ks-gallery">
+<section class="ks-heroimage">
+  <figure class="ks-figure">
+    <div class="ks-figure__liner">
+      <img src="https://www.mykindredliving.com/hubfs/hs-cms-files/images/gallery-hero.jpg" alt="">
+    </div>
+  </figure>
+</section>
+
+<section class="ks-introtext ks-introtext--xlight">
   <div class="ks-inner">
-    <h1 class="ks-headline ks-headline--lg">not yet implemented</h1>
+    <div class="ks-introtext__content">
+      <div class="ks-introtext__preheading">
+        <span class="ks-preheading">Gallery</span>
+      </div>
+      <div class="ks-introtext__main">
+        <h1 class="ks-headline--md">Explore inspirational environments others have created with Kindred Outdoor products.</ h1>
+      </div>
+    </div>
   </div>
+</section>
+
+<section class="ks-gallery">
+
+  <nav class="ks-resourcelist__nav">
+    <div class="ks-inner">
+      <ul>
+        <li class="ks_resourcelist__nav__title">Filter By:</li>
+        <li><span data-toggle-type="all" class="active">All</span></li>
+        <li><span data-toggle-type="building-blocks">Building Blocks</span></li>
+        <li><span data-toggle-type="fire-bowls">Fire Bowls</span></li>
+        <li><span data-toggle-type="fireplaces">Fireplaces</span></li>
+        <li><span data-toggle-type="signature-kitchens">Signature Kitchens</span></li>
+        <li><span data-toggle-type="surrounds">Surrounds</span></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="ks-gallery__main">
+    <div class="ks-inner">
+
+    {# Only show 6 items at first. For the others, throw them in an array for JS to get and render as needed #}
+    <script>
+      window.remainingGalleryItems = [];
+    </script>
+
+    {% for item in hubdb_table_rows(gallery_table_id) %}
+      {% set related_product = item.related_product | first %}
+      {% set product_type = item.category | first %}
+
+      {% if loop.index0 > 5 %}
+        {# each day we stray further from God's light #}
+        <script>
+          (function() {
+            var item = {
+              galleryItem: {{ item | tojson }},
+              relatedProduct: {{ related_product | tojson }},
+              productType: "{{ product_type.name.replace(' ', '-') | lower }}"
+            };
+
+            window.remainingGalleryItems.push(item);
+          })();
+        </script>
+      {% else %}
+        <div class="ks-gallery__item" data-product-type="{{ product_type.name.replace(' ', '-') | lower }}">
+          <div class="ks-gallery__item__bgimg ks-bgimg" data-src="{{ item.image.url }}"></div>
+          <div class="ks-hovercard">
+            <div class="ks-hovercard__liner">
+              <div class="ks-hovercard__title">
+                <h4>{{ related_product.product_title }}</h4>
+              </div>
+              <div class="ks-hovercard__image">
+                <figure class="ks-figure">
+                  <div class="ks-figure__liner">
+                    <img src="{{ related_product.featured_image }}" alt="">
+                  </div>
+                </figure>
+              </div>
+              <div class="ks-hovercard__action">
+                <a href="/products/{{ related_product.hs_path }}">Shop Product</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+  </div>
+
 </section>
 
 {% include '/magnetic-creative/partials/footer-primary.html' %}
