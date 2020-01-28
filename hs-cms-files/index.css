@@ -896,14 +896,28 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   width: 100%;
   z-index: 19999;
   padding: 0; }
-  .ks-mainheader .ks-site-container {
-    background: #fff; }
+  .ks-mainheader--alt .ks-site-container {
+    background: transparent;
+    padding: 1em 0; }
+  .ks-mainheader--alt .ks-brand-logo--svg {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 52.03837%; }
+    .ks-mainheader--alt .ks-brand-logo--svg svg {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+    .ks-mainheader--alt .ks-brand-logo--svg svg path {
+      fill: #fff; }
+  .ks-mainheader--alt .ks-mainnav {
+    background: transparent;
+    color: #1b2429; }
   .ks-mainheader .ks-inner {
-    width: 100%; }
-
-.magnetic-creative-templates-homepage .ks-mainheader .ks-site-container {
-  padding: 0.5em 15px;
-  background: rgba(27, 36, 41, 0.5); }
+    width: 100%;
+    position: relative; }
 
 .ks-brand {
   width: 7em;
@@ -936,6 +950,10 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   top: 50%;
   left: 15px;
   margin-top: -1.25em; }
+  .ks-navtoggle.open + .ks-mainnav {
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0); }
 
 .ks-navtoggle--btn {
   -webkit-appearance: none;
@@ -955,12 +973,20 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   border-radius: 0.3em; }
 
 .ks-mainnav {
-  display: none;
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
-  background: #1b2429; }
+  background: #1b2429;
+  -webkit-transform: translateY(-140%);
+      -ms-transform: translateY(-140%);
+          transform: translateY(-140%);
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: -1; }
   .ks-mainnav ul {
     list-style: none;
     padding: 0;
@@ -968,11 +994,14 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     .ks-mainnav ul > li {
       display: block;
       font-size: 0.9em;
-      border-bottom: 1px solid #2e443a; }
+      border-bottom: 1px solid #2e443a;
+      vertical-align: middle; }
       .ks-mainnav ul > li.ks-mainnav--icon {
         display: none; }
-      .ks-mainnav ul > li > a {
-        padding: 0.5em 1em; }
+    .ks-mainnav ul a {
+      padding: 0.5em 1em; }
+      .ks-mainnav ul a:hover {
+        color: #623127; }
   .ks-mainnav a {
     display: block;
     color: #cfc5b9;
@@ -982,27 +1011,39 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   display: none; }
 
 @media (min-width: 767px) {
-  .ks-mainheader > .ks-inner {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center; }
+  .ks-mainheader .ks-inner {
+    width: 90%; }
   .ks-navtoggle {
     display: none; }
   .ks-mainnav {
     display: block;
-    position: relative;
-    background: transparent; }
+    background: transparent;
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    pointer-events: none;
+    z-index: 1;
+    bottom: auto;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%); }
+    .ks-mainnav:before, .ks-mainnav:after {
+      display: table;
+      content: '';
+      clear: both; }
+    .ks-mainnav__left, .ks-mainnav__right {
+      float: left;
+      width: 50%; }
+    .ks-mainnav__right {
+      text-align: right; }
     .ks-mainnav ul > li {
       display: inline-block;
       border-bottom: none; }
       .ks-mainnav ul > li.ks-mainnav--icon {
         display: inline-block; }
+    .ks-mainnav ul a {
+      pointer-events: all; }
   .ks-mainnav--icon {
     display: inline-block; } }
 

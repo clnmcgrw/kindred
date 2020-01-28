@@ -1,3 +1,4 @@
+import header from './header';
 import heroSlider from './hero-slider';
 import gallerySlider from './gallery-slider';
 import productSinglePage from './page-product-single';
@@ -13,6 +14,7 @@ import './cart-sidebar';
 
 import './shopify/main';
 
+header();
 heroSlider();
 gallerySlider();
 productSinglePage();

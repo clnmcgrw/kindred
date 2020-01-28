@@ -6,19 +6,35 @@
   z-index: 19999;
   padding: 0;
 
-  .ks-site-container {
-    background: $white;
+  &--alt {
+    .ks-site-container {
+      background: transparent;
+      padding: 1em 0;
+    }
+
+    .ks-brand-logo--svg {
+      @include fluid-element(217, 417, 'svg');
+      svg path {
+        fill: $white;
+      }
+    }
+
+    .ks-mainnav {
+      background: transparent;
+      color: $dark;
+    }
   }
 
   .ks-inner {
     width: 100%;
+    position: relative;
   }
 }
 
 .magnetic-creative-templates-homepage {
   .ks-mainheader .ks-site-container {
-    padding: 0.5em 15px;
-    background: rgba($dark, 0.5);
+    // padding: 0.5em 15px;
+    // background: rgba($dark, 0.5);
   }
 }
 
@@ -26,6 +42,7 @@
   width: 7em;
   margin-left: auto;
   margin-right: auto;
+
   a {
     display: block;
     transition: opacity 0.3s ease;
@@ -47,6 +64,12 @@
   top: 50%;
   left: 15px;
   margin-top: -1.25em;
+
+  &.open {
+    + .ks-mainnav {
+      transform: translateY(0);
+    }
+  }
 }
 .ks-navtoggle--btn {
   @include btn-reset();
@@ -58,12 +81,14 @@
 }
 
 .ks-mainnav {
-  display: none;
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
   background: $dark;
+  transform: translateY(-140%);
+  transition: transform 0.4s $ease-out-circ;
+  z-index: -1;
 
   ul {
     list-style: none;
@@ -74,13 +99,18 @@
       display: block;
       font-size: 0.9em;
       border-bottom: 1px solid $dark-green;
+      vertical-align: middle;
 
       &.ks-mainnav--icon {
         display: none;
       }
+    }
 
-      > a {
-        padding: 0.5em 1em;
+    a {
+      padding: 0.5em 1em;
+
+      &:hover {
+        color: darken($primary, 15%);
       }
     }
   }
@@ -98,10 +128,8 @@
 
 @media (min-width: $bp-md) {
   .ks-mainheader {
-    > .ks-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .ks-inner {
+      width: 90%;
     }
   }
 
@@ -111,8 +139,24 @@
 
   .ks-mainnav {
     display: block;
-    position: relative;
     background: transparent;
+    transform: translateY(0);
+    pointer-events: none;
+    z-index: 1;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    @include clearfix();
+
+    &__left,
+    &__right {
+      float: left;
+      width: 50%;
+    }
+
+    &__right {
+      text-align: right;
+    }
 
     ul {
       > li {
@@ -122,6 +166,10 @@
         &.ks-mainnav--icon {
           display: inline-block;
         }
+      }
+
+      a {
+        pointer-events: all;
       }
     }
   }

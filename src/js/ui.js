@@ -13,7 +13,10 @@ export const $searchModal = $('.ks-modal--search');
 export const headerHeight = () => $siteHeader.outerHeight();
 
 function setHeaderHeight() {
+  if ($siteHeader.hasClass('ks-mainheader--alt')) return;
+
   $mainSiteContainer.css({ 'padding-top': headerHeight() });
 }
 
 $doc.ready(setHeaderHeight);
+$win.resize(setHeaderHeight);
