@@ -5,36 +5,72 @@
   width: 100%;
   z-index: 19999;
   padding: 0;
+  transform: translateY(0);
+  transition: transform 0.2s $ease-out-circ;
+
+  .ks-site-container {
+    transition: background-color 0.5s $ease-out-circ;
+    background-color: $light-grey;
+  }
+
+  &.traveling {
+    transform: translateY(-100%);
+
+    &.scroll-visible {
+      transform: translateY(0);
+    }
+  }
+
+  &.solid {
+    .ks-site-container {
+      background: $white;
+    }
+
+    .ks-brand-logo--svg {
+      svg path {
+        fill: $primary;
+      }
+    }
+
+    .ks-navtoggle--btn {
+      svg {
+        stroke: $primary;
+
+        line {
+          stroke: $primary;
+        }
+      }
+    }
+  }
 
   &--alt {
     .ks-site-container {
       background: transparent;
-      padding: 1em 0;
     }
 
     .ks-brand-logo--svg {
-      @include fluid-element(217, 417, 'svg');
       svg path {
         fill: $white;
       }
     }
 
-    .ks-mainnav {
-      background: transparent;
-      color: $dark;
+    .ks-navtoggle--btn {
+      background-color: transparent;
+
+      svg {
+        stroke: $white;
+
+        line {
+          stroke: $white;
+        }
+      }
     }
   }
 
   .ks-inner {
     width: 100%;
     position: relative;
-  }
-}
-
-.magnetic-creative-templates-homepage {
-  .ks-mainheader .ks-site-container {
-    // padding: 0.5em 15px;
-    // background: rgba($dark, 0.5);
+    padding: 1em 0 1.5em;
   }
 }
 
@@ -46,6 +82,7 @@
   a {
     display: block;
     transition: opacity 0.3s ease;
+
     &:hover {
       opacity: 0.9;
     }
@@ -55,7 +92,7 @@
 .ks-brand-logo--svg {
   @include fluid-element(217, 417, 'svg');
   svg path {
-    fill: $grey-beige;
+    fill: $primary;
   }
 }
 
@@ -86,8 +123,8 @@
   left: 0;
   width: 100%;
   background: $dark;
-  transform: translateY(-140%);
-  transition: transform 0.4s $ease-out-circ;
+  transform: translateY(-150%);
+  transition: transform 0.5s $ease-out-circ;
   z-index: -1;
 
   ul {
@@ -99,7 +136,6 @@
       display: block;
       font-size: 0.9em;
       border-bottom: 1px solid $dark-green;
-      vertical-align: middle;
 
       &.ks-mainnav--icon {
         display: none;
@@ -130,6 +166,30 @@
   .ks-mainheader {
     .ks-inner {
       width: 90%;
+    }
+
+    .ks-mainnav {
+      ul > li a {
+        color: $primary;
+
+        &:hover {
+          color: darken($primary, 15%);
+        }
+      }
+    }
+
+    &--alt {
+      .ks-mainnav {
+        ul > li a {
+          color: $light-grey;
+        }
+      }
+
+      &.scroll-visible {
+        ul > li a {
+          color: $primary;
+        }
+      }
     }
   }
 
@@ -162,6 +222,7 @@
       > li {
         display: inline-block;
         border-bottom: none;
+        vertical-align: middle;
 
         &.ks-mainnav--icon {
           display: inline-block;
@@ -170,11 +231,69 @@
 
       a {
         pointer-events: all;
+        padding: 0 1em;
+      }
+
+      .ks-searchtrigger {
+        padding-left: 0 !important;
+      }
+
+      .ks-carttrigger a {
+        padding-right: 0 !important;
       }
     }
   }
 
   .ks-mainnav--icon {
     display: inline-block;
+  }
+}
+
+@media (min-width: $bp-xl) {
+  .ks-mainheader {
+    ul {
+      > li {
+        a {
+          font-size: 1.25em;
+        }
+      }
+    }
+  }
+
+  .ks-brand {
+    width: 8.5em;
+  }
+}
+
+@media (min-width: $bp-xl) {
+  .ks-mainheader {
+  }
+
+  .ks-brand {
+    width: 12em;
+  }
+}
+
+@media (min-width: $bp-xxl) {
+  .ks-mainheader {
+    ul {
+      > li {
+        a {
+          padding: 0 1.5em;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1800px) {
+  .ks-mainheader {
+    ul {
+      > li {
+        a {
+          padding: 0 2em;
+        }
+      }
+    }
   }
 }

@@ -2,6 +2,7 @@ import {
   headerHeight,
   $doc,
   $win,
+  $siteHeader,
   $mainSiteContainer,
   $cartSidebar,
   $cartCover,
@@ -35,6 +36,10 @@ function setCartPositioning() {
 }
 
 $cartTriggers.click(function() {
+  if (!$siteHeader.hasClass('scroll-visible')) {
+    $siteHeader.toggleClass('solid');
+  }
+
   $cartSidebar.toggleClass('active');
 });
 

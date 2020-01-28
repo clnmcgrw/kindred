@@ -1,23 +1,50 @@
-const $headerElement = $('#ks-main-header');
+import { $win, $siteHeader } from './ui';
+
 const $navToggleBtn = $('#ks-nav-toggle');
-const $mainNav = $('#ks-main-nav');
-const $searchTrigger = $('.ks-searchtrigger');
-const $cartTrigger = $('.ks-carttrigger');
+// const $mainNav = $('#ks-main-nav');
+// const $searchTrigger = $('.ks-searchtrigger');
+// const $cartTrigger = $('.ks-carttrigger');
 
 export let navOpen = false;
 
-const navToggleHandler = e => {
-  e.preventDefault();
-};
+let didScroll = false;
+let lastScroll = 0;
+
+function headerScroll() {
+  if (didScroll) {
+    const thisScroll = $win.scrollTop();
+
+    if (thisScroll > 0) {
+      $siteHeader.addClass('traveling');
+
+      if (thisScroll > lastScroll) {
+        $siteHeader.removeClass('scroll-visible');
+      } else {
+        $siteHeader.addClass('scroll-visible solid');
+      }
+
+      lastScroll = thisScroll;
+    } else {
+      $siteHeader.removeClass('traveling scroll-visible solid');
+    }
+
+    didScroll = false;
+  }
+  requestAnimationFrame(headerScroll);
+}
 
 export default () => {
-  if (!$headerElement.length) return;
+  if (!$siteHeader.length) return;
+
+  headerScroll();
+
+  $win.scroll(() => (didScroll = true));
 
   if (
     window.location.pathname === '/' ||
     window.location.pathname === '/homepage'
   ) {
-    $headerElement.addClass('ks-mainheader--alt');
+    $siteHeader.addClass('ks-mainheader--alt');
   }
 
   $navToggleBtn.click(function(e) {
@@ -25,5 +52,6 @@ export default () => {
 
     const $t = $(this);
     $t.toggleClass('open');
+    $siteHeader.toggleClass('solid');
   });
 };

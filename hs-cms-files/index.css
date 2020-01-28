@@ -895,29 +895,50 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   left: 0;
   width: 100%;
   z-index: 19999;
-  padding: 0; }
+  padding: 0;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: -webkit-transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .ks-mainheader .ks-site-container {
+    -webkit-transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    -o-transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: #e2ddd6; }
+  .ks-mainheader.traveling {
+    -webkit-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+            transform: translateY(-100%); }
+    .ks-mainheader.traveling.scroll-visible {
+      -webkit-transform: translateY(0);
+          -ms-transform: translateY(0);
+              transform: translateY(0); }
+  .ks-mainheader.solid .ks-site-container {
+    background: #fff; }
+  .ks-mainheader.solid .ks-brand-logo--svg svg path {
+    fill: #994c3d; }
+  .ks-mainheader.solid .ks-navtoggle--btn svg {
+    stroke: #994c3d; }
+    .ks-mainheader.solid .ks-navtoggle--btn svg line {
+      stroke: #994c3d; }
   .ks-mainheader--alt .ks-site-container {
-    background: transparent;
-    padding: 1em 0; }
-  .ks-mainheader--alt .ks-brand-logo--svg {
-    position: relative;
-    overflow: hidden;
-    padding-bottom: 52.03837%; }
-    .ks-mainheader--alt .ks-brand-logo--svg svg {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%; }
-    .ks-mainheader--alt .ks-brand-logo--svg svg path {
-      fill: #fff; }
-  .ks-mainheader--alt .ks-mainnav {
-    background: transparent;
-    color: #1b2429; }
+    background: transparent; }
+  .ks-mainheader--alt .ks-brand-logo--svg svg path {
+    fill: #fff; }
+  .ks-mainheader--alt .ks-navtoggle--btn {
+    background-color: transparent; }
+    .ks-mainheader--alt .ks-navtoggle--btn svg {
+      stroke: #fff; }
+      .ks-mainheader--alt .ks-navtoggle--btn svg line {
+        stroke: #fff; }
   .ks-mainheader .ks-inner {
     width: 100%;
-    position: relative; }
+    position: relative;
+    padding: 1em 0 1.5em; }
 
 .ks-brand {
   width: 7em;
@@ -943,7 +964,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     width: 100%;
     height: 100%; }
   .ks-brand-logo--svg svg path {
-    fill: #cfc5b9; }
+    fill: #994c3d; }
 
 .ks-navtoggle {
   position: absolute;
@@ -978,14 +999,14 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   left: 0;
   width: 100%;
   background: #1b2429;
-  -webkit-transform: translateY(-140%);
-      -ms-transform: translateY(-140%);
-          transform: translateY(-140%);
-  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-  -o-transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transform: translateY(-150%);
+      -ms-transform: translateY(-150%);
+          transform: translateY(-150%);
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: -webkit-transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   z-index: -1; }
   .ks-mainnav ul {
     list-style: none;
@@ -994,8 +1015,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     .ks-mainnav ul > li {
       display: block;
       font-size: 0.9em;
-      border-bottom: 1px solid #2e443a;
-      vertical-align: middle; }
+      border-bottom: 1px solid #2e443a; }
       .ks-mainnav ul > li.ks-mainnav--icon {
         display: none; }
     .ks-mainnav ul a {
@@ -1013,6 +1033,14 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
 @media (min-width: 767px) {
   .ks-mainheader .ks-inner {
     width: 90%; }
+  .ks-mainheader .ks-mainnav ul > li a {
+    color: #994c3d; }
+    .ks-mainheader .ks-mainnav ul > li a:hover {
+      color: #623127; }
+  .ks-mainheader--alt .ks-mainnav ul > li a {
+    color: #e2ddd6; }
+  .ks-mainheader--alt.scroll-visible ul > li a {
+    color: #994c3d; }
   .ks-navtoggle {
     display: none; }
   .ks-mainnav {
@@ -1039,13 +1067,37 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
       text-align: right; }
     .ks-mainnav ul > li {
       display: inline-block;
-      border-bottom: none; }
+      border-bottom: none;
+      vertical-align: middle; }
       .ks-mainnav ul > li.ks-mainnav--icon {
         display: inline-block; }
     .ks-mainnav ul a {
-      pointer-events: all; }
+      pointer-events: all;
+      padding: 0 1em; }
+    .ks-mainnav ul .ks-searchtrigger {
+      padding-left: 0 !important; }
+    .ks-mainnav ul .ks-carttrigger a {
+      padding-right: 0 !important; }
   .ks-mainnav--icon {
     display: inline-block; } }
+
+@media (min-width: 1199px) {
+  .ks-mainheader ul > li a {
+    font-size: 1.25em; }
+  .ks-brand {
+    width: 8.5em; } }
+
+@media (min-width: 1199px) {
+  .ks-brand {
+    width: 12em; } }
+
+@media (min-width: 1440px) {
+  .ks-mainheader ul > li a {
+    padding: 0 1.5em; } }
+
+@media (min-width: 1800px) {
+  .ks-mainheader ul > li a {
+    padding: 0 2em; } }
 
 .ks-sampleoffer {
   padding: 4em 0; }
@@ -2132,25 +2184,6 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
       cursor: pointer; }
     .ks-producthero__thumbslide__liner {
       position: relative; }
-      .ks-producthero__thumbslide__liner:before {
-        display: block;
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100%;
-        height: 100%;
-        -webkit-transform: translate(-50%, -50%) scale(0);
-            -ms-transform: translate(-50%, -50%) scale(0);
-                transform: translate(-50%, -50%) scale(0);
-        -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-        transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-        -o-transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-        transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-        transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
-        border: 5px solid #cfc5b9;
-        pointer-events: none;
-        float: none; }
   .ks-producthero__sku {
     margin-bottom: 2em; }
   .ks-producthero__title:before, .ks-producthero__title:after {
@@ -2206,11 +2239,11 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 110%;
-      height: 110%;
-      -webkit-transform: translate(-50%, -50%) scale(0);
-          -ms-transform: translate(-50%, -50%) scale(0);
-              transform: translate(-50%, -50%) scale(0);
+      width: 101%;
+      height: 101%;
+      -webkit-transform: translate(-48.75%, -52.5%) scale(0);
+          -ms-transform: translate(-48.75%, -52.5%) scale(0);
+              transform: translate(-48.75%, -52.5%) scale(0);
       -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
       transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
       -o-transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -2219,9 +2252,9 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
       border: 1px solid #000;
       pointer-events: none; }
     .ks-producthero__variant.active:before {
-      -webkit-transform: translate(-50%, -50%) scale(1);
-          -ms-transform: translate(-50%, -50%) scale(1);
-              transform: translate(-50%, -50%) scale(1); }
+      -webkit-transform: translate(-48.75%, -52.5%) scale(1);
+          -ms-transform: translate(-48.75%, -52.5%) scale(1);
+              transform: translate(-48.75%, -52.5%) scale(1); }
     .ks-producthero__variant.out-of-stock {
       position: relative; }
       .ks-producthero__variant.out-of-stock:after {
