@@ -447,7 +447,8 @@ body {
   font-size: 16px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px; }
 
 .ks-maincontent .ks-site-container {
   background: #ffffff; }
@@ -922,8 +923,12 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   .ks-mainheader.solid .ks-brand-logo--svg svg path {
     fill: #994c3d; }
   .ks-mainheader.solid .ks-navtoggle--btn svg {
-    stroke: #994c3d; }
+    stroke: #fff; }
     .ks-mainheader.solid .ks-navtoggle--btn svg line {
+      stroke: #fff; }
+  .ks-mainheader--alt.solid .ks-navtoggle--btn svg {
+    stroke: #994c3d; }
+    .ks-mainheader--alt.solid .ks-navtoggle--btn svg line {
       stroke: #994c3d; }
   .ks-mainheader--alt .ks-site-container {
     background: transparent; }

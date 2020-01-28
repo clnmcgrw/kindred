@@ -34,16 +34,28 @@
 
     .ks-navtoggle--btn {
       svg {
-        stroke: $primary;
+        stroke: $white;
 
         line {
-          stroke: $primary;
+          stroke: $white;
         }
       }
     }
   }
 
   &--alt {
+    &.solid {
+      .ks-navtoggle--btn {
+        svg {
+          stroke: $primary;
+
+          line {
+            stroke: $primary;
+          }
+        }
+      }
+    }
+
     .ks-site-container {
       background: transparent;
     }
