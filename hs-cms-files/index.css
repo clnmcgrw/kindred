@@ -1609,7 +1609,13 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
         flex-basis: 26.1538462%; } }
 
 .ks-introtext {
-  background: #1b2429; }
+  background: #212c32; }
+  .ks-introtext--hero {
+    position: relative;
+    overflow: hidden; }
+    .ks-introtext--hero .ks-introtext__content {
+      position: relative;
+      z-index: 2; }
   .ks-introtext--light {
     background: #ece9e5; }
     .ks-introtext--light h1, .ks-introtext--light h2, .ks-introtext--light h3, .ks-introtext--light h4, .ks-introtext--light h5, .ks-introtext--light h6 {
@@ -1620,6 +1626,18 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     background: #f6f5f3; }
     .ks-introtext--xlight h1, .ks-introtext--xlight h2, .ks-introtext--xlight h3, .ks-introtext--xlight h4, .ks-introtext--xlight h5, .ks-introtext--xlight h6 {
       color: #2e443a !important; }
+  .ks-introtext__bgimg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    top: 4em;
+    background-size: cover;
+    background-position: top top;
+    background-repeat: no-repeat;
+    z-index: 1; }
   .ks-introtext__content {
     padding: 4em 0; }
   .ks-introtext .ks-introtext__main__cols {

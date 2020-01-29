@@ -1,34 +1,46 @@
 <section class="ks-introtext {% if module.appearance_options.is_hero %}ks-introtext--hero{% endif %} {% if module.appearance_options.light_background %}ks-introtext--light{% endif %} {% if module.appearance_options.extra_light_background %}ks-introtext--xlight{% endif %}">
-    <div class="ks-inner">
-        <div class="ks-introtext__content">
-            <div class="ks-introtext__preheading">
-                <span class="ks-preheading">{{module.preheading}}</span>
+  {% if module.appearance_options.include_mountain_texture %}
+  <div
+    class="ks-introtext__bgimg"
+    style="background-image: url(
+      {% if module.appearance_options.light_background %}
+        https://www.mykindredliving.com/hubfs/hs-cms-files/images/mountains-bg-light@2x.png
+      {% else %}
+        https://www.mykindredliving.com/hubfs/hs-cms-files/images/mountains-bg-dark@2x.png
+      {% endif %}
+    )"
+  ></div>
+  {% endif %}
+  <div class="ks-inner">
+    <div class="ks-introtext__content">
+      <div class="ks-introtext__preheading">
+        <span class="ks-preheading">{{module.preheading}}</span>
+      </div>
+      <div class="ks-introtext__main">
+        {% if module.heading_size == 'H1' %} <h1 class="ks-headline--md">{{module.heading}}</h1>
+        {% elif module.heading_size == 'H2' %} <h2>{{module.heading}}</h2>
+        {% elif module.heading_size == 'H3' %} <h3>{{module.heading}}</h3>
+        {% endif %}
+        
+        {% if module.appearance_options.two_column_body %}
+        <div class="ks-introtext__main__cols">
+          <div class="ks-introtext__main__col">
+            <div class="ks-rte-content">
+              {{module.column_one_body}}
             </div>
-            <div class="ks-introtext__main">
-              {% if module.heading_size == 'H1' %} <h1 class="ks-headline--md">{{module.heading}}</h1>
-              {% elif module.heading_size == 'H2' %} <h2>{{module.heading}}</h2>
-              {% elif module.heading_size == 'H3' %} <h3>{{module.heading}}</h3>
-              {% endif %}
-              
-              {% if module.appearance_options.two_column_body %}
-              <div class="ks-introtext__main__cols">
-                <div class="ks-introtext__main__col">
-                  <div class="ks-rte-content">
-                    {{module.column_one_body}}
-                  </div>
-                </div>
-                <div class="ks-introtext__main__col">
-                  <div class="ks-rte-content">
-                    {{module.column_two_body}}
-                  </div>
-                </div>
-              </div>
-              {% else %}
-              <div class="ks-rte-content">
-                {{module.body_text}}
-              </div>
-              {% endif %}
+          </div>
+          <div class="ks-introtext__main__col">
+            <div class="ks-rte-content">
+              {{module.column_two_body}}
             </div>
+          </div>
         </div>
+        {% else %}
+        <div class="ks-rte-content">
+          {{module.body_text}}
+        </div>
+        {% endif %}
+      </div>
     </div>
+  </div>
 </section>
