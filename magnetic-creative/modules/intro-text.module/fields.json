@@ -36,6 +36,14 @@
     "locked" : false,
     "type" : "boolean",
     "default" : false
+  }, {
+    "id" : "57836d1f-fb86-14ee-3215-2f336de2d5ed",
+    "name" : "include_mountain_texture",
+    "label" : "Include Mountain Texture",
+    "required" : false,
+    "locked" : false,
+    "type" : "boolean",
+    "default" : false
   } ],
   "tab" : "CONTENT",
   "type" : "group",
@@ -43,7 +51,8 @@
     "is_hero" : false,
     "light_background" : true,
     "extra_light_background" : false,
-    "two_column_body" : false
+    "two_column_body" : false,
+    "include_mountain_texture" : false
   }
 }, {
   "id" : "84967803-c212-adbf-3b18-a07b64685b03",

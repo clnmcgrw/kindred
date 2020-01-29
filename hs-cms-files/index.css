@@ -485,6 +485,9 @@ main > .ks-site-container {
   .ks-inner--sm {
     width: 60%; }
 
+.ks-no-padding--bottom {
+  padding-bottom: 0 !important; }
+
 [class*='flex-container'] {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -734,6 +737,34 @@ figure {
 .ks-quantity__minus, .ks-quantity__num {
   margin-right: 0.5em; }
 
+.ks-cookienotice {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 99999;
+  background: #f6f5f3;
+  border-top: 1px solid #994c3d;
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%); }
+  .ks-cookienotice.active {
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0); }
+  .ks-cookienotice .ks-inner {
+    padding: 1em 0; }
+  .ks-cookienotice p {
+    margin: 0; }
+  .ks-cookienotice__text {
+    margin-bottom: 1em; }
+  .ks-cookienotice__action {
+    text-align: center; }
+
 @media (min-width: 992px) {
   .ks-headline--md {
     font-size: 2.7em; }
@@ -750,7 +781,30 @@ figure {
   .ks-headline--lg {
     font-size: 3.8em; }
   section.ks-block--lg {
-    padding: 12.5em 0; } }
+    padding: 12.5em 0; }
+  .ks-cookienotice .ks-inner {
+    padding: 2em 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap; }
+  .ks-cookienotice__text {
+    -ms-flex-preferred-size: 85%;
+        flex-basis: 85%; }
+  .ks-cookienotice__action {
+    -ms-flex-preferred-size: 15%;
+        flex-basis: 15%; }
+  .ks-cookienotice__action {
+    text-align: right; } }
 
 @media (min-width: 1440px) {
   .ks-richtext > .ks-inner {
