@@ -56,6 +56,18 @@
       }
     }
 
+    &.scroll-visible.traveling {
+      .ks-site-container {
+        background-color: $light-grey;
+      }
+
+      .ks-brand-logo--svg {
+        svg path {
+          fill: $primary;
+        }
+      }
+    }
+
     .ks-site-container {
       background: transparent;
     }
@@ -176,6 +188,16 @@
 
 @media (min-width: $bp-md) {
   .ks-mainheader {
+    &.solid {
+      ul > li a {
+        color: $primary !important;
+
+        &:hover {
+          color: darken($primary, 15%) !important;
+        }
+      }
+    }
+
     .ks-inner {
       width: 90%;
     }

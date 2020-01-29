@@ -59,8 +59,10 @@
 
       {% if loop.index0 > 5 %}
         {# each day we stray further from God's light #}
-        <script>
+        <script id="ks-tempscript--{{ loop.index0 }}">
           (function() {
+            var thisScript = document.getElementById('ks-tempscript--' + {{ loop.index0 }});
+
             var item = {
               galleryItem: {{ item | tojson }},
               relatedProduct: {{ related_product | tojson }},
@@ -68,6 +70,9 @@
             };
 
             window.remainingGalleryItems.push(item);
+
+            // Remove each script when done
+            thisScript.parentNode.removeChild(thisScript);
           })();
         </script>
       {% else %}
@@ -93,6 +98,12 @@
         </div>
       {% endif %}
     {% endfor %}
+    </div>
+  </div>
+
+  <div class="ks-gallery__loadmore">
+    <div class="ks-inner">
+      <button id="ks-loadmore" class="ks-btn ks-btn--primary">Load More</button>
     </div>
   </div>
 

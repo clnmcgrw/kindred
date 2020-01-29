@@ -1,9 +1,6 @@
-import { $win, $siteHeader } from './ui';
+import { $win, $body, $siteHeader } from './ui';
 
 const $navToggleBtn = $('#ks-nav-toggle');
-// const $mainNav = $('#ks-main-nav');
-// const $searchTrigger = $('.ks-searchtrigger');
-// const $cartTrigger = $('.ks-carttrigger');
 
 export let navOpen = false;
 
@@ -14,11 +11,13 @@ function headerScroll() {
   if (didScroll) {
     const thisScroll = $win.scrollTop();
 
-    if (thisScroll > 0) {
+    if (thisScroll > $siteHeader.outerHeight()) {
       $siteHeader.addClass('traveling');
 
       if (thisScroll > lastScroll) {
-        $siteHeader.removeClass('scroll-visible');
+        if (!$body.hasClass('cart-open')) {
+          $siteHeader.removeClass('scroll-visible');
+        }
       } else {
         $siteHeader.addClass('scroll-visible solid');
       }
@@ -27,7 +26,6 @@ function headerScroll() {
     } else {
       $siteHeader.removeClass('traveling scroll-visible solid');
     }
-
     didScroll = false;
   }
   requestAnimationFrame(headerScroll);

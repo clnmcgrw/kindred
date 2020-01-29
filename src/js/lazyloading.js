@@ -1,4 +1,10 @@
-const targets = document.querySelectorAll('*[data-src]');
+let targets = document.querySelectorAll('*[data-src]');
+
+export function lazyloadRestart() {
+  targets = document.querySelectorAll('*[data-src]');
+
+  startWatcher(checkInView);
+}
 
 function startWatcher(handler) {
   const opts = {

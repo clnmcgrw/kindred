@@ -134,3 +134,28 @@ export function searchResult(result) {
     </div>
   `;
 }
+
+export function galleryItem(item) {
+  return /*html*/ `
+    <div class="ks-gallery__item" data-product-type="${item.productType}">
+      <div class="ks-gallery__item__bgimg ks-bgimg" data-src="${item.galleryItem.image.url}"></div>
+      <div class="ks-hovercard">
+        <div class="ks-hovercard__liner">
+          <div class="ks-hovercard__title">
+            <h4>${item.relatedProduct.product_title}</h4>
+          </div>
+          <div class="ks-hovercard__image">
+            <figure class="ks-figure">
+              <div class="ks-figure__liner">
+                <img src="${item.relatedProduct.featured_image}" alt="">
+              </div>
+            </figure>
+          </div>
+          <div class="ks-hovercard__action">
+            <a href="/products/${item.relatedProduct.hs_path}">Shop Product</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}

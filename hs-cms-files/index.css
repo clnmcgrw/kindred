@@ -514,7 +514,7 @@ form.hs-form input[type='submit'] {
     background-color: #cfc5b9;
     color: #994c3d; }
   .ks-btn:disabled, form input:disabled[type='submit'] {
-    background: #c07162; }
+    background: #c07162 !important; }
     .ks-btn:disabled:hover, form input:disabled:hover[type='submit'] {
       cursor: not-allowed;
       color: #fff; }
@@ -930,6 +930,10 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     stroke: #994c3d; }
     .ks-mainheader--alt.solid .ks-navtoggle--btn svg line {
       stroke: #994c3d; }
+  .ks-mainheader--alt.scroll-visible.traveling .ks-site-container {
+    background-color: #e2ddd6; }
+  .ks-mainheader--alt.scroll-visible.traveling .ks-brand-logo--svg svg path {
+    fill: #994c3d; }
   .ks-mainheader--alt .ks-site-container {
     background: transparent; }
   .ks-mainheader--alt .ks-brand-logo--svg svg path {
@@ -1036,6 +1040,10 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   display: none; }
 
 @media (min-width: 767px) {
+  .ks-mainheader.solid ul > li a {
+    color: #994c3d !important; }
+    .ks-mainheader.solid ul > li a:hover {
+      color: #623127 !important; }
   .ks-mainheader .ks-inner {
     width: 90%; }
   .ks-mainheader .ks-mainnav ul > li a {
@@ -3268,6 +3276,10 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
         text-decoration: none; }
         .ks-gallery__item .ks-hovercard__action a:hover {
           color: #623127; }
+  .ks-gallery__loadmore {
+    text-align: center; }
+    .ks-gallery__loadmore > .ks-inner {
+      padding: 3em 0 4em; }
 
 @media (min-width: 767px) {
   .ks-gallery__main > .ks-inner {

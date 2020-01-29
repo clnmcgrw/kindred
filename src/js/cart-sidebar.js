@@ -2,6 +2,7 @@ import {
   headerHeight,
   $doc,
   $win,
+  $body,
   $siteHeader,
   $mainSiteContainer,
   $cartSidebar,
@@ -40,6 +41,7 @@ $cartTriggers.click(function() {
     $siteHeader.toggleClass('solid');
   }
 
+  $body.toggleClass('cart-open');
   $cartSidebar.toggleClass('active');
 });
 

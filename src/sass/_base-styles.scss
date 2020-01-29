@@ -106,7 +106,7 @@ main {
   }
 
   &:disabled {
-    background: lighten($primary, 15%);
+    background: lighten($primary, 15%) !important;
 
     &:hover {
       cursor: not-allowed;

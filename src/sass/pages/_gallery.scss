@@ -88,6 +88,14 @@
       }
     }
   }
+
+  &__loadmore {
+    text-align: center;
+
+    > .ks-inner {
+      padding: 3em 0 4em;
+    }
+  }
 }
 
 @media (min-width: $bp-md) {
