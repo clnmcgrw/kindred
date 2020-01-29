@@ -2118,18 +2118,15 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   .ks-producthero__mainslider {
     margin-bottom: 0.25em;
     position: relative; }
+    .ks-producthero__mainslider:hover .ks-gallerycontrols {
+      opacity: 0.75; }
   .ks-producthero__thumbslider {
     position: relative;
     overflow: hidden; }
-    .ks-producthero__thumbslider:hover .ks-gallerycontrols {
-      -webkit-transform: translateY(0);
-          -ms-transform: translateY(0);
-              transform: translateY(0);
-      opacity: 1; }
   .ks-producthero__enlarge {
     position: absolute;
     bottom: 1em;
-    right: 1em;
+    right: 2.25em;
     width: 1.5em; }
     .ks-producthero__enlarge:hover {
       cursor: pointer; }
@@ -2160,9 +2157,6 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     width: 100%;
     z-index: 2;
     opacity: 0;
-    -webkit-transform: translateY(100%);
-        -ms-transform: translateY(100%);
-            transform: translateY(100%);
     -webkit-transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
     -o-transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);

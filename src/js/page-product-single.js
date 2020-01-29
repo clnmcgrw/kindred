@@ -191,7 +191,6 @@ function attachEventListeners(product) {
       cellAlign: 'left',
       prevNextButtons: false,
       pageDots: false,
-      draggable: false,
     });
 
     $galleryControls.click(function() {
@@ -199,14 +198,21 @@ function attachEventListeners(product) {
       const isPrev = $t.hasClass('ks-gallerycontrols__prev');
 
       isPrev ? flkty.previous() : flkty.next();
-    });
 
-    $galleryThumbs.click(function() {
-      const src = $(this)
+      const selected = $($galleryThumbs[flkty.selectedIndex])
         .find('img')
         .attr('src');
 
+      $featuredImage.attr('src', selected);
+    });
+
+    $galleryThumbs.click(function() {
+      const $t = $(this);
+      const src = $t.find('img').attr('src');
+      const idx = $galleryThumbs.index($t);
+
       $featuredImage.attr('src', src);
+      flkty.select(idx);
     });
   });
 
