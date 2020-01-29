@@ -13,11 +13,21 @@
     }
   }
 
+  &__preheading {
+    margin-bottom: 2em;
+  }
+
   &__card {
     margin-bottom: 4em;
 
-    .ks-threeup__card__action {
-      margin-bottom: 2.5em;
+    .ks-threeup__card {
+      &-heading {
+        margin-top: 0;
+      }
+
+      &__action {
+        margin-bottom: 2.5em;
+      }
     }
   }
 }
@@ -34,6 +44,18 @@
     &__card {
       flex-basis: 48%;
       margin-bottom: 0;
+    }
+  }
+}
+
+@media (min-width: $bp-lg) {
+  .ks-twoupcards {
+    &__card {
+      .ks-threeup__card {
+        &-heading {
+          font-size: 2.7em;
+        }
+      }
     }
   }
 }
@@ -56,7 +78,15 @@
     }
 
     &__card {
-      flex-basis: 41.46%;
+      flex-basis: 45%;
+
+      .ks-threeup__card {
+        &-content,
+        &__action,
+        &-image {
+          width: 90%;
+        }
+      }
     }
   }
 }

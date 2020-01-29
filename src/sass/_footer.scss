@@ -1,10 +1,12 @@
 .ks-sampleoffer {
-  padding: $padding-sm 0;
+  padding: $padding-sm 0 0;
 
   &__image {
+    margin-bottom: 2em;
+
     .ks-figure {
       &__liner {
-        padding-bottom: 63.29%;
+        padding-bottom: 97.35%;
       }
     }
   }
@@ -12,6 +14,10 @@
   &__main {
     .ks-headline {
       color: $dark-green;
+    }
+
+    .ks-btn {
+      margin-top: 1em;
     }
   }
 }
@@ -255,11 +261,17 @@
 
 @media (min-width: $bp-sm) {
   .ks-sampleoffer {
+    padding: $padding-md 0 0;
+
     > .ks-inner {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       flex-flow: row wrap;
+    }
+
+    &__image {
+      margin-bottom: 0;
     }
 
     &__image,
@@ -295,11 +307,7 @@
 
 @media (min-width: $bp-md) {
   .ks-sampleoffer {
-    padding-bottom: $padding-sm;
-
-    &__image {
-      flex-basis: 52.5%;
-    }
+    padding: $padding-lg 0 0;
 
     &__main {
       flex-basis: 38.5%;
@@ -371,10 +379,10 @@
 
 @media (min-width: $bp-xl) {
   .ks-sampleoffer {
-    padding-bottom: $padding-sm;
+    padding: $padding-xl 0 0;
 
     &__image {
-      flex-basis: 54%;
+      flex-basis: 50%;
     }
 
     &__main {

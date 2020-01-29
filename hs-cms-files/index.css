@@ -1113,11 +1113,15 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     padding: 0 2em; } }
 
 .ks-sampleoffer {
-  padding: 4em 0; }
-  .ks-sampleoffer__image .ks-figure__liner {
-    padding-bottom: 63.29%; }
+  padding: 4em 0 0; }
+  .ks-sampleoffer__image {
+    margin-bottom: 2em; }
+    .ks-sampleoffer__image .ks-figure__liner {
+      padding-bottom: 97.35%; }
   .ks-sampleoffer__main .ks-headline {
     color: #2e443a; }
+  .ks-sampleoffer__main .ks-btn, .ks-sampleoffer__main form input[type='submit'], form .ks-sampleoffer__main input[type='submit'] {
+    margin-top: 1em; }
 
 .ks-footer {
   background: #fff;
@@ -1271,23 +1275,27 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
         width: 100% !important; }
 
 @media (min-width: 580px) {
-  .ks-sampleoffer > .ks-inner {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap; }
-  .ks-sampleoffer__image, .ks-sampleoffer__main {
-    -ms-flex-preferred-size: 45%;
-        flex-basis: 45%; }
+  .ks-sampleoffer {
+    padding: 6em 0 0; }
+    .ks-sampleoffer > .ks-inner {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: row wrap;
+              flex-flow: row wrap; }
+    .ks-sampleoffer__image {
+      margin-bottom: 0; }
+    .ks-sampleoffer__image, .ks-sampleoffer__main {
+      -ms-flex-preferred-size: 45%;
+          flex-basis: 45%; }
   .ks-footer__top > .ks-inner {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1311,10 +1319,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
 
 @media (min-width: 767px) {
   .ks-sampleoffer {
-    padding-bottom: 4em; }
-    .ks-sampleoffer__image {
-      -ms-flex-preferred-size: 52.5%;
-          flex-basis: 52.5%; }
+    padding: 9.375em 0 0; }
     .ks-sampleoffer__main {
       -ms-flex-preferred-size: 38.5%;
           flex-basis: 38.5%; }
@@ -1381,10 +1386,10 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
 
 @media (min-width: 1199px) {
   .ks-sampleoffer {
-    padding-bottom: 4em; }
+    padding: 12.5em 0 0; }
     .ks-sampleoffer__image {
-      -ms-flex-preferred-size: 54%;
-          flex-basis: 54%; }
+      -ms-flex-preferred-size: 50%;
+          flex-basis: 50%; }
     .ks-sampleoffer__main {
       -ms-flex-preferred-size: 40%;
           flex-basis: 40%; }
@@ -2674,8 +2679,12 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     margin-top: 0; }
   .ks-twoupcards.bg-dark .ks-threeup__card-content {
     color: #fff; }
+  .ks-twoupcards__preheading {
+    margin-bottom: 2em; }
   .ks-twoupcards__card {
     margin-bottom: 4em; }
+    .ks-twoupcards__card .ks-threeup__card-heading {
+      margin-top: 0; }
     .ks-twoupcards__card .ks-threeup__card__action {
       margin-bottom: 2.5em; }
 
@@ -2699,6 +2708,10 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
         flex-basis: 48%;
     margin-bottom: 0; } }
 
+@media (min-width: 992px) {
+  .ks-twoupcards__card .ks-threeup__card-heading {
+    font-size: 2.7em; } }
+
 @media (min-width: 1199px) {
   .ks-twoupcards {
     position: relative;
@@ -2712,8 +2725,10 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
       width: 56.94%;
       margin: auto; }
     .ks-twoupcards__card {
-      -ms-flex-preferred-size: 41.46%;
-          flex-basis: 41.46%; } }
+      -ms-flex-preferred-size: 45%;
+          flex-basis: 45%; }
+      .ks-twoupcards__card .ks-threeup__card-content, .ks-twoupcards__card .ks-threeup__card__action, .ks-twoupcards__card .ks-threeup__card-image {
+        width: 90%; } }
 
 .ks-categorylist {
   padding: 4em 0; }

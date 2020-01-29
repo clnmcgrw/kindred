@@ -1,4 +1,4 @@
-<section class="ks-twoupcards bg-dark">
+<section class="ks-twoupcards {% if module.appearance_options.dark_background %}bg-dark{% endif %}">
   <div class="ks-twoupcards__preheading">
     <div class="ks-inner">
       <span class="ks-preheading">Our Products</span>
@@ -24,7 +24,7 @@
             class="ks-figure"
             style="padding-bottom: {{(card.card_image.height / card.card_image.width) * 100}}%"
           >
-            <img src="{{card.card_image.src}}" alt="{{card.card_image.alt}}" />
+            <img data-src="{{card.card_image.src}}" alt="{{card.card_image.alt}}" />
           </figure>
         </div>
       </div>
