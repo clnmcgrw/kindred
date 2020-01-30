@@ -8,6 +8,8 @@ let didScroll = false;
 let lastScroll = 0;
 
 function headerScroll() {
+  if ($body.hasClass('is-location-finder')) return;
+
   if (didScroll) {
     const thisScroll = $win.scrollTop();
 

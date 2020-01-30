@@ -493,7 +493,7 @@ main > .ks-site-container {
   display: -ms-flexbox;
   display: flex; }
 
-.ks-btn, form input[type='submit'],
+.ks-btn, .hs-cta-wrapper .cta_button, form input[type='submit'],
 form.hs-form input[type='submit'] {
   display: inline-block;
   background-color: #994c3d;
@@ -512,17 +512,17 @@ form.hs-form input[type='submit'] {
     .ks-btn--secondary:hover {
       background-color: #1b2429 !important;
       color: #fff !important; }
-  .ks-btn:hover, form input:hover[type='submit'] {
+  .ks-btn:hover, .hs-cta-wrapper .cta_button:hover, form input:hover[type='submit'] {
     cursor: pointer;
     background-color: #cfc5b9;
     color: #994c3d; }
-  .ks-btn:disabled, form input:disabled[type='submit'] {
+  .ks-btn:disabled, .hs-cta-wrapper .cta_button:disabled, form input:disabled[type='submit'] {
     background: #c07162 !important; }
-    .ks-btn:disabled:hover, form input:disabled:hover[type='submit'] {
+    .ks-btn:disabled:hover, .hs-cta-wrapper .cta_button:disabled:hover, form input:disabled:hover[type='submit'] {
       cursor: not-allowed;
       color: #fff; }
 
-button.ks-btn {
+button.ks-btn, .hs-cta-wrapper button.cta_button {
   outline: none;
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -1174,7 +1174,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
       padding-bottom: 97.35%; }
   .ks-sampleoffer__main .ks-headline {
     color: #2e443a; }
-  .ks-sampleoffer__main .ks-btn, .ks-sampleoffer__main form input[type='submit'], form .ks-sampleoffer__main input[type='submit'] {
+  .ks-sampleoffer__main .ks-btn, .ks-sampleoffer__main .hs-cta-wrapper .cta_button, .hs-cta-wrapper .ks-sampleoffer__main .cta_button, .ks-sampleoffer__main form input[type='submit'], form .ks-sampleoffer__main input[type='submit'] {
     margin-top: 1em; }
 
 .ks-footer {
@@ -1863,6 +1863,9 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   .ks-resourcecallout__preheading span {
     font-size: 150%; }
 
+.ks-resourcecallout h3 {
+  margin-bottom: 2em; }
+
 @media (min-width: 992px) {
   .ks-resourcecallout__flex {
     display: -webkit-box;
@@ -2116,6 +2119,9 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   margin-bottom: 2em; }
   .ks-resourcecallout__preheading span {
     font-size: 150%; }
+
+.ks-resourcecallout h3 {
+  margin-bottom: 2em; }
 
 @media (min-width: 992px) {
   .ks-resourcecallout__flex {
@@ -2723,11 +2729,11 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   .ks-cartsidebar__actions {
     padding: 0 1em 8em 1em;
     background: #fff; }
-    .ks-cartsidebar__actions .ks-btn, .ks-cartsidebar__actions form input[type='submit'], form .ks-cartsidebar__actions input[type='submit'] {
+    .ks-cartsidebar__actions .ks-btn, .ks-cartsidebar__actions .hs-cta-wrapper .cta_button, .hs-cta-wrapper .ks-cartsidebar__actions .cta_button, .ks-cartsidebar__actions form input[type='submit'], form .ks-cartsidebar__actions input[type='submit'] {
       width: 100%;
       font-size: 75%;
       text-align: center; }
-      .ks-cartsidebar__actions .ks-btn:first-of-type, .ks-cartsidebar__actions form input:first-of-type[type='submit'], form .ks-cartsidebar__actions input:first-of-type[type='submit'] {
+      .ks-cartsidebar__actions .ks-btn:first-of-type, .ks-cartsidebar__actions .hs-cta-wrapper .cta_button:first-of-type, .hs-cta-wrapper .ks-cartsidebar__actions .cta_button:first-of-type, .ks-cartsidebar__actions form input:first-of-type[type='submit'], form .ks-cartsidebar__actions input:first-of-type[type='submit'] {
         margin-bottom: 0.5em; }
   .ks-cartsidebar__subtotal {
     margin-bottom: 1em; }
@@ -2787,7 +2793,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     padding: 0 4em; }
   .ks-cartsidebar__actions {
     padding: 0 4em 2em 4em; }
-    .ks-cartsidebar__actions .ks-btn, .ks-cartsidebar__actions form input[type='submit'], form .ks-cartsidebar__actions input[type='submit'] {
+    .ks-cartsidebar__actions .ks-btn, .ks-cartsidebar__actions .hs-cta-wrapper .cta_button, .hs-cta-wrapper .ks-cartsidebar__actions .cta_button, .ks-cartsidebar__actions form input[type='submit'], form .ks-cartsidebar__actions input[type='submit'] {
       font-size: 100%; }
   .ks-cartsidebar__couponmodal .ks-couponmodal__content {
     padding: 3em 1em; } }

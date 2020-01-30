@@ -466,6 +466,8 @@ export default () => {
   if ($mapOuter.length === 0) {
     return false;
   }
+
+  document.body.classList.add('is-location-finder');
   $('.ks-sampleoffer').hide();
   $siteFooter.hide();
   $.getScript('//maps.googleapis.com/maps/api/js?key=' + gmapsKey, init);

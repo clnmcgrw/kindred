@@ -297,6 +297,12 @@ figure {
   }
 }
 
+.hs-cta-wrapper {
+  .cta_button {
+    @extend .ks-btn;
+  }
+}
+
 .ks-richtext {
   padding: $padding-sm 0;
 }
