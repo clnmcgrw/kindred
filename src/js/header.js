@@ -17,9 +17,7 @@ function headerScroll() {
       $siteHeader.addClass('traveling');
 
       if (thisScroll > lastScroll) {
-        if (!$body.hasClass('cart-open')) {
-          $siteHeader.removeClass('scroll-visible');
-        }
+        $siteHeader.removeClass('scroll-visible');
       } else {
         $siteHeader.addClass('scroll-visible solid');
       }
