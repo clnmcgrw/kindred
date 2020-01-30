@@ -24,15 +24,15 @@ function setHeaderHeight() {
  */
 const KS_COOKIE_NAME = '__kindred_cookieconsent';
 const KS_COOKIE_EXP = ';max-age=31536000'; // 1yr
-$cookieNotice.find('.ks-btn').click(function() {
-  document.cookie = KS_COOKIE_NAME + '=1' + KS_COOKIE_EXP;
-  handleCookieNotice();
-});
 function handleCookieNotice() {
   document.cookie.indexOf(KS_COOKIE_NAME) > -1
     ? $cookieNotice.removeClass('active')
     : $cookieNotice.addClass('active');
 }
+$cookieNotice.find('.ks-btn').click(() => {
+  document.cookie = KS_COOKIE_NAME + '=1' + KS_COOKIE_EXP;
+  handleCookieNotice();
+});
 
 $doc.ready(() => {
   setHeaderHeight();

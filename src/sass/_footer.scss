@@ -77,14 +77,17 @@
       position: relative;
       z-index: 2;
       padding-top: 14em;
+      display: flex;
+      flex-flow: column nowrap;
     }
 
     .ks-footer {
       &__logo {
-        max-width: 8.75em;
-        margin: auto;
+        order: 1;
 
         .ks-figure {
+          max-width: 8.75em;
+
           &__liner {
             padding-bottom: 100%;
           }
@@ -92,6 +95,8 @@
       }
 
       &__form {
+        order: 2;
+
         h3 {
           font-size: 1.6em;
         }
@@ -100,14 +105,18 @@
           color: $light-grey;
         }
       }
+
+      &__nav {
+        order: 3;
+
+        li {
+          margin-bottom: 0.5em;
+        }
+      }
     }
 
     &__item {
-      margin-bottom: 2em;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+      margin-bottom: 4em;
     }
   }
 
@@ -123,6 +132,21 @@
 
     &__item {
       color: $light-grey;
+
+      p,
+      a {
+        font-size: 0.8em;
+      }
+
+      li {
+        margin-bottom: 1em;
+      }
+
+      a {
+        &:hover {
+          color: darken($primary, 15%);
+        }
+      }
     }
 
     ul {
@@ -130,7 +154,7 @@
 
       a {
         color: $light-grey;
-        font-size: 0.8em;
+        text-decoration: none;
       }
     }
   }
@@ -158,6 +182,10 @@
         margin-bottom: 0;
       }
 
+      h3 > a {
+        line-height: 1.4;
+      }
+
       a {
         color: $light-grey;
         font-weight: 400;
@@ -181,8 +209,8 @@
         font-family: $body-font;
       }
 
-      .actions {
-        display: none;
+      .hs-form-field {
+        margin-bottom: 1em;
       }
     }
   }
@@ -290,15 +318,34 @@
 
       .ks-footer {
         &__logo {
-          flex-basis: 8.75em;
-          break-after: always;
+          flex-basis: 100%;
           margin: 0;
           margin-bottom: 2em;
+          order: 1;
         }
 
         &__nav,
         &__form {
           flex-basis: 50%;
+          order: 2;
+        }
+      }
+    }
+
+    &__bottom {
+      &__item {
+        &:first-child {
+          margin-bottom: 1em;
+        }
+
+        p {
+          margin: 0;
+        }
+
+        li {
+          display: inline-block;
+          margin-bottom: 0;
+          margin-right: 1em;
         }
       }
     }
@@ -319,6 +366,28 @@
       padding-top: 0;
     }
 
+    &--squeeze {
+      &__intro {
+        margin-bottom: 0;
+
+        .ks-headline {
+          font-size: 3.25em;
+        }
+      }
+
+      .ks-inner {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      &__intro,
+      &__form {
+        flex-basis: 45%;
+      }
+    }
+
     &__top {
       > .ks-inner {
         justify-content: space-between;
@@ -327,7 +396,6 @@
 
       .ks-footer {
         &__logo {
-          break-after: unset;
           flex-basis: 15%;
         }
 
@@ -353,25 +421,35 @@
       }
     }
 
-    &--squeeze {
-      &__intro {
-        margin-bottom: 0;
+    &__bottom {
+      &__item {
+        display: inline-block;
 
-        .ks-headline {
-          font-size: 3.25em;
+        &:first-child {
+          margin-right: 2em;
         }
-      }
 
-      .ks-inner {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
+        li {
+          position: relative;
 
-      &__intro,
-      &__form {
-        flex-basis: 45%;
+          &:first-child {
+            &:before {
+              display: none;
+            }
+          }
+
+          &:before {
+            display: block;
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -0.75em;
+            height: 0.8em;
+            width: 1px;
+            transform: translateY(-33%);
+            background: $white;
+          }
+        }
       }
     }
   }
@@ -420,6 +498,10 @@
 
         &__list {
           flex-basis: 31%;
+
+          a {
+            font-size: 1em;
+          }
         }
       }
 
@@ -514,6 +596,14 @@
 
     .ks-inner {
       margin-top: -27em;
+    }
+
+    &__bottom {
+      &__item {
+        &:first-child {
+          margin-right: 10.15em;
+        }
+      }
     }
   }
 }
