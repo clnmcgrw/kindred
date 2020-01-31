@@ -1,1 +1,57 @@
-[ ]
+[ {
+  "id" : "90763a20-94fd-50ea-e36a-c306e306b593",
+  "name" : "slide",
+  "label" : "Slide",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : null,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "responsive" : true,
+  "resizable" : false,
+  "type" : "image",
+  "default" : [ {
+    "size_type" : "exact",
+    "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
+    "alt" : "hero-outdoor-surrounds",
+    "width" : 1400,
+    "height" : 865,
+    "max_width" : 1400,
+    "max_height" : 865
+  }, {
+    "size_type" : "exact",
+    "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
+    "alt" : "hero-outdoor-surrounds",
+    "width" : 1400,
+    "height" : 865,
+    "max_width" : 1400,
+    "max_height" : 865
+  }, {
+    "size_type" : "exact",
+    "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
+    "alt" : "hero-outdoor-surrounds",
+    "width" : 1400,
+    "height" : 865,
+    "max_width" : 1400,
+    "max_height" : 865
+  } ]
+}, {
+  "id" : "a321dae0-3a62-5c8f-181a-838b8c64a1da",
+  "name" : "padding_top",
+  "label" : "Padding Top",
+  "required" : false,
+  "locked" : false,
+  "type" : "boolean",
+  "default" : true
+}, {
+  "id" : "6c0222e5-d259-7085-f226-1d4577f5e03f",
+  "name" : "padding_bottom",
+  "label" : "Padding Bottom",
+  "required" : false,
+  "locked" : false,
+  "type" : "boolean",
+  "default" : true
+} ]

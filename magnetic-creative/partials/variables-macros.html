@@ -4,8 +4,7 @@
 -->
 
 
+
 {% set ksSiteBaseUrl = '' %}
 {% set ksTemplateClass = content.template_path | replace('.html', '') | replace('/', '-') | trim %}
-
-{% set ksProductsTableId = '' %}
 {% set ksProductObjects = crm_objects('product', 'limit=100') %}
