@@ -11,6 +11,7 @@ export const $lightboxTriggers = $('.ks-lightbox-trigger');
 export const $lightboxClose = $lightbox.find('.ks-modal__close');
 export const $searchModal = $('.ks-modal--search');
 export const $cookieNotice = $('.ks-cookienotice');
+export const $backdrop = $('#ks-backdrop');
 export const headerHeight = () => $siteHeader.outerHeight();
 
 function setHeaderHeight() {

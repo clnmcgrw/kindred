@@ -16,7 +16,7 @@
  * I'd start there.
  */
 
-import { $doc, $cartSidebar } from '../ui';
+import { $doc, $cartSidebar, $backdrop } from '../ui';
 import {
   getCheckout,
   addItemToCheckout,
@@ -202,6 +202,7 @@ $addToCartTrigger.click(async () => {
   updateCart(updatedCheckout);
 
   $cartSidebar.addClass('active');
+  $backdrop.addClass('active');
 });
 
 $couponTrigger.click(() => {

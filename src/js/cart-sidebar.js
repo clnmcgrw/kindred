@@ -7,6 +7,7 @@ import {
   $mainSiteContainer,
   $cartSidebar,
   $cartCover,
+  $backdrop,
 } from './ui';
 
 const $cartContent = $cartSidebar.find('.ks-cartsidebar__content');
@@ -50,6 +51,7 @@ $cartClose.click(function() {
     $siteHeader.removeClass('solid');
   }
 
+  $backdrop.removeClass('active');
   $cartSidebar.removeClass('active');
 });
 
@@ -58,6 +60,7 @@ $cartTriggers.click(function() {
     $siteHeader.addClass('solid');
   }
 
+  $backdrop.toggleClass('active');
   $body.toggleClass('cart-open');
   $cartSidebar.toggleClass('active');
 });
