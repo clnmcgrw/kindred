@@ -3,6 +3,7 @@
     isAvailableForNewContent: true
 -->
 
+
 {% include '/magnetic-creative/partials/header-primary.html' %}
 
 {% set gallery_table_id = 2044395 %}
@@ -45,55 +46,32 @@
   </nav>
 
   <div class="ks-gallery__main">
-    {# Only show 6 items at first. For the others, throw them in an array for JS to get and render as needed #}
-    <script>
-      window.remainingGalleryItems = [];
-    </script>
     <div class="ks-inner">
     {% for item in hubdb_table_rows(gallery_table_id) %}
       {% set related_product = item.related_product | first %}
       {% set product_type = item.category | first %}
 
-      {% if loop.index0 > 5 %}
-        {# each day we stray further from God's light #}
-        <script id="ks-tempscript--{{ loop.index0 }}">
-          (function() {
-            var thisScript = document.getElementById('ks-tempscript--' + {{ loop.index0 }});
-
-            var item = {
-              galleryItem: {{ item | tojson }},
-              relatedProduct: {{ related_product | tojson }},
-              productType: "{{ product_type.name.replace(' ', '-') | lower }}"
-            };
-
-            window.remainingGalleryItems.push(item);
-
-            // Remove each script when done
-            thisScript.parentNode.removeChild(thisScript);
-          })();
-        </script>
-      {% else %}
-        <div class="ks-gallery__item" data-product-type="{{ product_type.name.replace(' ', '-') | lower }}">
-          <div class="ks-gallery__item-bgimg ks-bgimg" data-src="{{ item.image.url }}"></div>
-          <div class="ks-hovercard">
-            <div class="ks-hovercard__liner">
-              <div class="ks-hovercard__title">
-                <h4>{{ related_product.product_title }}</h4>
-              </div>
-              <div class="ks-hovercard__image">
-                <figure class="ks-figure">
-                  <div class="ks-figure__liner">
-                    <img src="{{ related_product.featured_image }}" alt="">
-                  </div>
-                </figure>
-              </div>
-              <div class="ks-hovercard__action">
-                <a href="/products/{{ related_product.hs_path }}">Shop Product</a>
-              </div>
+      <div class="ks-gallery__item" data-index="{{ loop.index0 }}" data-product-type="{{ product_type.name.replace(' ', '-') | lower }}">
+        <div class="ks-gallery__item-bgimg ks-bgimg" data-src="{{ item.image.url }}"></div>
+        <div class="ks-hovercard">
+          <div class="ks-hovercard__liner">
+            <div class="ks-hovercard__title">
+              <h4>{{ related_product.product_title }}</h4>
+            </div>
+            <div class="ks-hovercard__image">
+              <figure class="ks-figure">
+                <div class="ks-figure__liner">
+                  <img src="{{ related_product.featured_image }}" alt="">
+                </div>
+              </figure>
+            </div>
+            <div class="ks-hovercard__action">
+              <a href="/products/{{ related_product.hs_path }}">Shop Product</a>
             </div>
           </div>
         </div>
-      {% endif %}
+      </div>
+
     {% endfor %}
     </div>
   </div>
