@@ -3380,7 +3380,6 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
            -o-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
               transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
     .ks-gallery__item__bgimg {
-      padding-bottom: 134.61%;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
