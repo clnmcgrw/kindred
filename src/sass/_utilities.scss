@@ -1,4 +1,3 @@
-
 .ks-a11y-text {
   width: 1px;
   height: 1px;
@@ -9,11 +8,15 @@
   overflow: hidden;
 }
 
-
 .ks-fill-parent {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.ks-wraparound-link {
+  @include fill-parent();
+  z-index: 3;
 }

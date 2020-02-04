@@ -1,44 +1,81 @@
 import { $doc } from './ui';
-import { lazyloadRestart } from './lazyloading';
-import { galleryItem } from './components';
+import Isotope from 'isotope-layout';
+require('isotope-packery');
 
-const $galleryNav = $('.ks-gallery .ks-resourcelist__nav');
-const $filterTriggers = $('*[data-toggle-type]');
-const $galleryParent = $('.ks-gallery__main > .ks-inner');
-const $loadMore = $('#ks-loadmore');
-
-/**
- * This list can grow as more items are appended. This being a
- * func allows us to always have this be a live list of elements.
- */
-const $galleryItems = () => $('.ks-gallery__item');
-
-const itemsToLoad = window.remainingGalleryItems || [];
-const chunk = 6;
+const gallery = document.querySelector('.ks-gallery');
 
 export default () => {
-  if (!$galleryNav.length) return;
+  if (!gallery) return;
 
-  $loadMore.click(() => {
-    for (let i = 0, n = chunk; i < n; i++) {
-      if (!itemsToLoad.length) {
-        $loadMore.attr('disabled', true);
-        $loadMore.text('No more!');
-        return;
-      }
+  const module = {
+    $nodes: {
+      container: $('.ks-gallery__main > .ks-inner'),
+      filterTriggers: $('[data-filter-type]'),
+      allItems: $('[data-category]'),
+      buildingBlocks: $('[data-category="Buidling Blocks"]'),
+      fireBowls: $('[data-category="Fire Bowls"]'),
+      fireplaces: $('[data-category="Fireplaces"]'),
+      signatureKitchens: $('[data-category="Signature Kitchens"]'),
+      surrounds: $('[data-category="Surrounds"]'),
+    },
 
-      $galleryParent.append(galleryItem(itemsToLoad.shift()));
-    }
-    lazyloadRestart();
-  });
+    data: {
+      grid: undefined,
+      filterFunctions: {
+        category: function(itemElem) {
+          return itemElem.dataset.category;
+        },
+      },
+    },
 
-  $filterTriggers.click(function() {
-    const targetType = $(this).data('toggle-type');
+    hooks: {
+      mounted: $nodes => {
+        const { methods } = module;
+        methods.initIsotope();
+        methods.addListeners();
+      },
+    },
+    methods: {
+      addListeners: () => {
+        const { $nodes, methods } = module;
 
-    $galleryItems().each(function() {
-      const $t = $(this);
+        $nodes.filterTriggers.click(function() {
+          const category = this.dataset.filterType;
 
-      $t.data('product-type') !== targetType ? $t.hide() : $t.show();
-    });
-  });
+          $nodes.filterTriggers.removeClass('active');
+          this.classList.add('active');
+
+          methods.setActiveCategory(category);
+        });
+      },
+
+      initIsotope: () => {
+        const { $nodes, data } = module;
+        data.grid = new Isotope($nodes.container[0], {
+          itemSelector: '.ks-gallery__item',
+          layoutMode: 'packery',
+        });
+      },
+
+      setActiveCategory: category => {
+        const { data } = module;
+        data.grid.arrange({
+          filter: function() {
+            // context: 'this' will be the itemSelector elements.
+            const belongsTo = this.dataset.category;
+
+            if (category === 'All') {
+              // every item
+              return true;
+            } else {
+              // only the items matching the data-filter-type
+              return belongsTo === category;
+            }
+          },
+        });
+      },
+    },
+  };
+
+  module.hooks.mounted(module.$nodes);
 };
