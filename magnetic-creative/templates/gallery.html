@@ -35,12 +35,12 @@
     <div class="ks-inner">
       <ul>
         <li class="ks_resourcelist__nav__title">Filter By:</li>
-        <li><span data-toggle-type="all" class="active">All</span></li>
-        <li><span data-toggle-type="building-blocks">Building Blocks</span></li>
-        <li><span data-toggle-type="fire-bowls">Fire Bowls</span></li>
-        <li><span data-toggle-type="fireplaces">Fireplaces</span></li>
-        <li><span data-toggle-type="signature-kitchens">Signature Kitchens</span></li>
-        <li><span data-toggle-type="surrounds">Surrounds</span></li>
+        <li><span data-filter-type="All" class="active">All</span></li>
+        <li><span data-filter-type="Building Blocks">Building Blocks</span></li>
+        <li><span data-filter-type="Fire Bowls">Fire Bowls</span></li>
+        <li><span data-filter-type="Fireplaces">Fireplaces</span></li>
+        <li><span data-filter-type="Signature Kitchens">Signature Kitchens</span></li>
+        <li><span data-filter-type="Surrounds">Surrounds</span></li>
       </ul>
     </div>
   </nav>
@@ -50,37 +50,38 @@
     {% for item in hubdb_table_rows(gallery_table_id) %}
       {% set related_product = item.related_product | first %}
       {% set product_type = item.category | first %}
-
-      <div class="ks-gallery__item" data-index="{{ loop.index0 }}" data-product-type="{{ product_type.name.replace(' ', '-') | lower }}">
-        <div class="ks-gallery__item-bgimg ks-bgimg" data-src="{{ item.image.url }}"></div>
-        <div class="ks-hovercard">
-          <div class="ks-hovercard__liner">
-            <div class="ks-hovercard__title">
-              <h4>{{ related_product.product_title }}</h4>
-            </div>
-            <div class="ks-hovercard__image">
-              <figure class="ks-figure">
-                <div class="ks-figure__liner">
-                  <img src="{{ related_product.featured_image }}" alt="">
+      {% if item.visible %}
+        <div class="ks-gallery__item {% if item.image.height > item.image.width %} ks-gallery__item--tall {% endif %}" data-category="{{ item.category.name }}" data-width="{{ item.width.name }}" data-index="{{ loop.index0 }}">
+          <figure class="ks-figure ks-gallery__item-image" style="padding-bottom: {{item.image.height / item.image.width * 100}}%">
+            <img data-src="{{ item.image.url }}" alt="{{ item.image.alt }}">
+            <div class="ks-hovercard">
+              <a href="/products/{{ related_product.hs_path }}" class="ks-wraparound-link"></a>
+              <div class="ks-hovercard__liner">
+                <div class="ks-hovercard__title">
+                  <h4>{{ related_product.product_title }}</h4>
                 </div>
-              </figure>
+                <div class="ks-hovercard__image">
+                  <figure class="ks-figure">
+                    <div class="ks-figure__liner">
+                      <img src="{{ related_product.featured_image }}" alt="">
+                    </div>
+                  </figure>
+                </div>
+              </div>
             </div>
-            <div class="ks-hovercard__action">
-              <a href="/products/{{ related_product.hs_path }}">Shop Product</a>
-            </div>
-          </div>
+          </figure>
         </div>
-      </div>
+      {% endif %}
 
     {% endfor %}
     </div>
   </div>
 
-  <div class="ks-gallery__loadmore">
+  {# <div class="ks-gallery__loadmore">
     <div class="ks-inner">
       <button id="ks-loadmore" class="ks-btn ks-btn--primary">Load More</button>
     </div>
-  </div>
+  </div> #}
 
 </section>
 
