@@ -41,21 +41,31 @@
       <div class="cs-wtb--centered">
 
         <div class="cs-wtb--headline">
-          <h1 class="cs-headline--lg">{% text 'fad_title', label="Page Title", value="Locate a Kindred Dealer Near You", no_wrapper=true %}</h1>
-          <p>{% text 'fad_paragraph' label="Page Intro", value="With dealers abound, Kindred products are easy to get your hands on.  Enter your State or ZIP in the field below to find dealers near you.", no_wrapper=true %}</p>
-          <p><small>Or view our <a href="{{cs_base_url}}/where-to-buy/state">dealers listing by state</a>.</small></p>
+          <h1 class="ks-headline">{% text 'fad_title', label="Page Title", value="Locate a Kindred Dealer Near You", no_wrapper=true %}</h1>
+          <p>With dealers abound, Kindred products are easy to get your hands on. Enter your State or ZIP in the field below to find dealers near you.</p>
         </div>
         <div class="cs-wtb--form">
 
           <form id="cs-wtb-searchform" action="{{cs_base_url}}/find-a-dealer" method="GET" data-searched-coords="{{cs_coords_input}}" data-searched-text="{{cs_zip_input}}">
-            <div class="clearfix">
-              <div class="cs-form--el cs-wtb--forminput">
-                <input type="text" id="cs-wtb-zipcode" name="zipcode" placeholder="Enter City, State, or Zip" value="{{cs_zip_input}}" autocomplete="off">
-                <input type="hidden" id="cs-wtb-coords" name="coords" value="{{cs_coords_input}}">
+
+            <div class="cs-form--el cs-wtb--forminput">
+              <label for="cs-productselect">Product Filter</label>
+              <div class="cs-selectwrap">
+                <select name="product" id="cs-productselect">
+                  <option selected>Select A Product</option>
+                  <option value="Eldorado Stone">Eldorado Stone</option>
+                  <option value="Eldorado Outdoor">Eldorado Outdoor</option>
+                  <option value="Eldorado Fireplace Surrounds">Eldorado Fireplace Surrounds</option>
+                </select>
               </div>
-              <div class="cs-form--el cs-wtb--formbtn">
-                <button id="cs-wtb-submitbtn" type="submit" class="ks-btn ks-btn--primary" disabled>Search</button>
-              </div>
+            </div>
+            <div class="cs-form--el cs-wtb--forminput">
+              <label for="cs-wtb-zipcode">Location</label>
+              <input type="text" id="cs-wtb-zipcode" name="zipcode" placeholder="Enter City, State, or Zip" value="{{cs_zip_input}}" autocomplete="off">
+              <input type="hidden" id="cs-wtb-coords" name="coords" value="{{cs_coords_input}}">
+            </div>
+            <div class="cs-form--el cs-wtb--formbtn">
+              <button id="cs-wtb-submitbtn" type="submit" class="ks-btn ks-btn--primary" disabled>Search</button>
             </div>
           </form>
 
@@ -87,11 +97,20 @@
 
       {% for row in cs_table_data %}
         {% set pos = row['map_location'] %}
+        {% set products_sold = row["category"] | tojson | replace("\"", "") %}
+        {% set split_products = products_sold | split('|') %}
         
         {% if row['map_location'] %}
-        <div class="cs-wtb--listitem" data-dealer-location='{"lat": {{pos.lat}},"lng": {{pos.lon}}}'">
+        <div class="cs-wtb--listitem" data-dealer-location='{"lat": {{pos.lat}},"lng": {{pos.lon}}}'" data-products-sold='{{ products_sold }}'>
           <div class="cs-wtb--listitem-liner">
             <h4><a href="#0">{{row['name']}}</a></h4>
+            <div class="cs-wtb--listitem__products">
+              <p>Products:</p>
+              {% for product in split_products %}
+                <p>{{product}}</p>
+              {% endfor %}
+            </div>
+            
             <address>
               <span>{{row['address'] | lower | capitalize}}<span>
               <span class="sep">|</span>

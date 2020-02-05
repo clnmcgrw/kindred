@@ -1,4 +1,5 @@
 import { $win, $siteHeader, $mainSiteContainer, $body, $siteFooter } from './ui';
+import { getQueryVar } from './lib/helpers';
 import gmapsTheme from './lib/gmaps-color-theme.js';
 
 //keeps forms from auto-submitting when true
@@ -27,6 +28,8 @@ const $overlayMsgBox = $('#cs-locator-msgtarget');
 
 const $searchForm = $('#cs-wtb-searchform');
 const $zipInput = $('#cs-wtb-zipcode');
+const $productSelect = $('#cs-productselect');
+const $productOptions = $productSelect.find('option');
 const $coordsInput = $('#cs-wtb-coords');
 const $submitBtn = $('#cs-wtb-submitbtn');
 const $errorBox = $('#cs-wtb-errors');
@@ -336,8 +339,55 @@ const resultListItemIterator = (i, item, boundsFit = false) => {
 	}
 };
 
+/**
+ * 2/5/20
+ * 
+ * Kindred site lists retailers that may or may not sell a specific product type,
+ * eg: Kindred Outdoor, Kindred Fireplace Surrounds, etc
+ * 
+ * Using the query params created by the searchForm submit, filter out retailers
+ * that don't sell a specific product type.
+ */
+const showFilteredResults = (override) => {
+	let productFilter;
+
+	if (override) {
+		productFilter = override;
+	} else {
+		productFilter = getQueryVar('product').replace(/\+/g, ' ');
+	}
+
+	if (productFilter === 'Select A Product') return;
+
+	$productOptions.removeAttr('selected');
+	$productOptions.each(function() {
+		const $t = $(this);
+		const val = $t.val();
+
+		if (val === productFilter) {
+			$t.attr('selected', true);
+		}
+	});
+
+	$resultsListItems.each(function() {
+		const $t = $(this);
+		const productsSold = $t.data('products-sold');
+		const doesNotSellProduct = productsSold.indexOf(productFilter) === -1;
+
+		if (doesNotSellProduct) {
+			$t.hide();
+		}
+	});
+};
+
+$productSelect.change(function() {
+	showFilteredResults($(this).val());
+});
+
 //auto scroll to first result
 const revealResultsList = (delay = false, doScroll = false, halfScroll = false) => {
+	showFilteredResults();
+
 	$resultsListItems.first().trigger('click');
 	if (doScroll) {
 		const scrollDest = halfScroll

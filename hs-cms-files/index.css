@@ -3290,6 +3290,55 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     .ks-hovercard__action a:hover {
       color: #623127; }
 
+.is-location-finder h1, .is-location-finder h2, .is-location-finder h3, .is-location-finder h4, .is-location-finder h5, .is-location-finder h6 {
+  color: #2e443a; }
+
+.cs-wtb--headline {
+  margin-bottom: 3em; }
+
+.cs-wtb--listitem {
+  -webkit-transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1); }
+
+.cs-infowindow-content .cs-wtb--listitem__products,
+.cs-wtb--listitem__products {
+  margin: 1em 0; }
+  .cs-infowindow-content .cs-wtb--listitem__products p,
+  .cs-wtb--listitem__products p {
+    margin: 0; }
+    .cs-infowindow-content .cs-wtb--listitem__products p:first-child,
+    .cs-wtb--listitem__products p:first-child {
+      font-weight: bold; }
+
+.cs-selectwrap {
+  position: relative; }
+  .cs-selectwrap:after {
+    position: absolute;
+    top: 50%;
+    right: 0.5em;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 0.5em solid transparent;
+    border-right: 0.5em solid transparent;
+    border-top: 0.5em solid #994c3d; }
+
+#cs-wtb-searchform .cs-wtb--forminput,
+#cs-wtb-searchform .cs-wtb-formbtn {
+  float: none;
+  width: 100%;
+  margin-bottom: 1em; }
+
+#cs-wtb-searchform select,
+#cs-wtb-searchform input {
+  padding: 1em 0 !important;
+  color: #777; }
+
 .ks-productlist {
   padding-bottom: 4em;
   background: #f6f5f3; }
