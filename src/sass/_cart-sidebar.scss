@@ -137,7 +137,7 @@
       &-inputwrap {
         position: relative;
 
-        button[type='submit'] {
+        button[type="submit"] {
           appearance: none;
           border: none;
           background-color: transparent;
@@ -177,7 +177,7 @@
     &:after {
       @include m-fill-parent();
       display: block;
-      content: '';
+      content: "";
       background: $secondary;
       opacity: 0;
       z-index: -1;
