@@ -1712,7 +1712,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
 
 .ks-heroslider--text {
   max-width: 620px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  color: #fff; }
 
 @media (min-width: 1199px) {
   .ks-heroslider--text {
