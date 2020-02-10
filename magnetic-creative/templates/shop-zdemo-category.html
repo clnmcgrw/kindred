@@ -38,7 +38,7 @@
     <div class="ks-inner">
       <div class="ks-introtext__content">
         <div class="ks-introtext__preheading">
-          <span class="ks-preheading">Outdoors</span>
+          <span class="ks-preheading">{{ parentCategory.name }}</span>
         </div>
         <div class="ks-introtext__main">
           <h1 class="ks-headline--md">{{ parentCategory.listing_page_heading }}</h1>
@@ -50,7 +50,7 @@
     </div>
   </section>
 
-  <section class="ks-categorylist">
+  <section class="ks-categorylist ks-no-padding--bottom">
     <div class="ks-inner">
       <div class="ks-categorylist__bgimg" style="background-image: url('{{ ksCategoryRowData.image.url }}')"></div>
 
@@ -77,6 +77,7 @@
     </div>
   </section>
 
+  {# client req'd this be removed for now
   <section class="ks-resourcecallout">
     <div class="ks-resourcecallout__flex">
       <div class="ks-resourcecallout__mainimg" style="background-image: url('https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/kindred-kitchen.jpg');"></div>
@@ -103,11 +104,13 @@
       </div>
     </div>
   </section>
+  #}
 {% endif %}
 
 
 {# child category page - %parent%/%child% ------------------ #}
 {% if ksSlugDepth == 2 %}
+  {% set parentCategory = ksCategoryRowData.parent_category | first %}
   {% set ksEncodedQueryVal = ksCategoryRowData.name | trim | urlencode %}
   {% set ksProductsFilterQuery = 'child_category__contains=' + ksEncodedQueryVal %}
   {% set ksProductData = hubdb_table_rows(ksProductsTableId, ksProductsFilterQuery) %}
@@ -124,10 +127,15 @@
     <div class="ks-inner">
       <div class="ks-introtext__content">
         <div class="ks-introtext__preheading">
-          <span class="ks-preheading">Outdoors</span>
+          <span class="ks-preheading">{{ parentCategory.name }}</span>
         </div>
         <div class="ks-introtext__main">
           <h1 class="ks-headline--md">{{ ksCategoryRowData.category_headline }}</h1>
+          {% if ksCategoryRowData.category_description | length > 1 %}
+          <div class="ks-rte-content">
+            <p>{{ ksCategoryRowData.category_description }}</p>
+          </div>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -176,7 +184,7 @@
           <ul>
             {% for child in otherProductsInChildCategory %}
               <li class="ks-headline ks-headline--md">
-                <a href="/shop/{{ ksCategoryRowData.hs_path }}/{{ child.hs_path }}">{{ child.hs_name }}</a>
+                <a href="/shop/{{ parentCategory.hs_path }}/{{ child.hs_path }}">{{ child.hs_name }}</a>
               </li>
             {% endfor %}
           </ul>

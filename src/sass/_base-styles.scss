@@ -18,6 +18,7 @@ body {
   font-family: $body-font;
   font-weight: 400;
   font-size: 16px;
+  font-style: normal; // weird font-style: italic thing happening on client's device?
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -74,12 +75,16 @@ main {
 }
 
 .ks-no-padding {
+  &--top {
+    padding-top: 0 !important;
+  }
+
   &--bottom {
     padding-bottom: 0 !important;
   }
 }
 
-[class*='flex-container'] {
+[class*="flex-container"] {
   display: flex;
 }
 
@@ -220,7 +225,7 @@ button.ks-btn {
   ul {
     li {
       &:before {
-        content: '';
+        content: "";
         top: 0.667rem;
         background: $dark-green;
         height: 0.33em;
@@ -238,7 +243,7 @@ button.ks-btn {
 
       @for $i from 1 through 25 {
         &:nth-child(#{$i}):before {
-          content: '#{$i}.';
+          content: "#{$i}.";
         }
       }
     }
@@ -254,7 +259,7 @@ button.ks-btn {
 section {
   &.ks-block {
     &--lg {
-      padding: $padding-md 0;
+      padding: $padding-sm 0;
     }
   }
 
@@ -425,7 +430,7 @@ figure {
   section {
     &.ks-block {
       &--lg {
-        padding: $padding-xl 0;
+        padding: $padding-md 0;
       }
     }
   }

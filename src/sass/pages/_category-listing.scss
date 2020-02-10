@@ -1,3 +1,17 @@
+.magnetic-creative-templates-shop-zdemo-category {
+  .ks-introtext--xlight {
+    .ks-introtext__content {
+      padding-bottom: 2em;
+    }
+
+    .ks-rte-content {
+      p {
+        color: $black;
+      }
+    }
+  }
+}
+
 .ks-productlist {
   padding-bottom: $padding-sm;
   background: $bg-light;
@@ -12,8 +26,22 @@
 }
 
 @media (min-width: $bp-md) {
+  .magnetic-creative-templates-shop-zdemo-category {
+    .ks-introtext--xlight {
+      .ks-introtext__content {
+        padding-bottom: 4em;
+      }
+
+      .ks-rte-content {
+        p {
+          color: $black;
+        }
+      }
+    }
+  }
+
   .ks-productlist {
-    padding-bottom: $padding-lg;
+    padding-bottom: $padding-md;
 
     > .ks-inner {
       display: flex;

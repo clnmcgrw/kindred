@@ -1,5 +1,5 @@
 .ks-twoupcards {
-  padding: $padding-md 0;
+  padding: $padding-sm 0;
 
   &.bg-dark {
     .ks-threeup__card-heading {
@@ -63,11 +63,11 @@
 @media (min-width: $bp-xl) {
   .ks-twoupcards {
     position: relative;
-    padding: $padding-xl 0;
+    padding: $padding-md 0;
 
     &__preheading {
       position: absolute;
-      top: $padding-xl;
+      top: $padding-md;
       left: 0;
       width: 100%;
     }

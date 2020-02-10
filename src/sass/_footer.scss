@@ -12,8 +12,11 @@
   }
 
   &__main {
+    margin-bottom: 2em;
+
     .ks-headline {
       color: $dark-green;
+      margin-bottom: 0.5em;
     }
 
     .ks-btn {
@@ -31,8 +34,8 @@
       color: $primary;
     }
 
-    input[type='text'],
-    input[type='email'] {
+    input[type="text"],
+    input[type="email"] {
       color: $light-grey;
     }
 
@@ -60,7 +63,7 @@
     position: relative;
 
     &:after {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       bottom: 0;
@@ -279,7 +282,7 @@
           margin: 2em 0;
         }
 
-        input[type='submit'] {
+        input[type="submit"] {
           width: 100% !important;
         }
       }
@@ -289,13 +292,14 @@
 
 @media (min-width: $bp-sm) {
   .ks-sampleoffer {
-    padding: $padding-md 0 0;
+    // padding: $padding-md 0 0;
 
     > .ks-inner {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       flex-flow: row wrap;
+      max-width: 60%;
     }
 
     &__image {
@@ -305,6 +309,10 @@
     &__image,
     &__main {
       flex-basis: 45%;
+    }
+
+    &__main {
+      margin-bottom: 0;
     }
   }
 
@@ -354,7 +362,7 @@
 
 @media (min-width: $bp-md) {
   .ks-sampleoffer {
-    padding: $padding-lg 0 0;
+    // padding: $padding-lg 0 0;
 
     &__main {
       flex-basis: 38.5%;
@@ -440,7 +448,7 @@
 
           &:before {
             display: block;
-            content: '';
+            content: "";
             position: absolute;
             top: 50%;
             left: -0.75em;
@@ -457,14 +465,14 @@
 
 @media (min-width: $bp-xl) {
   .ks-sampleoffer {
-    padding: $padding-xl 0 0;
+    padding: $padding-md 0 0;
 
     &__image {
-      flex-basis: 50%;
+      flex-basis: 40%;
     }
 
     &__main {
-      flex-basis: 40%;
+      flex-basis: 50%;
     }
   }
 
@@ -555,7 +563,7 @@
             margin: 0;
           }
 
-          input[type='submit'] {
+          input[type="submit"] {
             padding: 1.15em 0;
           }
         }

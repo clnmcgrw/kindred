@@ -55,4 +55,12 @@
     padding: 1em 0 !important;
     color: #777;
   }
+
+  a {
+    color: $primary;
+
+    &:hover {
+      color: darken($primary, 15%);
+    }
+  }
 }

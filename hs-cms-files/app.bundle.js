@@ -4009,7 +4009,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var flickity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! flickity */ \"./node_modules/flickity/js/index.js\");\n/* harmony import */ var flickity__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(flickity__WEBPACK_IMPORTED_MODULE_0__);\n\nvar heroSlider = document.getElementById('ks-hero-slider');\n/* harmony default export */ __webpack_exports__[\"default\"] = (function () {\n  if (!heroSlider) return;\n  var flkty = new flickity__WEBPACK_IMPORTED_MODULE_0___default.a(heroSlider, {\n    cellSelector: '.ks-heroslider--slide',\n    prevNextButtons: false\n  });\n});\n\n//# sourceURL=webpack:///./src/js/hero-slider.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var flickity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! flickity */ \"./node_modules/flickity/js/index.js\");\n/* harmony import */ var flickity__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(flickity__WEBPACK_IMPORTED_MODULE_0__);\n\nvar heroSlider = document.getElementById('ks-hero-slider');\n/* harmony default export */ __webpack_exports__[\"default\"] = (function () {\n  if (!heroSlider || heroSlider.classList.contains('ks-heroslider--nocarousel')) return;\n  var flkty = new flickity__WEBPACK_IMPORTED_MODULE_0___default.a(heroSlider, {\n    cellSelector: '.ks-heroslider--slide',\n    prevNextButtons: false\n  });\n});\n\n//# sourceURL=webpack:///./src/js/hero-slider.js?");
 
 /***/ }),
 

@@ -27,7 +27,7 @@
 
 
     <div class="ks-resourcelist__items">
-      <div class="ks-inner">
+      <div class="ks-inner ks-no-padding--top ks-no-padding--bottom">
       {% for r in resources_table %}
         <div class="ks-card ks-card--image" data-resource-type="{{ r.resource_type.name.replace(' ', '-') | lower }}">
           <a href="{{ r.download_link }}" class="ks-linkover" target="_blank" rel="noopener noreferrer" download="{{ r.download_link }}">

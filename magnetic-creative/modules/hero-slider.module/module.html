@@ -1,4 +1,4 @@
-<section id="ks-hero-slider" class="ks-heroslider">
+<section id="ks-hero-slider" class="ks-heroslider {% if module.slides | length < 2 %}ks-heroslider--nocarousel{% endif %}">
   
   {% for slide in module.slides %}
   <div class="ks-heroslider--slide">
