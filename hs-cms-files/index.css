@@ -497,8 +497,9 @@ main > .ks-site-container {
   display: -ms-flexbox;
   display: flex; }
 
-.ks-btn, .hs-cta-wrapper .cta_button, form input[type='submit'],
-form.hs-form input[type='submit'] {
+.ks-btn, .hs-cta-wrapper .cta_button, form input[type="submit"],
+form.hs-form input[type="submit"],
+#email-prefs-form input[type="submit"] {
   display: inline-block;
   background-color: #994c3d;
   text-decoration: none;
@@ -516,13 +517,16 @@ form.hs-form input[type='submit'] {
     .ks-btn--secondary:hover {
       background-color: #1b2429 !important;
       color: #fff !important; }
-  .ks-btn:hover, .hs-cta-wrapper .cta_button:hover, form input:hover[type='submit'] {
+  .ks-btn:hover, .hs-cta-wrapper .cta_button:hover, form input:hover[type="submit"],
+  #email-prefs-form input:hover[type="submit"] {
     cursor: pointer;
     background-color: #cfc5b9;
     color: #994c3d; }
-  .ks-btn:disabled, .hs-cta-wrapper .cta_button:disabled, form input:disabled[type='submit'] {
+  .ks-btn:disabled, .hs-cta-wrapper .cta_button:disabled, form input:disabled[type="submit"],
+  #email-prefs-form input:disabled[type="submit"] {
     background: #c07162 !important; }
-    .ks-btn:disabled:hover, .hs-cta-wrapper .cta_button:disabled:hover, form input:disabled:hover[type='submit'] {
+    .ks-btn:disabled:hover, .hs-cta-wrapper .cta_button:disabled:hover, form input:disabled:hover[type="submit"],
+    #email-prefs-form input:disabled:hover[type="submit"] {
       cursor: not-allowed;
       color: #fff; }
 
@@ -837,25 +841,29 @@ figure {
     width: 40%; } }
 
 form *,
-form.hs-form * {
+form.hs-form *,
+#email-prefs-form * {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none; }
 
 form fieldset,
-form.hs-form fieldset {
+form.hs-form fieldset,
+#email-prefs-form fieldset {
   max-width: 100% !important;
   margin-bottom: 2em;
   border: none; }
 
 form label,
-form.hs-form label {
+form.hs-form label,
+#email-prefs-form label {
   position: relative;
   font-family: "big-caslon-fb", serif;
   font-size: 1.4em;
   color: #2e443a; }
   form label .hs-form-required,
-  form.hs-form label .hs-form-required {
+  form.hs-form label .hs-form-required,
+  #email-prefs-form label .hs-form-required {
     position: absolute;
     top: -0.25em;
     right: -0.5em;
@@ -866,7 +874,10 @@ form select,
 form textarea,
 form.hs-form input,
 form.hs-form select,
-form.hs-form textarea {
+form.hs-form textarea,
+#email-prefs-form input,
+#email-prefs-form select,
+#email-prefs-form textarea {
   border: none;
   border-bottom: 1px solid #e2ddd6;
   border-radius: 0;
@@ -878,33 +889,40 @@ form.hs-form textarea {
 form input,
 form select,
 form.hs-form input,
-form.hs-form select {
+form.hs-form select,
+#email-prefs-form input,
+#email-prefs-form select {
   padding: 1em 0 0.25em 0.25em; }
 
 form textarea,
-form.hs-form textarea {
+form.hs-form textarea,
+#email-prefs-form textarea {
   resize: none;
   height: 8.125em;
   padding: 0.25em; }
 
-form input[type='submit'],
-form.hs-form input[type='submit'] {
+form input[type="submit"],
+form.hs-form input[type="submit"],
+#email-prefs-form input[type="submit"] {
   border: none;
   padding: 1.15em 4em;
   width: auto !important; }
 
-form input[type='checkbox'],
-form.hs-form input[type='checkbox'] {
+form input[type="checkbox"],
+form.hs-form input[type="checkbox"],
+#email-prefs-form input[type="checkbox"] {
   -webkit-appearance: checkbox;
      -moz-appearance: checkbox;
           appearance: checkbox; }
 
 form .input,
-form.hs-form .input {
+form.hs-form .input,
+#email-prefs-form .input {
   margin-right: 0 !important; }
 
 form .hs-error-msgs,
-form.hs-form .hs-error-msgs {
+form.hs-form .hs-error-msgs,
+#email-prefs-form .hs-error-msgs {
   position: absolute;
   bottom: -1.25em;
   left: 0.25em;
@@ -912,21 +930,25 @@ form.hs-form .hs-error-msgs {
   margin: 0;
   padding: 0; }
   form .hs-error-msgs label,
-  form.hs-form .hs-error-msgs label {
+  form.hs-form .hs-error-msgs label,
+  #email-prefs-form .hs-error-msgs label {
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 80%;
     color: #994c3d; }
 
 form .hs-form-field,
-form.hs-form .hs-form-field {
+form.hs-form .hs-form-field,
+#email-prefs-form .hs-form-field {
   position: relative; }
 
 form .form-columns-2 .hs-form-field:first-child,
-form.hs-form .form-columns-2 .hs-form-field:first-child {
+form.hs-form .form-columns-2 .hs-form-field:first-child,
+#email-prefs-form .form-columns-2 .hs-form-field:first-child {
   margin-bottom: 1em; }
 
 form .hs-fieldtype-booleancheckbox ul,
-form.hs-form .hs-fieldtype-booleancheckbox ul {
+form.hs-form .hs-fieldtype-booleancheckbox ul,
+#email-prefs-form .hs-fieldtype-booleancheckbox ul {
   list-style-type: none;
   margin: 0;
   padding: 0; }
@@ -934,24 +956,30 @@ form.hs-form .hs-fieldtype-booleancheckbox ul {
 form .hs-form-booleancheckbox-display input,
 form .hs-form-booleancheckbox-display span,
 form.hs-form .hs-form-booleancheckbox-display input,
-form.hs-form .hs-form-booleancheckbox-display span {
+form.hs-form .hs-form-booleancheckbox-display span,
+#email-prefs-form .hs-form-booleancheckbox-display input,
+#email-prefs-form .hs-form-booleancheckbox-display span {
   display: inline;
   vertical-align: middle; }
 
 form .hs-form-booleancheckbox-display input,
-form.hs-form .hs-form-booleancheckbox-display input {
+form.hs-form .hs-form-booleancheckbox-display input,
+#email-prefs-form .hs-form-booleancheckbox-display input {
   width: auto !important;
   margin-right: 0.5em; }
 
 form .hs-form-booleancheckbox-display span,
-form.hs-form .hs-form-booleancheckbox-display span {
+form.hs-form .hs-form-booleancheckbox-display span,
+#email-prefs-form .hs-form-booleancheckbox-display span {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 1rem; }
 
 form .hs-form-booleancheckbox-display:hover,
 form .hs-form-booleancheckbox-display input:hover,
 form.hs-form .hs-form-booleancheckbox-display:hover,
-form.hs-form .hs-form-booleancheckbox-display input:hover {
+form.hs-form .hs-form-booleancheckbox-display input:hover,
+#email-prefs-form .hs-form-booleancheckbox-display:hover,
+#email-prefs-form .hs-form-booleancheckbox-display input:hover {
   cursor: pointer; }
 
 @media (min-width: 767px) {
@@ -1205,7 +1233,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     .ks-sampleoffer__main .ks-headline {
       color: #2e443a;
       margin-bottom: 0.5em; }
-    .ks-sampleoffer__main .ks-btn, .ks-sampleoffer__main .hs-cta-wrapper .cta_button, .hs-cta-wrapper .ks-sampleoffer__main .cta_button, .ks-sampleoffer__main form input[type='submit'], form .ks-sampleoffer__main input[type='submit'] {
+    .ks-sampleoffer__main .ks-btn, .ks-sampleoffer__main .hs-cta-wrapper .cta_button, .hs-cta-wrapper .ks-sampleoffer__main .cta_button, .ks-sampleoffer__main form input[type="submit"], form .ks-sampleoffer__main input[type="submit"],
+    .ks-sampleoffer__main #email-prefs-form input[type="submit"], #email-prefs-form .ks-sampleoffer__main input[type="submit"] {
       margin-top: 1em; }
 
 .ks-footer {
@@ -2773,11 +2802,13 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
   .ks-cartsidebar__actions {
     padding: 0 1em 8em 1em;
     background: #fff; }
-    .ks-cartsidebar__actions .ks-btn, .ks-cartsidebar__actions .hs-cta-wrapper .cta_button, .hs-cta-wrapper .ks-cartsidebar__actions .cta_button, .ks-cartsidebar__actions form input[type='submit'], form .ks-cartsidebar__actions input[type='submit'] {
+    .ks-cartsidebar__actions .ks-btn, .ks-cartsidebar__actions .hs-cta-wrapper .cta_button, .hs-cta-wrapper .ks-cartsidebar__actions .cta_button, .ks-cartsidebar__actions form input[type="submit"], form .ks-cartsidebar__actions input[type="submit"],
+    .ks-cartsidebar__actions #email-prefs-form input[type="submit"], #email-prefs-form .ks-cartsidebar__actions input[type="submit"] {
       width: 100%;
       font-size: 75%;
       text-align: center; }
-      .ks-cartsidebar__actions .ks-btn:first-of-type, .ks-cartsidebar__actions .hs-cta-wrapper .cta_button:first-of-type, .hs-cta-wrapper .ks-cartsidebar__actions .cta_button:first-of-type, .ks-cartsidebar__actions form input:first-of-type[type='submit'], form .ks-cartsidebar__actions input:first-of-type[type='submit'] {
+      .ks-cartsidebar__actions .ks-btn:first-of-type, .ks-cartsidebar__actions .hs-cta-wrapper .cta_button:first-of-type, .hs-cta-wrapper .ks-cartsidebar__actions .cta_button:first-of-type, .ks-cartsidebar__actions form input:first-of-type[type="submit"], form .ks-cartsidebar__actions input:first-of-type[type="submit"],
+      .ks-cartsidebar__actions #email-prefs-form input:first-of-type[type="submit"], #email-prefs-form .ks-cartsidebar__actions input:first-of-type[type="submit"] {
         margin-bottom: 0.5em; }
   .ks-cartsidebar__subtotal {
     margin-bottom: 1em; }
@@ -2837,7 +2868,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover {
     padding: 0 4em; }
   .ks-cartsidebar__actions {
     padding: 0 4em 2em 4em; }
-    .ks-cartsidebar__actions .ks-btn, .ks-cartsidebar__actions .hs-cta-wrapper .cta_button, .hs-cta-wrapper .ks-cartsidebar__actions .cta_button, .ks-cartsidebar__actions form input[type='submit'], form .ks-cartsidebar__actions input[type='submit'] {
+    .ks-cartsidebar__actions .ks-btn, .ks-cartsidebar__actions .hs-cta-wrapper .cta_button, .hs-cta-wrapper .ks-cartsidebar__actions .cta_button, .ks-cartsidebar__actions form input[type="submit"], form .ks-cartsidebar__actions input[type="submit"],
+    .ks-cartsidebar__actions #email-prefs-form input[type="submit"], #email-prefs-form .ks-cartsidebar__actions input[type="submit"] {
       font-size: 100%; }
   .ks-cartsidebar__couponmodal .ks-couponmodal__content {
     padding: 3em 1em; } }

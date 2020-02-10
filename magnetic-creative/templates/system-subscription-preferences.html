@@ -1,0 +1,15 @@
+<!--
+  templateType: email_subscription_preferences_page
+  isAvailableForNewContent: true
+-->
+{% include '/magnetic-creative/partials/header-primary.html' %}
+
+<section class="ks-systempage">
+  <div class="ks-inner">
+    <div class="ks-systempage__content">
+      {% email_subscriptions "email_subscriptions" header='Communication Preferences', unsubscribe_all_text='Or check here to never receive any emails:', overrideable=True, subheader_text='<p>\n                                If this is not your email address, please ignore this page since the email associated with this page was most likely forwarded to you.\n                            </p>', unsubscribe_all_option='Unsubscribe me from all mailing lists.', unsubscribe_single_text='Uncheck the types of emails you do not want to receive:', button_text='Update email preferences', label='Subscription Preferences' %}
+    </div>
+  </div>
+</section>
+
+{% include '/magnetic-creative/partials/footer-primary.html' %}

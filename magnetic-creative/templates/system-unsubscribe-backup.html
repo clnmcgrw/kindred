@@ -1,0 +1,15 @@
+<!--
+  templateType: email_backup_unsubscribe_page
+  isAvailableForNewContent: true
+-->
+{% include '/magnetic-creative/partials/header-primary.html' %}
+
+<section class="ks-systempage">
+  <div class="ks-inner">
+    <div class="ks-systempage__content">
+      {% email_simple_subscription "email_simple_subscription" input_placeholder='email@example.com', button_text='Unsubscribe', label='Backup Unsubscribe', header='Email Unsubscribe', overrideable=True, input_help_text='Your email address:' %}
+    </div>
+  </div>
+</section>
+
+{% include '/magnetic-creative/partials/footer-primary.html' %}

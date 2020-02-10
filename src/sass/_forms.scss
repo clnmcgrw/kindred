@@ -1,5 +1,6 @@
 form,
-form.hs-form {
+form.hs-form,
+#email-prefs-form {
   * {
     appearance: none;
   }
@@ -47,14 +48,14 @@ form.hs-form {
     padding: 0.25em;
   }
 
-  input[type='submit'] {
+  input[type="submit"] {
     @extend .ks-btn;
     border: none;
     padding: 1.15em 4em;
     width: auto !important;
   }
 
-  input[type='checkbox'] {
+  input[type="checkbox"] {
     appearance: checkbox;
   }
 
