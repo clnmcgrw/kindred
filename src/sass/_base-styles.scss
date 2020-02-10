@@ -295,6 +295,7 @@ figure {
     text-decoration: none;
     color: $grey;
     font-family: $heading-font;
+    vertical-align: middle;
 
     &:hover {
       color: $primary;

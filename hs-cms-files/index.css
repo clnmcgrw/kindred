@@ -710,7 +710,8 @@ figure {
 .ks-breadcrumb a {
   text-decoration: none;
   color: #767676;
-  font-family: "big-caslon-fb", serif; }
+  font-family: "big-caslon-fb", serif;
+  vertical-align: middle; }
   .ks-breadcrumb a:hover {
     color: #994c3d; }
 

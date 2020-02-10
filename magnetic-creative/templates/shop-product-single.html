@@ -21,7 +21,12 @@
         data-child-cat="{{ child_cat[1] | lower | replace(' ', '-') }}"
     ></div>
 
-    <div class="" style="display:none;">{{ parent_cat }}</div>
+    <nav class="ks-breadcrumb bg-light">
+        <div class="ks-inner">
+            <a href="/shop/{{ parent_cat.hs_path }}">&#60; {{ parent_cat.name }}</a>
+            <a href="/shop/{{ parent_cat.hs_path }}/{{ child_cat.hs_path }}">&#60; {{ child_cat.name }}</a>
+        </div>
+    </nav>
 
     <section class="ks-producthero bg-light">
         <div class="ks-inner">
