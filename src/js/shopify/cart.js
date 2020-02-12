@@ -233,6 +233,13 @@ $couponModalClose.click(() => {
   $cartSidebar.removeClass('loading');
 });
 
+$backdrop.click(() => {
+  if ($cartSidebar.hasClass('active')) {
+    $cartSidebar.removeClass('active');
+    $backdrop.removeClass('active');
+  }
+});
+
 $doc.ready(async () => {
   $cartSidebar.addClass('loading');
   currentCheckout = await getCheckout();

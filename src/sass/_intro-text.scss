@@ -117,6 +117,10 @@
 
     &__preheading {
       flex-basis: 20%;
+
+      .ks-preheading {
+        font-size: 1.425em;
+      }
     }
 
     &__main {

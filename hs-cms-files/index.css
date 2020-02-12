@@ -1876,6 +1876,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
   .ks-introtext__preheading {
     -ms-flex-preferred-size: 20%;
         flex-basis: 20%; }
+    .ks-introtext__preheading .ks-preheading {
+      font-size: 1.425em; }
   .ks-introtext__main {
     -ms-flex-preferred-size: 70%;
         flex-basis: 70%; }
