@@ -60,6 +60,8 @@
   &__slide {
     width: 80%;
     padding: 0 2em;
+    position: relative;
+    overflow: hidden;
 
     figure {
       transition: transform 0.25s ease-out;
@@ -74,6 +76,32 @@
         left: 83%;
         > * {
           pointer-events: none;
+        }
+      }
+    }
+
+    &.is-selected {
+      .ks-galleryslider__slide-title {
+        opacity: 1;
+      }
+    }
+
+    &-title {
+      position: absolute;
+      bottom: -1px;
+      left: -1px;
+      padding: 0.5em 1em;
+      background: $dark-green;
+      opacity: 0;
+      transition: opacity 1s $ease-out-circ;
+
+      a {
+        color: $white;
+        font-family: $heading-font;
+        text-decoration: none;
+
+        &:hover {
+          color: $primary;
         }
       }
     }

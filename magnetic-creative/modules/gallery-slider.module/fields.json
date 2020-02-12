@@ -1,42 +1,80 @@
 [ {
-  "id" : "90763a20-94fd-50ea-e36a-c306e306b593",
-  "name" : "slide",
-  "label" : "Slide",
+  "id" : "63dd0326-be99-5730-67df-dabdcc4b3cc1",
+  "name" : "slides",
+  "label" : "Slides",
   "required" : false,
   "locked" : false,
   "occurrence" : {
     "min" : 1,
-    "max" : null,
-    "sorting_label_field" : null,
+    "max" : 5,
+    "sorting_label_field" : "18dc18f1-fb4f-3046-6bdf-e7c894d3268c",
     "default" : 3
   },
-  "responsive" : true,
-  "resizable" : false,
-  "type" : "image",
+  "children" : [ {
+    "id" : "90763a20-94fd-50ea-e36a-c306e306b593",
+    "name" : "slide",
+    "label" : "Slide",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : false,
+    "type" : "image",
+    "default" : {
+      "size_type" : "exact",
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
+      "alt" : "hero-outdoor-surrounds",
+      "width" : 1400,
+      "height" : 865,
+      "max_width" : 1400,
+      "max_height" : 865
+    }
+  }, {
+    "id" : "71bffa17-8f3c-5dc0-93a5-a1855dd28ab3",
+    "name" : "product_id",
+    "label" : "Product ID",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "24293443736"
+  } ],
+  "tab" : "CONTENT",
+  "type" : "group",
   "default" : [ {
-    "size_type" : "exact",
-    "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
-    "alt" : "hero-outdoor-surrounds",
-    "width" : 1400,
-    "height" : 865,
-    "max_width" : 1400,
-    "max_height" : 865
+    "slide" : {
+      "size_type" : "exact",
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
+      "alt" : "hero-outdoor-surrounds",
+      "width" : 1400,
+      "height" : 865,
+      "max_width" : 1400,
+      "max_height" : 865
+    },
+    "product_id" : "24293443736"
   }, {
-    "size_type" : "exact",
-    "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
-    "alt" : "hero-outdoor-surrounds",
-    "width" : 1400,
-    "height" : 865,
-    "max_width" : 1400,
-    "max_height" : 865
+    "slide" : {
+      "size_type" : "exact",
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
+      "alt" : "hero-outdoor-surrounds",
+      "width" : 1400,
+      "height" : 865,
+      "max_width" : 1400,
+      "max_height" : 865
+    },
+    "product_id" : "24293443736"
   }, {
-    "size_type" : "exact",
-    "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
-    "alt" : "hero-outdoor-surrounds",
-    "width" : 1400,
-    "height" : 865,
-    "max_width" : 1400,
-    "max_height" : 865
+    "slide" : {
+      "size_type" : "exact",
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
+      "alt" : "hero-outdoor-surrounds",
+      "width" : 1400,
+      "height" : 865,
+      "max_width" : 1400,
+      "max_height" : 865
+    },
+    "product_id" : "24293443736"
   } ]
 }, {
   "id" : "a321dae0-3a62-5c8f-181a-838b8c64a1da",

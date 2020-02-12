@@ -2008,7 +2008,9 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
     padding-bottom: 2em; }
   .ks-galleryslider__slide {
     width: 80%;
-    padding: 0 2em; }
+    padding: 0 2em;
+    position: relative;
+    overflow: hidden; }
     .ks-galleryslider__slide figure {
       -webkit-transition: -webkit-transform 0.25s ease-out;
       transition: -webkit-transform 0.25s ease-out;
@@ -2029,6 +2031,24 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
         left: 83%; }
         .ks-galleryslider__slide figure svg > * {
           pointer-events: none; }
+    .ks-galleryslider__slide.is-selected .ks-galleryslider__slide-title {
+      opacity: 1; }
+    .ks-galleryslider__slide-title {
+      position: absolute;
+      bottom: -1px;
+      left: -1px;
+      padding: 0.5em 1em;
+      background: #2e443a;
+      opacity: 0;
+      -webkit-transition: opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+      -o-transition: opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition: opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1); }
+      .ks-galleryslider__slide-title a {
+        color: #fff;
+        font-family: "big-caslon-fb", serif;
+        text-decoration: none; }
+        .ks-galleryslider__slide-title a:hover {
+          color: #994c3d; }
   .ks-galleryslider .is-left figure {
     -webkit-transition: -webkit-transform 0.25s ease-out;
     transition: -webkit-transform 0.25s ease-out;

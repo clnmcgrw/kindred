@@ -3,10 +3,10 @@
 >
   <div class="ks-galleryslider__backdrop"></div>
   <div class="ks-flickity-container ks-flickity-container--galleryslider">
-    {% for slide in module.slide %}
+    {% for item in module.slides %}
     <div class="ks-galleryslider__slide">
       <figure class="ks-figure">
-        <img src="{{ slide.src }}" alt="{{ slide.alt }}" />
+        <img src="{{ item.slide.src }}" alt="{{ item.slide.alt }}" />
         <svg
           class="ks-galleryslider__fullscreen-toggle"
           xmlns="http://www.w3.org/2000/svg"
@@ -42,6 +42,15 @@
           </g>
         </svg>
       </figure>
+      {% for row in hubdb_table_rows(2036891) %}
+        {% if row.hs_id == item.product_id %}
+        <div class="ks-galleryslider__slide-title">
+          <a href="/products/{{ row.hs_path }}">
+            {{ row.product_title }}
+          </a>
+        </div>
+        {% endif %}
+      {% endfor %}
     </div>
 
     {% endfor %}
