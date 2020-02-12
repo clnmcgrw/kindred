@@ -42,6 +42,11 @@
     .submitted-message {
       color: $light-grey;
     }
+
+    .hs-error-msgs {
+      position: static;
+      font-size: 80%;
+    }
   }
 
   > .ks-site-container {

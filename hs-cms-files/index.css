@@ -1247,6 +1247,9 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
     color: #e2ddd6; }
   .ks-footer form.hs-form .submitted-message {
     color: #e2ddd6; }
+  .ks-footer form.hs-form .hs-error-msgs {
+    position: static;
+    font-size: 80%; }
   .ks-footer > .ks-site-container {
     position: relative; }
   .ks-footer__bgimg {
@@ -1771,7 +1774,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
   margin-bottom: 2.5em; }
 
 .ks-threeup__card-heading {
-  margin: 0.5em 0; }
+  margin: 0.5em 0;
+  margin-top: 0; }
 
 .ks-threeup__card-content {
   margin-bottom: 2.5em; }
@@ -2979,7 +2983,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
       width: 100%;
       height: 100%;
       display: block;
-      content: '';
+      content: "";
       background: #f6f5f3;
       opacity: 0.85;
       z-index: 1; }
@@ -3037,7 +3041,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
         position: absolute;
         display: block; }
       .ks-categorylist__titles .ks-headline a:before {
-        content: '';
+        content: "";
         bottom: 0;
         left: 0;
         width: 100%;
@@ -3056,7 +3060,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
         transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1); }
       .ks-categorylist__titles .ks-headline a:after {
         display: none;
-        content: 'View All';
+        content: "View All";
         top: 50%;
         right: -5rem;
         color: #994c3d;
@@ -3078,6 +3082,30 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
 @media (min-width: 767px) {
   .ks-categorylist {
     padding: 6em 0; }
+    .ks-categorylist--aboutus .ks-categorylist__main {
+      display: block;
+      width: 80%;
+      margin: auto; }
+    .ks-categorylist--aboutus ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: row wrap;
+              flex-flow: row wrap; }
+      .ks-categorylist--aboutus ul li {
+        -ms-flex-preferred-size: 50%;
+            flex-basis: 50%; }
+        .ks-categorylist--aboutus ul li:nth-child(even) {
+          text-align: right; }
+        .ks-categorylist--aboutus ul li a {
+          display: inline-block; }
+          .ks-categorylist--aboutus ul li a:after {
+            display: none !important; }
     .ks-categorylist > .ks-inner {
       padding: 9.375em 0; }
     .ks-categorylist__main {
