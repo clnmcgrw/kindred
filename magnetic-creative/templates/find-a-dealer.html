@@ -55,9 +55,8 @@
               <div class="cs-selectwrap">
                 <select name="product" id="cs-productselect">
                   <option selected>Select A Product</option>
-                  <option value="Eldorado Stone">Eldorado Stone</option>
-                  <option value="Eldorado Outdoor">Eldorado Outdoor</option>
-                  <option value="Eldorado Fireplace Surrounds">Eldorado Fireplace Surrounds</option>
+                  <option value="Kindred Outdoor">Kindred Outdoor</option>
+                  <option value="Kindred Fireplace Surrounds">Kindred Fireplace Surrounds</option>
                 </select>
               </div>
             </div>
@@ -104,13 +103,18 @@
         {% set split_products = products_sold | split('|') %}
         
         {% if row['map_location'] %}
-        <div class="cs-wtb--listitem" data-dealer-location='{"lat": {{pos.lat}},"lng": {{pos.lon}}}'" data-products-sold='{{ products_sold }}'>
+        <div
+          class="cs-wtb--listitem"
+          data-dealer-location='{"lat": {{pos.lat}},"lng": {{pos.lon}}}'"
+          {# In HubDB, these are listed as Eldorado Stone, Eldorado Outdoor, etc. Need to replace that old brand name w/ the new one #}
+          data-products-sold='{{ products_sold.replace("Eldorado", "Kindred") }}'
+        >
           <div class="cs-wtb--listitem-liner">
             <h4><a href="#0">{{row['name']}}</a></h4>
             <div class="cs-wtb--listitem__products">
               <p>Products:</p>
               {% for product in split_products %}
-                <p>{{product}}</p>
+                <p>{{product.replace('Eldorado', 'Kindred')}}</p>
               {% endfor %}
             </div>
             

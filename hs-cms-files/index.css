@@ -2626,6 +2626,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
       text-decoration: none; }
       .ks-cartsidebar__noitems a:hover {
         color: #623127; }
+  .ks-cartsidebar__yourcart {
+    padding-left: 1em; }
   .ks-cartsidebar__discountcode * {
     margin: 0; }
   .ks-cartsidebar__discountcode p {

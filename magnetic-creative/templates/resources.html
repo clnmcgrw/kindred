@@ -43,7 +43,11 @@
                 <p>{{ r.name }}</p>
               </div>
               <div class="ks-card__actions">
-                <a href="{{ r.download_link }}" target="_blank" rel="noopener noreferrer" download="{{ r.download_link }}">Download Now &rarr;</a>
+                {% if r.hs_id == 24706636559 %}
+                  <a href="{{ r.download_link }}">View More &rarr;</a>
+                {% else %}
+                  <a href="{{ r.download_link }}" target="_blank" rel="noopener noreferrer" download="{{ r.download_link }}">Download Now &rarr;</a>
+                {% endif %}
               </div>
             </div>
           </a>
