@@ -77,7 +77,7 @@
     "label" : "Link To Page",
     "required" : false,
     "locked" : false,
-    "supported_types" : [ "CONTENT" ],
+    "supported_types" : [ "CONTENT", "EXTERNAL" ],
     "type" : "link",
     "default" : {
       "url" : {
