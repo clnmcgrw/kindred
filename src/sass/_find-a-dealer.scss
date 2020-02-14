@@ -50,6 +50,11 @@
     margin-bottom: 1em;
   }
 
+  /* pseudo-element for the dropdown arrow on IE10+ */
+  select::-ms-expand {
+    display: none;
+  }
+
   select,
   input {
     padding: 1em 0 !important;
