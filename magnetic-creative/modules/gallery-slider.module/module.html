@@ -6,6 +6,20 @@
     {% for item in module.slides %}
     <div class="ks-galleryslider__slide">
       <figure class="ks-figure">
+        <div class="ks-galleryslider__slide-controls">
+          <div class="ks-galleryslider__slide-previous" data-previous>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </div>
+          <div class="ks-galleryslider__slide-next" data-next>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </div>
         <img src="{{ item.slide.src }}" alt="{{ item.slide.alt }}" />
         <svg
           class="ks-galleryslider__fullscreen-toggle"
@@ -58,7 +72,7 @@
   <div class="ks-inner ks-inner--sm">
     <div class="ks-galleryslider__controls">
       <span
-        class="ks-galleryslider__button ks-galleryslider__button--prev"
+        class="ks-galleryslider__button ks-galleryslider__button--prev" data-previous
       ></span>
       <div class="ks-galleryslider__progress-bar">
         <div class="ks-galleryslider__progress-line">
@@ -66,7 +80,7 @@
         </div>
       </div>
       <span
-        class="ks-galleryslider__button ks-galleryslider__button--next"
+        class="ks-galleryslider__button ks-galleryslider__button--next" data-next
       ></span>
     </div>
     <div class="ks-galleryslider__slide-number">

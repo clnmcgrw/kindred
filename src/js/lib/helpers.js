@@ -6,7 +6,7 @@
  * @returns {promise}
  */
 export function pause(delay) {
-	return new Promise((resolve) => setTimeout(resolve, delay));
+  return new Promise(resolve => setTimeout(resolve, delay));
 }
 
 /**
@@ -14,14 +14,30 @@ export function pause(delay) {
  * @param {string} variable - var to search for in window.location.search
  */
 export function getQueryVar(variable) {
-	const query = window.location.search.substring(1);
-	const vars = query.split('&');
+  const query = window.location.search.substring(1);
+  const vars = query.split('&');
 
-	for (let i = 0; i < vars.length; i++) {
-		const pair = vars[i].split('=');
+  for (let i = 0; i < vars.length; i++) {
+    const pair = vars[i].split('=');
 
-		if (decodeURIComponent(pair[0]) == variable) {
-			return decodeURIComponent(pair[1]);
-		}
-	}
+    if (decodeURIComponent(pair[0]) == variable) {
+      return decodeURIComponent(pair[1]);
+    }
+  }
+}
+
+export function debounce(func, wait = 20, immediate = true) {
+  let timeout;
+  return function() {
+    let context = this,
+      args = arguments;
+    let later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    let callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
 }

@@ -1,4 +1,5 @@
 import Flickity from 'flickity';
+import { debounce } from '../js/lib/helpers';
 
 const gs = document.querySelectorAll('.ks-galleryslider');
 
@@ -16,6 +17,7 @@ export default () => {
 
     const state = {
       targets: {
+        allSlides: slider.querySelectorAll('.ks-galleryslider__slide'),
         progressThumb: slider.querySelector(
           '.ks-galleryslider__progress-thumb'
         ),
@@ -26,8 +28,8 @@ export default () => {
         totalSlides: slider.querySelector(
           '.ks-galleryslider__slide-number-total'
         ),
-        previous: slider.querySelector('.ks-galleryslider__button--prev'),
-        next: slider.querySelector('.ks-galleryslider__button--next'),
+        previous: slider.querySelectorAll('.ks-galleryslider [data-previous]'),
+        next: slider.querySelectorAll('.ks-galleryslider [data-next]'),
         fsToggle: slider.querySelectorAll(
           '.ks-galleryslider__fullscreen-toggle'
         ),
@@ -48,12 +50,16 @@ export default () => {
           state.trackProgress(targets);
         });
 
-        previous.addEventListener('click', function() {
-          flickity.previous(false);
+        previous.forEach(control => {
+          control.addEventListener('click', function() {
+            flickity.previous(false);
+          });
         });
 
-        next.addEventListener('click', function() {
-          flickity.next(false);
+        next.forEach(control => {
+          control.addEventListener('click', function() {
+            flickity.next(false);
+          });
         });
 
         fsToggle.forEach(toggle => {
@@ -85,6 +91,9 @@ export default () => {
           }
           case !slider.classList.contains('fullscreen'): {
             slider.classList.add('fullscreen');
+            // setTimeout(() => {
+            flickity.resize();
+            // }, 350);
             break;
           }
           default: {
