@@ -21,6 +21,9 @@ export default ($ = window.$) => {
 
     data: {
       navOpen: false,
+      breakpoints: {
+        md: 767,
+      },
     },
 
     methods: {
@@ -28,8 +31,10 @@ export default ($ = window.$) => {
         const { $nodes, data, methods } = module;
 
         $nodes.mobileParents.click(function() {
-          event.preventDefault();
-          methods.findChild(this.dataset.mobileParent);
+          if (window.innerWidth < data.breakpoints.md) {
+            event.preventDefault();
+            methods.findChild(this.dataset.mobileParent);
+          }
         });
 
         $nodes.navToggle.click(function() {
