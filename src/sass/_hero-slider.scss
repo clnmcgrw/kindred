@@ -1,11 +1,9 @@
-
 .ks-heroslider {
   position: relative;
   height: 100vh;
   background: $dark;
 
   .flickity-page-dots {
-
     li.dot {
       width: 1em;
       height: 1em;
@@ -58,6 +56,7 @@
   @include fill-parent();
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 .ks-heroslider--content {
   position: relative;
@@ -74,11 +73,8 @@
   color: $white;
 }
 
-
-@media (min-width:$bp-xl) {
-  
+@media (min-width: $bp-xl) {
   .ks-heroslider--text {
     max-width: 750px;
   }
-
 }

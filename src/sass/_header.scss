@@ -30,6 +30,12 @@
     &.scroll-visible {
       transform: translateY(0);
     }
+
+    .ks-navdrawer {
+      ul a {
+        font-size: 100%;
+      }
+    }
   }
 
   &.solid {
@@ -39,8 +45,12 @@
 
     .ks-brand-logo--svg {
       svg path {
-        fill: $primary;
+        fill: $light;
       }
+    }
+
+    .ks-navdrawer {
+      background: $white;
     }
 
     .ks-navtoggle--btn {
@@ -64,6 +74,10 @@
             stroke: $primary;
           }
         }
+      }
+
+      .ks-navdrawer {
+        background: $light-grey;
       }
     }
 
@@ -100,6 +114,20 @@
         }
       }
     }
+
+    .ks-navdrawer {
+      background: transparent;
+      transition: transform 0.35s $ease-out-circ;
+
+      ul a {
+        color: $light-grey;
+
+        &:hover {
+          color: $light-grey;
+          text-decoration: underline;
+        }
+      }
+    }
   }
 
   .ks-inner {
@@ -126,7 +154,7 @@
 }
 
 .ks-brand-logo--svg {
-  @include fluid-element(217, 417, "svg");
+  @include fluid-element(217, 417, 'svg');
   svg path {
     fill: $primary;
   }
@@ -163,6 +191,19 @@
   transition: transform 0.5s $ease-out-circ;
   z-index: -1;
 
+  &__accordion {
+    background: $light-grey;
+  }
+
+  &__accordion-list {
+    > li {
+      border-bottom: 1px solid darken($light-grey, 7.5%) !important;
+      a {
+        color: $brown;
+      }
+    }
+  }
+
   ul {
     list-style: none;
     padding: 0;
@@ -190,7 +231,68 @@
   }
 }
 
+.ks-navdrawer {
+  display: none;
+  position: absolute;
+  width: 1800px;
+  left: -12.5%;
+  padding: 1em 0 2em;
+  transform: translateY(-100%);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: $light-grey;
+  transition: background-color 0.5s $ease-out-circ,
+    transform 0.35s $ease-out-circ, opacity 0.175s ease-in;
+
+  &__dropdown {
+    transition: transform 0.25s $ease-out-circ 0.175s;
+  }
+
+  &--open {
+    transform: translateY(0);
+    pointer-events: all;
+    opacity: 1;
+    transition: background-color 0.5s $ease-out-circ,
+      transform 0.175s $ease-out-circ;
+  }
+
+  ul {
+    @include unstyle-list();
+    opacity: 0;
+    pointer-events: none;
+
+    li {
+      font-size: 0.9em;
+      &:not(:last-of-type) {
+        line-height: 2;
+      }
+    }
+
+    a {
+      color: $brown;
+      text-decoration: none;
+      transition: color 0.175s $ease-out-circ;
+
+      &:hover {
+        color: darken($brown, 10%);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .show ul {
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 0.175s ease-out 0.175s;
+  }
+}
+
 @media (min-width: $bp-md) {
+  .ks-navdrawer {
+    display: block;
+  }
+
   .ks-mainheader {
     z-index: 19999;
 
@@ -209,6 +311,10 @@
     }
 
     .ks-mainnav {
+      &__accordion {
+        display: none;
+      }
+
       ul > li a {
         color: $primary;
 

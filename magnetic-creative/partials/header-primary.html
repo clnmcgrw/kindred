@@ -44,7 +44,7 @@
   <header id="ks-main-header" class="ks-mainheader">
     <div class="ks-site-container">
 
-      <div class="ks-inner">
+      <div class="ks-inner" data-container>
         
         <div class="ks-brand">
           <a href="/">
@@ -76,11 +76,29 @@
                   <span class="ks-a11y-text">Search</span>
                 </a>
               </li>
-              <li>
-                <a href="/shop/outdoors">Outdoors</a>
+              <li data-parent="outdoor">
+                <a href="/shop/outdoors" data-mobile-parent="outdoor">Outdoors</a>
+                <div class="ks-mainnav__accordion" data-mobile-child="outdoor">
+                  <ul class="ks-mainnav__accordion-list">
+                    <li><a href="/shop/outdoors/outside-cabinets">Outside Cabinets</a></li>
+                    <li><a href="/shop/outdoors/fire-bowls">Fire Bowls</a></li>
+                    <li><a href="/shop/outdoors/fireplaces-fire-pits">Fireplaces & Fire Pits</a></li>
+                    <li><a href="/shop/outdoors/signature-kitchens">Signature Kitchens</a></li>
+                    <li><a href="/shop/outdoors">Shop All Outdoors</a></li>
+                  </ul>
+                </div>
               </li>
-              <li>
-                <a href="/shop/indoor">Indoor</a>
+              <li data-parent="indoor">
+                <a href="/shop/indoor" data-mobile-parent="indoor">Indoor</a>
+                <div class="ks-mainnav__accordion" data-mobile-child="indoor">
+                  <ul class="ks-mainnav__accordion-list">
+                    <li><a href="/shop/indoor/surrounds">Surrounds</a></li>
+                    <li><a href="/shop/indoor/hearths">Hearths</a></li>
+                    <li><a href="/shop/indoor/mantels">Mantels</a></li>
+                    <li><a href="/shop/indoor/accessories">Accessories</a></li>
+                    <li><a href="/shop/indoor">Shop All Indoor</a></li>
+                  </ul>
+                </div>
               </li>
               <li class="ks-mainnav--offset">
                 <a href="/gallery">Gallery</a>
@@ -109,8 +127,28 @@
               </li>
             </ul>
           </div>
-
         </nav>
+
+        <div class="ks-navdrawer">
+          <div class="ks-navdrawer__flex-container">
+            <div class="ks-navdrawer__dropdown" data-child="outdoor">
+              <ul class="ks-navdrawer__dropdown-list">
+                <li><a href="/shop/outdoors/outside-cabinets">Outside Cabinets</a></li>
+                <li><a href="/shop/outdoors/fire-bowls">Fire Bowls</a></li>
+                <li><a href="/shop/outdoors/fireplaces-fire-pits">Fireplaces & Fire Pits</a></li>
+                <li><a href="/shop/outdoors/signature-kitchens">Signature Kitchens</a></li>
+              </ul>
+            </div>
+            <div class="ks-navdrawer__dropdown" data-child="indoor">
+              <ul class="ks-navdrawer__dropdown-list">
+                <li><a href="/shop/indoor/surrounds">Surrounds</a></li>
+                <li><a href="/shop/indoor/hearths">Hearths</a></li>
+                <li><a href="/shop/indoor/mantels">Mantels</a></li>
+                <li><a href="/shop/indoor/accessories">Accessories</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
       </div>
 
