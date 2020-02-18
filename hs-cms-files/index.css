@@ -1199,6 +1199,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
   display: none;
   position: absolute;
   width: 100vw;
+  max-width: 1800px;
   -webkit-transform: translateY(-100%);
       -ms-transform: translateY(-100%);
           transform: translateY(-100%);

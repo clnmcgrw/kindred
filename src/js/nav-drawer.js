@@ -34,7 +34,10 @@ export default () => {
       addListeners: () => {
         const { $nodes, methods } = module;
         $nodes.parents.forEach(parent => {
-          parent.addEventListener('mouseenter', methods.showChild);
+          parent.addEventListener('mouseenter', () => {
+            methods.positionChildren();
+            methods.showChild();
+          });
         });
         drawer.addEventListener('mouseleave', methods.maybeHideDrawer);
         $nodes.notParents.forEach(notParent => {
@@ -115,7 +118,6 @@ export default () => {
         });
 
         drawer.style.height = `${tallest}px`;
-        // drawer.style.width = `${window.innerWidth}px`;
       },
 
       setMatches: () => {
@@ -148,7 +150,6 @@ export default () => {
         if (child) {
           drawer.classList.add('ks-navdrawer--open');
           child.classList.add('show');
-          // methods.positionChild(parent, child);
         }
       },
     },
