@@ -15,6 +15,8 @@
 
 
 
+
+
 {% include 'magnetic-creative/partials/variables-macros.html' %}
 
 <!doctype html>
@@ -40,7 +42,7 @@
 
 <body class="{{builtin_body_classes}} {{ksTemplateClass}}">
   {# WTF - don't put your stylesheet in the head, cause Hubspot will try to concat it for you, which breaks browsersync #}
-  <link rel="stylesheet" href="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/index.css?v=0.6.0">
+  <link rel="stylesheet" href="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/index.css?v=0.6.2">
 
   <header id="ks-main-header" class="ks-mainheader">
     <div class="ks-site-container">
@@ -130,29 +132,29 @@
           </div>
         </nav>
 
-        <div class="ks-navdrawer">
-          <div class="ks-navdrawer__flex-container">
-            <div class="ks-navdrawer__dropdown" data-child="outdoor">
-              <ul class="ks-navdrawer__dropdown-list">
-                <li><a href="/shop/outdoors/outside-cabinets">Outside Cabinets</a></li>
-                <li><a href="/shop/outdoors/fire-bowls">Fire Bowls</a></li>
-                <li><a href="/shop/outdoors/fireplaces-fire-pits">Fireplaces & Fire Pits</a></li>
-                <li><a href="/shop/outdoors/signature-kitchens">Signature Kitchens</a></li>
-              </ul>
-            </div>
-            <div class="ks-navdrawer__dropdown" data-child="indoor">
-              <ul class="ks-navdrawer__dropdown-list">
-                <li><a href="/shop/indoor/surrounds">Surrounds</a></li>
-                <li><a href="/shop/indoor/hearths">Hearths</a></li>
-                <li><a href="/shop/indoor/mantels">Mantels</a></li>
-                <li><a href="/shop/indoor/accessories">Accessories</a></li>
-              </ul>
-            </div>
+        
+      </div>
+      
+      <div class="ks-navdrawer">
+        <div class="ks-navdrawer__flex-container">
+          <div class="ks-navdrawer__dropdown" data-child="outdoor">
+            <ul class="ks-navdrawer__dropdown-list">
+              <li><a href="/shop/outdoors/outside-cabinets">Outside Cabinets</a></li>
+              <li><a href="/shop/outdoors/fire-bowls">Fire Bowls</a></li>
+              <li><a href="/shop/outdoors/fireplaces-fire-pits">Fireplaces & Fire Pits</a></li>
+              <li><a href="/shop/outdoors/signature-kitchens">Signature Kitchens</a></li>
+            </ul>
+          </div>
+          <div class="ks-navdrawer__dropdown" data-child="indoor">
+            <ul class="ks-navdrawer__dropdown-list">
+              <li><a href="/shop/indoor/surrounds">Surrounds</a></li>
+              <li><a href="/shop/indoor/hearths">Hearths</a></li>
+              <li><a href="/shop/indoor/mantels">Mantels</a></li>
+              <li><a href="/shop/indoor/accessories">Accessories</a></li>
+            </ul>
           </div>
         </div>
-
       </div>
-
     </div>
   </header>
 

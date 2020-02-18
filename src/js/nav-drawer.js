@@ -5,17 +5,29 @@ export default () => {
 
   const module = {
     $nodes: {
-      parents: document.querySelectorAll('[data-parent]'),
+      parents: [...document.querySelectorAll('[data-parent]')],
       children: [...drawer.querySelectorAll('[data-child]')],
       inner: document.querySelector('.ks-mainheader [data-container]'),
       notParents: document.querySelectorAll(
         '.ks-mainnav li:not([data-parent])'
       ),
     },
+    data: {
+      matches: [],
+    },
     hooks: {
       mounted: () => {
         const { methods } = module;
         methods.addListeners();
+        methods.setDrawerHeight();
+        methods.setMatches();
+        methods.positionChildren();
+      },
+
+      resize: () => {
+        const { methods } = module;
+        methods.setDrawerHeight();
+        methods.positionChildren();
       },
     },
     methods: {
@@ -42,13 +54,31 @@ export default () => {
         methods.hideDrawer();
       },
 
-      positionChild: (parent, child) => {
-        const parentPos = parent.getBoundingClientRect();
-        const childPos = child.getBoundingClientRect();
-        const difference = parentPos.left - childPos.left;
-        if (difference !== 0) {
+      // positionChild: (parent, child) => {
+      //   const parentPos = parent.getBoundingClientRect();
+      //   const childPos = child.getBoundingClientRect();
+      //   const difference = parentPos.left - childPos.left;
+      //   console.log(difference);
+      //   if (difference > 1) {
+      //     child.style.transform = `translate3d(${difference}px, 0, 0)`;
+      //   }
+      // },
+
+      positionChildren: () => {
+        const { data } = module;
+
+        data.matches.forEach(pair => {
+          const { parent, child } = pair;
+
+          // clear previous positioning
+          child.removeAttribute('style');
+
+          const parentBox = parent.getBoundingClientRect();
+          const childBox = child.getBoundingClientRect();
+
+          const difference = parentBox.left - childBox.left;
           child.style.transform = `translate3d(${difference}px, 0, 0)`;
-        }
+        });
       },
 
       resetChildren: (child = false) => {
@@ -70,7 +100,38 @@ export default () => {
 
       resetChild(child) {
         child.classList.remove('show');
-        child.removeAttribute('style');
+        // child.removeAttribute('style');
+      },
+
+      setDrawerHeight: () => {
+        const { $nodes } = module;
+        let tallest = 0;
+
+        $nodes.children.forEach(child => {
+          const childHeight = child.getBoundingClientRect().height;
+          if (childHeight > tallest) {
+            tallest = childHeight;
+          }
+        });
+
+        drawer.style.height = `${tallest}px`;
+        // drawer.style.width = `${window.innerWidth}px`;
+      },
+
+      setMatches: () => {
+        const { $nodes, data } = module;
+
+        $nodes.parents.forEach(parent => {
+          $nodes.children.forEach(child => {
+            if (parent.dataset.parent === child.dataset.child) {
+              let match = {
+                parent,
+                child,
+              };
+              data.matches.push(match);
+            }
+          });
+        });
       },
 
       showChild: () => {
@@ -78,20 +139,21 @@ export default () => {
         const parent = event.target;
         const category = parent.dataset.parent;
 
-        const child = $nodes.children.filter(
-          child => child.dataset.child === category
-        )[0];
+        const child = $nodes.children
+          .filter(child => child.dataset.child === category)
+          .shift();
 
         methods.resetChildren(child);
 
         if (child) {
           drawer.classList.add('ks-navdrawer--open');
           child.classList.add('show');
-          methods.positionChild(parent, child);
+          // methods.positionChild(parent, child);
         }
       },
     },
   };
 
   module.hooks.mounted();
+  window.addEventListener('debouncedResize', module.hooks.resize);
 };

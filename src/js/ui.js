@@ -14,10 +14,20 @@ export const $cookieNotice = $('.ks-cookienotice');
 export const $backdrop = $('#ks-backdrop');
 export const headerHeight = () => $siteHeader.outerHeight();
 
+import { debounce } from '../js/lib/helpers';
+
 function setHeaderHeight() {
   if ($siteHeader.hasClass('ks-mainheader--alt')) return;
 
   $mainSiteContainer.css({ 'padding-top': headerHeight() });
+}
+
+const debouncedResize = new CustomEvent('debouncedResize');
+
+window.addEventListener('resize', debounce(emitDebouncedResize, 30));
+
+function emitDebouncedResize() {
+  window.dispatchEvent(debouncedResize);
 }
 
 /**

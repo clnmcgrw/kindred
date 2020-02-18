@@ -17,6 +17,12 @@ export default ($ = window.$) => {
         methods.closeDropdowns();
         methods.addListeners();
       },
+
+      resize: () => {
+        const { methods } = module;
+        methods.closeDropdowns();
+        methods.scrollCheck();
+      },
     },
 
     data: {
@@ -33,13 +39,27 @@ export default ($ = window.$) => {
         $nodes.mobileParents.click(function() {
           if (window.innerWidth < data.breakpoints.md) {
             event.preventDefault();
-            methods.findChild(this.dataset.mobileParent);
+            methods.findChild(this);
+            const $this = $(this);
+
+            $nodes.mobileParents.each(function() {
+              if (this !== event.target) {
+                $(this).removeClass('open');
+              }
+            });
+
+            $this.addClass('open');
           }
         });
 
         $nodes.navToggle.click(function() {
           if (data.navOpen) {
+            // when the menu is closed
             methods.reset();
+            methods.enableScroll();
+          } else {
+            // when the menu is opened
+            methods.disableScroll();
           }
 
           data.navOpen = !data.navOpen;
@@ -51,12 +71,20 @@ export default ($ = window.$) => {
         $nodes.mobileContainers.slideUp();
       },
 
+      disableScroll: () => {
+        document.body.style.overflow = 'hidden';
+      },
+
+      enableScroll: () => {
+        document.body.style.overflow = 'visible';
+      },
+
       findChild: parent => {
         const { $nodes, methods } = module;
 
         $nodes.mobileContainers.each(function() {
           const $this = $(this);
-          if (this.dataset.mobileChild === parent) {
+          if (this.dataset.mobileChild === parent.dataset.mobileParent) {
             methods.openChild($this);
           } else {
             methods.closeChild($this);
@@ -84,8 +112,18 @@ export default ($ = window.$) => {
           }
         });
       },
+
+      scrollCheck: () => {
+        const { data, methods } = module;
+        if (window.innerWidth > data.breakpoints.md && data.navOpen) {
+          methods.enableScroll();
+        } else if (window.innerWidth < data.breakpoints.md && data.navOpen) {
+          methods.disableScroll();
+        }
+      },
     },
   };
 
   module.hooks.mounted();
+  window.addEventListener('debouncedResize', module.hooks.resize);
 };

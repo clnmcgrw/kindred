@@ -45,7 +45,7 @@
 
     .ks-brand-logo--svg {
       svg path {
-        fill: $light;
+        // fill: $light;
       }
     }
 
@@ -195,6 +195,32 @@
     background: $light-grey;
   }
 
+  &__left {
+    [data-parent] > a {
+      position: relative;
+
+      &::after {
+        content: '+';
+        color: $grey-beige;
+        display: block;
+        position: absolute;
+        line-height: 1;
+        font-weight: 700;
+        right: 1em;
+        top: 50%;
+        transform: translateY(-50%);
+        transform-origin: center;
+        transition: transform 0.25s $ease-out-circ;
+      }
+    }
+
+    .open {
+      &::after {
+        transform: translateY(-50%) rotate(45deg) !important;
+      }
+    }
+  }
+
   &__accordion-list {
     > li {
       border-bottom: 1px solid darken($light-grey, 7.5%) !important;
@@ -234,9 +260,8 @@
 .ks-navdrawer {
   display: none;
   position: absolute;
-  width: 1800px;
-  left: -12.5%;
-  padding: 1em 0 2em;
+  width: 100vw;
+  // padding: 1em 0 2em;
   transform: translateY(-100%);
   z-index: -1;
   pointer-events: none;
@@ -245,8 +270,17 @@
   transition: background-color 0.5s $ease-out-circ,
     transform 0.35s $ease-out-circ, opacity 0.175s ease-in;
 
+  &__flex-container {
+    position: relative;
+    height: 100%;
+  }
+
   &__dropdown {
-    transition: transform 0.25s $ease-out-circ 0.175s;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-bottom: 2em;
+    // transition: transform 0.25s $ease-out-circ 0.175s;
   }
 
   &--open {
@@ -291,6 +325,10 @@
 @media (min-width: $bp-md) {
   .ks-navdrawer {
     display: block;
+
+    ul a {
+      padding: 0 0.8vw;
+    }
   }
 
   .ks-mainheader {
@@ -312,7 +350,7 @@
 
     .ks-mainnav {
       &__accordion {
-        display: none;
+        display: none !important;
       }
 
       ul > li a {
@@ -360,6 +398,12 @@
       width: 50%;
     }
 
+    &__left {
+      [data-parent] > a::after {
+        display: none;
+      }
+    }
+
     &__right {
       text-align: right;
     }
@@ -377,7 +421,7 @@
 
       a {
         pointer-events: all;
-        padding: 0 1em;
+        padding: 0 0.8vw;
       }
 
       .ks-searchtrigger {
@@ -428,6 +472,12 @@
           padding: 0 1.5em;
         }
       }
+    }
+  }
+
+  .ks-navdrawer {
+    ul a {
+      padding: 0 1.5em;
     }
   }
 }
