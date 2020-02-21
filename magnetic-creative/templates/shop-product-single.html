@@ -120,6 +120,7 @@
         </div>
     </section>
 
+    {% if product.full_description | length %}
     <section class="ks-productdesc bg-light">
         <div class="ks-inner">
             <div class="ks-productdesc__heading">
@@ -151,6 +152,7 @@
             </div>
         </div>
     </section>
+    {% endif %}
 
     <section class="ks-relatedproducts">
         <div class="ks-relatedproducts__preheading">
