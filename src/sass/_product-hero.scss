@@ -152,6 +152,8 @@
 
   &__currentselection {
     margin-bottom: 2em;
+    opacity: 0;
+    transition: opacity 0.15s ease-out;
 
     span,
     p {

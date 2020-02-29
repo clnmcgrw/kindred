@@ -21,11 +21,11 @@ export function productHeroVariant(variant) {
   `;
 }
 
-export function thumbSlide(src) {
+export function thumbSlide(index) {
   return /*html*/ `
     <div class="ks-producthero__thumbslide">
-      <div class="ks-producthero__thumbslide__liner">
-        <img src="${src}" />
+      <div class="ks-producthero__thumbslide__liner--${index}">
+        <!-- image gets inserted here -->
       </div>
     </div>
   `;

@@ -2,8 +2,6 @@
   padding: $padding-sm 0 0;
 
   &__image {
-    margin-bottom: 2em;
-
     .ks-figure {
       &__liner {
         padding-bottom: 97.35%;
@@ -34,8 +32,8 @@
       color: $primary;
     }
 
-    input[type="text"],
-    input[type="email"] {
+    input[type='text'],
+    input[type='email'] {
       color: $light-grey;
     }
 
@@ -68,7 +66,7 @@
     position: relative;
 
     &:after {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       bottom: 0;
@@ -91,6 +89,7 @@
 
     .ks-footer {
       &__logo {
+        margin-top: 2em;
         order: 1;
 
         .ks-figure {
@@ -287,10 +286,33 @@
           margin: 2em 0;
         }
 
-        input[type="submit"] {
+        input[type='submit'] {
           width: 100% !important;
         }
       }
+    }
+  }
+
+  &__boral-logo {
+    display: inline-block;
+    margin-top: 1em;
+
+    svg {
+      width: 3.25em;
+      path {
+        stroke: $white;
+        fill: $white;
+
+        &:last-of-type {
+          transform: translate(-1px, 1px);
+        }
+      }
+    }
+    span {
+      margin-top: 1em;
+      margin-left: 0.5em;
+      font-size: 0.85em;
+      float: right;
     }
   }
 }
@@ -369,6 +391,10 @@
   .ks-sampleoffer {
     // padding: $padding-lg 0 0;
 
+    &__image {
+      margin-bottom: 2em;
+    }
+
     &__main {
       flex-basis: 38.5%;
     }
@@ -409,6 +435,7 @@
 
       .ks-footer {
         &__logo {
+          margin-top: 0;
           flex-basis: 15%;
         }
 
@@ -437,9 +464,10 @@
     &__bottom {
       &__item {
         display: inline-block;
+        vertical-align: top;
 
         &:first-child {
-          margin-right: 2em;
+          margin: 0.3em 2em 0 0;
         }
 
         li {
@@ -453,7 +481,7 @@
 
           &:before {
             display: block;
-            content: "";
+            content: '';
             position: absolute;
             top: 50%;
             left: -0.75em;
@@ -465,6 +493,12 @@
         }
       }
     }
+  }
+}
+
+@media (min-width: 1014px) {
+  .ks-footer__boral-logo {
+    margin-top: 0;
   }
 }
 
@@ -521,6 +555,14 @@
       &__form {
         flex-basis: 20%;
       }
+
+      &__bottom {
+        > .ks-inner {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
     }
 
     &--squeeze {
@@ -568,7 +610,7 @@
             margin: 0;
           }
 
-          input[type="submit"] {
+          input[type='submit'] {
             padding: 1.15em 0;
           }
         }

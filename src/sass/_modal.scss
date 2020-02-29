@@ -25,12 +25,30 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: 90vh;
+    width: 90vw;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 0.625em;
+      background: rgba($light, 0.125);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $white;
+    }
+
+    &::-webkit-scrollbar-corner {
+      background-color: transparent;
+    }
   }
 
   &__close {
     position: absolute;
-    top: 1em;
-    right: 1em;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background: rgba(255, 255, 255, 0.4);
 
     &:hover {
       cursor: pointer;
@@ -62,15 +80,13 @@
         circle,
         line {
           stroke-width: 1px;
-          stroke: $light-grey;
+          stroke: $dark-green;
         }
       }
     }
   }
 
-  &:before {
-    display: block;
-    content: "";
+  &__close-trigger {
     background: $dark;
     opacity: 0.75;
     position: absolute;
@@ -78,8 +94,21 @@
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
+    z-index: -1;
   }
+
+  // &:before {
+  //   display: block;
+  //   content: '';
+  //   background: $dark;
+  //   opacity: 0.75;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   pointer-events: none;
+  // }
 }
 
 .ks-modal--search {
@@ -89,11 +118,11 @@
 
   .ks-form {
     label,
-    input[type="text"] {
+    input[type='text'] {
       color: $white;
     }
 
-    input[type="text"] {
+    input[type='text'] {
       padding: 1em 0;
       font-family: $heading-font;
     }
@@ -102,7 +131,7 @@
       position: relative;
     }
 
-    button[type="submit"] {
+    button[type='submit'] {
       appearance: none;
       border: none;
       background: transparent;
@@ -122,6 +151,7 @@
 
 .ks-modal--lightbox {
   &__main {
+    margin: 0 auto;
     position: relative;
 
     /* 
@@ -131,7 +161,7 @@
     &:before,
     &:after {
       display: block;
-      content: "";
+      content: '';
       position: absolute;
       width: 100%;
       height: 15%;
@@ -150,8 +180,7 @@
   }
 
   img {
-    display: block;
-    width: 100%;
+    @include fill-parent();
   }
 }
 
@@ -162,8 +191,8 @@
     }
 
     .ks-form {
-      input[type="text"],
-      button[type="submit"] {
+      input[type='text'],
+      button[type='submit'] {
         font-size: 2em;
       }
     }

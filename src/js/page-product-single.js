@@ -1,15 +1,12 @@
-import Flickity from 'flickity';
-import { $win, $lightbox, $lightboxClose } from './ui';
+import { $body, $win, $lightbox, $lightboxClose } from './ui';
 import { getProductById, getProductByHandle } from './shopify/functions';
-import {
-  productHeroVariant,
-  thumbSlide,
-  productHeroOption,
-} from './components';
+import { productHeroVariant, productHeroOption } from './components';
+
+import productSingleGallery from './product-single-gallery';
 
 const $productDataDump = $('#shopify-product-data');
 const $featuredImage = $('#ks-featuredimage');
-const $galleryImagesTarget = $('#ks-galleryimagestarget');
+// const $galleryImagesTarget = $('#ks-galleryimagestarget');
 const $skuTarget = $('#ks-skutarget');
 const $priceTarget = $('#ks-pricetarget');
 const $selectionTarget = $('#ks-selectiontarget');
@@ -17,7 +14,7 @@ const $variantsTarget = $('#ks-variantstarget');
 const $optionsTarget = $('#ks-optionstarget');
 const $quantityAdjust = $('.ks-quantity__action');
 const $quantityTarget = $('#ks-quantitytarget');
-const $galleryControls = $('.ks-gallerycontrols .ks-svg-wrapper');
+// const $galleryControls = $('.ks-gallerycontrols .ks-svg-wrapper');
 const $enlarge = $('.ks-producthero__enlarge');
 const productHandle = $productDataDump.data('product-handle');
 const storefrontId = $productDataDump.data('storefront-id');
@@ -33,11 +30,18 @@ let flkty;
 async function renderProduct(product) {
   const { options, images, variants } = product;
 
+  window.__sfyProduct = product;
+
   renderInitialDetails(variants[0]);
   renderGalleryImages(images);
   renderOptions(options);
 
-  renderVariants(variants, getSelectedOptions());
+  if (product.variants.length > 1) {
+    renderVariants(variants, getSelectedOptions());
+  } else {
+    $('.ks-producthero__currentselection').css('opacity', 0);
+  }
+
   attachEventListeners(product);
 }
 
@@ -58,19 +62,20 @@ function renderInitialDetails(firstVariant) {
  */
 function renderGalleryImages(images) {
   const loadQueue = images.map(({ src }) => ({ src, loaded: false }));
-
+  const loadedImages = [];
   loadQueue.forEach(image => {
     const newImage = new Image();
 
     newImage.onload = () => {
       image.loaded = true;
+      loadedImages.push(newImage);
 
       const numLoaded = loadQueue.filter(({ loaded }) => loaded).length;
 
       if (numLoaded === loadQueue.length) {
         $win.trigger({
           type: 'gallery-images-loaded',
-          galleryImages: loadQueue.map(({ src }) => src),
+          galleryImages: loadedImages, // pass the actual created image elements, not just the src
         });
       }
     };
@@ -138,6 +143,12 @@ function renderVariants(variants, userSelectedOpts = []) {
   $variantEls = $('.ks-producthero__variant');
   const $firstInStock = $variantEls.not('.out-of-stock').first();
 
+  if ($variantEls.length === 1) {
+    removeSelectionAndVariants();
+  } else {
+    $('.ks-producthero__currentselection').css('opacity', '1');
+  }
+
   if (!$firstInStock.length) return;
 
   $firstInStock.addClass('active');
@@ -181,49 +192,26 @@ function attachEventListeners(product) {
     }
   });
 
-  $win.on('gallery-images-loaded', function({ galleryImages }) {
-    galleryImages.forEach(src => $galleryImagesTarget.append(thumbSlide(src)));
-    // Query now that they're in the DOM
-    $galleryThumbs = $('.ks-producthero__thumbslide');
-
-    flkty = new Flickity($galleryImagesTarget[0], {
-      cellSelector: '.ks-producthero__thumbslide',
-      cellAlign: 'left',
-      prevNextButtons: false,
-      pageDots: false,
-    });
-
-    $galleryControls.click(function() {
-      const $t = $(this);
-      const isPrev = $t.hasClass('ks-gallerycontrols__prev');
-
-      isPrev ? flkty.previous() : flkty.next();
-
-      const selected = $($galleryThumbs[flkty.selectedIndex])
-        .find('img')
-        .attr('src');
-
-      $featuredImage.attr('src', selected);
-    });
-
-    $galleryThumbs.click(function() {
-      const $t = $(this);
-      const src = $t.find('img').attr('src');
-      const idx = $galleryThumbs.index($t);
-
-      $featuredImage.attr('src', src);
-      flkty.select(idx);
-    });
+  $win.on('gallery-images-loaded', function(thing) {
+    productSingleGallery(thing, $);
   });
 
   $enlarge.click(() => {
     const src = $featuredImage.attr('src');
-
+    const width = $featuredImage.attr('data-width');
+    const height = $featuredImage.attr('data-height');
+    $body.addClass('scroll-disabled');
     $lightbox.addClass('active');
     $lightbox.find('img').attr('src', src);
+    $lightbox.find('figure').css({
+      paddingBottom: `${(height / width) * 100}%`,
+    });
   });
 
-  $lightboxClose.click(() => $lightbox.removeClass('active'));
+  $lightboxClose.click(() => {
+    $lightbox.removeClass('active');
+    $body.removeClass('scroll-disabled');
+  });
 }
 
 function getSelectedOptions() {
@@ -240,6 +228,7 @@ function getSelectedOptions() {
 }
 
 function attachVariantClick() {
+  if (window.__sfyProduct.variants.length <= 1) return;
   /**
    * Variants get removed & replaced when a user
    * selects an option that has different variants attached; eg fire bowls.
@@ -281,6 +270,5 @@ export default async () => {
     console.log(`Storefront ID: ${p.id}`);
   } else {
     renderProduct(thisProduct);
-    console.log(thisProduct);
   }
 };

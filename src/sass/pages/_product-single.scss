@@ -43,6 +43,7 @@
 
   &__main {
     .ks-card {
+      padding-right: 2em;
       margin-bottom: 2em;
 
       &:last-child {
@@ -57,7 +58,7 @@
     &__main {
       > .ks-inner {
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: row wrap;
         justify-content: space-between;
         align-items: flex-start;
       }
