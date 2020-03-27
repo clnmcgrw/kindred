@@ -3743,11 +3743,15 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
   .ks-homepageslider.fullscreen .ks-homepageslider__mainimg {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 50%;
     width: 100%;
     height: 100%;
     z-index: 99999;
-    background: #1b2429; }
+    background: #1b2429;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    max-width: 1800px; }
     .ks-homepageslider.fullscreen .ks-homepageslider__mainimg:hover img {
       -webkit-transform: scale(1);
           -ms-transform: scale(1);
@@ -3865,12 +3869,15 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
       .ks-homepageslider__controls .ks-svg-wrapper svg {
         overflow: hidden; }
       .ks-homepageslider__controls .ks-svg-wrapper svg {
+        fill: #fff !important;
+        stroke-width: 1px !important;
         -webkit-transition: stroke 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
         -o-transition: stroke 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
         transition: stroke 0.4s cubic-bezier(0.075, 0.82, 0.165, 1); }
       .ks-homepageslider__controls .ks-svg-wrapper:hover {
         cursor: pointer; }
         .ks-homepageslider__controls .ks-svg-wrapper:hover svg {
+          fill: #cfc5b9 !important;
           stroke: #cfc5b9 !important; }
     .ks-homepageslider__controls-fullscreen {
       position: absolute;

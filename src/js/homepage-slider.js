@@ -1,6 +1,6 @@
 import Flickity from 'flickity';
 import 'flickity-fullscreen';
-import { $doc, $cartCover } from './ui';
+import { $doc, $cartCover, $cartSidebar } from './ui';
 
 const $parent = $('.ks-homepageslider');
 const $mainImg = $parent.find('.ks-homepageslider__mainimg img');
@@ -65,6 +65,7 @@ export default () => {
   $prev.click(() => flkty.previous());
   $next.click(() => flkty.next());
   $fullscreen.click(() => {
+    $cartSidebar.hide();
     $cartCover.hide();
     $parent.toggleClass('fullscreen');
   });
@@ -74,6 +75,7 @@ export default () => {
   $doc.keydown(({ keyCode }) => {
     // escape key
     if (keyCode == 27 && $parent.hasClass('fullscreen')) {
+      $cartSidebar.show();
       $cartCover.show();
       $parent.removeClass('fullscreen');
     }
