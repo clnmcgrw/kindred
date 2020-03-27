@@ -1,0 +1,107 @@
+<!--
+    templateType: page
+    isAvailableForNewContent: true
+-->
+
+
+
+
+
+{% include '/magnetic-creative/partials/header-primary.html' %}
+
+{% set gallery_table_id = 2044395 %}
+
+<link rel="stylesheet" href="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/gridzy.min.css" />
+<link rel="stylesheet" href="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/mag-style.min.css" />
+<script src="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/gridzy.min.js"></script>
+
+<section class="ks-introtext ks-introtext--xlight">
+  <div class="ks-inner">
+    <div class="ks-introtext__content ks-no-padding--bottom">
+      <div class="ks-introtext__preheading">
+        <span class="ks-preheading">Gallery</span>
+      </div>
+      <div class="ks-introtext__main">
+        <h1 class="ks-headline--md">Bring your space to life</ h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="ks-gallery">
+  <div class="gridzy ks-inner gridzySkinMagnifier" data-gridzy-spaceBetween="5">
+    {% for item in hubdb_table_rows(gallery_table_id) %}
+      {% set related_product = item.related_product | first %}
+      {% set product_type = item.category | first %}
+      {% if item.visible %}
+        <figure>
+          <img class="gridzyImage" data-gridzylazysrc="{{ item.image.url }}" alt="{{ item.image.alt }}" width="{{ item.image.width }}" height="{{ item.image.height }}" />
+          <figcaption class="gridzyCaption">{{ item.image.alt }}</figcaption>
+        </figure>
+    
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+    
+
+<section class="ks-gallery">
+
+  <nav class="ks-resourcelist__nav">
+    <div class="ks-inner">
+      <ul>
+        <li class="ks_resourcelist__nav__title">Filter By:</li>
+        <li><span data-filter-type="All" class="active">All</span></li>
+        <li><span data-filter-type="Fireplace Surrounds">Fireplace Surrounds</span></li>
+        <li><span data-filter-type="Fire Bowls">Fire Bowls</span></li>
+        <li><span data-filter-type="Signature Kitchens">Signature Kitchens</span></li>
+        <li><span data-filter-type="Fireplaces & Fire Pits">Fireplaces & Fire Pits</span></li>
+        <!-- <li><span data-filter-type="Outdoor Cabinets">Outdoor Cabinets</span></li> -->
+      </ul>
+    </div>
+  </nav>
+
+  <div class="ks-gallery__main">
+    <div class="ks-inner">
+    {% for item in hubdb_table_rows(gallery_table_id) %}
+      {% set related_product = item.related_product | first %}
+      {% set product_type = item.category | first %}
+      {% if item.visible %}
+        <div class="ks-gallery__item {% if item.image.height > item.image.width %} ks-gallery__item--tall {% endif %}" data-category="{{ item.category.name }}" data-width="{{ item.width.name }}" data-index="{{ loop.index0 }}">
+          <figure class="ks-figure ks-gallery__item-image" style="padding-bottom: {{item.image.height / item.image.width * 100}}%">
+            <img data-src="{{ item.image.url }}" alt="{{ item.image.alt }}">
+            <div class="ks-hovercard">
+              <a href="/products/{{ related_product.hs_path }}" class="ks-wraparound-link"></a>
+              <div class="ks-hovercard__liner">
+                <div class="ks-hovercard__title">
+                  <h4>{{ related_product.product_title }}</h4>
+                </div>
+                <div class="ks-hovercard__image">
+                  <figure class="ks-figure">
+                    <div class="ks-figure__liner">
+                      <img src="{{ related_product.featured_image }}" alt="">
+                    </div>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+    </div>
+  </div>
+
+  {# <div class="ks-gallery__loadmore">
+    <div class="ks-inner">
+      <button id="ks-loadmore" class="ks-btn ks-btn--primary">Load More</button>
+    </div>
+  </div> #}
+
+</section>
+
+{% include '/magnetic-creative/partials/footer-no-cta.html' %}

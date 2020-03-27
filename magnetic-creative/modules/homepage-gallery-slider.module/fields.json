@@ -21,12 +21,12 @@
     "type" : "image",
     "default" : {
       "size_type" : "exact",
-      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
-      "alt" : "hero-outdoor-surrounds",
-      "width" : 1400,
-      "height" : 865,
-      "max_width" : 1400,
-      "max_height" : 865
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/Kittredge-Gas-Burning-Fire-Pit-hero.jpg",
+      "alt" : "Kittredge-Gas-Burning-Fire-Pit-hero",
+      "width" : 1600,
+      "height" : 825,
+      "max_width" : 1600,
+      "max_height" : 825
     }
   }, {
     "id" : "3442bd31-17eb-5e03-eb84-9a105bd22348",
@@ -45,56 +45,56 @@
   "default" : [ {
     "image" : {
       "size_type" : "exact",
-      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
-      "alt" : "hero-outdoor-surrounds",
-      "width" : 1400,
-      "height" : 865,
-      "max_width" : 1400,
-      "max_height" : 865
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/Kittredge-Gas-Burning-Fire-Pit-hero.jpg",
+      "alt" : "Kittredge-Gas-Burning-Fire-Pit-hero",
+      "width" : 1600,
+      "height" : 825,
+      "max_width" : 1600,
+      "max_height" : 825
     },
     "product_id" : "24293443736"
   }, {
     "image" : {
       "size_type" : "exact",
-      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
-      "alt" : "hero-outdoor-surrounds",
-      "width" : 1400,
-      "height" : 865,
-      "max_width" : 1400,
-      "max_height" : 865
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/Kittredge-Gas-Burning-Fire-Pit-hero.jpg",
+      "alt" : "Kittredge-Gas-Burning-Fire-Pit-hero",
+      "width" : 1600,
+      "height" : 825,
+      "max_width" : 1600,
+      "max_height" : 825
     },
     "product_id" : "24293443736"
   }, {
     "image" : {
       "size_type" : "exact",
-      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
-      "alt" : "hero-outdoor-surrounds",
-      "width" : 1400,
-      "height" : 865,
-      "max_width" : 1400,
-      "max_height" : 865
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/Kittredge-Gas-Burning-Fire-Pit-hero.jpg",
+      "alt" : "Kittredge-Gas-Burning-Fire-Pit-hero",
+      "width" : 1600,
+      "height" : 825,
+      "max_width" : 1600,
+      "max_height" : 825
     },
     "product_id" : "24293443736"
   }, {
     "image" : {
       "size_type" : "exact",
-      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
-      "alt" : "hero-outdoor-surrounds",
-      "width" : 1400,
-      "height" : 865,
-      "max_width" : 1400,
-      "max_height" : 865
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/Kittredge-Gas-Burning-Fire-Pit-hero.jpg",
+      "alt" : "Kittredge-Gas-Burning-Fire-Pit-hero",
+      "width" : 1600,
+      "height" : 825,
+      "max_width" : 1600,
+      "max_height" : 825
     },
     "product_id" : "24293443736"
   }, {
     "image" : {
       "size_type" : "exact",
-      "src" : "https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/images/hero-outdoor-surrounds.jpg",
-      "alt" : "hero-outdoor-surrounds",
-      "width" : 1400,
-      "height" : 865,
-      "max_width" : 1400,
-      "max_height" : 865
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/Kittredge-Gas-Burning-Fire-Pit-hero.jpg",
+      "alt" : "Kittredge-Gas-Burning-Fire-Pit-hero",
+      "width" : 1600,
+      "height" : 825,
+      "max_width" : 1600,
+      "max_height" : 825
     },
     "product_id" : "24293443736"
   } ]
