@@ -26,18 +26,18 @@
             </div>
           </div>
         </div>
-      </figure>
-      {% for slide in module.slides %}
-        {% for row in hubdb_table_rows(2036891) %}
-          {% if row.hs_id == slide.product_id %}
-          <div class="ks-homepageslider__product">
-            <a href="/products/{{ row.hs_path }}">
-              {{ row.product_title }}
-            </a>
-          </div>
-          {% endif %}
+        {% for slide in module.slides %}
+          {% for row in hubdb_table_rows(2036891) %}
+            {% if row.hs_id == slide.product_id %}
+            <div class="ks-homepageslider__product">
+              <a href="/products/{{ row.hs_path }}">
+                {{ row.product_title }}
+              </a>
+            </div>
+            {% endif %}
+          {% endfor %}
         {% endfor %}
-      {% endfor %}
+      </figure>
     </div>
     <div class="ks-homepageslider__carousel">
       {% for slide in module.slides %}
