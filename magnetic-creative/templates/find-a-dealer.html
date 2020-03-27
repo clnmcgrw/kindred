@@ -45,7 +45,7 @@
 
         <div class="cs-wtb--headline">
           <h1 class="ks-headline">{% text 'fad_title', label="Page Title", value="Locate a Kindred Dealer Near You", no_wrapper=true %}</h1>
-          <p>With dealers abound, Kindred products are easy to get your hands on. Enter your State or ZIP in the field below to find dealers near you.</p>
+          <p>Select a product collection below and search by city, state, or zip code to find a dealer near you.</p>
         </div>
         <div class="cs-wtb--form">
 
@@ -56,8 +56,8 @@
               <div class="cs-selectwrap">
                 <select name="product" id="cs-productselect">
                   <option selected>Select A Product</option>
-                  <option value="Kindred Outdoor">Kindred Outdoor</option>
-                  <option value="Kindred Fireplace Surrounds">Kindred Fireplace Surrounds</option>
+                  <option value="Kindred Outdoor">Outdoor Products</option>
+                  <option value="Kindred Fireplace Surrounds">Indoor Products</option>
                 </select>
               </div>
             </div>
@@ -143,7 +143,7 @@
     {% else %}
 
     <div class="cs-locator-results-empty">
-      <p>Seach by city, state, or zipcode in the form above.</p>
+      <p>&nbsp;<!--Seach by city, state, or zipcode in the form above.--></p>
     </div>
 
     {% endif %}

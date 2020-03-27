@@ -29,7 +29,7 @@
 @mixin svg-hack($amt) {
   position: relative;
 
-  .svg-wrapper {
+  .ks-svg-wrapper__liner {
     padding-bottom: $amt;
   }
 

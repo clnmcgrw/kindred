@@ -1,0 +1,52 @@
+<section class="ks-block ks-homepageslider">
+  <div class="ks-inner">
+    <div class="ks-homepageslider__mainimg">
+      <figure class="ks-figure">
+        <div class="ks-figure__liner">
+          <img src="" />
+        </div>
+      </figure>
+      <div class="ks-homepageslider__controls">
+        <div class="ks-homepageslider__controls-fullscreen">
+          <div class="ks-svg-wrapper ks-homepageslider__fullscreentrigger">
+            <div class="ks-svg-wrapper__liner">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize-2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+            </div>
+          </div>
+        </div>
+        <div class="ks-homepageslider__controls-prevnext">
+          <div class="ks-svg-wrapper ks-homepageslider__prevtrigger">
+            <div class="ks-svg-wrapper__liner">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>              </div>
+          </div>
+          <div class="ks-svg-wrapper ks-homepageslider__nexttrigger">
+            <div class="ks-svg-wrapper__liner">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>              </div>
+          </div>
+        </div>
+      </div>
+      {% for slide in module.slides %}
+        {% for row in hubdb_table_rows(2036891) %}
+          {% if row.hs_id == slide.product_id %}
+          <div class="ks-homepageslider__product">
+            <a href="/products/{{ row.hs_path }}">
+              {{ row.product_title }}
+            </a>
+          </div>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+    <div class="ks-homepageslider__carousel">
+      {% for slide in module.slides %}
+      <div class="ks-homepageslider__slide">
+        <figure class="ks-figure">
+          <div class="ks-figure__liner">
+            <img src="{{ slide.image.src }}" />
+          </div>
+        </figure>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
