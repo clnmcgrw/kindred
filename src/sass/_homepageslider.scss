@@ -35,9 +35,9 @@
       .ks-figure {
         position: absolute;
         top: 50%;
-        left: 0;
+        left: 50%;
         width: 100%;
-        transform: translateY(-50%);
+        transform: translate(-50%, -50%);
       }
     }
   }
@@ -67,11 +67,6 @@
       }
 
       .ks-homepageslider__controls {
-        transform: scale(1);
-
-        &:before {
-          opacity: 0.325;
-        }
       }
     }
   }
@@ -122,6 +117,14 @@
     @include fill-parent();
     transform: scale(1.25);
     transition: transform 0.4s $ease-out-circ;
+
+    &:hover {
+      transform: scale(1);
+
+      &:before {
+        opacity: 0.325;
+      }
+    }
 
     &:before {
       @include fill-parent();
@@ -203,6 +206,10 @@
 @media (min-width: $bp-xl) {
   .ks-homepageslider {
     padding: $padding-md;
+
+    .ks-inner {
+      max-width: 66.67%;
+    }
 
     &__slide {
       width: 15%;

@@ -3757,11 +3757,11 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
     .ks-homepageslider.fullscreen .ks-homepageslider__mainimg .ks-figure {
       position: absolute;
       top: 50%;
-      left: 0;
+      left: 50%;
       width: 100%;
-      -webkit-transform: translateY(-50%);
-          -ms-transform: translateY(-50%);
-              transform: translateY(-50%); }
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
   .ks-homepageslider__mainimg .ks-figure__liner, .ks-homepageslider__carousel .ks-figure__liner {
     padding-bottom: 56.25%; }
   .ks-homepageslider__mainimg {
@@ -3779,12 +3779,6 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
       -webkit-transform: scale(1.1);
           -ms-transform: scale(1.1);
               transform: scale(1.1); }
-    .ks-homepageslider__mainimg:hover .ks-homepageslider__controls {
-      -webkit-transform: scale(1);
-          -ms-transform: scale(1);
-              transform: scale(1); }
-      .ks-homepageslider__mainimg:hover .ks-homepageslider__controls:before {
-        opacity: 0.325; }
   .ks-homepageslider__product {
     position: absolute;
     bottom: 0;
@@ -3830,6 +3824,12 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
     -o-transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1); }
+    .ks-homepageslider__controls:hover {
+      -webkit-transform: scale(1);
+          -ms-transform: scale(1);
+              transform: scale(1); }
+      .ks-homepageslider__controls:hover:before {
+        opacity: 0.325; }
     .ks-homepageslider__controls:before {
       display: block;
       position: absolute;
@@ -3905,6 +3905,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
 @media (min-width: 1199px) {
   .ks-homepageslider {
     padding: 6em; }
+    .ks-homepageslider .ks-inner {
+      max-width: 66.67%; }
     .ks-homepageslider__slide {
       width: 15%; } }
 
