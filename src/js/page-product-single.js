@@ -36,7 +36,7 @@ async function renderProduct(product) {
   renderGalleryImages(images);
   renderOptions(options);
 
-  if (product.variants.length > 1) {
+  if (product.variants.length) {
     renderVariants(variants, getSelectedOptions());
   } else {
     $('.ks-producthero__currentselection').css('opacity', 0);
@@ -144,7 +144,7 @@ function renderVariants(variants, userSelectedOpts = []) {
   const $firstInStock = $variantEls.not('.out-of-stock').first();
 
   if ($variantEls.length === 1) {
-    removeSelectionAndVariants();
+    // removeSelectionAndVariants();
   } else {
     $('.ks-producthero__currentselection').css('opacity', '1');
   }

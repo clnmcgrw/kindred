@@ -9,11 +9,16 @@
 
 {% include '/magnetic-creative/partials/header-primary.html' %}
 
-{% set gallery_table_id = 2044395 %}
+{% set gallery_table_id = 2607461 %}
 
 <link rel="stylesheet" href="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/gridzy.min.css" />
 <link rel="stylesheet" href="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/mag-style.min.css" />
 <script src="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/gridzy.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/photoswipe.css"> 
+<link rel="stylesheet" href="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/default-skin/default-skin.css"> 
+<script src="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/photoswipe.min.js"></script> 
+<script src="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/photoswipe-ui-default.min.js"></script>
 
 <section class="ks-introtext ks-introtext--xlight">
   <div class="ks-inner">
@@ -29,79 +34,194 @@
 </section>
 
 
-
-
 <section class="ks-gallery">
-  <div class="gridzy ks-inner gridzySkinMagnifier" data-gridzy-spaceBetween="5">
-    {% for item in hubdb_table_rows(gallery_table_id) %}
-      {% set related_product = item.related_product | first %}
-      {% set product_type = item.category | first %}
-      {% if item.visible %}
-        <figure>
-          <img class="gridzyImage" data-gridzylazysrc="{{ item.image.url }}" alt="{{ item.image.alt }}" width="{{ item.image.width }}" height="{{ item.image.height }}" />
-          <figcaption class="gridzyCaption">{{ item.image.alt }}</figcaption>
-        </figure>
-    
-      {% endif %}
-    {% endfor %}
-  </div>
-</section>
-    
-
-<section class="ks-gallery">
-
+  
   <nav class="ks-resourcelist__nav">
-    <div class="ks-inner">
-      <ul>
-        <li class="ks_resourcelist__nav__title">Filter By:</li>
-        <li><span data-filter-type="All" class="active">All</span></li>
-        <li><span data-filter-type="Fireplace Surrounds">Fireplace Surrounds</span></li>
-        <li><span data-filter-type="Fire Bowls">Fire Bowls</span></li>
-        <li><span data-filter-type="Signature Kitchens">Signature Kitchens</span></li>
-        <li><span data-filter-type="Fireplaces & Fire Pits">Fireplaces & Fire Pits</span></li>
-        <!-- <li><span data-filter-type="Outdoor Cabinets">Outdoor Cabinets</span></li> -->
-      </ul>
+    <div class="ks-inner" id="myFilterControls" style="text-align: center;">
+      <button value="*" style="color: #994c3d;border: none;background: transparent; cursor: pointer; margin:0 2em;">All</button>
+      <button value=".fireplace-surrounds" style="color: #994c3d;border: none;background: transparent; cursor: pointer; margin:0 2em;">Fireplace Surrounds</button>
+      <button value=".fire-bowls" style="color: #994c3d;border: none;background: transparent; cursor: pointer; margin:0 2em;">Fire Bowls</button>
+      <button value=".signature-kitchens" style="color: #994c3d;border: none;background: transparent; cursor: pointer; margin:0 2em;">Signature Kitchens</button>
+      <button value=".fireplaces-pits" style="color: #994c3d;border: none;background: transparent; cursor: pointer; margin:0 2em;">Fireplaces & Fire Pits</button>
+      
     </div>
   </nav>
-
-  <div class="ks-gallery__main">
-    <div class="ks-inner">
+  
+  <div class="gridzy ks-inner gridzySkinMagnifier" data-gridzy-spaceBetween="7" data-gridzy-desiredHeight="300" data-gridzy-filterControls="#myFilterControls button" itemscope itemtype="http://schema.org/ImageGallery">
     {% for item in hubdb_table_rows(gallery_table_id) %}
-      {% set related_product = item.related_product | first %}
+     {# {% set related_product = item.related_product | first %}
       {% set product_type = item.category | first %}
-      {% if item.visible %}
-        <div class="ks-gallery__item {% if item.image.height > item.image.width %} ks-gallery__item--tall {% endif %}" data-category="{{ item.category.name }}" data-width="{{ item.width.name }}" data-index="{{ loop.index0 }}">
-          <figure class="ks-figure ks-gallery__item-image" style="padding-bottom: {{item.image.height / item.image.width * 100}}%">
-            <img data-src="{{ item.image.url }}" alt="{{ item.image.alt }}">
-            <div class="ks-hovercard">
-              <a href="/products/{{ related_product.hs_path }}" class="ks-wraparound-link"></a>
-              <div class="ks-hovercard__liner">
-                <div class="ks-hovercard__title">
-                  <h4>{{ related_product.product_title }}</h4>
-                </div>
-                <div class="ks-hovercard__image">
-                  <figure class="ks-figure">
-                    <div class="ks-figure__liner">
-                      <img src="{{ related_product.featured_image }}" alt="">
-                    </div>
-                  </figure>
-                </div>
-              </div>
-            </div>
-          </figure>
-        </div>
-      {% endif %}
-
+      {% if item.visible %} #}
+        
+        
+          <a href="{{ item.image.url }}" class="{{ item.category.name }}" data-size="{{ item.image.width }}x{{ item.image.height }}" itemprop="contentUrl" >
+            <img class="gridzyImage" data-gridzylazysrc="{{ item.image.url }}" alt="{{ related_product.product_title }}" data-category="{{ item.category.name }}" width="{{ item.image.width }}" height="{{ item.image.height }}" itemprop="thumbnail" />
+          </a>
+         
+            
+          
+            
+          
+          
+        
+    
+        
+    
+      {#{% endif %} #}
     {% endfor %}
-    </div>
   </div>
-
-  {# <div class="ks-gallery__loadmore">
-    <div class="ks-inner">
-      <button id="ks-loadmore" class="ks-btn ks-btn--primary">Load More</button>
-    </div>
-  </div> #}
-
 </section>
+
+
+
+<!-- REMOVE COMMENTS -->
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Polyfills start
+  if (!Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+  if (!Element.prototype.closest) { Element.prototype.closest = function(s) { var el = this;
+  do { if (el.matches(s)) return el; el = el.parentElement || el.parentNode; } while (el !== null && el.nodeType === 1); return null; }; }
+  // Polyfills end
+
+  // get PhotoSwipe element
+  var pswpElement = document.querySelectorAll('.pswp')[0];
+  
+  // add click event listener
+  document.body.addEventListener('click', function(event) {
+    var alias = event.target ? event.target.closest('.gridzy a') : null;
+    if (alias) {
+      event.preventDefault();
+      openPhotoSwipe(alias.closest('.gridzy'), alias);
+    }
+  });
+  
+  // open picture from URL if directly requested
+  setTimeout(function() {
+    var hash = location.hash.substring(1).split('&').map(function(val) { return val.split('='); });
+    var pos = hash.length, param = {}, gridzyElement, itemElement;
+    while (pos--) {
+      param[hash[pos][0]] = hash[pos][1];
+    }
+    if ('gid' in param && 'pid' in param) {
+      gridzyElement = document.querySelector((param.gid.match(/^[0-9]+$/) ? '' : '#' + param.gid + '.gridzy, ') + '.gridzy[data-gridzyid="' + param.gid + '"]');
+      itemElement = gridzyElement.querySelector((param.pid.match(/^[0-9]+$/) ? '' : '#' + param.pid + '.gridzyItem, ') + '.gridzyItem[data-gridzyitemid="' + param.pid + '"]');
+      openPhotoSwipe(gridzyElement, itemElement);
+    }
+  }, 0);
+  
+  // initialize and open PhotoSwipe
+  function openPhotoSwipe(gridzyElement, itemElement) {
+    var itemElements = gridzyElement.children;
+    var pos = itemElements.length;
+    var items = [], img, size, title, startImg, thumbnails = [], options, gallery;
+    // prepare items
+    while (pos--) {
+      if (itemElements[pos].classList.contains('gridzyItemHidden')) {
+        continue;
+      }
+      img = itemElements[pos].querySelector('img.gridzyImage');
+      if (size = itemElements[pos].getAttribute('data-size')) {
+        size = itemElements[pos].getAttribute('data-size').split('x');
+        title = itemElements[pos].getAttribute('data-title');
+        title = title ? title : ((title = itemElements[pos].querySelector('.gridzyCaption')) ? title.innerText : '');
+        items.unshift({
+          src: itemElements[pos].href,
+          w: parseInt(size[0], 10),
+          h: parseInt(size[1], 10),
+          msrc: img.src,
+          title: title,
+          pid: itemElements[pos].hasAttribute('id') ? itemElements[pos].id : itemElements[pos].getAttribute('data-gridzyitemid')
+        });
+        thumbnails.unshift(img);
+        if (itemElement === itemElements[pos]) {
+          startImg = img;
+        }
+      }
+    }
+    // prepare options
+    options = {
+      index: thumbnails.indexOf(startImg) || 0,
+      galleryUID: (gridzyElement.hasAttribute('id') ? gridzyElement.id : gridzyElement.gridzy.id),
+      getThumbBoundsFn: function(index) {
+        var pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
+        var rect = thumbnails[index].getBoundingClientRect();
+        return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+      }
+    };
+    // open PhotoSwipe
+    gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+    gallery.init();
+  }
+});
+</script>
+
+<!-- REMOVE COMMENTS -->
 
 {% include '/magnetic-creative/partials/footer-no-cta.html' %}

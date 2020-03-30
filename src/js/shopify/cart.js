@@ -186,13 +186,17 @@ function attachDynamicListeners() {
   });
 }
 
-$addToCartTrigger.click(async () => {
+$addToCartTrigger.click(async function() {
   const $allVariants = $('.ks-producthero__variants');
   const $quantityTarget = $('#ks-quantitytarget');
-  const variantId = $allVariants.find('.active').data('variant-id');
+  const variantId =
+    $allVariants.find('.active').data('variant-id') ||
+    $(this).data('variant-id');
   const quantity = parseInt($quantityTarget.text());
 
   $cartSidebar.addClass('loading');
+
+  console.log(variantId);
 
   const updatedCheckout = await addItemToCheckout(currentCheckout.id, {
     variantId,

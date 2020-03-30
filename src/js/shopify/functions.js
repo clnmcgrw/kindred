@@ -82,7 +82,7 @@ export async function getCheckout() {
   }
 
   // Order has been completed, create a new one
-  if (checkout.completedAt) {
+  if (checkout && checkout.completedAt) {
     localStorage.removeItem('ks-checkout-id');
 
     checkout = await createCheckout();

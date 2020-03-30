@@ -14,11 +14,11 @@
     margin-bottom: 0.25em;
     position: relative;
 
-    &:hover {
-      .ks-gallerycontrols {
-        opacity: 0.75;
-      }
-    }
+    // &:hover {
+    //   .ks-gallerycontrols {
+    //     opacity: 0.75;
+    //   }
+    // }
   }
 
   &__thumbslider {
@@ -66,7 +66,7 @@
     height: 100%;
     width: 100%;
     z-index: 2;
-    opacity: 0;
+    opacity: 0.75;
     transition: transform 0.2s $ease-out-circ, opacity 0.4s $ease-out-circ;
     pointer-events: none;
 
@@ -76,19 +76,18 @@
       top: 0;
       height: 100%;
       width: 2em;
-      background: $black;
+      background-color: $dark;
       opacity: 0.75;
       pointer-events: all;
 
       &:hover {
         cursor: pointer;
-        background: $primary;
+        opacity: 1;
       }
 
       svg {
-        line,
-        polyline {
-          stroke: $white;
+        path {
+          fill: $white;
         }
       }
     }
@@ -190,7 +189,7 @@
 
     &:before {
       display: block;
-      content: '';
+      content: "";
       position: absolute;
       top: 50%;
       left: 50%;
@@ -216,7 +215,7 @@
         top: 0;
         right: 0;
         display: block;
-        content: 'Out of Stock';
+        content: "Out of Stock";
         background: $primary;
         color: $white;
         font-size: 50%;
@@ -259,6 +258,27 @@
 
   &__quantity {
     margin-bottom: 2em;
+  }
+
+  &__addtocart {
+    button,
+    a {
+      vertical-align: middle;
+    }
+
+    button {
+      margin-right: 1em;
+    }
+
+    a {
+      color: $dark;
+      text-decoration: none;
+      position: relative;
+
+      &:hover {
+        color: $primary;
+      }
+    }
   }
 }
 

@@ -106,27 +106,31 @@
 
 @media (min-width: $bp-lg) {
   .ks-blueprint {
+    &__actions.has-both {
+      a {
+        &:last-child {
+          margin-left: 2em;
+          position: relative;
+
+          &:before {
+            display: block;
+            content: "";
+            position: absolute;
+            background: $black;
+            height: 100%;
+            width: 1px;
+            left: -1rem;
+            top: 0;
+          }
+        }
+      }
+    }
+
     a {
       display: inline-block;
 
       &:first-child {
         margin-bottom: 0;
-      }
-
-      &:last-child {
-        margin-left: 2em;
-        position: relative;
-
-        &:before {
-          display: block;
-          content: '';
-          position: absolute;
-          background: $black;
-          height: 100%;
-          width: 1px;
-          left: -1rem;
-          top: 0;
-        }
       }
     }
   }

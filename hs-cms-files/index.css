@@ -2608,8 +2608,6 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
   .ks-producthero__mainslider {
     margin-bottom: 0.25em;
     position: relative; }
-    .ks-producthero__mainslider:hover .ks-gallerycontrols {
-      opacity: 0.75; }
   .ks-producthero__thumbslider {
     position: relative;
     overflow: hidden; }
@@ -2646,7 +2644,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
     height: 100%;
     width: 100%;
     z-index: 2;
-    opacity: 0;
+    opacity: 0.75;
     -webkit-transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
     -o-transition: transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -2658,16 +2656,14 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
       top: 0;
       height: 100%;
       width: 2em;
-      background: #000;
+      background-color: #1b2429;
       opacity: 0.75;
       pointer-events: all; }
       .ks-producthero .ks-gallerycontrols__prev:hover, .ks-producthero .ks-gallerycontrols__next:hover {
         cursor: pointer;
-        background: #994c3d; }
-      .ks-producthero .ks-gallerycontrols__prev svg line,
-      .ks-producthero .ks-gallerycontrols__prev svg polyline, .ks-producthero .ks-gallerycontrols__next svg line,
-      .ks-producthero .ks-gallerycontrols__next svg polyline {
-        stroke: #fff; }
+        opacity: 1; }
+      .ks-producthero .ks-gallerycontrols__prev svg path, .ks-producthero .ks-gallerycontrols__next svg path {
+        fill: #fff; }
     .ks-producthero .ks-gallerycontrols .ks-svg-wrapper__liner svg {
       position: absolute;
       top: 50%;
@@ -2741,7 +2737,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
       max-width: 100%; }
     .ks-producthero__variant:before {
       display: block;
-      content: '';
+      content: "";
       position: absolute;
       top: 50%;
       left: 50%;
@@ -2768,7 +2764,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
         top: 0;
         right: 0;
         display: block;
-        content: 'Out of Stock';
+        content: "Out of Stock";
         background: #994c3d;
         color: #fff;
         font-size: 50%;
@@ -2796,6 +2792,17 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
       cursor: pointer; }
   .ks-producthero__quantity {
     margin-bottom: 2em; }
+  .ks-producthero__addtocart button,
+  .ks-producthero__addtocart a {
+    vertical-align: middle; }
+  .ks-producthero__addtocart button {
+    margin-right: 1em; }
+  .ks-producthero__addtocart a {
+    color: #1b2429;
+    text-decoration: none;
+    position: relative; }
+    .ks-producthero__addtocart a:hover {
+      color: #994c3d; }
 
 @media (min-width: 767px) {
   .ks-producthero > .ks-inner {
@@ -4045,22 +4052,22 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
         flex-basis: 45%; } }
 
 @media (min-width: 992px) {
+  .ks-blueprint__actions.has-both a:last-child {
+    margin-left: 2em;
+    position: relative; }
+    .ks-blueprint__actions.has-both a:last-child:before {
+      display: block;
+      content: "";
+      position: absolute;
+      background: #000;
+      height: 100%;
+      width: 1px;
+      left: -1rem;
+      top: 0; }
   .ks-blueprint a {
     display: inline-block; }
     .ks-blueprint a:first-child {
-      margin-bottom: 0; }
-    .ks-blueprint a:last-child {
-      margin-left: 2em;
-      position: relative; }
-      .ks-blueprint a:last-child:before {
-        display: block;
-        content: '';
-        position: absolute;
-        background: #000;
-        height: 100%;
-        width: 1px;
-        left: -1rem;
-        top: 0; } }
+      margin-bottom: 0; } }
 
 @media (min-width: 1440px) {
   .ks-relatedproducts__preheading {

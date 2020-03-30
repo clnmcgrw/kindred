@@ -39,7 +39,7 @@ function setMainImage(idx) {
 }
 
 export default () => {
-  if (!parent) return;
+  if (!$parent.length) return;
 
   const flkty = new Flickity($carousel[0], {
     cellSelector: '.ks-homepageslider__slide',

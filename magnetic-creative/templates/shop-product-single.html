@@ -48,18 +48,12 @@
                         <div class="ks-gallerycontrols__liner">
                             <div class="ks-svg-wrapper ks-gallerycontrols__prev">
                                 <div class="ks-svg-wrapper__liner">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
-                                        <line x1="19" y1="12" x2="5" y2="12"></line>
-                                        <polyline points="12 19 5 12 12 5"></polyline>
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 62.42 119.45"><path class="cls-1" d="M91,16.67a2.51,2.51,0,0,1,1.77,4.27L37.13,76.6l55.26,55.26a2.5,2.5,0,0,1-3.53,3.53l-57-57a2.5,2.5,0,0,1,0-3.53L89.25,17.41A2.46,2.46,0,0,1,91,16.67Z" transform="translate(-31.09 -16.67)"/></svg>
                                 </div>
                             </div>
                             <div class="ks-svg-wrapper ks-gallerycontrols__next">
                                 <div class="ks-svg-wrapper__liner">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 62.42 119.45"><path class="cls-1" d="M33.59,136.13a2.51,2.51,0,0,1-1.77-4.27L87.48,76.21,32.21,20.94a2.5,2.5,0,0,1,3.54-3.53l57,57a2.49,2.49,0,0,1,0,3.53L35.36,135.39A2.5,2.5,0,0,1,33.59,136.13Z" transform="translate(-31.09 -16.67)"/></svg>
                                 </div>
                             </div>
                         </div>
@@ -114,6 +108,7 @@
                             data-variant-id="{{ product.storefront_id }}"
                             data-quantity="1"
                         >Add to Cart</button>
+                        <a href="/find-a-dealer">Find A Dealer</a>
                     </div>
                     {% endif %}
                 </div>
@@ -137,7 +132,7 @@
                             </div>
                         </figure>
                     </div>
-                    <div class="ks-blueprint__actions">
+                    <div class="ks-blueprint__actions {% if product.spec_sheet and product.installation_video %}has-both{% endif %}">
                         {% if product.spec_sheet %}
                             <a class="ks-blueprint__specsheet" href="{{ product.spec_sheet }}" target="_blank" rel="noopener noreferrer">View Spec Sheet</a class="ks-blueprint__actions__specsheet">
                         {% endif %}
