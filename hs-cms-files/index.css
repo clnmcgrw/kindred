@@ -3996,7 +3996,6 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
     margin-bottom: 2em;
     font-family: "big-caslon-fb", serif; }
   .ks-relatedproducts__main .ks-card {
-    padding-right: 2em;
     margin-bottom: 2em; }
     .ks-relatedproducts__main .ks-card:last-child {
       margin-bottom: 0; }
@@ -4017,8 +4016,9 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
         -ms-flex-align: start;
             align-items: flex-start; }
   .ks-relatedproducts__main .ks-card {
-    -ms-flex-preferred-size: 48%;
-        flex-basis: 48%; } }
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    padding-right: 1em; } }
 
 @media (min-width: 767px) {
   .ks-productdesc > .ks-inner {
@@ -4048,8 +4048,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
   .ks-relatedproducts__preheading {
     margin-bottom: 4em; }
   .ks-relatedproducts__main .ks-card {
-    -ms-flex-preferred-size: 45%;
-        flex-basis: 45%; } }
+    -ms-flex-preferred-size: 33%;
+        flex-basis: 33%; } }
 
 @media (min-width: 992px) {
   .ks-blueprint__actions.has-both a:last-child {

@@ -43,7 +43,6 @@
 
   &__main {
     .ks-card {
-      padding-right: 2em;
       margin-bottom: 2em;
 
       &:last-child {
@@ -64,7 +63,8 @@
       }
 
       .ks-card {
-        flex-basis: 48%;
+        flex-basis: 50%;
+        padding-right: 1em;
       }
     }
   }
@@ -98,7 +98,7 @@
 
     &__main {
       .ks-card {
-        flex-basis: 45%;
+        flex-basis: 33%;
       }
     }
   }
