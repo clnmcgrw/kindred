@@ -193,6 +193,27 @@
       </div>
     </div>
   </section>
+
+  <script type="text/javascript">
+    // Remove sample box offer if disabled in HubDB
+    (function($) {
+      var includeSampleBox = {{ ksCategoryRowData | tojson }}['include_sample_box_offer']; {# holy SHIT lol #}
+
+      if (!includeSampleBox) {
+        var interval, $element;
+
+        // wait for element to be in the DOM since this script appears before it
+        interval = setInterval(function() {
+          $element = $('.ks-sampleoffer');
+
+          if ($element.length) {
+            clearInterval(interval);
+            $element.remove();
+          }
+        }, 100);
+      }
+    })(jQuery);
+  </script>
 {% endif %}
 
 {% include '/magnetic-creative/partials/footer-primary.html' %}

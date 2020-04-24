@@ -54,8 +54,11 @@
       {% if item.visible %} #}
         
         
-          <a href="{{ item.image.url }}" class="{{ item.category.name }}" data-size="{{ item.image.width }}x{{ item.image.height }}" itemprop="contentUrl" >
+          <a href="{{ item.image.url }}" class="{{ item.category.name }}" data-size="{{ item.image.width }}x{{ item.image.height }}" data-title="{{ related_product.product_title }}" itemprop="contentUrl" >
             <img class="gridzyImage" data-gridzylazysrc="{{ item.image.url }}" alt="{{ related_product.product_title }}" data-category="{{ item.category.name }}" width="{{ item.image.width }}" height="{{ item.image.height }}" itemprop="thumbnail" />
+            <span>
+                A nice caption for a 400x400 image
+            </span>
           </a>
          
             
