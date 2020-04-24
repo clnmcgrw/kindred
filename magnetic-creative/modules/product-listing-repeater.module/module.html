@@ -9,7 +9,6 @@
     </div>
     <div class="ks-productrepeater__container">
       {% for product in module.product %}
-        <!-- <span>product</span> -->
         <div class="ks-productrepeater__product">
           <figure class="ks-figure ks-dynamic-padding" data-width="{{ product.image.width }}" data-height="{{ product.image.height }}">
             <img data-src="{{ product.image.src }}" alt="{{ product.image.alt }}">
@@ -22,54 +21,3 @@
     </div>
   </div>
 </section>
-
-<style>
-  .ks-productrepeater {
-
-  }
-
-  .ks-productrepeater .ks-introtext {
-    background: none;
-  }
-
-  .ks-productrepeater .ks-inner {
-    flex-direction: column;
-  }
-
-  .ks-productrepeater__container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  @media(min-width: 992px) {
-  .ks-productrepeater .ks-inner {
-    flex-direction: row;
-  }    
-    .ks-productrepeater__content {
-      flex-basis: 20%;
-    }
-
-    .ks-productrepeater__container {
-      flex-flow: row wrap;
-      flex-basis: 70%;
-    }
-
-    .ks-productrepeater__product {
-      flex-basis: 25%;
-    }
-  }
-
-</style>
-
-      <script>
-        const figures = document.querySelectorAll('figure.ks-dynamic-padding');
-        figures.forEach(figure => {
-          try {
-            figure.style.paddingBottom = `${(figure.dataset.height /
-              figure.dataset.width) *
-              100}%`;
-          } catch (e) {
-            console.error(e);
-          }
-        });        
-      </script>

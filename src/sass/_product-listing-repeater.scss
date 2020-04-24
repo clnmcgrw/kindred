@@ -1,0 +1,47 @@
+.ks-productrepeater {
+  background: $bg-light;
+  padding: $padding-sm 0;
+
+  .ks-introtext {
+    background: none;
+  }
+
+  .ks-inner {
+    flex-direction: column;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__product {
+    margin-bottom: $padding-sm;
+  }
+
+  &__product-details {
+    padding-top: 1em;
+  }
+}
+
+@media (min-width: $bp-md) {
+  .ks-productrepeater {
+    .ks-inner {
+      flex-direction: row;
+    }
+    &__content {
+      flex-basis: 20%;
+    }
+
+    &__container {
+      flex-flow: row wrap;
+      flex-basis: 80%;
+    }
+
+    &__product {
+      flex-basis: 22.5%;
+      margin-right: 2.5%;
+      margin-bottom: 1em;
+    }
+  }
+}

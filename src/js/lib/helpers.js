@@ -47,3 +47,16 @@ export async function asyncForEach(array, callback) {
     await callback(array[i], i, array);
   }
 }
+
+export function loadDynamicFigures() {
+  const figures = document.querySelectorAll('figure.ks-dynamic-padding');
+  figures.forEach(figure => {
+    try {
+      figure.style.paddingBottom = `${(figure.dataset.height /
+        figure.dataset.width) *
+        100}%`;
+    } catch (e) {
+      console.error(e);
+    }
+  });
+}

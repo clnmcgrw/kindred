@@ -1,0 +1,45 @@
+.ks-diagram {
+  background: $bg-light;
+
+  .ks-introtext {
+    background: none;
+    margin-bottom: 1em;
+  }
+
+  &__content {
+    flex-direction: column;
+    padding: $padding-sm 0;
+  }
+
+  &__column:first-of-type {
+    padding-bottom: $padding-sm;
+  }
+
+  &__details {
+    padding-top: 1em;
+  }
+
+  &__details-column {
+    flex-basis: 50%;
+  }
+
+  &__small-image {
+    max-width: 4ch;
+  }
+}
+
+@media (min-width: $bp-lg) {
+  .ks-diagram {
+    &__content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__column {
+      flex-basis: 40%;
+      &:first-of-type {
+        padding-bottom: 0;
+      }
+    }
+  }
+}

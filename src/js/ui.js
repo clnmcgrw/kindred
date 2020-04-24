@@ -14,7 +14,7 @@ export const $cookieNotice = $('.ks-cookienotice');
 export const $backdrop = $('#ks-backdrop');
 export const headerHeight = () => $siteHeader.outerHeight();
 
-import { debounce } from '../js/lib/helpers';
+import { debounce, loadDynamicFigures } from '../js/lib/helpers';
 
 function setHeaderHeight() {
   if ($siteHeader.hasClass('ks-mainheader--alt')) return;
@@ -48,5 +48,6 @@ $cookieNotice.find('.ks-btn').click(() => {
 $doc.ready(() => {
   setHeaderHeight();
   handleCookieNotice();
+  loadDynamicFigures();
 });
 $win.resize(setHeaderHeight);
