@@ -3773,6 +3773,10 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
       -webkit-transform: translate(-50%, -50%);
           -ms-transform: translate(-50%, -50%);
               transform: translate(-50%, -50%); }
+  .ks-homepageslider.fullscreen .ks-homepageslider__fullscreentrigger:first-child {
+    display: none; }
+  .ks-homepageslider.fullscreen .ks-homepageslider__fullscreentrigger:last-child {
+    display: block; }
   .ks-homepageslider__mainimg .ks-figure__liner, .ks-homepageslider__carousel .ks-figure__liner {
     padding-bottom: 56.25%; }
   .ks-homepageslider__mainimg {
@@ -3792,10 +3796,10 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
               transform: scale(1.1); }
   .ks-homepageslider__product {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    top: 10px;
+    left: 10px;
     width: auto;
-    background: #1b2429;
+    background: #fff;
     pointer-events: none;
     opacity: 0;
     -webkit-transition: opacity 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -3808,7 +3812,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
     .ks-homepageslider__product a {
       display: inline-block;
       padding: 0.5em 2em;
-      color: #fff;
+      color: #1b2429;
       text-decoration: none; }
       .ks-homepageslider__product a:hover {
         color: #994c3d; }
@@ -3848,7 +3852,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
       left: 0;
       width: 100%;
       height: 100%;
-      content: '';
+      content: "";
       display: block;
       pointer-events: none;
       -webkit-user-select: none;
@@ -3877,6 +3881,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
         overflow: hidden; }
       .ks-homepageslider__controls .ks-svg-wrapper svg {
         fill: #fff !important;
+        stroke: #fff !important;
         stroke-width: 1px !important;
         -webkit-transition: stroke 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
         -o-transition: stroke 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -3901,6 +3906,11 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
               transform: translateY(-50%); }
       .ks-homepageslider__controls-prevnext .ks-svg-wrapper:last-child {
         margin-left: auto; }
+  .ks-homepageslider .ks-homepageslider__fullscreentrigger:first-child {
+    display: block; }
+  .ks-homepageslider .ks-homepageslider__fullscreentrigger:last-child {
+    display: none;
+    width: 3em; }
 
 @media (min-width: 767px) {
   .ks-homepageslider {
