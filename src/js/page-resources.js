@@ -25,7 +25,7 @@ function filterResources() {
     const $card = $(this);
     const cardType = $card.data('resource-type');
 
-    cardType !== targetType ? $card.hide() : $card.show();
+    cardType.indexOf(targetType) === -1 ? $card.hide() : $card.show();
   });
 
   pause(250).then(() => $cardsParent.removeClass('hiding'));

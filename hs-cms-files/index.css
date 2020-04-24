@@ -4879,7 +4879,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
           position: absolute;
           bottom: 0;
           left: 0;
-          content: '';
+          content: "";
           display: block;
           background: #994c3d;
           width: 100%;
@@ -4971,9 +4971,14 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
 @media (min-width: 1199px) {
   .ks-resourcelist__nav {
     padding: 3em 0; }
+  .ks-resourcelist__items > .ks-inner {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start; }
   .ks-resourcelist__items .ks-card {
-    -ms-flex-preferred-size: 27.5%;
-        flex-basis: 27.5%;
+    -ms-flex-preferred-size: 33%;
+        flex-basis: 33%;
+    padding-right: 1em;
     margin-bottom: 4em; } }
 
 .ks-searchresults {

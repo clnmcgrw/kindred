@@ -21,7 +21,7 @@
           position: absolute;
           bottom: 0;
           left: 0;
-          content: '';
+          content: "";
           display: block;
           background: $primary;
           width: 100%;
@@ -149,8 +149,13 @@
     }
 
     &__items {
+      > .ks-inner {
+        justify-content: flex-start;
+      }
+
       .ks-card {
-        flex-basis: 27.5%;
+        flex-basis: 33%;
+        padding-right: 1em;
         margin-bottom: 4em;
       }
     }
