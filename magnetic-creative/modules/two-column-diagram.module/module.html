@@ -1,0 +1,36 @@
+<section class="ks-diagram">
+  <div class="ks-inner">
+    <div class="ks-diagram__content ks-flex-container">
+      {% for column in module.column %}
+      <div class="ks-diagram__column">
+
+        <div class="ks-diagram__main-image">
+          <figure class="ks-figure">
+            <img src="{{ column.main_image.src }}" alt="{{ column.main_image.alt }}">
+          </figure>
+        </div>
+        
+        <div class="ks-diagram__details">
+          <div class="ks-diagram__details-column">
+            <div class="ks-diagram__title">
+              <!-- {{ column.title }} -->
+              {{ column }}
+            </div>
+            <div class="ks-diagram__small-image">
+              <figure class="ks-figure">
+                <img src="{{ column.small_image.src }}" alt="{{ column.small_image.alt }}">
+              </figure>
+            </div>
+          </div>
+          <div class="ks-diagram__details-column">
+            <div class="ks-diagram__wysiwyg-output ks-rte-content">
+              {{ column.wysiwyg }}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>

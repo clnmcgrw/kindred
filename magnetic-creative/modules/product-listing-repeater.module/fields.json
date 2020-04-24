@@ -1,0 +1,51 @@
+[ {
+  "id" : "ee7df707-cc3d-3fe5-a23b-5c8c462c06d7",
+  "name" : "section_title",
+  "label" : "Section Title",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Straight (Linear) Cabinets"
+}, {
+  "id" : "08261dd3-137b-c466-e0af-83e74c8a122e",
+  "name" : "product",
+  "label" : "Product",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "af0a920e-24af-b654-81fc-0b42d6467452",
+    "name" : "image",
+    "label" : "Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null
+    }
+  }, {
+    "id" : "585f7880-4726-4cb8-a1b4-7aeea57d4dd9",
+    "name" : "rich_text",
+    "label" : "Rich Text",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "default" : "<p><strong>12\" Cabinet</strong></p>\n<p>30\"D x 36\" H</p>"
+  } ],
+  "tab" : "CONTENT",
+  "type" : "group",
+  "default" : {
+    "image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null
+    },
+    "rich_text" : "<p><strong>12\" Cabinet</strong></p>\n<p>30\"D x 36\" H</p>"
+  }
+} ]

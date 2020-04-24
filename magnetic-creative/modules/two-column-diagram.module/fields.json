@@ -1,0 +1,102 @@
+[ {
+  "id" : "0b20e5ec-69a5-296b-4d44-04d7fd41544d",
+  "name" : "column",
+  "label" : "Column",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : 2,
+    "sorting_label_field" : null,
+    "default" : 2
+  },
+  "children" : [ {
+    "id" : "1a63fc9f-36a8-f78f-48d1-e81e04764763",
+    "name" : "main_image",
+    "label" : "Main Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/EO_Cabinets_24%20in%20Cabinet.jpg",
+      "alt" : "EO_Cabinets_24 in Cabinet",
+      "width" : 3000,
+      "height" : 3000,
+      "max_width" : 3000,
+      "max_height" : 3000
+    }
+  }, {
+    "id" : "7e52eae7-b771-583e-eadd-a7fe4e26240b",
+    "name" : "title",
+    "label" : "Title",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text",
+    "default" : "Kindred Outdoors"
+  }, {
+    "id" : "ef359bb2-29b0-be38-567e-cd65f9e40ef5",
+    "name" : "wysiwyg",
+    "label" : "WYSIWYG",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "default" : "<p>6 Outdoor Cabinets</p>\n<p>4 Raised Backsplashes</p>\n<p>2 End Caps</p>\n<p>Hand Tools</p>\n<p>2 People</p>\n<p>1 Day</p>"
+  }, {
+    "id" : "74003440-97c3-2626-7d42-194de7da3bda",
+    "name" : "small_image",
+    "label" : "Small Image",
+    "required" : false,
+    "locked" : false,
+    "responsive" : true,
+    "resizable" : true,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null
+    }
+  } ],
+  "tab" : "CONTENT",
+  "type" : "group",
+  "default" : [ {
+    "main_image" : {
+      "size_type" : "auto",
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/EO_Cabinets_24%20in%20Cabinet.jpg",
+      "alt" : "EO_Cabinets_24 in Cabinet",
+      "width" : 3000,
+      "height" : 3000,
+      "max_width" : 3000,
+      "max_height" : 3000
+    },
+    "title" : "Kindred Outdoors",
+    "wysiwyg" : "<p>6 Outdoor Cabinets</p>\n<p>4 Raised Backsplashes</p>\n<p>2 End Caps</p>\n<p>Hand Tools</p>\n<p>2 People</p>\n<p>1 Day</p>",
+    "small_image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null
+    }
+  }, {
+    "main_image" : {
+      "size_type" : "auto",
+      "src" : "https://cdn2.hubspot.net/hubfs/6084868/EO_Cabinets_24%20in%20Cabinet.jpg",
+      "alt" : "EO_Cabinets_24 in Cabinet",
+      "width" : 3000,
+      "height" : 3000,
+      "max_width" : 3000,
+      "max_height" : 3000
+    },
+    "title" : "Kindred Outdoors",
+    "wysiwyg" : "<p>6 Outdoor Cabinets</p>\n<p>4 Raised Backsplashes</p>\n<p>2 End Caps</p>\n<p>Hand Tools</p>\n<p>2 People</p>\n<p>1 Day</p>",
+    "small_image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null
+    }
+  } ]
+} ]

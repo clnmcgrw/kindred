@@ -1,4 +1,4 @@
-import { $searchModal } from './ui';
+import { $searchModal, $backdrop } from './ui';
 import { searchResult } from './components';
 
 // This can get re-queried if no results are available
@@ -21,10 +21,14 @@ $searchForm.submit(function(e) {
   window.location.href = `/search?q=${searchVal}`;
 });
 
-$searchCloseTrigger.click(() => $searchModal.removeClass('active'));
+$searchCloseTrigger.click(() => {
+  $backdrop.removeClass('active');
+  $searchModal.removeClass('active');
+});
 
 function attachTriggerClick() {
   $searchTriggers.click(function() {
+    $backdrop.addClass('active');
     $searchModal.addClass('active');
   });
 }

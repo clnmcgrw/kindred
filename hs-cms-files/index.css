@@ -3247,6 +3247,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
 
 .ks-categorylist {
   padding: 4em 0; }
+  .ks-categorylist--aboutus ul:first-child {
+    margin-bottom: 2em; }
   .ks-categorylist--dark > .ks-inner:before {
     background: #1b2429 !important; }
   .ks-categorylist--dark .ks-categorylist__titles .ks-headline a {
@@ -3366,26 +3368,24 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
       display: block;
       width: 80%;
       margin: auto; }
-    .ks-categorylist--aboutus ul {
+    .ks-categorylist--aboutus .ks-categorylist__titles {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -webkit-box-pack: justify;
           -ms-flex-pack: justify;
               justify-content: space-between;
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start;
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
-          -ms-flex-flow: row wrap;
-              flex-flow: row wrap; }
-      .ks-categorylist--aboutus ul li {
-        -ms-flex-preferred-size: 50%;
-            flex-basis: 50%; }
-        .ks-categorylist--aboutus ul li:nth-child(even) {
-          text-align: right; }
-        .ks-categorylist--aboutus ul li a {
-          display: inline-block; }
-          .ks-categorylist--aboutus ul li a:after {
-            display: none !important; }
+          -ms-flex-flow: row nowrap;
+              flex-flow: row nowrap; }
+    .ks-categorylist--aboutus ul:first-child {
+      margin-bottom: 0; }
+    .ks-categorylist--aboutus ul:last-child {
+      text-align: right; }
     .ks-categorylist > .ks-inner {
       padding: 9.375em 0; }
     .ks-categorylist__main {
@@ -3520,20 +3520,41 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
     z-index: -1; }
 
 .ks-modal--search .ks-modal__close {
-  top: 0; }
+  top: -4em;
+  background-color: transparent; }
+  .ks-modal--search .ks-modal__close svg circle,
+  .ks-modal--search .ks-modal__close svg line {
+    stroke: #fff; }
+
+.ks-modal--search__content {
+  position: relative;
+  height: 100vh; }
+
+.ks-modal--search .ks-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: auto;
+  overflow-y: visible; }
+  .ks-modal--search .ks-inner::-webkit-scrollbar, .ks-modal--search .ks-inner::-webkit-scrollbar-thumb {
+    width: 0px;
+    background: transparent; }
 
 .ks-modal--search .ks-form label,
-.ks-modal--search .ks-form input[type='text'] {
+.ks-modal--search .ks-form input[type="text"] {
   color: #fff; }
 
-.ks-modal--search .ks-form input[type='text'] {
+.ks-modal--search .ks-form input[type="text"] {
   padding: 1em 0;
   font-family: "big-caslon-fb", serif; }
 
 .ks-modal--search .ks-form-inputwrap {
   position: relative; }
 
-.ks-modal--search .ks-form button[type='submit'] {
+.ks-modal--search .ks-form button[type="submit"] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -3546,7 +3567,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
   color: #fff; }
-  .ks-modal--search .ks-form button[type='submit']:hover {
+  .ks-modal--search .ks-form button[type="submit"]:hover {
     cursor: pointer;
     color: #994c3d; }
 
@@ -3559,7 +3580,7 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
     */ }
   .ks-modal--lightbox__main:before, .ks-modal--lightbox__main:after {
     display: block;
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 15%;
@@ -3586,8 +3607,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
 @media (min-width: 767px) {
   .ks-modal--search .ks-inner {
     width: 60%; }
-  .ks-modal--search .ks-form input[type='text'],
-  .ks-modal--search .ks-form button[type='submit'] {
+  .ks-modal--search .ks-form input[type="text"],
+  .ks-modal--search .ks-form button[type="submit"] {
     font-size: 2em; } }
 
 @media (min-width: 1440px) {

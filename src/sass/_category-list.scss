@@ -1,6 +1,14 @@
 .ks-categorylist {
   padding: $padding-sm 0;
 
+  &--aboutus {
+    ul {
+      &:first-child {
+        margin-bottom: 2em;
+      }
+    }
+  }
+
   &--dark {
     > .ks-inner {
       &:before {
@@ -144,25 +152,20 @@
         margin: auto;
       }
 
-      ul {
+      .ks-categorylist__titles {
         display: flex;
         justify-content: space-between;
-        flex-flow: row wrap;
+        align-items: flex-start;
+        flex-flow: row nowrap;
+      }
 
-        li {
-          flex-basis: 50%;
+      ul {
+        &:first-child {
+          margin-bottom: 0;
+        }
 
-          &:nth-child(even) {
-            text-align: right;
-          }
-
-          a {
-            display: inline-block;
-
-            &:after {
-              display: none !important;
-            }
-          }
+        &:last-child {
+          text-align: right;
         }
       }
     }
