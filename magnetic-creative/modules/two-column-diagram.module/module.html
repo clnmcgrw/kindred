@@ -5,19 +5,18 @@
       <div class="ks-diagram__column">
 
         <div class="ks-diagram__main-image">
-          <figure class="ks-figure">
-            <img src="{{ column.main_image.src }}" alt="{{ column.main_image.alt }}">
+        <figure class="ks-figure ks-dynamic-padding" data-width="{{ column.main_image.width }}" data-height="{{ column.main_image.height }}">
+            <img data-src="{{ column.main_image.src }}" alt="{{ column.main_image.alt }}">
           </figure>
         </div>
         
-        <div class="ks-diagram__details">
+        <div class="ks-diagram__details ks-flex-container">
           <div class="ks-diagram__details-column">
-            <div class="ks-diagram__title">
-              <!-- {{ column.title }} -->
-              {{ column }}
+            <div class="ks-diagram__title ks-introtext">
+              <span class="ks-preheading">{{ column.title }}</span>
             </div>
             <div class="ks-diagram__small-image">
-              <figure class="ks-figure">
+              <figure class="ks-figure ks-dynamic-padding" data-width="{{ column.small_image.width }}" data-height="{{ column.small_image.height }}">
                 <img src="{{ column.small_image.src }}" alt="{{ column.small_image.alt }}">
               </figure>
             </div>
@@ -31,6 +30,55 @@
       </div>
       {% endfor %}
 
+      <style>
+        .ks-diagram {
+          background: #f6f5f3;
+          /* $bg-light */
+        }
+
+        .ks-diagram .ks-introtext {
+          background: none;
+          margin-bottom: 1em;
+        }
+
+        .ks-diagram__content {
+          flex-direction: column;
+          padding: 4em 0;
+          /* $padding-sm */
+        }
+
+        .ks-diagram__column:first-of-type {
+          padding-bottom: 4em;
+          /* $padding-sm */
+        }
+
+        .ks-diagram__details {
+          padding-top: 1em;
+        }
+
+        .ks-diagram__details-column {
+          flex-basis: 50%;
+        }
+
+        .ks-diagram__small-image {
+          max-width: 4ch;
+        }
+
+        @media(min-width: 992px) {
+          .ks-diagram__content {
+            flex-direction: row;
+            justify-content: space-between;
+          }
+
+          .ks-diagram__column {
+            flex-basis: 40%;
+          }
+
+          .ks-diagram__column:first-of-type {
+          padding-bottom: 0;
+          }
+        }
+      </style>
     </div>
   </div>
 </section>

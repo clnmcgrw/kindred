@@ -324,13 +324,11 @@
 .cs-wtb-section--top {
   display: flex;
   align-items: center;
-  min-height: 770px;
-  min-height: 80vh;
 }
 
 .cs-wtb--centered {
-  padding-top: 7em;
-  padding-bottom: 2em;
+  padding-top: 6em;
+  padding-bottom: 1em;
 }
 
 .cs-wtb--headline {
@@ -357,7 +355,7 @@
   padding-bottom: 2em;
   border-bottom: 1px solid darken($white, 15%);
 
-  input[type='text'] {
+  input[type="text"] {
     outline: none;
     appearance: none;
     border-radius: 0px;
@@ -374,7 +372,7 @@
     }
   }
 
-  button[type='submit'] {
+  button[type="submit"] {
     width: 100%;
 
     &:disabled {
@@ -442,7 +440,7 @@
   transition: background 0.3s ease;
 
   &:before {
-    content: '';
+    content: "";
     display: block;
     @include fill-parent();
     left: auto;
@@ -524,7 +522,7 @@
   transition: transform 0.3s $ease-out-circ;
 
   &:before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     z-index: 17;
@@ -539,7 +537,7 @@
   }
 
   &:after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     bottom: 0;
@@ -567,7 +565,7 @@
   transition: transform 0.5s ease, visibility 0.5s ease;
 
   &:after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 0;
@@ -631,11 +629,6 @@
 }
 
 @media (min-width: $bp-lg) {
-  .cs-wtb--centered {
-    padding-top: 10em;
-    padding-bottom: 3em;
-  }
-
   #cs-locator-msgtarget {
     p {
       font-size: 1.2em;

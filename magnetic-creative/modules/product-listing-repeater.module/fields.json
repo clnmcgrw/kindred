@@ -15,6 +15,12 @@
   "label" : "Product",
   "required" : false,
   "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : null,
+    "sorting_label_field" : null,
+    "default" : 4
+  },
   "children" : [ {
     "id" : "af0a920e-24af-b654-81fc-0b42d6467452",
     "name" : "image",
@@ -22,7 +28,7 @@
     "required" : false,
     "locked" : false,
     "responsive" : true,
-    "resizable" : true,
+    "resizable" : false,
     "type" : "image",
     "default" : {
       "size_type" : "auto",
@@ -40,12 +46,33 @@
   } ],
   "tab" : "CONTENT",
   "type" : "group",
-  "default" : {
+  "default" : [ {
     "image" : {
       "size_type" : "auto",
       "src" : "",
       "alt" : null
     },
     "rich_text" : "<p><strong>12\" Cabinet</strong></p>\n<p>30\"D x 36\" H</p>"
-  }
+  }, {
+    "image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null
+    },
+    "rich_text" : "<p><strong>12\" Cabinet</strong></p>\n<p>30\"D x 36\" H</p>"
+  }, {
+    "image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null
+    },
+    "rich_text" : "<p><strong>12\" Cabinet</strong></p>\n<p>30\"D x 36\" H</p>"
+  }, {
+    "image" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null
+    },
+    "rich_text" : "<p><strong>12\" Cabinet</strong></p>\n<p>30\"D x 36\" H</p>"
+  } ]
 } ]

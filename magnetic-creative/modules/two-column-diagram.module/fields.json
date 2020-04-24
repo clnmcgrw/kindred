@@ -17,7 +17,7 @@
     "required" : false,
     "locked" : false,
     "responsive" : true,
-    "resizable" : true,
+    "resizable" : false,
     "type" : "image",
     "default" : {
       "size_type" : "auto",
@@ -54,7 +54,7 @@
     "required" : false,
     "locked" : false,
     "responsive" : true,
-    "resizable" : true,
+    "resizable" : false,
     "type" : "image",
     "default" : {
       "size_type" : "auto",
