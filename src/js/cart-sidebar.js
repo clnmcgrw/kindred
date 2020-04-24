@@ -38,7 +38,7 @@ function setCartPositioning() {
   });
 
   $cartClose.css({
-    top: hHeight + extraPad.sm,
+    top: hHeight + extraPad.lg,
   });
 
   $cartItemsParent.css({
