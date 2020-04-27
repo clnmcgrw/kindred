@@ -14,11 +14,13 @@ export default (event, $) => {
       controls: $('.ks-gallerycontrols .ks-svg-wrapper'),
       thumbs: false, // queried on append
       flickityViewport: false, // queried on append
+      thumbImages: false, // queried on append
     },
 
     data: {
       galleryImages: event.galleryImages,
       flickity: false,
+      isInternetExplorer: false,
     },
 
     hooks: {
@@ -28,8 +30,22 @@ export default (event, $) => {
         methods.insertComponents();
         methods.initFlickity();
         methods.addListeners();
+
+        const ua = navigator.userAgent;
+        module.data.isInternetExplorer =
+          ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1;
+
+        if (module.data.isInternetExplorer) {
+          module.hooks.resize();
+        }
       },
-      resize: () => {},
+      resize: () => {
+        const { $nodes } = module;
+        $nodes.thumbImages.each(function(index, item) {
+          item.removeAttribute('width');
+          item.removeAttribute('height');
+        });
+      },
     },
     methods: {
       setInitialModalAttrs: () => {
@@ -47,10 +63,6 @@ export default (event, $) => {
         const { galleryImages } = module.data;
         const { thumbnailTarget } = module.$nodes;
 
-        module.$nodes.flickityViewport = $(
-          '.ks-producthero__thumbslider .flickity-viewport'
-        );
-
         galleryImages.forEach((imageElement, index) => {
           const skipImage =
             imageElement.width < 225 &&
@@ -60,10 +72,6 @@ export default (event, $) => {
             thumbnailTarget.append(thumbSlide(index));
             imageElement.dataset.width = imageElement.width;
             imageElement.dataset.height = imageElement.height;
-
-            imageElement.style.maxHeight = `${
-              module.$nodes.flickityViewport[0].offsetHeight
-            }px`;
 
             const slot = $(`.ks-producthero__thumbslide__liner--${index}`);
             slot[0].insertAdjacentElement('afterbegin', imageElement);
@@ -118,10 +126,15 @@ export default (event, $) => {
           prevNextButtons: false,
           pageDots: false,
         });
+        module.$nodes.thumbImages = $(
+          '.ks-producthero__thumbslider .flickity-viewport img'
+        );
       },
     },
   };
 
   module.hooks.mounted();
-  window.addEventListener('debouncedResize', module.hooks.resize);
+  if (module.data.isInternetExplorer) {
+    window.addEventListener('debouncedResize', module.hooks.resize);
+  }
 };

@@ -2108,9 +2108,9 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
 
 @media screen and (-ms-high-contrast: none) {
   .ks-resourcelist .ks-card {
-    -ms-flex-preferred-size: 32%;
-        flex-basis: 32%;
-    padding-right: 1.333%; }
+    -ms-flex-preferred-size: 32% !important;
+        flex-basis: 32% !important;
+    padding-right: 1.333% !important; }
   .ks-gallerycontrols .ks-svg-wrapper__liner {
     position: relative;
     top: 50%;
