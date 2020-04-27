@@ -13,6 +13,7 @@ export default (event, $) => {
       thumbnailTarget: $('#ks-galleryimagestarget'),
       controls: $('.ks-gallerycontrols .ks-svg-wrapper'),
       thumbs: false, // queried on append
+      flickityViewport: false, // queried on append
     },
 
     data: {
@@ -28,9 +29,7 @@ export default (event, $) => {
         methods.initFlickity();
         methods.addListeners();
       },
-      resize: () => {
-        //
-      },
+      resize: () => {},
     },
     methods: {
       setInitialModalAttrs: () => {
@@ -48,6 +47,10 @@ export default (event, $) => {
         const { galleryImages } = module.data;
         const { thumbnailTarget } = module.$nodes;
 
+        module.$nodes.flickityViewport = $(
+          '.ks-producthero__thumbslider .flickity-viewport'
+        );
+
         galleryImages.forEach((imageElement, index) => {
           const skipImage =
             imageElement.width < 225 &&
@@ -57,6 +60,11 @@ export default (event, $) => {
             thumbnailTarget.append(thumbSlide(index));
             imageElement.dataset.width = imageElement.width;
             imageElement.dataset.height = imageElement.height;
+
+            imageElement.style.maxHeight = `${
+              module.$nodes.flickityViewport[0].offsetHeight
+            }px`;
+
             const slot = $(`.ks-producthero__thumbslide__liner--${index}`);
             slot[0].insertAdjacentElement('afterbegin', imageElement);
           }

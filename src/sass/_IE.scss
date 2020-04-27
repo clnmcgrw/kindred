@@ -1,9 +1,34 @@
 @media screen and (-ms-high-contrast: none) {
-  
+  .ks-resourcelist {
+    .ks-card {
+      flex-basis: 32%;
+      padding-right: 1.333%;
+    }
+  }
+
+  .ks-gallerycontrols {
+    .ks-svg-wrapper__liner {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      padding-bottom: 100%;
+    }
+  }
+
+  .ks-cookienotice {
+    background: none !important;
+    border-top: none !important;
+
+    .ks-inner {
+      max-width: 1800px;
+      padding: 2em 2em;
+      background: $bg-light;
+      border-top: 1px solid $primary;
+    }
+  }
 }
 
 @media (-ms-high-contrast: none) and (min-width: $bp-md) {
-
   .ks-threeup {
     &--1,
     &--2 {

@@ -2106,6 +2106,27 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
       .ks-introtext__main__col:first-of-type {
         margin-right: 7.5%; } }
 
+@media screen and (-ms-high-contrast: none) {
+  .ks-resourcelist .ks-card {
+    -ms-flex-preferred-size: 32%;
+        flex-basis: 32%;
+    padding-right: 1.333%; }
+  .ks-gallerycontrols .ks-svg-wrapper__liner {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    padding-bottom: 100%; }
+  .ks-cookienotice {
+    background: none !important;
+    border-top: none !important; }
+    .ks-cookienotice .ks-inner {
+      max-width: 1800px;
+      padding: 2em 2em;
+      background: #f6f5f3;
+      border-top: 1px solid #994c3d; } }
+
 @media (-ms-high-contrast: none) and (min-width: 767px) {
   .ks-threeup--1 .ks-flex-container, .ks-threeup--2 .ks-flex-container {
     -webkit-box-pack: center;
