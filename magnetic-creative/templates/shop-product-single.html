@@ -7,6 +7,16 @@
 
 {% include '/magnetic-creative/partials/header-primary.html' %}
 
+{# Sample kit gets extra fun styling #}
+{% if request.path == '/products/fire-bowl-fireplace-surround-sample-kit' %}
+<style>
+    .ks-producthero__currentselection {display: none;}
+    .ks-producthero__variants {display: none;}
+    .ks-producthero__addtocart {margin-bottom: 4em;}
+    .ks-relatedproducts {background: #fff;}
+</style>
+{% endif %}
+
 {% if dynamic_page_hubdb_row %}
     {% set product = dynamic_page_hubdb_row %}
     {% set parent_cat = product.parent_category | first %}
