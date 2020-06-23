@@ -1889,6 +1889,20 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
 .scroll-disabled {
   overflow: hidden; }
 
+.pswp .ks-productlink {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: auto;
+  z-index: 999999; }
+  .pswp .ks-productlink a {
+    color: #1b2429;
+    background-color: #fff;
+    padding: 0.5rem 2rem;
+    text-decoration: none; }
+    .pswp .ks-productlink a:hover {
+      color: #994c3d; }
+
 .ks-heroslider {
   position: relative;
   height: 100vh;

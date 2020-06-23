@@ -24,3 +24,24 @@
 .scroll-disabled {
   overflow: hidden;
 }
+
+.pswp {
+  .ks-productlink {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: auto;
+    z-index: 999999;
+
+    a {
+      color: #1b2429;
+      background-color: $white;
+      padding: 0.5rem 2rem;
+      text-decoration: none;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}

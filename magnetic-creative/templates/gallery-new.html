@@ -3,10 +3,6 @@
     isAvailableForNewContent: true
 -->
 
-
-
-
-
 {% include '/magnetic-creative/partials/header-primary.html' %}
 
 {% set gallery_table_id = 2607461 %}
@@ -49,28 +45,10 @@
   
   <div class="gridzy ks-inner gridzySkinMagnifier" data-gridzy-spaceBetween="7" data-gridzy-desiredHeight="300" data-gridzy-filterControls="#myFilterControls button" itemscope itemtype="http://schema.org/ImageGallery">
     {% for item in hubdb_table_rows(gallery_table_id) %}
-     {# {% set related_product = item.related_product | first %}
-      {% set product_type = item.category | first %}
-      {% if item.visible %} #}
-        
-        
-          <a href="{{ item.image.url }}" class="{{ item.category.name }}" data-size="{{ item.image.width }}x{{ item.image.height }}" data-title="{{ related_product.product_title }}" itemprop="contentUrl" >
-            <img class="gridzyImage" data-gridzylazysrc="{{ item.image.url }}" alt="{{ related_product.product_title }}" data-category="{{ item.category.name }}" width="{{ item.image.width }}" height="{{ item.image.height }}" itemprop="thumbnail" />
-            <span>
-                A nice caption for a 400x400 image
-            </span>
-          </a>
-         
-            
-          
-            
-          
-          
-        
-    
-        
-    
-      {#{% endif %} #}
+      {% set related_product = item.related_product | first %}
+      <a data-hs-product-path="{{ related_product.hs_path }}" data-hs-product-title="{{ related_product.product_title }}" href="{{ item.image.url }}" class="{{ item.category.name }}" data-size="{{ item.image.width }}x{{ item.image.height }}" data-title="{{ related_product.product_title }}" itemprop="contentUrl" >
+        <img class="gridzyImage" data-gridzylazysrc="{{ item.image.url }}" alt="{{ related_product.product_title }}" data-category="{{ item.category.name }}" width="{{ item.image.width }}" height="{{ item.image.height }}" itemprop="thumbnail" />
+      </a>
     {% endfor %}
   </div>
 </section>
@@ -79,7 +57,7 @@
 
 <!-- REMOVE COMMENTS -->
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" id="ps-lightbox">
 
     <!-- Background of PhotoSwipe. 
          It's a separate element as animating opacity is faster than rgba(). -->
@@ -144,87 +122,6 @@
     </div>
 
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Polyfills start
-  if (!Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-  if (!Element.prototype.closest) { Element.prototype.closest = function(s) { var el = this;
-  do { if (el.matches(s)) return el; el = el.parentElement || el.parentNode; } while (el !== null && el.nodeType === 1); return null; }; }
-  // Polyfills end
-
-  // get PhotoSwipe element
-  var pswpElement = document.querySelectorAll('.pswp')[0];
-  
-  // add click event listener
-  document.body.addEventListener('click', function(event) {
-    var alias = event.target ? event.target.closest('.gridzy a') : null;
-    if (alias) {
-      event.preventDefault();
-      openPhotoSwipe(alias.closest('.gridzy'), alias);
-    }
-  });
-  
-  // open picture from URL if directly requested
-  setTimeout(function() {
-    var hash = location.hash.substring(1).split('&').map(function(val) { return val.split('='); });
-    var pos = hash.length, param = {}, gridzyElement, itemElement;
-    while (pos--) {
-      param[hash[pos][0]] = hash[pos][1];
-    }
-    if ('gid' in param && 'pid' in param) {
-      gridzyElement = document.querySelector((param.gid.match(/^[0-9]+$/) ? '' : '#' + param.gid + '.gridzy, ') + '.gridzy[data-gridzyid="' + param.gid + '"]');
-      itemElement = gridzyElement.querySelector((param.pid.match(/^[0-9]+$/) ? '' : '#' + param.pid + '.gridzyItem, ') + '.gridzyItem[data-gridzyitemid="' + param.pid + '"]');
-      openPhotoSwipe(gridzyElement, itemElement);
-    }
-  }, 0);
-  
-  // initialize and open PhotoSwipe
-  function openPhotoSwipe(gridzyElement, itemElement) {
-    var itemElements = gridzyElement.children;
-    var pos = itemElements.length;
-    var items = [], img, size, title, startImg, thumbnails = [], options, gallery;
-    // prepare items
-    while (pos--) {
-      if (itemElements[pos].classList.contains('gridzyItemHidden')) {
-        continue;
-      }
-      img = itemElements[pos].querySelector('img.gridzyImage');
-      if (size = itemElements[pos].getAttribute('data-size')) {
-        size = itemElements[pos].getAttribute('data-size').split('x');
-        title = itemElements[pos].getAttribute('data-title');
-        title = title ? title : ((title = itemElements[pos].querySelector('.gridzyCaption')) ? title.innerText : '');
-        items.unshift({
-          src: itemElements[pos].href,
-          w: parseInt(size[0], 10),
-          h: parseInt(size[1], 10),
-          msrc: img.src,
-          title: title,
-          pid: itemElements[pos].hasAttribute('id') ? itemElements[pos].id : itemElements[pos].getAttribute('data-gridzyitemid')
-        });
-        thumbnails.unshift(img);
-        if (itemElement === itemElements[pos]) {
-          startImg = img;
-        }
-      }
-    }
-    // prepare options
-    options = {
-      index: thumbnails.indexOf(startImg) || 0,
-      galleryUID: (gridzyElement.hasAttribute('id') ? gridzyElement.id : gridzyElement.gridzy.id),
-      getThumbBoundsFn: function(index) {
-        var pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
-        var rect = thumbnails[index].getBoundingClientRect();
-        return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
-      }
-    };
-    // open PhotoSwipe
-    gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
-    gallery.init();
-  }
-});
-</script>
-
 <!-- REMOVE COMMENTS -->
 
 {% include '/magnetic-creative/partials/footer-no-cta.html' %}
