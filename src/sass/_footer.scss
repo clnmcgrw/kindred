@@ -25,15 +25,14 @@
 
 .ks-footer {
   background: $white;
-  padding-top: $padding-lg;
 
   form.hs-form {
     label {
       color: $primary;
     }
 
-    input[type='text'],
-    input[type='email'] {
+    input[type="text"],
+    input[type="email"] {
       color: $light-grey;
     }
 
@@ -66,7 +65,7 @@
     position: relative;
 
     &:after {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       bottom: 0;
@@ -82,7 +81,7 @@
     > .ks-inner {
       position: relative;
       z-index: 2;
-      padding-top: 14em;
+      padding-top: 8em;
       display: flex;
       flex-flow: column nowrap;
     }
@@ -90,6 +89,7 @@
     .ks-footer {
       &__logo {
         margin-top: 2em;
+        padding-top: 14em;
         order: 1;
 
         .ks-figure {
@@ -286,7 +286,7 @@
           margin: 2em 0;
         }
 
-        input[type='submit'] {
+        input[type="submit"] {
           width: 100% !important;
         }
       }
@@ -353,6 +353,7 @@
 
       .ks-footer {
         &__logo {
+          padding-top: 2em;
           flex-basis: 100%;
           margin: 0;
           margin-bottom: 2em;
@@ -401,6 +402,8 @@
   }
 
   .ks-footer {
+    padding-top: $padding-lg;
+
     .ks-inner {
       padding-top: 0;
     }
@@ -481,7 +484,7 @@
 
           &:before {
             display: block;
-            content: '';
+            content: "";
             position: absolute;
             top: 50%;
             left: -0.75em;
@@ -610,7 +613,7 @@
             margin: 0;
           }
 
-          input[type='submit'] {
+          input[type="submit"] {
             padding: 1.15em 0;
           }
         }
