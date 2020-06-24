@@ -50,9 +50,11 @@ async function renderProduct(product) {
  * @param {GraphModel} product - the first variant in the Product's set of variants
  */
 function renderInitialDetails(firstVariant) {
-  $skuTarget.text(firstVariant.sku);
-  $priceTarget.text(`$${firstVariant.price}`);
-  $selectionTarget.text(firstVariant.title);
+  let { sku, price, title } = firstVariant;
+
+  $skuTarget.text(sku);
+  $priceTarget.text(`$${price}`);
+  $selectionTarget.text(title);
 }
 
 /**
@@ -154,13 +156,13 @@ function renderVariants(variants, userSelectedOpts = []) {
   $firstInStock.addClass('active');
   $skuTarget.text($firstInStock.data('variant-sku'));
 
-  $selectionTarget.text(
-    `${$firstInStock.data('variant-type-1')} ${
-      $firstInStock.data('variant-type-2')
-        ? ` / ${$firstInStock.data('variant-type-2')}`
-        : ''
-    }`
-  );
+  let vType1 = $firstInStock.data('variant-type-1');
+  let vType2 = $firstInStock.data('variant-type-2');
+
+  if (vType1.toLowerCase() === 'default title')
+    vType1 = '1 option(s) available';
+
+  $selectionTarget.text(`${vType1} ${vType2 ? ` / ${vType2}` : ''}`);
 
   $priceTarget.text(`$${$firstInStock.data('variant-price').toFixed(2)}`);
 }
