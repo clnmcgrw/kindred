@@ -52,6 +52,7 @@
     "label" : "Show Button",
     "required" : false,
     "locked" : false,
+    "display" : "checkbox",
     "type" : "boolean",
     "default" : false
   }, {

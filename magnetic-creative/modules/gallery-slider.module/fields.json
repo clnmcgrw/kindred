@@ -82,6 +82,7 @@
   "label" : "Padding Top",
   "required" : false,
   "locked" : false,
+  "display" : "checkbox",
   "type" : "boolean",
   "default" : true
 }, {
@@ -90,6 +91,7 @@
   "label" : "Padding Bottom",
   "required" : false,
   "locked" : false,
+  "display" : "checkbox",
   "type" : "boolean",
   "default" : true
 } ]

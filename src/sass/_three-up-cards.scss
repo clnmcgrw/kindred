@@ -5,6 +5,8 @@
 
   &__card {
     margin-bottom: 2.5em;
+    display: flex;
+    flex-flow: column;
   }
 
   &__card-heading {
@@ -14,6 +16,10 @@
 
   &__card-content {
     margin-bottom: 2.5em;
+  }
+
+  &__card-image {
+    margin-top: auto;
   }
 }
 
