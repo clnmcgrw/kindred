@@ -198,22 +198,22 @@ function attachEventListeners(product) {
     productSingleGallery(thing, $);
   });
 
-  $enlarge.click(() => {
-    const src = $featuredImage.attr('src');
-    const width = $featuredImage.attr('data-width');
-    const height = $featuredImage.attr('data-height');
-    $body.addClass('scroll-disabled');
-    $lightbox.addClass('active');
-    $lightbox.find('img').attr('src', src);
-    $lightbox.find('figure').css({
-      paddingBottom: `${(height / width) * 100}%`,
-    });
-  });
+  // $enlarge.click(() => {
+  //   const src = $featuredImage.attr('src');
+  //   const width = $featuredImage.attr('data-width');
+  //   const height = $featuredImage.attr('data-height');
+  //   $body.addClass('scroll-disabled');
+  //   $lightbox.addClass('active');
+  //   $lightbox.find('img').attr('src', src);
+  //   $lightbox.find('figure').css({
+  //     paddingBottom: `${(height / width) * 100}%`,
+  //   });
+  // });
 
-  $lightboxClose.click(() => {
-    $lightbox.removeClass('active');
-    $body.removeClass('scroll-disabled');
-  });
+  // $lightboxClose.click(() => {
+  //   $lightbox.removeClass('active');
+  //   $body.removeClass('scroll-disabled');
+  // });
 }
 
 function getSelectedOptions() {

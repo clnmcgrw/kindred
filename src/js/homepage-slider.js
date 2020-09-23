@@ -62,9 +62,9 @@ export default () => {
     },
   });
 
-  $prev.click(() => flkty.previous());
-  $next.click(() => flkty.next());
-  $fullscreen.click(() => {
+  $prev.on('click', () => flkty.previous());
+  $next.on('click', () => flkty.next());
+  $fullscreen.on('click', () => {
     $cartSidebar.hide();
     $cartCover.hide();
     $parent.toggleClass('fullscreen');
@@ -72,7 +72,7 @@ export default () => {
 
   $labels.first().addClass('visible');
 
-  $doc.keydown(({ keyCode }) => {
+  $doc.on('keydown', ({ keyCode }) => {
     // escape key
     if (keyCode == 27 && $parent.hasClass('fullscreen')) {
       $cartSidebar.show();

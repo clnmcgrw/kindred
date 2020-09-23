@@ -589,6 +589,9 @@ button.ks-btn, .hs-cta-wrapper button.cta_button {
           appearance: none;
   border: 0; }
 
+a.ks-btn, .hs-cta-wrapper a.cta_button {
+  line-height: 1.1; }
+
 .ks-headline {
   font-weight: 400;
   font-family: "big-caslon-fb", serif; }
@@ -2656,26 +2659,105 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
     display: block;
     max-width: 100%;
     min-width: 100%; }
+  .ks-producthero__gallery.fullscreen .ks-producthero__currentslide {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    background: #1b2429;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    max-width: 1800px; }
+  .ks-producthero__gallery.fullscreen .ks-figure {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+    .ks-producthero__gallery.fullscreen .ks-figure figcaption {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background-color: #fff;
+      text-align: center;
+      -webkit-transform: translateY(98%);
+          -ms-transform: translateY(98%);
+              transform: translateY(98%);
+      padding: 0.25em 0;
+      font-family: "big-caslon-fb", serif; }
+  .ks-producthero__gallery.fullscreen .ks-producthero__fullscreen {
+    display: none; }
+  .ks-producthero__gallery.fullscreen .ks-producthero__controls {
+    display: block; }
+  .ks-producthero__gallery.fullscreen .ks-producthero__close {
+    display: block; }
+  .ks-producthero__currentslide {
+    position: relative;
+    margin-bottom: 0.25em; }
+    .ks-producthero__currentslide .ks-figure img {
+      position: unset; }
+    .ks-producthero__currentslide .ks-figure figcaption {
+      display: none; }
+  .ks-producthero__controls {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 1em;
+    right: 1em;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%); }
+    .ks-producthero__controls:before, .ks-producthero__controls:after {
+      content: "";
+      clear: both; }
+    .ks-producthero__controls .ks-svg-wrapper {
+      position: relative;
+      width: 1em;
+      float: left; }
+      .ks-producthero__controls .ks-svg-wrapper:hover {
+        cursor: pointer; }
+        .ks-producthero__controls .ks-svg-wrapper:hover svg {
+          fill: #994c3d;
+          stroke: #994c3d; }
+      .ks-producthero__controls .ks-svg-wrapper:last-child {
+        float: right; }
+      .ks-producthero__controls .ks-svg-wrapper__liner {
+        padding-bottom: 100%; }
+      .ks-producthero__controls .ks-svg-wrapper svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        fill: #e2ddd6;
+        stroke: #e2ddd6; }
   .ks-producthero__mainslider {
     margin-bottom: 0.25em;
     position: relative; }
   .ks-producthero__thumbslider {
     position: relative;
     overflow: hidden; }
-  .ks-producthero__enlarge {
+  .ks-producthero__fullscreen, .ks-producthero__close {
     position: absolute;
     bottom: 1em;
     right: 2.25em;
     width: 1.5em; }
-    .ks-producthero__enlarge:hover {
+    .ks-producthero__fullscreen:hover, .ks-producthero__close:hover {
       cursor: pointer; }
-      .ks-producthero__enlarge:hover svg polygon {
+      .ks-producthero__fullscreen:hover svg polygon, .ks-producthero__close:hover svg polygon {
         fill: #994c3d; }
-    .ks-producthero__enlarge .ks-svg-wrapper {
+    .ks-producthero__fullscreen .ks-svg-wrapper, .ks-producthero__close .ks-svg-wrapper {
       position: relative; }
-      .ks-producthero__enlarge .ks-svg-wrapper__liner {
+      .ks-producthero__fullscreen .ks-svg-wrapper__liner, .ks-producthero__close .ks-svg-wrapper__liner {
         padding-bottom: 100%; }
-    .ks-producthero__enlarge svg {
+    .ks-producthero__fullscreen svg, .ks-producthero__close svg {
       display: block;
       position: absolute;
       top: 0;
@@ -2683,11 +2765,19 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
       width: 100%;
       height: 100%;
       overflow: hidden; }
-      .ks-producthero__enlarge svg polygon {
+      .ks-producthero__fullscreen svg polygon, .ks-producthero__close svg polygon {
         fill: #e2ddd6;
         -webkit-transition: fill 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
         -o-transition: fill 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
         transition: fill 0.2s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .ks-producthero__close {
+    display: none;
+    top: 1em;
+    bottom: unset; }
+    .ks-producthero__close:hover svg line {
+      stroke: #994c3d; }
+    .ks-producthero__close svg line {
+      stroke: #e2ddd6; }
   .ks-producthero .ks-gallerycontrols {
     position: absolute;
     top: 0;
@@ -2845,8 +2935,14 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
   .ks-producthero__addtocart button,
   .ks-producthero__addtocart a {
     vertical-align: middle; }
-  .ks-producthero__addtocart button {
-    margin-right: 1em; }
+  .ks-producthero__addtocart .ks-btn, .ks-producthero__addtocart .hs-cta-wrapper .cta_button, .hs-cta-wrapper .ks-producthero__addtocart .cta_button, .ks-producthero__addtocart form input[type="submit"], form .ks-producthero__addtocart input[type="submit"],
+  .ks-producthero__addtocart #email-prefs-form input[type="submit"], #email-prefs-form .ks-producthero__addtocart input[type="submit"] {
+    margin-right: 1em;
+    width: 100%;
+    text-align: center; }
+    .ks-producthero__addtocart .ks-btn:first-child, .ks-producthero__addtocart .hs-cta-wrapper .cta_button:first-child, .hs-cta-wrapper .ks-producthero__addtocart .cta_button:first-child, .ks-producthero__addtocart form input:first-child[type="submit"], form .ks-producthero__addtocart input:first-child[type="submit"],
+    .ks-producthero__addtocart #email-prefs-form input:first-child[type="submit"], #email-prefs-form .ks-producthero__addtocart input:first-child[type="submit"] {
+      margin-bottom: 0.5em; }
   .ks-producthero__addtocart a {
     color: #1b2429;
     text-decoration: none;
@@ -2873,6 +2969,23 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
     -ms-flex-preferred-size: 40%;
         flex-basis: 40%;
     margin-right: 10%; }
+    .ks-producthero__gallery.fullscreen .ks-figure {
+      width: 75%; }
+  .ks-producthero__fullscreen .ks-svg-wrapper {
+    width: 2em; }
+  .ks-producthero__controls {
+    left: 2.25em;
+    right: 2.25em; }
+    .ks-producthero__controls .ks-svg-wrapper {
+      width: 2em; }
+  .ks-producthero__addtocart .ks-btn, .ks-producthero__addtocart .hs-cta-wrapper .cta_button, .hs-cta-wrapper .ks-producthero__addtocart .cta_button, .ks-producthero__addtocart form input[type="submit"], form .ks-producthero__addtocart input[type="submit"],
+  .ks-producthero__addtocart #email-prefs-form input[type="submit"], #email-prefs-form .ks-producthero__addtocart input[type="submit"] {
+    margin-right: 1em;
+    width: auto;
+    text-align: center; }
+    .ks-producthero__addtocart .ks-btn:first-child, .ks-producthero__addtocart .hs-cta-wrapper .cta_button:first-child, .hs-cta-wrapper .ks-producthero__addtocart .cta_button:first-child, .ks-producthero__addtocart form input:first-child[type="submit"], form .ks-producthero__addtocart input:first-child[type="submit"],
+    .ks-producthero__addtocart #email-prefs-form input:first-child[type="submit"], #email-prefs-form .ks-producthero__addtocart input:first-child[type="submit"] {
+      margin-bottom: 0; }
   .ks-producthero__main {
     -ms-flex-preferred-size: 50%;
         flex-basis: 50%; }
@@ -2883,6 +2996,14 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
     padding: 0.5em 1em; }
   .ks-producthero__option:first-child {
     margin-bottom: 0; } }
+
+@media (min-width: 992px) {
+  .ks-producthero__gallery.fullscreen .ks-figure {
+    width: 62.5%; } }
+
+@media (min-width: 1300px) {
+  .ks-producthero__gallery.fullscreen .ks-figure {
+    width: 52.65%; } }
 
 @media (min-width: 1199px) {
   .ks-producthero__main {

@@ -18,7 +18,7 @@ const PATHS = {
   sass: './src/sass/**/*.{sass,scss}',
   fileManager: './hs-cms-files',
   templateAssets: './magnetic-creative/assets',
-  cmsSiteUrl: 'https://www.mykindredliving.com/',
+  cmsSiteUrl: 'https://www.mykindredliving.com?no_cache=1',
   jsBundleUrl:
     'https://www.mykindredliving.com/hubfs/hs-cms-files/app.bundle.js',
   cssBundleUrl: 'https://www.mykindredliving.com/hubfs/hs-cms-files/index.css',

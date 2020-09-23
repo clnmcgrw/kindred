@@ -4,12 +4,11 @@
 -->
 
 
-
 {% include '/magnetic-creative/partials/header-primary.html' %}
 
 {# Sample kit gets extra fun styling #}
 {% if request.path == '/products/fire-bowl-fireplace-surround-sample-kit' %}
-<style>
+  <style>
     .ks-producthero__currentselection {display: none;}
     .ks-producthero__variants {display: none;}
     .ks-producthero__addtocart {margin-bottom: 4em;}
@@ -18,175 +17,174 @@
 {% endif %}
 
 {% if dynamic_page_hubdb_row %}
-    {% set product = dynamic_page_hubdb_row %}
-    {% set parent_cat = product.parent_category | first %}
-    {% set child_cat = product.child_category | first %}
+  {% set product = dynamic_page_hubdb_row %}
+  {% set parent_cat = product.parent_category | first %}
+  {% set child_cat = product.child_category | first %}
 
-    <!-- dump out hubdb data for JS to read -->
-    <div
-        style="display: none; opacity: 0; overflow: hidden; height: 0px; width: 0px;"
-        id="shopify-product-data"
-        data-product-id="{{ product.product_id }}"
-        data-product-handle="{{ product.product_handle }}"
-        data-storefront-id="{{ product.storefront_id }}"
-        data-parent-cat="{{ parent_cat[1] | lower | replace(' ', '-') }}"
-        data-child-cat="{{ child_cat[1] | lower | replace(' ', '-') }}"
-    ></div>
+  <!-- dump out hubdb data for JS to read -->
+  <div style="display: none; opacity: 0; overflow: hidden; height: 0px; width: 0px;" id="shopify-product-data" data-product-id="{{ product.product_id }}" data-product-handle="{{ product.product_handle }}" data-storefront-id="{{ product.storefront_id }}" data-parent-cat="{{ parent_cat[1] | lower | replace(' ', '-') }}" data-child-cat="{{ child_cat[1] | lower | replace(' ', '-') }}"></div>
 
-    <nav class="ks-breadcrumb bg-light">
-        <div class="ks-inner">
-            <a href="/shop/{{ parent_cat.hs_path }}">&#60; {{ parent_cat.name }}</a>
-            <a href="/shop/{{ parent_cat.hs_path }}/{{ child_cat.hs_path }}">&#60; {{ child_cat.name }}</a>
-        </div>
-    </nav>
+  <nav class="ks-breadcrumb bg-light">
+    <div class="ks-inner">
+      <a href="/shop/{{ parent_cat.hs_path }}">&#60;
+        {{ parent_cat.name }}</a>
+      <a href="/shop/{{ parent_cat.hs_path }}/{{ child_cat.hs_path }}">&#60;
+        {{ child_cat.name }}</a>
+    </div>
+  </nav>
 
-    <section class="ks-producthero bg-light">
-        <div class="ks-inner">
-            <div class="ks-producthero__gallery">
-                <div class="ks-producthero__mainslider">
-                    <div class="ks-producthero__mainslide">
-                        <img src="{{ product.featured_image }}" alt="" id="ks-featuredimage">
-                    </div>
-                    <div class="ks-producthero__enlarge ks-lightbox-trigger">
-                        <div class="ks-svg-wrapper">
-                            <div class="ks-svg-wrapper__liner">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 759.38 759.38"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="cls-1" points="75.94 75.95 303.78 75.95 303.78 0 0 0 0 303.78 75.94 303.78 75.94 75.95"/><polygon class="cls-1" points="75.94 455.6 0 455.6 0 759.38 303.78 759.38 303.78 683.43 75.94 683.43 75.94 455.6"/><polygon class="cls-1" points="683.43 683.43 455.6 683.43 455.6 759.38 759.38 759.38 759.38 455.6 683.43 455.6 683.43 683.43"/><polygon class="cls-1" points="455.6 0 455.6 75.95 683.43 75.95 683.43 303.78 759.38 303.78 759.38 0 455.6 0"/></g></g></svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ks-gallerycontrols">
-                        <div class="ks-gallerycontrols__liner">
-                            <div class="ks-svg-wrapper ks-gallerycontrols__prev">
-                                <div class="ks-svg-wrapper__liner">
-                                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 62.42 119.45"><path class="cls-1" d="M91,16.67a2.51,2.51,0,0,1,1.77,4.27L37.13,76.6l55.26,55.26a2.5,2.5,0,0,1-3.53,3.53l-57-57a2.5,2.5,0,0,1,0-3.53L89.25,17.41A2.46,2.46,0,0,1,91,16.67Z" transform="translate(-31.09 -16.67)"/></svg>
-                                </div>
-                            </div>
-                            <div class="ks-svg-wrapper ks-gallerycontrols__next">
-                                <div class="ks-svg-wrapper__liner">
-                                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 62.42 119.45"><path class="cls-1" d="M33.59,136.13a2.51,2.51,0,0,1-1.77-4.27L87.48,76.21,32.21,20.94a2.5,2.5,0,0,1,3.54-3.53l57,57a2.49,2.49,0,0,1,0,3.53L35.36,135.39A2.5,2.5,0,0,1,33.59,136.13Z" transform="translate(-31.09 -16.67)"/></svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ks-producthero__thumbslider" id="ks-galleryimagestarget"></div>
+  <section class="ks-producthero bg-light">
+    <div class="ks-inner">
+      <div class="ks-producthero__gallery">
+        <div class="ks-producthero__currentslide">
+          <figure class="ks-figure">
+            <img src="{{ product.featured_image }}" id="ks-featuredimage"/>
+            <figcaption>{{ product.product_title }}</figcaption>
+          </figure>
+          <div class="ks-producthero__fullscreen">
+            <div class="ks-svg-wrapper">
+              <div class="ks-svg-wrapper__liner">
+                <svg viewbox="0 0 759.38 759.38" xmlns="http://www.w3.org/2000/svg">
+                  <g data-name="Layer 2" id="Layer_2">
+                    <g data-name="Layer 1" id="Layer_1-2"><polygon class="cls-1" points="75.94 75.95 303.78 75.95 303.78 0 0 0 0 303.78 75.94 303.78 75.94 75.95"/><polygon class="cls-1" points="75.94 455.6 0 455.6 0 759.38 303.78 759.38 303.78 683.43 75.94 683.43 75.94 455.6"/><polygon class="cls-1" points="683.43 683.43 455.6 683.43 455.6 759.38 759.38 759.38 759.38 455.6 683.43 455.6 683.43 683.43"/><polygon class="cls-1" points="455.6 0 455.6 75.95 683.43 75.95 683.43 303.78 759.38 303.78 759.38 0 455.6 0"/></g>
+                  </g>
+                </svg>
+              </div>
             </div>
-
-            <div class="ks-producthero__main">
-                <div class="ks-liner">
-                    <div class="ks-producthero__sku">
-                        <span class="ks-preheading" id="ks-skutarget"></span>
-                    </div>
-                    <div class="ks-producthero__title">
-                        <h1>{{ product.product_title }}</h1>
-                        {% if product.not_for_sale == 0 %}
-                        <div class="ks-producthero__price">
-                            <span id="ks-pricetarget" style="font-weight: bold;"></span>
-                        </div>
-                        {% endif %}
-                    </div>
-                    <div class="ks-producthero__shortdescription ks-rte-content">
-                        {{ product.short_description }}
-                    </div>
-                    <div class="ks-producthero__currentselection">
-                        <span>Selection</span>
-                        <p id="ks-selectiontarget"></p>
-                    </div>
-                    <div class="ks-producthero__variants" id="ks-variantstarget">
-                    </div>
-                    {% if product.not_for_sale == 0 %}
-                    <div class="ks-producthero__options" id="ks-optionstarget">
-                        <!-- Products can have multiple types of options, eg "Size" + "Fuel" -->
-                        <div class="ks-producthero__options__group"></div>
-                        <div class="ks-producthero__options__group"></div>
-                        <div class="ks-producthero__options__group"></div>
-                    </div>
-                    <div class="ks-producthero__quantity ks-quantity">
-                        <div class="ks-quantity__label">
-                            <span>Quantity</span>
-                        </div>
-                        <div class="ks-quantity__actions">
-                            <span class="ks-quantity__minus ks-quantity__action">-</span>
-                            <span class="ks-quantity__num" id="ks-quantitytarget">1</span class="ks-quantity__minus">
-                            <span class="ks-quantity__plus ks-quantity__action">+</span>
-                        </div>
-                    </div>
-                    <div class="ks-producthero__addtocart">
-                        <button
-                            class="ks-btn"
-                            id="ks-addtocart"
-                            data-variant-id="{{ product.storefront_id }}"
-                            data-quantity="1"
-                        >Add to Cart</button>
-                        <a href="/find-a-dealer">Find A Dealer</a>
-                    </div>
-                    {% endif %}
-                </div>
+          </div>
+          <div class="ks-svg-wrapper ks-producthero__close">
+            <div class="ks-svg-wrapper__liner">
+              <svg class="feather feather-x" fill="none" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <line x1="18" x2="6" y1="6" y2="18"></line>
+                <line x1="6" x2="18" y1="6" y2="18"></line>
+              </svg>
             </div>
+          </div>
+          <div class="ks-producthero__controls">
+            <div class="ks-svg-wrapper ks-producthero__prevtrigger">
+              <div class="ks-svg-wrapper__liner">
+                <svg data-name="Layer 1" id="Layer_1" viewbox="0 0 62.42 119.45" xmlns="http://www.w3.org/2000/svg"><path class="cls-1" d="M91,16.67a2.51,2.51,0,0,1,1.77,4.27L37.13,76.6l55.26,55.26a2.5,2.5,0,0,1-3.53,3.53l-57-57a2.5,2.5,0,0,1,0-3.53L89.25,17.41A2.46,2.46,0,0,1,91,16.67Z" transform="translate(-31.09 -16.67)"/></svg>
+              </div>
+            </div>
+            <div class="ks-svg-wrapper ks-producthero__nexttrigger">
+              <div class="ks-svg-wrapper__liner">
+                <svg data-name="Layer 1" id="Layer_1" viewbox="0 0 62.42 119.45" xmlns="http://www.w3.org/2000/svg"><path class="cls-1" d="M33.59,136.13a2.51,2.51,0,0,1-1.77-4.27L87.48,76.21,32.21,20.94a2.5,2.5,0,0,1,3.54-3.53l57,57a2.49,2.49,0,0,1,0,3.53L35.36,135.39A2.5,2.5,0,0,1,33.59,136.13Z" transform="translate(-31.09 -16.67)"/></svg>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+        <div class="ks-producthero__thumbslider" id="ks-galleryimagestarget"></div>
+      </div>
 
-    {% if product.full_description | length %}
+      <div class="ks-producthero__main">
+        <div class="ks-liner">
+          <div class="ks-producthero__sku">
+            <span class="ks-preheading" id="ks-skutarget"></span>
+          </div>
+          <div class="ks-producthero__title">
+            <h1>{{ product.product_title }}</h1>
+            {% if product.not_for_sale == 0 %}
+              <div class="ks-producthero__price">
+                <span id="ks-pricetarget" style="font-weight: bold;"></span>
+              </div>
+            {% endif %}
+          </div>
+          <div class="ks-producthero__shortdescription ks-rte-content">
+            {{ product.short_description }}
+          </div>
+          <div class="ks-producthero__currentselection">
+            <span>Selection</span>
+            <p id="ks-selectiontarget"></p>
+          </div>
+          <div class="ks-producthero__variants" id="ks-variantstarget"></div>
+          {% if product.not_for_sale == 0 %}
+            <div class="ks-producthero__options" id="ks-optionstarget">
+              <!-- Products can have multiple types of options, eg "Size" + "Fuel" -->
+              <div class="ks-producthero__options__group"></div>
+              <div class="ks-producthero__options__group"></div>
+              <div class="ks-producthero__options__group"></div>
+            </div>
+            <div class="ks-producthero__quantity ks-quantity">
+              <div class="ks-quantity__label">
+                <span>Quantity</span>
+              </div>
+              <div class="ks-quantity__actions">
+                <span class="ks-quantity__minus ks-quantity__action">-</span>
+                <span class="ks-quantity__num" id="ks-quantitytarget">1</spanclass="ks-quantity__minus">
+                <span class="ks-quantity__plus ks-quantity__action">+</span>
+              </div>
+            </div>
+            <div class="ks-producthero__addtocart">
+              <button class="ks-btn" id="ks-addtocart" data-variant-id="{{ product.storefront_id }}" data-quantity="1">Add to Cart</button>
+              <a class="ks-btn ks-btn--secondary" href="/find-a-dealer">Find A Dealer</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% if product.full_description | length %}
     <section class="ks-productdesc bg-light">
-        <div class="ks-inner">
-            <div class="ks-productdesc__heading">
-                <h3 class="ks-heading--sm">{{ product.product_title }}</h3>
-            </div>
-            <div class="ks-productdesc__body" id="ks-descriptiontarget">
-                {% if product.product_blueprint %}
-                <div class="ks-blueprint bg-light">
-                    <div class="ks-blueprint__image">
-                        <figure class="ks-figure">
-                            <div class="ks-figure__liner" style="padding-bottom: {{ (product.product_blueprint.height / product.product_blueprint.width) * 100 }}%">
-                                <img src="{{ product.product_blueprint.url }}" alt="{{ product.product_blueprint.alt }}">
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="ks-blueprint__actions {% if product.spec_sheet and product.installation_video %}has-both{% endif %}">
-                        {% if product.spec_sheet %}
-                            <a class="ks-blueprint__specsheet" href="{{ product.spec_sheet }}" target="_blank" rel="noopener noreferrer">View Spec Sheet</a class="ks-blueprint__actions__specsheet">
-                        {% endif %}
-                        {% if product.installation_video %}
-                            <a class="ks-blueprint__installationvid" href="{{ product.installation_video }}" target="_blank" rel="noopener noreferrer">View Installation Video</a>
-                        {% endif %}
-                    </div>
-                </div>
+      <div class="ks-inner">
+        <div class="ks-productdesc__heading">
+          <h3 class="ks-heading--sm">{{ product.product_title }}</h3>
+        </div>
+        <div class="ks-productdesc__body" id="ks-descriptiontarget">
+          {% if product.product_blueprint %}
+            <div class="ks-blueprint bg-light">
+              <div class="ks-blueprint__image">
+                <figure class="ks-figure">
+                  <div class="ks-figure__liner" style="padding-bottom: {{ (product.product_blueprint.height / product.product_blueprint.width) * 100 }}%">
+                    <img src="{{ product.product_blueprint.url }}" alt="{{ product.product_blueprint.alt }}">
+                  </div>
+                </figure>
+              </div>
+              <div class="ks-blueprint__actions {% if product.spec_sheet and product.installation_video %}has-both{% endif %}">
+                {% if product.spec_sheet %}
+                  <a class="ks-blueprint__specsheet" href="{{ product.spec_sheet }}" target="_blank" rel="noopener noreferrer">View Spec Sheet</aclass="ks-blueprint__actions__specsheet">
                 {% endif %}
-                <div class="ks-rte-content">
-                    {{ product.full_description }}
-                </div>
+                {% if product.installation_video %}
+                  <a class="ks-blueprint__installationvid" href="{{ product.installation_video }}" target="_blank" rel="noopener noreferrer">View Installation Video</a>
+                {% endif %}
+              </div>
             </div>
+          {% endif %}
+          <div class="ks-rte-content">
+            {{ product.full_description }}
+          </div>
         </div>
+      </div>
     </section>
-    {% endif %}
+  {% endif %}
 
-    <section class="ks-relatedproducts">
-        <div class="ks-relatedproducts__preheading">
-            <div class="ks-inner">
-                <span class="ks-preheading">You May Also Like</span>
-            </div>
-        </div>
-        <div class="ks-relatedproducts__main">
-            <div class="ks-inner">
-            {% for related_product in product.related_products %}
-                <div class="ks-card ks-card--image">
-                    <a href="/products/{{ related_product.hs_path }}" class="ks-linkover">
-                        <div class="ks-card__liner">
-                            <figure class="ks-figure">
-                                <div class="ks-figure__liner">
-                                    <img src="{{ related_product.featured_image }}" alt="">
-                                </div>
-                            </figure>
-                            <div class="ks-card__title">
-                                <p>{{ related_product.product_title }}</p>
-                            </div>
-                        </div>
-                    </a>
+  <section class="ks-relatedproducts">
+    <div class="ks-relatedproducts__preheading">
+      <div class="ks-inner">
+        <span class="ks-preheading">You May Also Like</span>
+      </div>
+    </div>
+    <div class="ks-relatedproducts__main">
+      <div class="ks-inner">
+        {% for related_product in product.related_products %}
+          <div class="ks-card ks-card--image">
+            <a class="ks-linkover" href="/products/{{ related_product.hs_path }}">
+              <div class="ks-card__liner">
+                <figure class="ks-figure">
+                  <div class="ks-figure__liner">
+                    <img src="{{ related_product.featured_image }}" alt="">
+                  </div>
+                </figure>
+                <div class="ks-card__title">
+                  <p>{{ related_product.product_title }}</p>
                 </div>
-            {% endfor %}
-            </div>
-        </div>
-    </section>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 {% endif %}
 
 {% include '/magnetic-creative/partials/footer-no-cta.html' %}

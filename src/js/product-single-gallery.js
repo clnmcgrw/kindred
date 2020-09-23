@@ -1,5 +1,5 @@
 import Flickity from 'flickity';
-import { $lightbox } from './ui';
+import { $lightbox, $cartCover, $cartSidebar } from './ui';
 import { thumbSlide } from './components';
 
 const gallery = document.querySelector('.ks-producthero__gallery');
@@ -12,6 +12,10 @@ export default (event, $) => {
       featuredImage: $('#ks-featuredimage'),
       thumbnailTarget: $('#ks-galleryimagestarget'),
       controls: $('.ks-gallerycontrols .ks-svg-wrapper'),
+      fullscreenTrigger: $('.ks-producthero__fullscreen'),
+      fullscreenClose: $('.ks-producthero__close'),
+      prevSlideTrigger: $('.ks-producthero__prevtrigger'),
+      nextSlideTrigger: $('.ks-producthero__nexttrigger'),
       thumbs: false, // queried on append
       flickityViewport: false, // queried on append
       thumbImages: false, // queried on append
@@ -21,6 +25,7 @@ export default (event, $) => {
       galleryImages: event.galleryImages,
       flickity: false,
       isInternetExplorer: false,
+      currentIndex: 0,
     },
 
     hooks: {
@@ -82,7 +87,16 @@ export default (event, $) => {
       },
 
       addListeners: () => {
-        const { controls, thumbs } = module.$nodes;
+        const {
+          controls,
+          thumbs,
+          featuredImage,
+          fullscreenTrigger,
+          fullscreenClose,
+          prevSlideTrigger,
+          nextSlideTrigger,
+          thumbnailTarget,
+        } = module.$nodes;
         const { methods } = module;
 
         controls.click(function() {
@@ -90,7 +104,7 @@ export default (event, $) => {
         });
 
         thumbs.click(function() {
-          const { thumbs, featuredImage } = module.$nodes;
+          const { thumbs } = module.$nodes;
           const { flickity } = module.data;
 
           const $t = $(this);
@@ -98,7 +112,71 @@ export default (event, $) => {
           const idx = thumbs.index($t);
 
           featuredImage.attr('src', src);
-          flickity.select(idx);
+        });
+
+        fullscreenTrigger.on('click', function() {
+          const className = 'fullscreen';
+          const isFullscreen = gallery.classList.contains(className);
+          const thumbs = thumbnailTarget.find('img');
+
+          for (let i = 0, n = thumbs.length; i < n; i++) {
+            const $t = $(thumbs[i]);
+
+            if ($t.attr('src') === featuredImage.attr('src')) {
+              module.data.currentIndex = thumbs.index($t);
+              break;
+            } else {
+              module.data.currentIndex = 0;
+            }
+          }
+
+          $cartSidebar.hide();
+          $cartCover.hide();
+
+          gallery.classList[isFullscreen ? 'remove' : 'add'](className);
+        });
+
+        fullscreenClose.on('click', function() {
+          $cartSidebar.show();
+          $cartCover.show();
+
+          gallery.classList.remove('fullscreen');
+        });
+
+        prevSlideTrigger.on('click', function() {
+          const thumbs = thumbnailTarget.find('img');
+          const prevImgSrc = $(thumbs[module.data.currentIndex - 1]).attr(
+            'src'
+          );
+
+          nextSlideTrigger.show();
+
+          if (!prevImgSrc) {
+            $(this).hide();
+            return;
+          }
+
+          featuredImage.attr('src', prevImgSrc);
+
+          module.data.currentIndex--;
+        });
+
+        nextSlideTrigger.on('click', function() {
+          const thumbs = thumbnailTarget.find('img');
+          const nextImgSrc = $(thumbs[module.data.currentIndex + 1]).attr(
+            'src'
+          );
+
+          prevSlideTrigger.show();
+
+          if (!nextImgSrc) {
+            $(this).hide();
+            return;
+          }
+
+          featuredImage.attr('src', nextImgSrc);
+
+          module.data.currentIndex++;
         });
       },
 
