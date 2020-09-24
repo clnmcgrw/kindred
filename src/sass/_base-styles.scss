@@ -84,7 +84,7 @@ main {
   }
 }
 
-[class*="flex-container"] {
+[class*='flex-container'] {
   display: flex;
 }
 
@@ -229,7 +229,7 @@ a.ks-btn {
   ul {
     li {
       &:before {
-        content: "";
+        content: '';
         top: 0.667rem;
         background: $dark-green;
         height: 0.33em;
@@ -247,7 +247,7 @@ a.ks-btn {
 
       @for $i from 1 through 25 {
         &:nth-child(#{$i}):before {
-          content: "#{$i}.";
+          content: '#{$i}.';
         }
       }
     }

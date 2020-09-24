@@ -49,5 +49,13 @@ $doc.ready(() => {
   setHeaderHeight();
   // handleCookieNotice();
   loadDynamicFigures();
+
+  const targetBgColor = $('main .ks-site-container section')
+    .last()
+    .css('background-color');
+
+  $siteFooter.find('.ks-site-container').css({
+    backgroundColor: targetBgColor,
+  });
 });
 $win.resize(setHeaderHeight);

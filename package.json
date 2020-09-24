@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
+    "date-fns": "^2.16.1",
     "flickity": "^2.2.1",
     "flickity-fullscreen": "^1.1.1",
     "isotope-layout": "^3.0.6",

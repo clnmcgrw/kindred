@@ -4,8 +4,6 @@
 -->
 
 
-
-
 {% include '/magnetic-creative/partials/header-primary.html' %}
 
 {% widget_container "page_content" %}
@@ -13,23 +11,64 @@
 
 {% set resources_table = hubdb_table_rows(2042800) %}
 
+<style>
+  .ks-resourcelist__nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ks-resourcelist__nav span {
+    color: #994c3d;
+  }
+
+  .ks-resourcelist__nav li:hover {
+    cursor: pointer;
+  }
+
+  .ks-resourcelist__nav li:hover span {
+    color: #000;
+  }
+
+  @media(min-width: 767px) {
+    .ks-resourcelist__nav ul {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .ks-resourcelist__nav li {
+      display: inline-block;
+    }
+  }
+</style>
+
 <section class="ks-resourcelist">
-    <nav class="ks-resourcelist__nav">
-      <div class="ks-inner">
-        <ul>
-          <li class="ks_resourcelist__nav__title">Filter By:</li>
-          <li><span data-toggle-type="all" class="active">All</span></li>
-          <li><span data-toggle-type="fire-bowls">Fire Bowls</span></li>
-          <li><span data-toggle-type="fireplace-surrounds">Fireplace Surrounds</span></li>
-          <li><span data-toggle-type="signature-kitchens">Signature Kitchens</span></li>
-          <li><span data-toggle-type="outdoor-cabinets">Outdoor Cabinets</span></li>
-        </ul>
-      </div>
-    </nav>
+  <nav class="ks-resourcelist__nav">
+    <div class="ks-inner">
+      <ul>
+        <li class="ks_resourcelist__nav__title">Filter By:</li>
+        <li>
+          <span class="active" data-toggle-type="all">All</span>
+        </li>
+        <li>
+          <span data-toggle-type="fire-bowls">Fire Bowls</span>
+        </li>
+        <li>
+          <span data-toggle-type="fireplace-surrounds">Fireplace Surrounds</span>
+        </li>
+        <li>
+          <span data-toggle-type="signature-kitchens">Signature Kitchens</span>
+        </li>
+        <li>
+          <span data-toggle-type="outdoor-cabinets">Outdoor Cabinets</span>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
 
-    <div class="ks-resourcelist__items">
-      <div class="ks-inner ks-no-padding--top ks-no-padding--bottom">
+  <div class="ks-resourcelist__items">
+    <div class="ks-inner ks-no-padding--top ks-no-padding--bottom">
       {% for r in resources_table %}
         <div class="ks-card ks-card--image" data-resource-type="{% for type in r.resource_type %}{{type.name.replace(' ', '-') | lower}}|{% endfor %}">
           <a href="{{ r.download_link }}" class="ks-linkover" target="_blank" rel="noopener noreferrer" download="{{ r.download_link }}">
@@ -53,9 +92,9 @@
           </a>
         </div>
       {% endfor %}
-      </div>
     </div>
-  
+  </div>
+
 </section>
 
 {% include '/magnetic-creative/partials/footer-primary.html' %}

@@ -16,10 +16,11 @@
  * I'd start there.
  */
 
-import { $doc, $cartSidebar, $backdrop } from '../ui';
+import { $doc, $siteHeader, $cartSidebar, $backdrop } from '../ui';
 import {
   getCheckout,
   addItemToCheckout,
+  getLineItemTotal,
   updateCheckoutItem,
   removeCheckoutItem,
   addPromoCodeToCheckout,
@@ -84,7 +85,7 @@ function renderCartContent(checkout) {
 
   $cartSidebar
     .find('.ks-cartsidebar__yourcart span')
-    .text(`${checkout.lineItems.length} items`);
+    .text(`${getLineItemTotal(checkout)} items`);
 
   /**
    * Apply the dynamic checkout URL to the checkout button
@@ -207,6 +208,7 @@ $addToCartTrigger.on('click', async function() {
 
   updateCart(updatedCheckout);
 
+  $siteHeader.addClass('solid');
   $cartSidebar.addClass('active');
   $backdrop.addClass('active');
 });
@@ -249,6 +251,9 @@ $backdrop.click(() => {
 $doc.ready(async () => {
   $cartSidebar.addClass('loading');
   currentCheckout = await getCheckout();
+
+  window.currentCheckout = currentCheckout;
+  window.renderCartContent = renderCartContent;
 
   renderCartContent(currentCheckout);
 });

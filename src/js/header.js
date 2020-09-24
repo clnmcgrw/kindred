@@ -1,4 +1,4 @@
-import { $win, $body, $siteHeader } from './ui';
+import { $win, $body, $siteHeader, headerHeight, $cartSidebar } from './ui';
 
 const $navToggleBtn = $('#ks-nav-toggle');
 
@@ -27,6 +27,10 @@ function headerScroll() {
       $siteHeader.removeClass('traveling scroll-visible solid');
     }
     didScroll = false;
+
+    if (thisScroll <= headerHeight() && $cartSidebar.hasClass('active')) {
+      $siteHeader.addClass('solid');
+    }
   }
   requestAnimationFrame(headerScroll);
 }

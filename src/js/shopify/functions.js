@@ -1,4 +1,7 @@
+import differenceInDays from 'date-fns/differenceInDays';
 import client from './client';
+
+const lsKeyName = 'ks-checkout-id';
 
 export async function getAllProducts() {
   let products;
@@ -67,27 +70,44 @@ export async function createCheckout() {
  */
 export async function getCheckout() {
   let checkout;
+  let createNew = false;
 
   // Check to see if there's an existing checkout already created for this user
-  const exisitingCheckoutId = localStorage.getItem('ks-checkout-id');
+  let existingCheckout = localStorage.getItem(lsKeyName);
 
-  if (exisitingCheckoutId) {
+  if (existingCheckout) {
+    try {
+      existingCheckout = JSON.parse(existingCheckout);
+    } catch (e) {
+      console.log(
+        'Could not parse localStorage checkout value:\n',
+        e,
+        '\nCreating new checkout...'
+      );
+
+      const newCheckout = await createAndCacheCheckout();
+
+      return newCheckout;
+    }
+  }
+
+  if (existingCheckout && existingCheckout.id) {
     // If it exists, go fetch the in-progress checkout
-    checkout = await client.checkout.fetch(exisitingCheckoutId);
+    checkout = await client.checkout.fetch(existingCheckout.id);
   } else {
     // No checkout has been attempted yet, make a new one
-    checkout = await createCheckout();
-
-    localStorage.setItem('ks-checkout-id', checkout.id);
+    createNew = true;
   }
 
   // Order has been completed, create a new one
   if (checkout && checkout.completedAt) {
-    localStorage.removeItem('ks-checkout-id');
+    localStorage.removeItem(lsKeyName);
 
-    checkout = await createCheckout();
+    createNew = true;
+  }
 
-    localStorage.setItem('ks-checkout-id', checkout.id);
+  if (createNew) {
+    checkout = await createAndCacheCheckout();
   }
 
   return checkout;
@@ -164,4 +184,15 @@ export function getLineItemTotal(checkout) {
   checkout.lineItems.forEach(item => (num += item.quantity));
 
   return num;
+}
+
+async function createAndCacheCheckout() {
+  const checkout = await createCheckout();
+
+  localStorage.setItem(
+    lsKeyName,
+    JSON.stringify({ id: checkout.id, createdAt: new Date(Date.now()) })
+  );
+
+  return checkout;
 }

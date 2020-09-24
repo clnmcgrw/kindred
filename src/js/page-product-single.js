@@ -240,8 +240,6 @@ function attachVariantClick() {
   $variantEls.on('click', function() {
     const $t = $(this);
 
-    console.log($t);
-
     if ($t.hasClass('out-of-stock')) return;
 
     $variantEls.removeClass('active');
