@@ -82,6 +82,10 @@ function renderCartContent(checkout) {
     $cartItemsTarget.append(cartSidebarItem(item))
   );
 
+  $cartSidebar
+    .find('.ks-cartsidebar__yourcart span')
+    .text(`${checkout.lineItems.length} items`);
+
   /**
    * Apply the dynamic checkout URL to the checkout button
    */
@@ -186,7 +190,7 @@ function attachDynamicListeners() {
   });
 }
 
-$addToCartTrigger.click(async function() {
+$addToCartTrigger.on('click', async function() {
   const $allVariants = $('.ks-producthero__variants');
   const $quantityTarget = $('#ks-quantitytarget');
   const variantId =
@@ -195,8 +199,6 @@ $addToCartTrigger.click(async function() {
   const quantity = parseInt($quantityTarget.text());
 
   $cartSidebar.addClass('loading');
-
-  console.log(variantId);
 
   const updatedCheckout = await addItemToCheckout(currentCheckout.id, {
     variantId,
@@ -209,12 +211,12 @@ $addToCartTrigger.click(async function() {
   $backdrop.addClass('active');
 });
 
-$couponTrigger.click(() => {
+$couponTrigger.on('click', () => {
   $cartSidebar.addClass('loading');
   $couponModal.addClass('active');
 });
 
-$couponForm.submit(async function(e) {
+$couponForm.on('submit', async function(e) {
   e.preventDefault();
 
   const $t = $(this);

@@ -36,7 +36,7 @@ async function renderProduct(product) {
   renderGalleryImages(images);
   renderOptions(options);
 
-  if (product.variants.length) {
+  if (variants.length) {
     renderVariants(variants, getSelectedOptions());
   } else {
     $('.ks-producthero__currentselection').css('opacity', 0);
@@ -237,8 +237,10 @@ function attachVariantClick() {
    *
    * In that case, we need to reattach a click listener to those new els.
    */
-  $variantEls.click(function() {
+  $variantEls.on('click', function() {
     const $t = $(this);
+
+    console.log($t);
 
     if ($t.hasClass('out-of-stock')) return;
 

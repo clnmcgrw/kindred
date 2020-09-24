@@ -26,7 +26,7 @@ function setCartPositioning() {
 
   $cartContent.css({
     height: `calc(100vh)`,
-    paddingTop: hHeight + extraPad.lg,
+    paddingTop: hHeight,
   });
 
   $cartSidebar.css({
@@ -38,7 +38,7 @@ function setCartPositioning() {
   });
 
   $cartClose.css({
-    top: hHeight + extraPad.lg,
+    top: hHeight,
   });
 
   $cartItemsParent.css({
