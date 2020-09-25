@@ -50,12 +50,24 @@ $doc.ready(() => {
   // handleCookieNotice();
   loadDynamicFigures();
 
+  // Make the footer mountain bg gap fill with the previous section's bg color
   const targetBgColor = $('main .ks-site-container section')
     .last()
     .css('background-color');
-
   $siteFooter.find('.ks-site-container').css({
     backgroundColor: targetBgColor,
   });
+
+  // Fire bowls page gets special ordering and I can't be bothered to do this in HubL
+  if ($body.hasClass('hs-content-id-24294764548')) {
+    const $productList = $('.ks-productlist');
+    const $products = $productList.find('.ks-card');
+    const $woodTop = $productList.find('[data-product-id="26132525875"]');
+    const $propaneTank = $productList.find('[data-product-id="26134899101"]');
+
+    $propaneTank.insertBefore($products.first());
+    $woodTop.insertBefore($propaneTank);
+  }
 });
+
 $win.resize(setHeaderHeight);

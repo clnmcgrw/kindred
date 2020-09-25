@@ -122,7 +122,11 @@
         </div>
       </div>
     </div>
+    {% unless product.full_description | length %}
+      <div id="ks-spacer" style="padding-bottom: 4em;"></div>
+    {% endunless %}
   </section>
+
 
   {% if product.full_description | length %}
     <section class="ks-productdesc bg-light">
@@ -142,7 +146,7 @@
               </div>
               <div class="ks-blueprint__actions {% if product.spec_sheet and product.installation_video %}has-both{% endif %}">
                 {% if product.spec_sheet %}
-                  <a class="ks-blueprint__specsheet" href="{{ product.spec_sheet }}" target="_blank" rel="noopener noreferrer">View Spec Sheet</aclass="ks-blueprint__actions__specsheet">
+                  <a class="ks-blueprint__specsheet" href="{{ product.spec_sheet }}" target="_blank" rel="noopener noreferrer">View Spec Sheet</a>
                 {% endif %}
                 {% if product.installation_video %}
                   <a class="ks-blueprint__installationvid" href="{{ product.installation_video }}" target="_blank" rel="noopener noreferrer">View Installation Video</a>

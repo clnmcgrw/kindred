@@ -16,7 +16,7 @@ export function productHeroVariant(variant) {
         variant.selectedOptions[2] ? variant.selectedOptions[2].value : null
       }'
     >
-      <img src="${variant.image.src}" alt=""/>
+      <img src="${variant.image ? variant.image.src : ''}" alt=""/>
     </div>
   `;
 }
@@ -73,7 +73,7 @@ export function cartSidebarItem(item) {
     <li class="ks-cartsidebar__item">
       <div class="ks-cartsidebar__item__flex">
         <div class="ks-cartsidebar__item__image">
-          <img src="${item.variant.image.src}" alt=""/>
+          <img src="${item.variant.image ? item.variant.image.src : ''}" alt=""/>
         </div>
         <div class="ks-cartsidebar__item__main">
           <p class="ks-cartsidebar__item__title">${item.title}</p>
