@@ -97,6 +97,7 @@
     "locked" : false,
     "responsive" : true,
     "resizable" : false,
+    "show_loading" : false,
     "type" : "image",
     "default" : {
       "size_type" : "auto",

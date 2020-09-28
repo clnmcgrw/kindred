@@ -18,6 +18,7 @@
     "locked" : false,
     "responsive" : true,
     "resizable" : true,
+    "show_loading" : false,
     "type" : "image",
     "default" : {
       "size_type" : "exact",
