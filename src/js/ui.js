@@ -65,7 +65,7 @@ $doc.ready(() => {
     const $woodTop = $productList.find('[data-product-id="26132525875"]');
     const $propaneTank = $productList.find('[data-product-id="26134899101"]');
 
-    $propaneTank.insertBefore($products.first());
+    $propaneTank.insertAfter($products.last());
     $woodTop.insertBefore($propaneTank);
   }
 });
