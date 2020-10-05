@@ -9,6 +9,13 @@
 <!doctype html>
 <html lang="{{ html_lang }}" {{ html_lang_dir }}>
 <head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PB5QJ92');</script>
+<!-- End Google Tag Manager -->
   <script src="//cdn2.hubspot.net/hubfs/3974799/2018-web/js/priority.js"></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=NodeList.prototype.forEach%2Cfetch%2CIntersectionObserver"></script>
   <script>
@@ -29,9 +36,42 @@
   <link rel="stylesheet" href="https://unpkg.com/flickity-fullscreen@1/fullscreen.css">
 
   {{standard_header_includes}}
+  
+  <style type="text/css">
+.otnotice-content {	
+	padding: 0 !important;
+}
+.otnotice-menu {
+	margin-left: 0 !important;
+	margin-top: 0 !important;
+	position: inherit !important;
+	float: left !important;
+}
+.otnotice-sections {
+    margin-left: 330px !important;
+}
+
+@media (max-width: 768px) {
+.otnotice-menu {
+	width: 100% !important;
+        float: none !important;
+}
+.otnotice-menu > .otnotice-menu-section {
+	width: 100% !important;
+}
+.otnotice-sections {
+    margin-left: 0 !important;
+    margin-top: 50px !important;
+}
+}
+</style>
 </head>
 
 <body class="{{builtin_body_classes}} {{ksTemplateClass}}">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PB5QJ92"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   {# WTF - don't put your stylesheet in the head, cause Hubspot will try to concat it for you, which breaks browsersync #}
   <link rel="stylesheet" href="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/index.css?v=0.11.9">
 

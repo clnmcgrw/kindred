@@ -1,4 +1,5 @@
 import Flickity from 'flickity';
+import { makeReadableLabel } from './lib/helpers';
 import { $lightbox, $cartCover, $cartSidebar } from './ui';
 import { thumbSlide } from './components';
 
@@ -16,6 +17,7 @@ export default (event, $) => {
       fullscreenClose: $('.ks-producthero__close'),
       prevSlideTrigger: $('.ks-producthero__prevtrigger'),
       nextSlideTrigger: $('.ks-producthero__nexttrigger'),
+      label: $('.ks-producthero__gallery figcaption'),
       thumbs: false, // queried on append
       flickityViewport: false, // queried on append
       thumbImages: false, // queried on append
@@ -96,6 +98,7 @@ export default (event, $) => {
           prevSlideTrigger,
           nextSlideTrigger,
           thumbnailTarget,
+          label,
         } = module.$nodes;
         const { methods } = module;
 
@@ -133,6 +136,11 @@ export default (event, $) => {
           $cartSidebar.hide();
           $cartCover.hide();
 
+          const targetSrc = $('.flickity-slider')
+            .find('.is-selected img')
+            .attr('src');
+
+          label.text(makeReadableLabel(targetSrc));
           gallery.classList[isFullscreen ? 'remove' : 'add'](className);
         });
 
@@ -158,14 +166,14 @@ export default (event, $) => {
 
           featuredImage.attr('src', prevImgSrc);
 
+          label.text(makeReadableLabel(prevImgSrc));
+
           module.data.currentIndex--;
         });
 
         nextSlideTrigger.on('click', function() {
           const thumbs = thumbnailTarget.find('img');
-          const nextImgSrc = $(thumbs[module.data.currentIndex + 1]).attr(
-            'src'
-          );
+          let nextImgSrc = $(thumbs[module.data.currentIndex + 1]).attr('src');
 
           prevSlideTrigger.show();
 
@@ -175,6 +183,8 @@ export default (event, $) => {
           }
 
           featuredImage.attr('src', nextImgSrc);
+
+          label.text(makeReadableLabel(nextImgSrc));
 
           module.data.currentIndex++;
         });
@@ -190,8 +200,9 @@ export default (event, $) => {
         isPrev ? flickity.previous() : flickity.next();
 
         const selected = $(thumbs[flickity.selectedIndex]).find('img')[0];
+        const src = selected.getAttribute('src');
 
-        featuredImage.attr('src', selected.getAttribute('src'));
+        featuredImage.attr('src', src);
         featuredImage.attr('data-width', selected.dataset.width);
         featuredImage.attr('data-height', selected.dataset.height);
       },

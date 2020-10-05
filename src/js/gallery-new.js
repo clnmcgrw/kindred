@@ -1,3 +1,4 @@
+import { makeReadableLabel } from './lib/helpers';
 import { $doc, $win } from './ui';
 
 export default () => {
@@ -144,6 +145,20 @@ export default () => {
 
       appendProductLink();
 
+      gallery.listen('imageLoadComplete', function(_, item) {
+        const { pid } = gallery.currItem;
+        const $itemFromGrid = $($galleryItems[pid - 1]);
+        const $srcFromGrid = $itemFromGrid.find('img').attr('src');
+        // since images are lazyloaded w/ base64 encoding, we need to check for a base64-encoded str vs the one that we need to display
+        const srcToFormat =
+          $srcFromGrid.indexOf('data:image') > -1 ? item.src : $srcFromGrid;
+
+        setProductLinkAttrs(
+          makeReadableLabel(srcToFormat, '6084868/'),
+          $itemFromGrid.data('hs-product-path')
+        );
+      });
+
       gallery.listen('afterChange', function() {
         const { pid } = gallery.currItem;
         const $itemFromGrid = $($galleryItems[pid - 1]);
@@ -151,7 +166,7 @@ export default () => {
         setLinkPosition(gallery);
 
         setProductLinkAttrs(
-          $itemFromGrid.data('hs-product-title'),
+          makeReadableLabel($itemFromGrid.find('img').attr('src'), '6084868/'),
           $itemFromGrid.data('hs-product-path')
         );
       });
@@ -168,7 +183,10 @@ export default () => {
           clearInterval(interval);
           setLinkPosition(_gallery);
 
-          setProductLinkAttrs(productTitle, productPath);
+          setProductLinkAttrs(
+            makeReadableLabel($t.find('img').attr('src'), '6084868/'),
+            productPath
+          );
         }
       }, 150);
 
@@ -192,6 +210,8 @@ export default () => {
         .find('a')
         .text(title)
         .attr('href', `/products/${path}`);
+
+      $('.pswp__caption__center').text(title);
     }
 
     /**

@@ -42,6 +42,12 @@
   }
 }
 
+.cs-wtb--forminput {
+  &:first-child {
+    display: none;
+  }
+}
+
 #cs-wtb-searchform {
   .cs-wtb--forminput,
   .cs-wtb-formbtn {

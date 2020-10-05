@@ -1,5 +1,6 @@
 import Flickity from 'flickity';
 import 'flickity-fullscreen';
+import { makeReadableLabel } from './lib/helpers';
 import { $doc, $cartCover, $cartSidebar } from './ui';
 
 const $parent = $('.ks-homepageslider');
@@ -49,6 +50,16 @@ export default () => {
     on: {
       ready() {
         setMainImage();
+        $($labels[0])
+          .find('a')
+          .text(
+            makeReadableLabel(
+              $($slides[0])
+                .find('img')
+                .attr('src'),
+              'hubfs/'
+            )
+          );
       },
       staticClick(_, __, ___, i) {
         setMainImage(i);
@@ -56,8 +67,21 @@ export default () => {
       },
       change(i) {
         setMainImage(i);
+
         $labels.each((_, label) => $(label).removeClass('visible'));
+
         $($labels[i]).addClass('visible');
+
+        $($labels[i])
+          .find('a')
+          .text(
+            makeReadableLabel(
+              $($slides[i])
+                .find('img')
+                .attr('src'),
+              'hubfs/'
+            )
+          );
       },
     },
   });

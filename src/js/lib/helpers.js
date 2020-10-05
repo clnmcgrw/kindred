@@ -60,3 +60,22 @@ export function loadDynamicFigures() {
     }
   });
 }
+
+export function makeReadableLabel(src, firstSplit) {
+  let formattedSrc = src.split(firstSplit ? firstSplit : 'products/').pop();
+  const underscore = formattedSrc.indexOf('_');
+
+  if (formattedSrc.indexOf('images/') > -1) {
+    formattedSrc = formattedSrc.split('images/').pop();
+  }
+
+  if (underscore > -1) {
+    // Bloc-Fire-Bowl-with-Aged-Teak-Honed-Finish_gallery.jpg?v=1601676219
+    formattedSrc = formattedSrc.split('_').shift();
+  } else {
+    // Equa-Fire-Bowl-with-Oyster-Shell-Honed-Finish.jpg?v=1601676293
+    formattedSrc = formattedSrc.split('.').shift();
+  }
+
+  return formattedSrc.replace(/-/g, ' ');
+}

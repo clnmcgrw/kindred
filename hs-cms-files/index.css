@@ -3920,6 +3920,9 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
     border-right: 0.5em solid transparent;
     border-top: 0.5em solid #994c3d; }
 
+.cs-wtb--forminput:first-child {
+  display: none; }
+
 #cs-wtb-searchform {
   /* pseudo-element for the dropdown arrow on IE10+ */ }
   #cs-wtb-searchform .cs-wtb--forminput,
