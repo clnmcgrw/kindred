@@ -42,10 +42,9 @@
   }
 }
 
-.cs-wtb--forminput {
-  &:first-child {
-    display: none;
-  }
+.cs-wtb--forminput:first-child,
+.cs-wtb--listitem__products {
+  display: none;
 }
 
 #cs-wtb-searchform {

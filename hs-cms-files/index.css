@@ -3920,7 +3920,8 @@ form.hs-form .hs-form-booleancheckbox-display input:hover,
     border-right: 0.5em solid transparent;
     border-top: 0.5em solid #994c3d; }
 
-.cs-wtb--forminput:first-child {
+.cs-wtb--forminput:first-child,
+.cs-wtb--listitem__products {
   display: none; }
 
 #cs-wtb-searchform {
