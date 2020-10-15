@@ -37,6 +37,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   {{standard_header_includes}}
   
+  
+  
   <style type="text/css">
 .otnotice-content {	
 	padding: 0 !important;
@@ -65,6 +67,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 }
 </style>
+  
+  <style>
+.ot-form-wrapper {
+max-width: 750px;
+height: 800px;
+border: 1px solid #c0c2c7;
+margin: auto;
+}
+.ot-form-wrapper iframe {
+width: 100%;
+height: 100%;
+border: none;
+}
+</style>
 </head>
 
 <body class="{{builtin_body_classes}} {{ksTemplateClass}}">
@@ -73,7 +89,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
   {# WTF - don't put your stylesheet in the head, cause Hubspot will try to concat it for you, which breaks browsersync #}
-  <link rel="stylesheet" href="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/index.css?v=0.12.1">
+  <link rel="stylesheet" href="https://cdn2.hubspot.net/hubfs/6084868/hs-cms-files/index.css?v=0.12.3">
 
   <header id="ks-main-header" class="ks-mainheader">
     <div class="ks-site-container">

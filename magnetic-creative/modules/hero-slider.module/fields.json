@@ -30,8 +30,7 @@
     "validation_regex" : "",
     "allow_new_line" : false,
     "show_emoji_picker" : false,
-    "type" : "text",
-    "default" : null
+    "type" : "text"
   }, {
     "id" : "b7dfa15a-675b-d8b9-ea4a-d08429ea4362",
     "name" : "background_image",
@@ -96,8 +95,7 @@
     },
     "allow_new_line" : false,
     "show_emoji_picker" : false,
-    "type" : "text",
-    "default" : null
+    "type" : "text"
   } ],
   "tab" : "CONTENT",
   "type" : "group",

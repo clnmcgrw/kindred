@@ -54,9 +54,12 @@ $doc.ready(() => {
   const targetBgColor = $('main .ks-site-container section')
     .last()
     .css('background-color');
-  $siteFooter.find('.ks-site-container').css({
-    backgroundColor: targetBgColor,
-  });
+
+  if (targetBgColor !== 'rgba(0, 0, 0, 0)') {
+    $siteFooter.find('.ks-site-container').css({
+      backgroundColor: targetBgColor,
+    });
+  }
 
   // Fire bowls page gets special ordering and I can't be bothered to do this in HubL
   if ($body.hasClass('hs-content-id-24294764548')) {
