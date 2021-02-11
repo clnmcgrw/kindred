@@ -50,6 +50,7 @@
     }
   } ],
   "tab" : "CONTENT",
+  "expanded" : false,
   "type" : "group",
   "default" : [ {
     "headline" : "Unmatched Quality",

@@ -46,6 +46,7 @@
     "default" : "<p><strong>12\" Cabinet</strong></p>\n<p>30\"D x 36\" H</p>"
   } ],
   "tab" : "CONTENT",
+  "expanded" : false,
   "type" : "group",
   "default" : [ {
     "image" : {

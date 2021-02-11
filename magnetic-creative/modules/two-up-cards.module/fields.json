@@ -15,6 +15,7 @@
     "default" : true
   } ],
   "tab" : "CONTENT",
+  "expanded" : false,
   "type" : "group",
   "default" : {
     "dark_background" : true
@@ -110,6 +111,7 @@
     }
   } ],
   "tab" : "CONTENT",
+  "expanded" : false,
   "type" : "group",
   "default" : [ {
     "title" : "Elegant solutions made for fire and for sitting fireside.",

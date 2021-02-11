@@ -65,6 +65,7 @@
     }
   } ],
   "tab" : "CONTENT",
+  "expanded" : false,
   "type" : "group",
   "default" : [ {
     "main_image" : {

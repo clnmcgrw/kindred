@@ -42,6 +42,7 @@
     "default" : "24293443736"
   } ],
   "tab" : "CONTENT",
+  "expanded" : false,
   "type" : "group",
   "default" : [ {
     "slide" : {

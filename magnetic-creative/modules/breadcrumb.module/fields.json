@@ -34,6 +34,7 @@
     "default" : "#0"
   } ],
   "tab" : "CONTENT",
+  "expanded" : false,
   "type" : "group",
   "default" : [ {
     "link_text" : "Surrounds",

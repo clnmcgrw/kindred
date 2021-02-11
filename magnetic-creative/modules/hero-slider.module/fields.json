@@ -98,6 +98,7 @@
     "type" : "text"
   } ],
   "tab" : "CONTENT",
+  "expanded" : false,
   "type" : "group",
   "default" : {
     "headline" : "Lorem Ipsum Dolor Set Amit",

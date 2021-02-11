@@ -99,8 +99,8 @@ export async function getCheckout() {
     createNew = true;
   }
 
-  // Order has been completed, create a new one
-  if (checkout && checkout.completedAt) {
+  // In case the checkout no longer exists (clear cookies/cache/time expires), or the checkout has been successfully completed
+  if (!checkout || (checkout && checkout.completedAt)) {
     localStorage.removeItem(lsKeyName);
 
     createNew = true;

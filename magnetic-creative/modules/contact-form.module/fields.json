@@ -66,6 +66,7 @@
     "default" : "1370 Grand Ave, Building B, San Marcos, CA 92078, United States"
   } ],
   "tab" : "CONTENT",
+  "expanded" : false,
   "type" : "group",
   "default" : {
     "google_maps_link" : {

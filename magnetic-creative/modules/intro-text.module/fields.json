@@ -51,6 +51,7 @@
     "default" : false
   } ],
   "tab" : "CONTENT",
+  "expanded" : false,
   "type" : "group",
   "default" : {
     "is_hero" : false,
